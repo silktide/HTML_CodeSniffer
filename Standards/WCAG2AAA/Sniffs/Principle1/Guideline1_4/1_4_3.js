@@ -45,7 +45,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var required  = failures[i].required;
                 var recommend = failures[i].recommendation;
                 var hasBgImg  = failures[i].hasBgImage || false;
-                var bgColour   = failures[i].bgColour || false;
+                  var colour = failures[i].colour;
+                  var bgColour = failures[i].bgColour;
                 var isAbsolute = failures[i].isAbsolute || false;
 
                 // If the values would look identical, add decimals to the value.
@@ -76,13 +77,25 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
 
                 if (isAbsolute === true) {
                     code += '.Abs';
-                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g, required), code);
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g, required), code, {
+                      colour: colour,
+                      bgColour: bgColour,
+                      hasBgImage: hasBgImg
+                    });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
-                    HTMLCS.addMessage(HTMLCS.WARNING, element,  _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g, required), code);
+                    HTMLCS.addMessage(HTMLCS.WARNING, element,  _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g, required), code, {
+                      colour: colour,
+                      bgColour: bgColour,
+                      hasBgImage: hasBgImg
+                    });
                 } else {
                     code += '.Fail';
-                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code);
+                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
+                      colour: colour,
+                      bgColour: bgColour,
+                      hasBgImage: hasBgImg
+                    });
                 }//end if
             }//end for
         }//end if
