@@ -1,22 +1,25 @@
 {
-  "name": "html_codesniffer",
+  "name": "silktide_html_codesniffer",
   "version": "2.2.0",
-  "description": "HTML_CodeSniffer is a client-side JavaScript that checks a HTML document or source code, and detects violations of a defined coding standard.",
+  "description": "Silktide fork of HTML_CodeSniffer from https://github.com/squizlabs/HTML_CodeSniffer which is a client-side JavaScript that checks a HTML document or source code, and detects violations of a defined coding standard.",
   "main": "index.js",
+  "private": true,
   "keywords": [
     "htmlcs"
   ],
+  "files": [
+    "build/*",
+    "index.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/squizlabs/HTML_CodeSniffer.git"
+    "url": "https://github.com/silktide/HTML_CodeSniffer"
   },
-  "author": "Squiz",
-  "bugs": {
-    "url": "https://github.com/squizlabs/HTML_CodeSniffer/issues"
-  },
+  "author": "Squiz/Silktide",
   "homepage": "http://squizlabs.github.io/HTML_CodeSniffer/",
   "dependencies": {
     "grunt": "^1.0.0",
