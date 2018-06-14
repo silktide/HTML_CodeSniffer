@@ -1,0 +1,9 @@
+/Auditor export-ignore
+/Contrib export-ignore
+/Standards export-ignore
+/Tests export-ignore
+/Translations export-ignore
+/.jshintrc export-ignore
+/gruntfile.coffee export-ignore
+/HTMLCS.js export-ignore
+/HTMLCS.Util.js export-ignore

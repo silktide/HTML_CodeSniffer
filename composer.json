@@ -1,0 +1,24 @@
+{
+  "name": "silktide/htmlcs",
+  "description": "PHP Wrapper around HTMLCS",
+  "type": "library",
+  "license": "commercial",
+  "authors": [
+    {
+      "name": "rbairwell",
+      "email": "rbairwell@users.noreply.github.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Silktide\\": "phpWrapper/"
+    }
+  },
+  "scripts": {
+    "build":"npm install;grunt build"
+  }
+}
