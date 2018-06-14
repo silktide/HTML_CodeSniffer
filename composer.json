@@ -1,5 +1,5 @@
 {
-  "name": "silktide/htmlcs",
+  "name": "silktide/html-codesniffer",
   "description": "PHP Wrapper around HTMLCS",
   "type": "library",
   "license": "commercial",
