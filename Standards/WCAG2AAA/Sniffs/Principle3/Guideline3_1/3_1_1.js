@@ -42,14 +42,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1 = {
             if (element.hasAttribute('lang') === true) {
                 var lang = element.getAttribute('lang');
                 if (this.isValidLanguageTag(lang) === false) {
-                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.Lang"), 'H57.3.Lang');
+                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.Lang"), 'H57.3.Lang',{lang: lang});
                 }
             }
 
             if (element.hasAttribute('xml:lang') === true) {
                 var lang = element.getAttribute('xml:lang');
                 if (this.isValidLanguageTag(lang) === false) {
-                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.XmlLang"), 'H57.3.XmlLang');
+                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.XmlLang"), 'H57.3.XmlLang', {lang: lang});
                 }
             }
         }
