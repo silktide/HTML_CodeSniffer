@@ -1,4 +1,4 @@
-/*! silktide_html_codesniffer - v2.2.0 - 2018-06-14 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-06-15 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
