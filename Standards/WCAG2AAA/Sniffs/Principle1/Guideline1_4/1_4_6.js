@@ -78,21 +78,21 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 if (isAbsolute === true) {
                     code += '.Abs';
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Abs").replace(/\{\{required\}\}/g, required), code, {
-                      colour: colour,
-                      bgColour: bgColour
+                      color: colour,
+                      bgColor: bgColour
                     });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.BgImage").replace(/\{\{required\}\}/g, required), code, {
-                      colour: colour,
-                      bgColour: bgColour,
+                      color: colour,
+                      bgColor: bgColour,
                       hasBgImage: hasBgImg
                     });
                 } else {
                     code += '.Fail';
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
-                        colour: colour,
-                        bgColour: bgColour,
+                        color: colour,
+                        bgColor: bgColour,
                         hasBgImage: hasBgImg
                     });
                 }//end if
