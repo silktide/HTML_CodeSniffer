@@ -44,6 +44,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var value     = (Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals));
                 var required  = failures[i].required;
                 var recommend = failures[i].recommendation;
+                var fontSize = failures[i].fontSize;
                 var hasBgImg  = failures[i].hasBgImage || false;
                 var isAbsolute = failures[i].isAbsolute || false;
                 var colour = failures[i].colour;
@@ -79,20 +80,23 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                     code += '.Abs';
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Abs").replace(/\{\{required\}\}/g, required), code, {
                       color: colour,
-                      bgColor: bgColour
+                      bgColor: bgColour,
+                      fontSize: fontSize
                     });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.BgImage").replace(/\{\{required\}\}/g, required), code, {
                       color: colour,
                       bgColor: bgColour,
-                      hasBgImage: hasBgImg
+                      hasBgImage: hasBgImg,
+                      fontSize: fontSize
                     });
                 } else {
                     code += '.Fail';
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
                         color: colour,
                         bgColor: bgColour,
+                        fontSize: fontSize,
                         hasBgImage: hasBgImg
                     });
                 }//end if
