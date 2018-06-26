@@ -49,6 +49,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                   var fontSize = failures[i].fontSize;
                   var bgColour = failures[i].bgColour;
                 var isAbsolute = failures[i].isAbsolute || false;
+                var bgImg = failures[i].bgImg || '';
+                var fontSizePixels = failures[i].fontSizePixels;
+                var minLargeSize = failures[i].minLargeSize;
 
                 // If the values would look identical, add decimals to the value.
                 while (required === value) {
@@ -82,7 +85,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       color: colour,
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
-                      fontSize: fontSize
+                      fontSize: fontSize,
+                      bgImg: bgImg,
+                      fontSizePixels: fontSizePixels,
+                      minLargeSize: minLargeSize,
+                      isLarge: fontSize >= minLargeSize,
+                      contrast: value,
+                      requiredContrast: required,
+                      recommend: recommend
                     });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
@@ -90,7 +100,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       color: colour,
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
-                      fontSize: fontSize
+                      fontSize: fontSize,
+                      bgImg: bgImg,
+                      fontSizePixels: fontSizePixels,
+                      minLargeSize: minLargeSize,
+                      isLarge: fontSize >= minLargeSize,
+                      contrast: value,
+                      requiredContrast: required,
+                      recommend: recommend
                     });
                 } else {
                     code += '.Fail';
@@ -98,7 +115,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       color: colour,
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
-                      fontSize: fontSize
+                      fontSize: fontSize,
+                      bgImg: bgImg,
+                      fontSizePixels: fontSizePixels,
+                      minLargeSize: minLargeSize,
+                      isLarge: fontSize >= minLargeSize,
+                      contrast: value,
+                      requiredContrast: required,
+                      recommend: recommend
                     });
                 }//end if
             }//end for
