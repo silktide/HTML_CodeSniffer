@@ -105,7 +105,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour: undefined,
                                 value: undefined,
                                 required: reqRatio,
-                                hasBgImage: true
+                                hasBgImage: true,
+                                fontSize: fontSize
                             });
                             continue;
                         } else if (isAbsolute === true) {
@@ -115,7 +116,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour: undefined,
                                 value: undefined,
                                 required: reqRatio,
-                                isAbsolute: true
+                                isAbsolute: true,
+                                fontSize: fontSize
                             });
                             continue;
                         } else if ((bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)')) {
@@ -133,6 +135,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: style.color,
                                 bgColour: bgColour,
+                                fontSize: fontSize,
                                 value: contrastRatio,
                                 required: reqRatio,
                                 recommendation: recommendation
