@@ -48,6 +48,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
 
                     if (style) {
                         var bgColour   = style.backgroundColor;
+                        var bgImg = "";
                         var foreColour = style.color;
                         var bgElement  = node;
                         var hasBgImg   = false;
@@ -55,6 +56,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         
 			if (style.backgroundImage !== 'none') {
                             hasBgImg = true;
+                            bgImg = this.getUrlFromStyle(style.backgroundImage);
                         }
                         
                         if (style.position == 'absolute') {
@@ -67,6 +69,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
                         // so this calculation should be safe.
                         var fontSize     = parseFloat(style.fontSize, 10) * (72 / 96);
+                        var fontSizePixels     = parseInt(style.fontSize);
                         var minLargeSize = 18;
 
                         if ((style.fontWeight === 'bold') || (parseInt(style.fontWeight, 10) >= 600)) {
@@ -88,6 +91,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             var bgColour    = parentStyle.backgroundColor;
                             if (parentStyle.backgroundImage !== 'none') {
                                 hasBgImg = true;
+                                bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                             }
                             if (parentStyle.position == 'absolute') {
                                 isAbsolute = true;
@@ -106,7 +110,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 value: undefined,
                                 required: reqRatio,
                                 hasBgImage: true,
-                                fontSize: fontSize
+                                bgImg: bgImg,
+                                fontSize: fontSize,
+                                fontSizePixels: fontSizePixels,
+                                minLargeSize: minLargeSize
                             });
                             continue;
                         } else if (isAbsolute === true) {
@@ -117,7 +124,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 value: undefined,
                                 required: reqRatio,
                                 isAbsolute: true,
-                                fontSize: fontSize
+                                fontSize: fontSize,
+                                fontSizePixels: fontSizePixels,
+                                minLargeSize: minLargeSize
                             });
                             continue;
                         } else if ((bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)')) {
@@ -136,6 +145,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 colour: style.color,
                                 bgColour: bgColour,
                                 fontSize: fontSize,
+                                fontSizePixels: fontSizePixels,
+                                minLargeSize: minLargeSize,
                                 value: contrastRatio,
                                 required: reqRatio,
                                 recommendation: recommendation
@@ -147,6 +158,16 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
         }//end while
 
         return failures;
+    },
+
+    /**
+     * Parse a string of format: url("foo")
+     *
+     * @param style
+     * @returns {*|string}
+     */
+    getUrlFromStyle: function(style) {
+        return style.match(/url\(["']?([^"']*)["']?\)/)[1];
     },
 
     recommendColour: function(back, fore, target) {
