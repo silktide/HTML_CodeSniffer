@@ -49,14 +49,17 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                     if (style) {
                         var bgColour   = style.backgroundColor;
                         var bgImg = "";
+                        var bgRepeat = "";
                         var foreColour = style.color;
                         var bgElement  = node;
                         var hasBgImg   = false;
                         var isAbsolute = false;
+                        var fontWeight = "";
                         
 			if (style.backgroundImage !== 'none') {
                             hasBgImg = true;
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
+                            bgRepeat = style.backgroundRepeat;
                         }
                         
                         if (style.position == 'absolute') {
@@ -70,6 +73,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         // so this calculation should be safe.
                         var fontSize     = parseFloat(style.fontSize, 10) * (72 / 96);
                         var fontSizePixels     = parseInt(style.fontSize);
+                        var fontWeight     = parseInt(style.fontWeight);
                         var minLargeSize = 18;
 
                         if ((style.fontWeight === 'bold') || (parseInt(style.fontWeight, 10) >= 600)) {
@@ -89,6 +93,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
 
                             var parentStyle = HTMLCS.util.style(parent);
                             var bgColour    = parentStyle.backgroundColor;
+                            var bgRepeat    = parentStyle.backgroundRepeat;
                             if (parentStyle.backgroundImage !== 'none') {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
@@ -111,8 +116,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 required: reqRatio,
                                 hasBgImage: true,
                                 bgImg: bgImg,
+                                bgRepeat: bgRepeat,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
                                 minLargeSize: minLargeSize
                             });
                             continue;
@@ -126,6 +133,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 isAbsolute: true,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
                                 minLargeSize: minLargeSize
                             });
                             continue;
@@ -146,6 +154,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour: bgColour,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
                                 minLargeSize: minLargeSize,
                                 value: contrastRatio,
                                 required: reqRatio,
