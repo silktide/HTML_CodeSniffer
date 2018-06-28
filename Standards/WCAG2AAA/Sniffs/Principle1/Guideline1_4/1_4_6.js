@@ -49,6 +49,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var isAbsolute = failures[i].isAbsolute || false;
                 var colour = failures[i].colour;
                 var bgColour = failures[i].bgColour;
+                var bgRepeat = failures[i].bgRepeat;
+                var fontWeight = failures[i].fontWeight;
                 var bgImg = failures[i].bgImg || '';
                 var fontSizePixels = failures[i].fontSizePixels;
                 var minLargeSize = failures[i].minLargeSize;
@@ -86,7 +88,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                       bgColor: bgColour,
                       fontSize: fontSize,
                         bgImg: bgImg,
+                        bgRepeat: bgRepeat,
                         fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
@@ -101,7 +105,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                       hasBgImage: hasBgImg,
                       fontSize: fontSize,
                         bgImg: bgImg,
+                        bgRepeat: bgRepeat,
                         fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
@@ -116,7 +122,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         fontSize: fontSize,
                         hasBgImage: hasBgImg,
                         bgImg: bgImg,
+                        bgRepeat: bgRepeat,
                         fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
