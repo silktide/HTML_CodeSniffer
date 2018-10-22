@@ -87,22 +87,39 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             reqRatio = minLargeContrast;
                         }
 
-                        // Check for a solid background colour or image.
-                        while (!hasBgImg && (bgColour === 'transparent' || bgColour === 'rgba(0, 0, 0, 0)')) {
+                        var parentStyle;
+
+                        // Check for a solid background colour
+                        while (bgColour === 'transparent' || bgColour === 'rgba(0, 0, 0, 0)') {
                             if ((!parent) || (!parent.ownerDocument)) {
                                 break;
                             }
 
-                            var parentStyle = HTMLCS.util.style(parent);
+                            parentStyle = HTMLCS.util.style(parent);
                             bgColour    = parentStyle.backgroundColor;
-                            bgRepeat    = parentStyle.backgroundRepeat;
-                            bgSize    = parentStyle.backgroundSize;
+                            if (parentStyle.position == 'absolute') {
+                                isAbsolute = true;
+                            }
+
+                            parent = parent.parentNode;
+                        }//end while
+
+                        // Check for a background image
+                        while (!hasBgImg) {
+                            if ((!parent) || (!parent.ownerDocument)) {
+                                break;
+                            }
+
+                            parentStyle = HTMLCS.util.style(parent);
                             if (parentStyle.backgroundImage !== 'none') {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
-                            }
-                            if (parentStyle.position == 'absolute') {
-                                isAbsolute = true;
+                                bgRepeat    = parentStyle.backgroundRepeat;
+                                bgSize    = parentStyle.backgroundSize;
+
+                                if (parentStyle.position == 'absolute') {
+                                    isAbsolute = true;
+                                }
                             }
 
                             parent = parent.parentNode;
@@ -114,7 +131,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             failures.push({
                                 element: node,
                                 colour: style.color,
-                                bgColour: undefined,
+                                bgColour: bgColour,
                                 value: undefined,
                                 required: reqRatio,
                                 hasBgImage: true,
@@ -131,7 +148,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             failures.push({
                                 element: node,
                                 colour: foreColour,
-                                bgColour: undefined,
+                                bgColour: bgColour,
                                 value: undefined,
                                 required: reqRatio,
                                 isAbsolute: true,
