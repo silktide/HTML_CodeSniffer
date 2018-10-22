@@ -50,6 +50,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var colour = failures[i].colour;
                 var bgColour = failures[i].bgColour;
                 var bgRepeat = failures[i].bgRepeat;
+                var bgSize = failures[i].bgSize;
                 var fontWeight = failures[i].fontWeight;
                 var bgImg = failures[i].bgImg || '';
                 var fontSizePixels = failures[i].fontSizePixels;
@@ -89,13 +90,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                       fontSize: fontSize,
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
                         requiredContrast: required,
-                        recommend: recommend
+                        recommend: recommend,
                     });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
@@ -106,13 +108,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                       fontSize: fontSize,
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
                         requiredContrast: required,
-                        recommend: recommend
+                        recommend: recommend,
                     });
                 } else {
                     code += '.Fail';
@@ -123,13 +126,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         hasBgImage: hasBgImg,
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
                         isLarge: fontSize >= minLargeSize,
                         contrast: value,
                         requiredContrast: required,
-                        recommend: recommend
+                        recommend: recommend,
                     });
                 }//end if
             }//end for

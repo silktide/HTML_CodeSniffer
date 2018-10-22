@@ -50,16 +50,18 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var bgColour   = style.backgroundColor;
                         var bgImg = "";
                         var bgRepeat = "";
+                        var bgSize = "";
                         var foreColour = style.color;
                         var bgElement  = node;
                         var hasBgImg   = false;
                         var isAbsolute = false;
                         var fontWeight = "";
-                        
+
 			if (style.backgroundImage !== 'none') {
                             hasBgImg = true;
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
                             bgRepeat = style.backgroundRepeat;
+                            bgSize = style.backgroundSize;
                         }
                         
                         if (style.position == 'absolute') {
@@ -73,11 +75,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         // so this calculation should be safe.
                         var fontSize     = parseFloat(style.fontSize, 10) * (72 / 96);
                         var fontSizePixels     = parseInt(style.fontSize);
-                        var fontWeight     = parseInt(style.fontWeight);
+                        fontWeight     = parseInt(style.fontWeight);
                         var minLargeSize = 18;
 
                         if ((style.fontWeight === 'bold') || (parseInt(style.fontWeight, 10) >= 600)) {
-                            var minLargeSize = 14;
+                            minLargeSize = 14;
                         }
 
                         var reqRatio = minContrast;
@@ -85,15 +87,16 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             reqRatio = minLargeContrast;
                         }
 
-                        // Check for a solid background colour.
-                        while ((bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)')) {
+                        // Check for a solid background colour or image.
+                        while (!hasBgImg && (bgColour === 'transparent' || bgColour === 'rgba(0, 0, 0, 0)')) {
                             if ((!parent) || (!parent.ownerDocument)) {
                                 break;
                             }
 
                             var parentStyle = HTMLCS.util.style(parent);
-                            var bgColour    = parentStyle.backgroundColor;
-                            var bgRepeat    = parentStyle.backgroundRepeat;
+                            bgColour    = parentStyle.backgroundColor;
+                            bgRepeat    = parentStyle.backgroundRepeat;
+                            bgSize    = parentStyle.backgroundSize;
                             if (parentStyle.backgroundImage !== 'none') {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
@@ -117,10 +120,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 hasBgImage: true,
                                 bgImg: bgImg,
                                 bgRepeat: bgRepeat,
+                                bgSize: bgSize,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
-                                minLargeSize: minLargeSize
+                                minLargeSize: minLargeSize,
                             });
                             continue;
                         } else if (isAbsolute === true) {
@@ -134,7 +138,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
-                                minLargeSize: minLargeSize
+                                minLargeSize: minLargeSize,
                             });
                             continue;
                         } else if ((bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)')) {
@@ -158,7 +162,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize,
                                 value: contrastRatio,
                                 required: reqRatio,
-                                recommendation: recommendation
+                                recommendation: recommendation,
                             });
                         }//end if
                     }//end if
