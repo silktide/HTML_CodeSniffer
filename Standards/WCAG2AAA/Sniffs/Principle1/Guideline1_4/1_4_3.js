@@ -46,6 +46,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var recommend = failures[i].recommendation;
                 var hasBgImg  = failures[i].hasBgImage || false;
                 var bgRepeat  = failures[i].bgRepeat;
+                var bgSize = failures[i].bgSize;
                   var colour = failures[i].colour || false;
                   var fontSize = failures[i].fontSize;
                   var bgColour = failures[i].bgColour;
@@ -88,6 +89,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                       fontSize: fontSize,
                       bgImg: bgImg,
                       fontSizePixels: fontSizePixels,
@@ -96,7 +98,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       isLarge: fontSize >= minLargeSize,
                       contrast: value,
                       requiredContrast: required,
-                      recommend: recommend
+                      recommend: recommend,
                     });
                 } else if (hasBgImg === true) {
                     code += '.BgImage';
@@ -105,6 +107,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                       fontSize: fontSize,
                       bgImg: bgImg,
                       fontSizePixels: fontSizePixels,
@@ -113,7 +116,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       isLarge: fontSize >= minLargeSize,
                       contrast: value,
                       requiredContrast: required,
-                      recommend: recommend
+                      recommend: recommend,
                     });
                 } else {
                     code += '.Fail';
@@ -122,6 +125,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       bgColor: bgColour,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
+                        bgSize: bgSize,
                       fontSize: fontSize,
                       bgImg: bgImg,
                       fontSizePixels: fontSizePixels,
@@ -130,7 +134,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                       isLarge: fontSize >= minLargeSize,
                       contrast: value,
                       requiredContrast: required,
-                      recommend: recommend
+                      recommend: recommend,
                     });
                 }//end if
             }//end for
