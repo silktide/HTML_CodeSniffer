@@ -62,10 +62,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                     value = (Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals));
                 }
 
+                var code;
                 if (required === 4.5) {
-                    var code = 'G18';
+                    code = 'G18';
                 } else if (required === 7.0) {
-                    var code = 'G17';
+                    code = 'G17';
                 }
 
                 var recommendText = [];
