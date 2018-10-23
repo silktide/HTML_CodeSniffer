@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-22 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-10-23 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3970,10 +3970,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                     decimals++;
                     value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
                 }
+                var code;
                 if (required === 4.5) {
-                    var code = "G18";
+                    code = "G18";
                 } else if (required === 7) {
-                    var code = "G17";
+                    code = "G17";
                 }
                 var recommendText = [];
                 if (recommend) {
@@ -6893,6 +6894,14 @@ _global.HTMLCS.util = function() {
                 hidden = true;
             }
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
+                hidden = true;
+            }
+            // EPA (among others) use this hack to hide elements
+            if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
+                hidden = true;
+            }
+            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+            if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
                 hidden = true;
             }
         }

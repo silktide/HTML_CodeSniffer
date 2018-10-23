@@ -231,6 +231,16 @@ _global.HTMLCS.util = function() {
             if ((parseInt(style.top, 10) + parseInt(style.height, 10)) < 0) {
                 hidden = true;
             }
+
+            // EPA (among others) use this hack to hide elements
+            if (style.clip.replace(/ /g, '') === 'rect(1px,1px,1px,1px)') {
+                hidden = true;
+            }
+
+            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+            if (style.clipPath.replace(/ /g, '') === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
+                hidden = true;
+            }
         }
 
         return hidden;
