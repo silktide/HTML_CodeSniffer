@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-23 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-10-24 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3409,7 +3409,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             reqRatio = minLargeContrast;
                         }
                         var parentStyle;
-                        // Check for a solid background colour
+                        // Check for a solid background colour and background image
                         while (bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
                             if (!parent || !parent.ownerDocument) {
                                 break;
@@ -3419,23 +3419,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             if (parentStyle.position == "absolute") {
                                 isAbsolute = true;
                             }
-                            parent = parent.parentNode;
-                        }
-                        //end while
-                        // Check for a background image
-                        while (!hasBgImg) {
-                            if (!parent || !parent.ownerDocument) {
-                                break;
-                            }
-                            parentStyle = HTMLCS.util.style(parent);
-                            if (parentStyle.backgroundImage !== "none") {
+                            // Check for a background image
+                            if (!hasBgImg && parentStyle.backgroundImage !== "none") {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                                 bgRepeat = parentStyle.backgroundRepeat;
                                 bgSize = parentStyle.backgroundSize;
-                                if (parentStyle.position == "absolute") {
-                                    isAbsolute = true;
-                                }
                             }
                             parent = parent.parentNode;
                         }
