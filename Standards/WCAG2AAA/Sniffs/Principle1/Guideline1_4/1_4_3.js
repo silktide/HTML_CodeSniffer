@@ -55,6 +55,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var fontSizePixels = failures[i].fontSizePixels;
                 var fontWeight = failures[i].fontWeight;
                 var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
 
                 // If the values would look identical, add decimals to the value.
                 while (required === value) {
@@ -87,6 +88,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g, required), code, {
                       color: colour,
                       bgColor: bgColour,
+                        backgrounds: backgrounds,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
@@ -105,6 +107,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.WARNING, element,  _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g, required), code, {
                       color: colour,
                       bgColor: bgColour,
+                        backgrounds: backgrounds,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
@@ -123,6 +126,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
                       color: colour,
                       bgColor: bgColour,
+                        backgrounds: backgrounds,
                       hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
