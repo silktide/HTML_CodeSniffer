@@ -124,7 +124,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgSize    = parentStyle.backgroundSize;
 
                                 backgrounds.push({
-                                    tagName: node.tagName,
+                                    tagName: parent.tagName,
                                     bgImg: bgImg,
                                     bgRepeat: bgRepeat,
                                     bgSize: bgSize,
@@ -132,7 +132,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 });
                             } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
                                 backgrounds.push({
-                                    tagName: node.tagName,
+                                    tagName: parent.tagName,
                                     bgColor: bgColour
                                 });
                             }
