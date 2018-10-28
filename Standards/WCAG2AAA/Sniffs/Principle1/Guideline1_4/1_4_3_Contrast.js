@@ -51,6 +51,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
+                        var bgPosition = "";
                         var foreColour = style.color;
                         var bgElement  = node;
                         var hasBgImg   = false;
@@ -63,13 +64,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
                             bgRepeat = style.backgroundRepeat;
                             bgSize = style.backgroundSize;
+                            bgPosition = style.backgroundPosition;
 
                             backgrounds.push({
                                 tagName: node.tagName,
                                 bgImg: bgImg,
                                 bgRepeat: bgRepeat,
                                 bgSize: bgSize,
-                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour,
+                                bgPosition: bgPosition,
+                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour
                             });
                         } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
                             backgrounds.push({
@@ -122,13 +125,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                                 bgRepeat    = parentStyle.backgroundRepeat;
                                 bgSize    = parentStyle.backgroundSize;
+                                bgPosition = parentStyle.backgroundPosition;
 
                                 backgrounds.push({
                                     tagName: parent.tagName,
                                     bgImg: bgImg,
                                     bgRepeat: bgRepeat,
                                     bgSize: bgSize,
-                                    bgColor: bgColour === 'rgba(0, 0, 0, 0)' ? null : bgColour
+                                    bgPosition: bgPosition,
+                                    bgColor: bgColour === 'rgba(0, 0, 0, 0)' ? null : bgColour,
                                 });
                             } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
                                 backgrounds.push({
@@ -154,6 +159,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg: bgImg,
                                 bgRepeat: bgRepeat,
                                 bgSize: bgSize,
+                                bgPosition: bgPosition,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
@@ -192,6 +198,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour: bgColour,
                                 backgrounds: backgrounds,
                                 fontSize: fontSize,
+                                bgPosition: bgPosition,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
                                 minLargeSize: minLargeSize,
