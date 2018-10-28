@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-24 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-10-28 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3384,11 +3384,24 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var hasBgImg = false;
                         var isAbsolute = false;
                         var fontWeight = "";
+                        var backgrounds = [];
                         if (style.backgroundImage !== "none") {
                             hasBgImg = true;
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
                             bgRepeat = style.backgroundRepeat;
                             bgSize = style.backgroundSize;
+                            backgrounds.push({
+                                tagName: node.tagName,
+                                bgImg: bgImg,
+                                bgRepeat: bgRepeat,
+                                bgSize: bgSize,
+                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour
+                            });
+                        } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                            backgrounds.push({
+                                tagName: node.tagName,
+                                bgColor: bgColour
+                            });
                         }
                         if (style.position == "absolute") {
                             isAbsolute = true;
@@ -3410,7 +3423,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         }
                         var parentStyle;
                         // Check for a solid background colour and background image
-                        while (bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
+                        while (HTMLCS.util.isColorTransparent(bgColour)) {
                             if (!parent || !parent.ownerDocument) {
                                 break;
                             }
@@ -3425,6 +3438,18 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                                 bgRepeat = parentStyle.backgroundRepeat;
                                 bgSize = parentStyle.backgroundSize;
+                                backgrounds.push({
+                                    tagName: node.tagName,
+                                    bgImg: bgImg,
+                                    bgRepeat: bgRepeat,
+                                    bgSize: bgSize,
+                                    bgColor: bgColour === "rgba(0, 0, 0, 0)" ? null : bgColour
+                                });
+                            } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                                backgrounds.push({
+                                    tagName: node.tagName,
+                                    bgColor: bgColour
+                                });
                             }
                             parent = parent.parentNode;
                         }
@@ -3436,6 +3461,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: style.color,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 value: undefined,
                                 required: reqRatio,
                                 hasBgImage: true,
@@ -3453,6 +3479,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: foreColour,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 value: undefined,
                                 required: reqRatio,
                                 isAbsolute: true,
@@ -3475,6 +3502,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: style.color,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
@@ -3748,6 +3776,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var fontSizePixels = failures[i].fontSizePixels;
                 var fontWeight = failures[i].fontWeight;
                 var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
                 // If the values would look identical, add decimals to the value.
                 while (required === value) {
                     decimals++;
@@ -3776,6 +3805,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g, required), code, {
                         color: colour,
                         bgColor: bgColour,
+                        backgrounds: backgrounds,
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
@@ -3794,6 +3824,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g, required), code, {
                         color: colour,
                         bgColor: bgColour,
+                        backgrounds: backgrounds,
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
@@ -3812,6 +3843,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
                         color: colour,
                         bgColor: bgColour,
+                        backgrounds: backgrounds,
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
@@ -3954,6 +3986,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var bgImg = failures[i].bgImg || "";
                 var fontSizePixels = failures[i].fontSizePixels;
                 var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
                 // If the values would look identical, add decimals to the value.
                 while (required === value) {
                     decimals++;
@@ -3987,6 +4020,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
@@ -4005,6 +4039,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
@@ -4023,6 +4058,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
@@ -6885,6 +6921,10 @@ _global.HTMLCS.util = function() {
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
                 hidden = true;
             }
+            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            if (parseInt(style.textIndent) < -400) {
+                hidden = true;
+            }
             // EPA (among others) use this hack to hide elements
             if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
                 hidden = true;
@@ -6897,6 +6937,29 @@ _global.HTMLCS.util = function() {
         return hidden;
     };
     /**
+     * Parse a color string like rgba(200, 12, 53, 0.5) into an array
+     */
+    self.parseColorString = function(string) {
+        if (!string || string === "transparent") {
+            return [ 0, 0, 0, 0 ];
+        }
+        var color = string.replace(/[^\d,\.]/g, "").split(",");
+        // Always add an alpha component
+        if (color.length < 4) {
+            color.push(1);
+        }
+        return color;
+    }, /**
+     * Return true if specified colour is at least slightly transparent.
+     */
+    self.isColorTransparent = function(string) {
+        return self.parseColorString(string)[3] < 1;
+    }, /**
+     * Return true if specified colour is fully transparent.
+     */
+    self.isColorFullyTransparent = function(string) {
+        return self.parseColorString(string)[3] == 0;
+    }, /**
      * Returns true if the element is deliberately hidden from Accessibility APIs using ARIA hidden.
      *
      * Not: This is separate to isAccessibilityHidden() due to a need to check specifically for aria hidden.

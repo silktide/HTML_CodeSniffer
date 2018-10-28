@@ -55,6 +55,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var bgImg = failures[i].bgImg || '';
                 var fontSizePixels = failures[i].fontSizePixels;
                 var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
 
                 // If the values would look identical, add decimals to the value.
                 while (required === value) {
@@ -92,6 +93,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
@@ -110,6 +112,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,
@@ -128,6 +131,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
                         minLargeSize: minLargeSize,

@@ -232,6 +232,11 @@ _global.HTMLCS.util = function() {
                 hidden = true;
             }
 
+            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            if (parseInt(style.textIndent) < -400) {
+                hidden = true;
+            }
+
             // EPA (among others) use this hack to hide elements
             if (style.clip.replace(/ /g, '') === 'rect(1px,1px,1px,1px)') {
                 hidden = true;
@@ -247,6 +252,38 @@ _global.HTMLCS.util = function() {
     };
 
     /**
+     * Parse a color string like rgba(200, 12, 53, 0.5) into an array
+     */
+    self.parseColorString = function(string) {
+        if (!string || string === 'transparent') {
+            return [0, 0, 0, 0];
+        }
+
+        var color = string.replace(/[^\d,\.]/g, '').split(',');
+
+        // Always add an alpha component
+        if (color.length < 4) {
+            color.push(1.0);
+        }
+
+        return color;
+    },
+
+    /**
+     * Return true if specified colour is at least slightly transparent.
+     */
+    self.isColorTransparent = function(string) {
+        return self.parseColorString(string)[3] < 1;
+    },
+
+    /**
+     * Return true if specified colour is fully transparent.
+     */
+    self.isColorFullyTransparent = function(string) {
+        return self.parseColorString(string)[3] == 0;
+    },
+
+        /**
      * Returns true if the element is deliberately hidden from Accessibility APIs using ARIA hidden.
      *
      * Not: This is separate to isAccessibilityHidden() due to a need to check specifically for aria hidden.

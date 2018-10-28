@@ -56,14 +56,28 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var hasBgImg   = false;
                         var isAbsolute = false;
                         var fontWeight = "";
+                        var backgrounds = [];
 
-			if (style.backgroundImage !== 'none') {
+                        if (style.backgroundImage !== 'none') {
                             hasBgImg = true;
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
                             bgRepeat = style.backgroundRepeat;
                             bgSize = style.backgroundSize;
+
+                            backgrounds.push({
+                                tagName: node.tagName,
+                                bgImg: bgImg,
+                                bgRepeat: bgRepeat,
+                                bgSize: bgSize,
+                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour,
+                            });
+                        } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                            backgrounds.push({
+                                tagName: node.tagName,
+                                bgColor: bgColour
+                            });
                         }
-                        
+
                         if (style.position == 'absolute') {
                             isAbsolute = true;
                         }
@@ -90,13 +104,14 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var parentStyle;
 
                         // Check for a solid background colour and background image
-                        while (bgColour === 'transparent' || bgColour === 'rgba(0, 0, 0, 0)') {
+                        while (HTMLCS.util.isColorTransparent(bgColour)) {
                             if ((!parent) || (!parent.ownerDocument)) {
                                 break;
                             }
 
                             parentStyle = HTMLCS.util.style(parent);
                             bgColour    = parentStyle.backgroundColor;
+
                             if (parentStyle.position == 'absolute') {
                                 isAbsolute = true;
                             }
@@ -107,6 +122,19 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                                 bgRepeat    = parentStyle.backgroundRepeat;
                                 bgSize    = parentStyle.backgroundSize;
+
+                                backgrounds.push({
+                                    tagName: node.tagName,
+                                    bgImg: bgImg,
+                                    bgRepeat: bgRepeat,
+                                    bgSize: bgSize,
+                                    bgColor: bgColour === 'rgba(0, 0, 0, 0)' ? null : bgColour
+                                });
+                            } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                                backgrounds.push({
+                                    tagName: node.tagName,
+                                    bgColor: bgColour
+                                });
                             }
 
                             parent = parent.parentNode;
@@ -119,6 +147,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: style.color,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 value: undefined,
                                 required: reqRatio,
                                 hasBgImage: true,
@@ -136,6 +165,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: foreColour,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 value: undefined,
                                 required: reqRatio,
                                 isAbsolute: true,
@@ -160,6 +190,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 element: node,
                                 colour: style.color,
                                 bgColour: bgColour,
+                                backgrounds: backgrounds,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
