@@ -51,6 +51,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var bgColour = failures[i].bgColour;
                 var bgRepeat = failures[i].bgRepeat;
                 var bgSize = failures[i].bgSize;
+                var bgPosition = failures[i].bgPosition;
                 var fontWeight = failures[i].fontWeight;
                 var bgImg = failures[i].bgImg || '';
                 var fontSizePixels = failures[i].fontSizePixels;
@@ -93,6 +94,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
@@ -112,6 +114,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
@@ -131,6 +134,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,

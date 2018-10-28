@@ -3379,6 +3379,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
+                        var bgPosition = "";
                         var foreColour = style.color;
                         var bgElement = node;
                         var hasBgImg = false;
@@ -3390,11 +3391,13 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             bgImg = this.getUrlFromStyle(style.backgroundImage);
                             bgRepeat = style.backgroundRepeat;
                             bgSize = style.backgroundSize;
+                            bgPosition = style.backgroundPosition;
                             backgrounds.push({
                                 tagName: node.tagName,
                                 bgImg: bgImg,
                                 bgRepeat: bgRepeat,
                                 bgSize: bgSize,
+                                bgPosition: bgPosition,
                                 bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour
                             });
                         } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
@@ -3438,11 +3441,13 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
                                 bgRepeat = parentStyle.backgroundRepeat;
                                 bgSize = parentStyle.backgroundSize;
+                                bgPosition = parentStyle.backgroundPosition;
                                 backgrounds.push({
                                     tagName: parent.tagName,
                                     bgImg: bgImg,
                                     bgRepeat: bgRepeat,
                                     bgSize: bgSize,
+                                    bgPosition: bgPosition,
                                     bgColor: bgColour === "rgba(0, 0, 0, 0)" ? null : bgColour
                                 });
                             } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
@@ -3468,6 +3473,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgImg: bgImg,
                                 bgRepeat: bgRepeat,
                                 bgSize: bgSize,
+                                bgPosition: bgPosition,
                                 fontSize: fontSize,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
@@ -3504,6 +3510,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour: bgColour,
                                 backgrounds: backgrounds,
                                 fontSize: fontSize,
+                                bgPosition: bgPosition,
                                 fontSizePixels: fontSizePixels,
                                 fontWeight: fontWeight,
                                 minLargeSize: minLargeSize,
@@ -3768,6 +3775,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var hasBgImg = failures[i].hasBgImage || false;
                 var bgRepeat = failures[i].bgRepeat;
                 var bgSize = failures[i].bgSize;
+                var bgPosition = failures[i].bgPosition;
                 var colour = failures[i].colour || false;
                 var fontSize = failures[i].fontSize;
                 var bgColour = failures[i].bgColour;
@@ -3809,6 +3817,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         fontSize: fontSize,
                         bgImg: bgImg,
                         fontSizePixels: fontSizePixels,
@@ -3828,6 +3837,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         fontSize: fontSize,
                         bgImg: bgImg,
                         fontSizePixels: fontSizePixels,
@@ -3847,6 +3857,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                         hasBgImage: hasBgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         fontSize: fontSize,
                         bgImg: bgImg,
                         fontSizePixels: fontSizePixels,
@@ -3982,6 +3993,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var bgColour = failures[i].bgColour;
                 var bgRepeat = failures[i].bgRepeat;
                 var bgSize = failures[i].bgSize;
+                var bgPosition = failures[i].bgPosition;
                 var fontWeight = failures[i].fontWeight;
                 var bgImg = failures[i].bgImg || "";
                 var fontSizePixels = failures[i].fontSizePixels;
@@ -4020,6 +4032,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
@@ -4039,6 +4052,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
@@ -4058,6 +4072,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         bgImg: bgImg,
                         bgRepeat: bgRepeat,
                         bgSize: bgSize,
+                        bgPosition: bgPosition,
                         backgrounds: backgrounds,
                         fontSizePixels: fontSizePixels,
                         fontWeight: fontWeight,
