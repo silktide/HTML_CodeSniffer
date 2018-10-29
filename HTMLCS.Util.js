@@ -21,7 +21,9 @@ _global.HTMLCS.util = function() {
      * @returns {String}
      */
     self.trim = function(string) {
-        return string.replace(/^\s*(.*)\s*$/g, '$1');
+        // Code Sniffer's default trim regex doesn't capture everything that JS's trim() does; we
+        // combine both or some URLs will end with trailing whitespace.
+        return string.replace(/^\s*(.*)\s*$/g, '$1').trim();
     };
 
     /**

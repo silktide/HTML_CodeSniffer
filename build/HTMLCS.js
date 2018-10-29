@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-28 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-10-29 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -6750,7 +6750,9 @@ _global.HTMLCS.util = function() {
      * @returns {String}
      */
     self.trim = function(string) {
-        return string.replace(/^\s*(.*)\s*$/g, "$1");
+        // Code Sniffer's default trim regex doesn't capture everything that JS's trim() does; we
+        // combine both or some URLs will end with trailing whitespace.
+        return string.replace(/^\s*(.*)\s*$/g, "$1").trim();
     };
     /**
      * Returns true if the string is "empty" according to WCAG standards.
