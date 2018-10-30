@@ -212,21 +212,51 @@ _global.HTMLCS.util = function() {
      * If the computed style of an element cannot be determined for some reason,
      * it is presumed it is NOT hidden.
      *
+     * If isExplicitlyHidden is true, return true only if an element is hidden in a way that appears
+     * to be intended to hide it from *ever* being seen, e.g. text that is designed for screen readers.
+     *
+     * This is used to detect text we shouldn't analyse for text contrast, for example, while
+     * still allowing us to analyse elements that are not visible at the time the page loaded
+     * (e.g. drop down menus, modals etc).
+     *
      * @param {Node} element The element that is hiding, or not.
+     * @param isExplicitlyHidden See above
      *
      * @returns {Boolean}
      */
-    self.isVisuallyHidden = function(element) {
+    self.isVisuallyHidden = function(element, isExplicitlyHidden) {
         var hidden = false;
+        if (typeof isExplicitlyHidden === "undefined") {
+            isExplicitlyHidden = false;
+        }
 
         // Do not point to elem if its hidden. Use computed styles.
         var style = self.style(element);
         if (style !== null) {
-            if ((style.visibility === 'hidden') || (style.display === 'none')) {
+
+            if (!isExplicitlyHidden) {
+                if (style.display === 'none') {
+                    hidden = true;
+                }
+
+                // EPA (among others) use this hack to hide elements
+                if (style.clip.replace(/ /g, '') === 'rect(1px,1px,1px,1px)') {
+                    hidden = true;
+                }
+
+                // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+                if (style.clipPath.replace(/ /g, '') === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
+                    hidden = true;
+                }
+            }
+
+            if (style.visibility === 'hidden') {
                 hidden = true;
             }
 
-            if ((parseInt(style.left, 10) + parseInt(style.width, 10)) < 0) {
+            var width = parseInt(style.width, 10);
+
+            if ((parseInt(style.left, 10) + width) < 0) {
                 hidden = true;
             }
 
@@ -235,22 +265,50 @@ _global.HTMLCS.util = function() {
             }
 
             // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
-            if (parseInt(style.textIndent) < -400) {
-                hidden = true;
-            }
-
-            // EPA (among others) use this hack to hide elements
-            if (style.clip.replace(/ /g, '') === 'rect(1px,1px,1px,1px)') {
-                hidden = true;
-            }
-
-            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
-            if (style.clipPath.replace(/ /g, '') === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
+            if (parseInt(style.textIndent) + width < 0) {
                 hidden = true;
             }
         }
 
         return hidden;
+    };
+
+    /**
+     * Return true if the element appears to be positioned outside of its parent
+     * (for performance, the parent element may be specified directly).
+     *
+     * Naively, this is saying that the current element is positioned absolutely,
+     * but reality is more nuanced:
+     *
+     * + Positioned absolute AND has a position (top, left etc)
+     * + Positioned relative, fixed or sticky
+     *
+     * We use this to determine whether we can consider our parent's background
+     * as our background.
+     */
+    self.isPositionedOutsideParent = function(style) {
+        var position = style.position;
+
+        if (position === 'static') {
+            return false;
+        }
+
+        // We count relative positioning as still inside our parent.
+        // This is naive, but in 99% of occasions we're nudging inside a container and
+        // not utterly escaping it. We *could* do some smarter calc of position here,
+        // but other tools don't appear to.
+        if (position === 'relative') {
+            return false;
+        }
+
+        if (position === 'fixed' || position === 'sticky') {
+            return true;
+        }
+
+        // Absolute positioning only counts where an explicit position is provided.
+        // A common accessibility hack is "position: absolute; clip: rect(1px, 1px, 1px, 1px)"
+        // which should not be considered being positioned outside of our parent.
+        return !!(style.left || style.top || style.right || style.bottom);
     };
 
     /**

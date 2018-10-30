@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-29 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-10-30 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3359,7 +3359,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
         while (toProcess.length > 0) {
             var node = toProcess.shift();
             // This is an element.
-            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node) === false && HTMLCS.util.isDisabled(node) === false) {
+            // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
+            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node, true) === false && HTMLCS.util.isDisabled(node) === false) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
@@ -3375,96 +3376,83 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 if (processNode === true) {
                     var style = HTMLCS.util.style(node);
                     if (style) {
-                        var bgColour = style.backgroundColor;
+                        var bgColour = "";
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
                         var bgPosition = "";
                         var foreColour = style.color;
-                        var bgElement = node;
                         var hasBgImg = false;
-                        var isAbsolute = false;
-                        var fontWeight = "";
                         var backgrounds = [];
-                        if (style.backgroundImage !== "none") {
-                            hasBgImg = true;
-                            bgImg = this.getUrlFromStyle(style.backgroundImage);
-                            bgRepeat = style.backgroundRepeat;
-                            bgSize = style.backgroundSize;
-                            bgPosition = style.backgroundPosition;
-                            backgrounds.push({
-                                tagName: node.tagName,
-                                bgImg: bgImg,
-                                bgRepeat: bgRepeat,
-                                bgSize: bgSize,
-                                bgPosition: bgPosition,
-                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour
-                            });
-                        } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
-                            backgrounds.push({
-                                tagName: node.tagName,
-                                bgColor: bgColour
-                            });
-                        }
-                        if (style.position == "absolute") {
-                            isAbsolute = true;
-                        }
-                        var parent = node.parentNode;
+                        // For compatibility with CS, we retain their name for this variable, but
+                        // it now extends beyond just "absolute" to mean "is positioned outside of parent".
+                        // Essentially it means we can't reliably know our background colour.
+                        var isAbsolute = false;
                         // Calculate font size. Note that CSS 2.1 fixes a reference pixel
                         // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
                         // so this calculation should be safe.
                         var fontSize = parseFloat(style.fontSize, 10) * (72 / 96);
                         var fontSizePixels = parseInt(style.fontSize);
-                        fontWeight = parseInt(style.fontWeight);
+                        var fontWeight = parseInt(style.fontWeight);
                         var minLargeSize = 18;
+                        // Exclude text with no font size, this is a common screen reader hack.
+                        if (!fontSizePixels) {
+                            continue;
+                        }
                         if (style.fontWeight === "bold" || parseInt(style.fontWeight, 10) >= 600) {
                             minLargeSize = 14;
                         }
-                        var reqRatio = minContrast;
-                        if (fontSize >= minLargeSize) {
-                            reqRatio = minLargeContrast;
-                        }
-                        var parentStyle;
-                        // Check for a solid background colour and background image
-                        while (HTMLCS.util.isColorTransparent(bgColour)) {
-                            if (!parent || !parent.ownerDocument) {
-                                break;
+                        var reqRatio = fontSize >= minLargeSize ? minLargeContrast : minContrast;
+                        var currentNode = node;
+                        var currentStyle = style;
+                        // Calculate our background colour(s) and image(s)
+                        while (true) {
+                            bgColour = currentStyle.backgroundColor;
+                            if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                                bgColour = null;
                             }
-                            parentStyle = HTMLCS.util.style(parent);
-                            bgColour = parentStyle.backgroundColor;
-                            if (parentStyle.position == "absolute") {
-                                isAbsolute = true;
-                            }
-                            // Check for a background image
-                            if (!hasBgImg && parentStyle.backgroundImage !== "none") {
+                            if (currentStyle.backgroundImage !== "none") {
                                 hasBgImg = true;
-                                bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
-                                bgRepeat = parentStyle.backgroundRepeat;
-                                bgSize = parentStyle.backgroundSize;
-                                bgPosition = parentStyle.backgroundPosition;
+                                bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
+                                bgRepeat = currentStyle.backgroundRepeat;
+                                bgSize = currentStyle.backgroundSize;
+                                bgPosition = currentStyle.backgroundPosition;
                                 backgrounds.push({
-                                    tagName: parent.tagName,
+                                    tagName: currentNode.tagName,
                                     bgImg: bgImg,
                                     bgRepeat: bgRepeat,
                                     bgSize: bgSize,
                                     bgPosition: bgPosition,
-                                    bgColor: bgColour === "rgba(0, 0, 0, 0)" ? null : bgColour
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
-                            } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                            } else if (bgColour) {
                                 backgrounds.push({
-                                    tagName: parent.tagName,
-                                    bgColor: bgColour
+                                    tagName: currentNode.tagName,
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
+                                // Exist if the background is not even slightly transparent
+                                if (!HTMLCS.util.isColorTransparent(bgColour)) {
+                                    break;
+                                }
                             }
-                            parent = parent.parentNode;
+                            if (HTMLCS.util.isPositionedOutsideParent(currentStyle)) {
+                                isAbsolute = true;
+                            }
+                            // Up one node, if we can
+                            currentNode = currentNode.parentNode;
+                            if (!currentNode || !currentNode.ownerDocument) {
+                                break;
+                            }
+                            currentStyle = HTMLCS.util.style(currentNode);
                         }
-                        //end while
                         if (hasBgImg === true) {
                             // If we have a background image, skip the contrast ratio checks,
                             // and push a warning instead.
                             failures.push({
                                 element: node,
-                                colour: style.color,
+                                colour: foreColour,
                                 bgColour: bgColour,
                                 backgrounds: backgrounds,
                                 value: undefined,
@@ -3495,7 +3483,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize
                             });
                             continue;
-                        } else if (bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
+                        } else if (!bgColour) {
                             // If the background colour is still transparent, this is probably
                             // a fragment with which we cannot reliably make a statement about
                             // contrast ratio. Skip the element.
@@ -6920,38 +6908,88 @@ _global.HTMLCS.util = function() {
      * If the computed style of an element cannot be determined for some reason,
      * it is presumed it is NOT hidden.
      *
+     * If isExplicitlyHidden is true, return true only if an element is hidden in a way that appears
+     * to be intended to hide it from *ever* being seen, e.g. text that is designed for screen readers.
+     *
+     * This is used to detect text we shouldn't analyse for text contrast, for example, while
+     * still allowing us to analyse elements that are not visible at the time the page loaded
+     * (e.g. drop down menus, modals etc).
+     *
      * @param {Node} element The element that is hiding, or not.
+     * @param isExplicitlyHidden See above
      *
      * @returns {Boolean}
      */
-    self.isVisuallyHidden = function(element) {
+    self.isVisuallyHidden = function(element, isExplicitlyHidden) {
         var hidden = false;
+        if (typeof isExplicitlyHidden === "undefined") {
+            isExplicitlyHidden = false;
+        }
         // Do not point to elem if its hidden. Use computed styles.
         var style = self.style(element);
         if (style !== null) {
-            if (style.visibility === "hidden" || style.display === "none") {
+            if (!isExplicitlyHidden) {
+                if (style.display === "none") {
+                    hidden = true;
+                }
+                // EPA (among others) use this hack to hide elements
+                if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
+                    hidden = true;
+                }
+                // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+                if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
+                    hidden = true;
+                }
+            }
+            if (style.visibility === "hidden") {
                 hidden = true;
             }
-            if (parseInt(style.left, 10) + parseInt(style.width, 10) < 0) {
+            var width = parseInt(style.width, 10);
+            if (parseInt(style.left, 10) + width < 0) {
                 hidden = true;
             }
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
                 hidden = true;
             }
             // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
-            if (parseInt(style.textIndent) < -400) {
-                hidden = true;
-            }
-            // EPA (among others) use this hack to hide elements
-            if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
-                hidden = true;
-            }
-            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
-            if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
+            if (parseInt(style.textIndent) + width < 0) {
                 hidden = true;
             }
         }
         return hidden;
+    };
+    /**
+     * Return true if the element appears to be positioned outside of its parent
+     * (for performance, the parent element may be specified directly).
+     *
+     * Naively, this is saying that the current element is positioned absolutely,
+     * but reality is more nuanced:
+     *
+     * + Positioned absolute AND has a position (top, left etc)
+     * + Positioned relative, fixed or sticky
+     *
+     * We use this to determine whether we can consider our parent's background
+     * as our background.
+     */
+    self.isPositionedOutsideParent = function(style) {
+        var position = style.position;
+        if (position === "static") {
+            return false;
+        }
+        // We count relative positioning as still inside our parent.
+        // This is naive, but in 99% of occasions we're nudging inside a container and
+        // not utterly escaping it. We *could* do some smarter calc of position here,
+        // but other tools don't appear to.
+        if (position === "relative") {
+            return false;
+        }
+        if (position === "fixed" || position === "sticky") {
+            return true;
+        }
+        // Absolute positioning only counts where an explicit position is provided.
+        // A common accessibility hack is "position: absolute; clip: rect(1px, 1px, 1px, 1px)"
+        // which should not be considered being positioned outside of our parent.
+        return !!(style.left || style.top || style.right || style.bottom);
     };
     /**
      * Parse a color string like rgba(200, 12, 53, 0.5) into an array
