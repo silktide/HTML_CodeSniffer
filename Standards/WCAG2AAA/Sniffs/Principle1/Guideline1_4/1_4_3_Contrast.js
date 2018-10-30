@@ -29,7 +29,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
             var node = toProcess.shift();
 
             // This is an element.
-            if (node && (node.nodeType === 1) && (HTMLCS.util.isVisuallyHidden(node) === false) && (HTMLCS.util.isDisabled(node) === false)) {
+            // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
+            if (node && (node.nodeType === 1) && (HTMLCS.util.isVisuallyHidden(node, true) === false) && (HTMLCS.util.isDisabled(node) === false)) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
@@ -47,110 +48,96 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                     var style = HTMLCS.util.style(node);
 
                     if (style) {
-                        var bgColour   = style.backgroundColor;
+                        var bgColour = "";
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
                         var bgPosition = "";
                         var foreColour = style.color;
-                        var bgElement  = node;
                         var hasBgImg   = false;
-                        var isAbsolute = false;
-                        var fontWeight = "";
                         var backgrounds = [];
 
-                        if (style.backgroundImage !== 'none') {
-                            hasBgImg = true;
-                            bgImg = this.getUrlFromStyle(style.backgroundImage);
-                            bgRepeat = style.backgroundRepeat;
-                            bgSize = style.backgroundSize;
-                            bgPosition = style.backgroundPosition;
-
-                            backgrounds.push({
-                                tagName: node.tagName,
-                                bgImg: bgImg,
-                                bgRepeat: bgRepeat,
-                                bgSize: bgSize,
-                                bgPosition: bgPosition,
-                                bgColor: HTMLCS.util.isColorFullyTransparent(bgColour) ? null : bgColour
-                            });
-                        } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
-                            backgrounds.push({
-                                tagName: node.tagName,
-                                bgColor: bgColour
-                            });
-                        }
-
-                        if (style.position == 'absolute') {
-                            isAbsolute = true;
-                        }
-
-                        var parent = node.parentNode;
+                        // For compatibility with CS, we retain their name for this variable, but
+                        // it now extends beyond just "absolute" to mean "is positioned outside of parent".
+                        // Essentially it means we can't reliably know our background colour.
+                        var isAbsolute = false;
 
                         // Calculate font size. Note that CSS 2.1 fixes a reference pixel
                         // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
                         // so this calculation should be safe.
-                        var fontSize     = parseFloat(style.fontSize, 10) * (72 / 96);
-                        var fontSizePixels     = parseInt(style.fontSize);
-                        fontWeight     = parseInt(style.fontWeight);
+                        var fontSize = parseFloat(style.fontSize, 10) * (72 / 96);
+                        var fontSizePixels = parseInt(style.fontSize);
+                        var fontWeight = parseInt(style.fontWeight);
                         var minLargeSize = 18;
+
+                        // Exclude text with no font size, this is a common screen reader hack.
+                        if (!fontSizePixels) {
+                            continue;
+                        }
 
                         if ((style.fontWeight === 'bold') || (parseInt(style.fontWeight, 10) >= 600)) {
                             minLargeSize = 14;
                         }
 
-                        var reqRatio = minContrast;
-                        if (fontSize >= minLargeSize) {
-                            reqRatio = minLargeContrast;
-                        }
+                        var reqRatio = fontSize >= minLargeSize ? minLargeContrast : minContrast;
 
-                        var parentStyle;
+                        var currentNode = node;
+                        var currentStyle = style;
 
-                        // Check for a solid background colour and background image
-                        while (HTMLCS.util.isColorTransparent(bgColour)) {
-                            if ((!parent) || (!parent.ownerDocument)) {
-                                break;
+                        // Calculate our background colour(s) and image(s)
+                        while (true) {
+                            bgColour = currentStyle.backgroundColor;
+                            if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                                bgColour = null;
                             }
 
-                            parentStyle = HTMLCS.util.style(parent);
-                            bgColour    = parentStyle.backgroundColor;
-
-                            if (parentStyle.position == 'absolute') {
-                                isAbsolute = true;
-                            }
-
-                            // Check for a background image
-                            if (!hasBgImg && parentStyle.backgroundImage !== 'none') {
+                            if (currentStyle.backgroundImage !== 'none') {
                                 hasBgImg = true;
-                                bgImg = this.getUrlFromStyle(parentStyle.backgroundImage);
-                                bgRepeat    = parentStyle.backgroundRepeat;
-                                bgSize    = parentStyle.backgroundSize;
-                                bgPosition = parentStyle.backgroundPosition;
+                                bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
+                                bgRepeat = currentStyle.backgroundRepeat;
+                                bgSize = currentStyle.backgroundSize;
+                                bgPosition = currentStyle.backgroundPosition;
 
                                 backgrounds.push({
-                                    tagName: parent.tagName,
+                                    tagName: currentNode.tagName,
                                     bgImg: bgImg,
                                     bgRepeat: bgRepeat,
                                     bgSize: bgSize,
                                     bgPosition: bgPosition,
-                                    bgColor: bgColour === 'rgba(0, 0, 0, 0)' ? null : bgColour,
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
-                            } else if (!HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                            } else if (bgColour) {
                                 backgrounds.push({
-                                    tagName: parent.tagName,
-                                    bgColor: bgColour
+                                    tagName: currentNode.tagName,
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
+
+                                // Exist if the background is not even slightly transparent
+                                if (!HTMLCS.util.isColorTransparent(bgColour)) {
+                                    break;
+                                }
                             }
 
-                            parent = parent.parentNode;
-                        }//end while
+                            if (HTMLCS.util.isPositionedOutsideParent(currentStyle)) {
+                                isAbsolute = true;
+                            }
+
+                            // Up one node, if we can
+                            currentNode = currentNode.parentNode;
+                            if ((!currentNode) || (!currentNode.ownerDocument)) {
+                                break;
+                            }
+                            currentStyle = HTMLCS.util.style(currentNode);
+                        }
 
                         if (hasBgImg === true) {
                             // If we have a background image, skip the contrast ratio checks,
                             // and push a warning instead.
                             failures.push({
                                 element: node,
-                                colour: style.color,
+                                colour: foreColour,
                                 bgColour: bgColour,
                                 backgrounds: backgrounds,
                                 value: undefined,
@@ -181,7 +168,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize,
                             });
                             continue;
-                        } else if ((bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)')) {
+                        } else if (!bgColour) {
                             // If the background colour is still transparent, this is probably
                             // a fragment with which we cannot reliably make a statement about
                             // contrast ratio. Skip the element.
