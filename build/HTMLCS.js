@@ -3447,6 +3447,19 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             }
                             currentStyle = HTMLCS.util.style(currentNode);
                         }
+                        // Calculate the combined background colour from all of our
+                        // relevant parents, by considering their alpha
+                        bgColour = null;
+                        for (var b = 0; b < backgrounds.length; b++) {
+                            var thisBgColour = backgrounds[b].bgColor;
+                            if (thisBgColour) {
+                                if (!bgColour) {
+                                    bgColour = thisBgColour;
+                                } else {
+                                    bgColour = HTMLCS.util.combineColors(bgColour, thisBgColour);
+                                }
+                            }
+                        }
                         if (hasBgImg === true) {
                             // If we have a background image, skip the contrast ratio checks,
                             // and push a warning instead.
@@ -7030,6 +7043,16 @@ _global.HTMLCS.util = function() {
             color.push(1);
         }
         return color;
+    };
+    /**
+     * Combine two colours, assuming background has no alpha and foreground may
+     * have some alpha.
+     */
+    self.combineColors = function(foreground, background) {
+        var f = self.parseColorString(foreground);
+        var b = self.parseColorString(background);
+        var c = [ f[0] * f[3] + b[0] * (1 - f[3]), f[1] * f[3] + b[1] * (1 - f[3]), f[2] * f[3] + b[2] * (1 - f[3]) ];
+        return "rgb(" + Math.round(c[0]) + ", " + Math.round(c[1]) + ", " + Math.round(c[2]) + ")";
     }, /**
      * Return true if specified colour is at least slightly transparent.
      */
