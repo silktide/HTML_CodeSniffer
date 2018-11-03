@@ -363,6 +363,23 @@ _global.HTMLCS.util = function() {
         }
 
         return color;
+    };
+
+    /**
+     * Combine two colours, assuming background has no alpha and foreground may
+     * have some alpha.
+     */
+    self.combineColors = function(foreground, background) {
+        var f = self.parseColorString(foreground);
+        var b = self.parseColorString(background);
+
+        var c = [
+            (f[0]*f[3]) + (b[0]*(1-f[3])),
+            (f[1]*f[3]) + (b[1]*(1-f[3])),
+            (f[2]*f[3]) + (b[2]*(1-f[3]))
+        ];
+
+        return "rgb(" + Math.round(c[0]) + ", "+ Math.round(c[1]) + ", "+ Math.round(c[2]) + ")";
     },
 
     /**
@@ -398,7 +415,6 @@ _global.HTMLCS.util = function() {
 
         return false;
     };
-
 
     /**
      * Returns true if the element is deliberately hidden from Accessibility APIs.

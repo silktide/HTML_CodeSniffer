@@ -132,6 +132,20 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             currentStyle = HTMLCS.util.style(currentNode);
                         }
 
+                        // Calculate the combined background colour from all of our
+                        // relevant parents, by considering their alpha
+                        bgColour = null;
+                        for (var b = 0; b < backgrounds.length; b++) {
+                            var thisBgColour = backgrounds[b].bgColor;
+                            if (thisBgColour) {
+                                if (!bgColour) {
+                                    bgColour = thisBgColour;
+                                } else {
+                                    bgColour = HTMLCS.util.combineColors(bgColour, thisBgColour);
+                                }
+                            }
+                        }
+
                         if (hasBgImg === true) {
                             // If we have a background image, skip the contrast ratio checks,
                             // and push a warning instead.
