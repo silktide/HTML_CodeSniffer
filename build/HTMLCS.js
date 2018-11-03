@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-10-30 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-11-03 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3360,7 +3360,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
             var node = toProcess.shift();
             // This is an element.
             // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
-            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node, true) === false && HTMLCS.util.isDisabled(node) === false) {
+            if (node && node.nodeType === 1 && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
@@ -6908,7 +6908,44 @@ _global.HTMLCS.util = function() {
      * If the computed style of an element cannot be determined for some reason,
      * it is presumed it is NOT hidden.
      *
-     * If isExplicitlyHidden is true, return true only if an element is hidden in a way that appears
+     * @param {Node} element The element that is hiding, or not.
+     * @returns {Boolean}
+     */
+    self.isVisuallyHidden = function(element) {
+        var style = self.style(element);
+        if (style !== null) {
+            if (style.display === "none") {
+                return true;
+            }
+            // EPA (among others) use this hack to hide elements
+            if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
+                return true;
+            }
+            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+            if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
+                return true;
+            }
+            if (style.visibility === "hidden") {
+                return true;
+            }
+            var width = parseInt(style.width, 10);
+            if (parseInt(style.left, 10) + width < 0) {
+                return true;
+            }
+            if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
+                return true;
+            }
+            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            if (parseInt(style.textIndent) + width < 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    /**
+     * Return true if a text element is hidden visually.
+     *
+     * Returns true only if an element is hidden in a way that appears
      * to be intended to hide it from *ever* being seen, e.g. text that is designed for screen readers.
      *
      * This is used to detect text we shouldn't analyse for text contrast, for example, while
@@ -6916,47 +6953,36 @@ _global.HTMLCS.util = function() {
      * (e.g. drop down menus, modals etc).
      *
      * @param {Node} element The element that is hiding, or not.
-     * @param isExplicitlyHidden See above
      *
      * @returns {Boolean}
      */
-    self.isVisuallyHidden = function(element, isExplicitlyHidden) {
-        var hidden = false;
-        if (typeof isExplicitlyHidden === "undefined") {
-            isExplicitlyHidden = false;
+    self.isHiddenText = function(element) {
+        // Some elements can never contain text
+        var tagName = element.tagName;
+        if (tagName === "SCRIPT" || tagName === "STYLE") {
+            return true;
         }
-        // Do not point to elem if its hidden. Use computed styles.
         var style = self.style(element);
         if (style !== null) {
-            if (!isExplicitlyHidden) {
-                if (style.display === "none") {
-                    hidden = true;
-                }
-                // EPA (among others) use this hack to hide elements
-                if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
-                    hidden = true;
-                }
-                // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
-                if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
-                    hidden = true;
-                }
+            if (style.visibility === "hidden") {
+                return true;
             }
             if (style.visibility === "hidden") {
-                hidden = true;
+                return true;
             }
             var width = parseInt(style.width, 10);
             if (parseInt(style.left, 10) + width < 0) {
-                hidden = true;
+                return true;
             }
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
-                hidden = true;
+                return true;
             }
             // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
             if (parseInt(style.textIndent) + width < 0) {
-                hidden = true;
+                return true;
             }
         }
-        return hidden;
+        return false;
     };
     /**
      * Return true if the element appears to be positioned outside of its parent

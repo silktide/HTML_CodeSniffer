@@ -30,7 +30,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
 
             // This is an element.
             // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
-            if (node && (node.nodeType === 1) && (HTMLCS.util.isVisuallyHidden(node, true) === false) && (HTMLCS.util.isDisabled(node) === false)) {
+            if (node && (node.nodeType === 1) && (HTMLCS.util.isHiddenText(node) === false) && (HTMLCS.util.isDisabled(node) === false)) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
