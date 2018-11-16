@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-11-03 */
+/*! silktide-html-codesniffer - v2.2.0 - 2018-11-16 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -6972,7 +6972,7 @@ _global.HTMLCS.util = function() {
     self.isHiddenText = function(element) {
         // Some elements can never contain text
         var tagName = element.tagName;
-        if (tagName === "SCRIPT" || tagName === "STYLE") {
+        if (tagName === "SCRIPT" || tagName === "STYLE" || tagName === "NOSCRIPT") {
             return true;
         }
         var style = self.style(element);
