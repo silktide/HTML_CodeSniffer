@@ -275,7 +275,7 @@ _global.HTMLCS.util = function() {
 
         // Some elements can never contain text
         var tagName = element.tagName;
-        if (tagName === 'SCRIPT' || tagName === 'STYLE') {
+        if (tagName === 'SCRIPT' || tagName === 'STYLE' || tagName === 'NOSCRIPT') {
             return true;
         }
 
