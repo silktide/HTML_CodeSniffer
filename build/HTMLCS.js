@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-11-16 */
+/*! silktide-html-codesniffer - v2.2.0 - 2019-02-12 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -12,15 +12,9 @@
  *
  */
 (function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['htmlcs'], factory);
-    } else if (typeof exports === 'object') {
-        module.exports = factory();
-    } else {
-        var exports = factory();
-        for (var prop in exports) {
-            root[prop] = exports[prop];
-        }
+    var exports = factory();
+    for (var prop in exports) {
+        root[prop] = exports[prop];
     }
 }(this, function () {
     var _global = {
