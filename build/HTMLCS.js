@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2019-02-12 */
+/*! silktide-html-codesniffer - v2.2.0 - 2019-02-26 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -22,7 +22,6 @@
     };
 
 _global.translation["en"] = {
-    //HTMLCSAuditor.js
     auditor_name: "HTML_CodeSniffer by Squiz",
     auditor_using_standard: "Using standard",
     auditor_standards: "Standards",
@@ -234,18 +233,6 @@ _global.translation["en"] = {
     "4_1_2_value_exposed_using_element": "A value is exposed using the {{requiredValue}} element."
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508 = {
     name: "Section508",
     description: "U.S. Section 508 Standard",
@@ -258,36 +245,10 @@ _global.HTMLCS_Section508 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_A = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top", "img", "object", "bgsound", "audio" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             this.addNullAltTextResults(top);
@@ -295,26 +256,10 @@ _global.HTMLCS_Section508_Sniffs_A = {
         } else {
             var nodeName = element.nodeName.toLowerCase();
             if (nodeName === "object" || nodeName === "bgsound" || nodeName === "audio") {
-                // Audio transcript notice. Yes, this is in A rather than B, since
-                // audio is not considered "multimedia" (roughly equivalent to a
-                // "synchronised media" presentation in WCAG 2.0). It is non-text,
-                // though, so a transcript is required.
                 HTMLCS.addMessage(HTMLCS.NOTICE, element, "For multimedia containing audio only, ensure an alternative is available, such as a full text transcript.", "Audio");
             }
         }
     },
-    /**
-     * Test for missing or null alt text in certain elements.
-     *
-     * Tested elements are:
-     * - IMG elements
-     * - INPUT elements with type="image" (ie. image submit buttons).
-     * - AREA elements (ie. in client-side image maps).
-     *
-     * @param {DOMNode} element The element to test.
-     *
-     * @returns {Object} A structured list of errors.
-     */
     testNullAltText: function(top) {
         var errors = {
             img: {
@@ -348,7 +293,6 @@ _global.HTMLCS_Section508_Sniffs_A = {
                     if (element.parentNode.textContent !== undefined) {
                         var textContent = element.parentNode.textContent;
                     } else {
-                        // Keep IE8 happy.
                         var textContent = element.parentNode.innerText;
                     }
                     if (HTMLCS.util.isStringEmpty(textContent) === true) {
@@ -356,26 +300,19 @@ _global.HTMLCS_Section508_Sniffs_A = {
                     }
                 }
             }
-            //end if
             if (element.hasAttribute("alt") === false) {
                 missingAlt = true;
             } else if (!element.getAttribute("alt") || HTMLCS.util.isStringEmpty(element.getAttribute("alt")) === true) {
                 nullAlt = true;
             }
-            // Now determine which test(s) should fire.
             switch (nodeName) {
               case "img":
                 if (linkOnlyChild === true && (missingAlt === true || nullAlt === true)) {
-                    // Img tags cannot have an empty alt text if it is the
-                    // only content in a link (as the link would not have a text
-                    // alternative).
                     errors.img.emptyAltInLink.push(element.parentNode);
                 } else if (missingAlt === true) {
                     errors.img.missingAlt.push(element);
                 } else if (nullAlt === true) {
                     if (element.hasAttribute("title") === true && HTMLCS.util.isStringEmpty(element.getAttribute("title")) === false) {
-                        // Title attribute present and not empty. This is wrong when
-                        // an image is marked as ignored.
                         errors.img.nullAltWithTitle.push(element);
                     } else {
                         errors.img.ignored.push(element);
@@ -386,7 +323,6 @@ _global.HTMLCS_Section508_Sniffs_A = {
                 break;
 
               case "input":
-                // Image submit buttons.
                 if (missingAlt === true || nullAlt === true) {
                     errors.inputImage.missingAlt.push(element);
                 } else {
@@ -395,7 +331,6 @@ _global.HTMLCS_Section508_Sniffs_A = {
                 break;
 
               case "area":
-                // Area tags in a client-side image map.
                 if (missingAlt === true || nullAlt === true) {
                     errors.area.missingAlt.push(element);
                 } else {
@@ -404,22 +339,11 @@ _global.HTMLCS_Section508_Sniffs_A = {
                 break;
 
               default:
-                // No other tags defined.
                 break;
             }
         }
-        //end for
         return errors;
     },
-    /**
-     * Driver function for the null alt text tests.
-     *
-     * This takes the generic result given by the alt text testing functions
-     * (located in WCAG 2.0 SC 1.1.1), and converts them into Section 508-specific
-     * messages.
-     *
-     * @param {DOMNode} element The element to test.
-     */
     addNullAltTextResults: function(top) {
         var errors = this.testNullAltText(top);
         for (var i = 0; i < errors.img.emptyAltInLink.length; i++) {
@@ -467,8 +391,6 @@ _global.HTMLCS_Section508_Sniffs_A = {
             var element = elements[el];
             var nodeName = element.nodeName.toLowerCase();
             var childObject = element.querySelector("object");
-            // If we have an object as our alternative, skip it. Pass the blame onto
-            // the child.
             if (childObject === null) {
                 var textAlt = HTMLCS.util.getElementTextContent(element, true);
                 if (textAlt === "") {
@@ -478,15 +400,10 @@ _global.HTMLCS_Section508_Sniffs_A = {
                 }
             }
         }
-        //end if
         var elements = HTMLCS.util.getAllElements(top, "applet");
         for (var el = 0; el < elements.length; el++) {
-            // Test firstly for whether we have an object alternative.
             var childObject = element.querySelector("object");
             var hasError = false;
-            // If we have an object as our alternative, skip it. Pass the blame onto
-            // the child. (This is a special case: those that don't understand APPLET
-            // may understand OBJECT, but APPLET shouldn't be nested.)
             if (childObject === null) {
                 var textAlt = HTMLCS.util.getElementTextContent(element, true);
                 if (HTMLCS.util.isStringEmpty(textAlt) === true) {
@@ -494,29 +411,17 @@ _global.HTMLCS_Section508_Sniffs_A = {
                     hasError = true;
                 }
             }
-            //end if
             var altAttr = element.getAttribute("alt") || "";
             if (HTMLCS.util.isStringEmpty(altAttr) === true) {
                 errors.applet.missingAlt.push(element);
                 hasError = true;
             }
             if (hasError === false) {
-                // No error? Remind of obligations about equivalence of alternatives.
                 errors.applet.generalAlt.push(element);
             }
         }
-        //end if
         return errors;
     },
-    /**
-     * Driver function for the media alternative (object/applet) tests.
-     *
-     * This takes the generic result given by the media alternative testing function
-     * (located in WCAG 2.0 SC 1.1.1), and converts them into Section
-     * 508-specific messages.
-     *
-     * @param {DOMNode} element The element to test.
-     */
     addMediaAlternativesResults: function(top) {
         var errors = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1.testMediaTextAlternatives(top);
         for (var i = 0; i < errors.object.missingBody.length; i++) {
@@ -537,36 +442,10 @@ _global.HTMLCS_Section508_Sniffs_A = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_B = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "applet", "embed", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         HTMLCS.addMessage(HTMLCS.NOTICE, element, "For multimedia containing video, ensure a synchronised audio description or text alternative for the video portion is provided.", "Video");
@@ -574,91 +453,30 @@ _global.HTMLCS_Section508_Sniffs_B = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_C = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that any information conveyed using colour alone is also available without colour, such as through context or markup.", "Colour");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_D = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.", "Linearised");
             this.testPresentationMarkup(top);
             this.testHeadingOrder(top);
-            // Look for any script elements, and fire off another notice regarding
-            // potentially hidden text (eg. "click to expand" sections). For instance,
-            // such text should be stored semantically in the page, not loaded into
-            // a container through AJAX (and thus not accessible with scripting off).
             var hasScript = HTMLCS.util.getAllElements(top, 'script, link[rel="stylesheet"]');
             if (hasScript.length > 0) {
                 HTMLCS.addMessage(HTMLCS.NOTICE, top, 'If content is hidden and made visible using scripting (such as "click to expand" sections), ensure this content is readable when scripts and style sheets are disabled.', "HiddenText");
             }
         }
     },
-    /**
-     * Test for the use of presentational elements.
-     *
-     * @param [DOMNode] top The top element of the tested code.
-     */
     testPresentationMarkup: function(top) {
         _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testPresentationMarkup(top);
     },
@@ -670,8 +488,6 @@ _global.HTMLCS_Section508_Sniffs_D = {
             if (headingNum - lastHeading > 1) {
                 var exampleMsg = "should be an h" + (lastHeading + 1) + " to be properly nested";
                 if (lastHeading === 0) {
-                    // If last heading is empty, we are at document top and we are
-                    // expecting a H1, generally speaking.
                     exampleMsg = "appears to be the primary document heading, so should be an h1 element";
                 }
                 HTMLCS.addMessage(HTMLCS.ERROR, headings[i], "The heading structure is not logically nested. This h" + headingNum + " element " + exampleMsg + ".", "HeadingOrder");
@@ -681,91 +497,33 @@ _global.HTMLCS_Section508_Sniffs_D = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_G = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "table" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // If no table headers, emit notice about the table.
         if (HTMLCS.util.isLayoutTable(element) === true) {
             HTMLCS.addMessage(HTMLCS.NOTICE, element, "This table has no headers. If this is a data table, ensure row and column headers are identified using th elements.", "TableHeaders");
         }
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_H = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "table" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(table, top) {
         var headersAttr = HTMLCS.util.testTableHeaders(table);
-        // Incorrect usage of headers - error; emit always.
         for (var i = 0; i < headersAttr.wrongHeaders.length; i++) {
             HTMLCS.addMessage(HTMLCS.ERROR, headersAttr.wrongHeaders[i].element, 'Incorrect headers attribute on this td element. Expected "' + headersAttr.wrongHeaders[i].expected + '" but found "' + headersAttr.wrongHeaders[i].actual + '"', "IncorrectHeadersAttr");
         }
-        // Errors where headers are compulsory.
         if (headersAttr.required === true && headersAttr.allowScope === false) {
             if (headersAttr.used === false) {
-                // Headers not used at all, and they are mandatory.
                 HTMLCS.addMessage(HTMLCS.ERROR, table, "The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.", "MissingHeadersAttrs");
             } else {
-                // Missing TH IDs - error; emit at this stage only if headers are compulsory.
                 if (headersAttr.missingThId.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, "Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements' headers attributes.", "MissingHeaderIds");
                 }
-                // Missing TD headers attributes - error; emit at this stage only if headers are compulsory.
                 if (headersAttr.missingTd.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, "Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.", "IncompleteHeadersAttrs");
                 }
@@ -774,36 +532,10 @@ _global.HTMLCS_Section508_Sniffs_H = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_I = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "frame", "iframe", "object" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         var hasTitle = element.hasAttribute("title");
@@ -817,107 +549,28 @@ _global.HTMLCS_Section508_Sniffs_I = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_J = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // The term in Sec. 508 is "flicker" rather than flash.
         HTMLCS.addMessage(HTMLCS.NOTICE, top, "Check that no component of the content flickers at a rate of greater than 2 and less than 55 times per second.", "Flicker");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_K = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, "If this page cannot be made compliant, a text-only page with equivalent information or functionality should be provided. The alternative page needs to be updated in line with this page's content.", "AltVersion");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_L = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             this.addProcessLinksMessages(top);
@@ -960,13 +613,7 @@ _global.HTMLCS_Section508_Sniffs_L = {
                 hrefFound = true;
             }
             if (hrefFound === false) {
-                // No href. We don't want these because, although they are commonly used
-                // to create targets, they can be picked up by screen readers and
-                // displayed to the user as empty links. A elements are defined by H91 as
-                // having an (ARIA) role of "link", and using them as targets are
-                // essentially misusing them. Place an ID on a parent element instead.
                 if (/^\s*$/.test(content) === true) {
-                    // Also no content. (eg. <a id=""></a> or <a name=""></a>)
                     if (element.hasAttribute("id") === true) {
                         errors.empty.push(element);
                     } else if (element.hasAttribute("name") === true) {
@@ -975,42 +622,23 @@ _global.HTMLCS_Section508_Sniffs_L = {
                         errors.emptyNoId.push(element);
                     }
                 } else {
-                    // Giving a benefit of the doubt here - if a link has text and also
-                    // an ID, but no href, it might be because it is being manipulated by
-                    // a script.
                     if (element.hasAttribute("id") === true || element.hasAttribute("name") === true) {
                         errors.noHref.push(element);
                     } else {
-                        // HTML5 allows A elements with text but no href, "for where a
-                        // link might otherwise have been placed, if it had been relevant".
-                        // Hence, thrown as a warning, not an error.
                         errors.placeholder.push(element);
                     }
                 }
             } else {
                 if (/^\s*$/.test(content) === true) {
-                    // Href provided, but no content.
-                    // We only fire this message when there are no images in the content.
-                    // A link around an image with no alt text is already covered in SC
-                    // 1.1.1 (test H30).
                     if (element.querySelectorAll("img").length === 0) {
                         errors.noContent.push(element);
                     }
                 }
             }
         }
-        //end for
         return errors;
     },
-    /**
-     * Process mouse-specific functions.
-     *
-     * @param {DOMNode} top The top element of the tested code.
-     */
     testKeyboard: function(top) {
-        // Testing for elements that have explicit attributes for mouse-specific
-        // events. Note: onclick is considered keyboard accessible, as it is actually
-        // tied to the default action of a link or button - not merely a click.
         var dblClickEls = HTMLCS.util.getAllElements(top, "*[ondblclick]");
         for (var i = 0; i < dblClickEls.length; i++) {
             HTMLCS.addMessage(HTMLCS.WARNING, dblClickEls[i], "Ensure the functionality provided by double-clicking on this element is available through the keyboard.", "DblClick");
@@ -1038,71 +666,19 @@ _global.HTMLCS_Section508_Sniffs_L = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_M = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "applet", "bgsound", "embed", "audio", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, "If external media requires a plugin or application to view, ensure a link is provided to a plugin or application that complies with Section 508 accessibility requirements for applications.", "PluginLink");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_N = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         if (nodeName === "form") {
@@ -1113,36 +689,10 @@ _global.HTMLCS_Section508_Sniffs_N = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_O = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top", "a", "area" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.", "SkipLinks");
@@ -1157,8 +707,6 @@ _global.HTMLCS_Section508_Sniffs_O = {
                         if (doc.ownerDocument) {
                             doc = doc.ownerDocument;
                         }
-                        // First search for an element with the appropriate ID, then search for a
-                        // named anchor using the name attribute.
                         var target = doc.getElementById(id);
                         if (target === null) {
                             target = doc.querySelector('a[name="' + id + '"]');
@@ -1177,36 +725,10 @@ _global.HTMLCS_Section508_Sniffs_O = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_Section508_Sniffs_P = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top", "meta" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             HTMLCS.addMessage(HTMLCS.NOTICE, top, "If a timed response is required on this page, alert the user and provide sufficient time to allow them to indicate that more time is required.", "TimeLimit");
@@ -1215,10 +737,8 @@ _global.HTMLCS_Section508_Sniffs_P = {
                 if (String(element.getAttribute("http-equiv")).toLowerCase() === "refresh") {
                     if (/^[1-9]\d*/.test(element.getAttribute("content").toLowerCase()) === true) {
                         if (/url=/.test(element.getAttribute("content").toLowerCase()) === true) {
-                            // Redirect.
                             HTMLCS.addMessage(HTMLCS.ERROR, element, "Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.", "MetaRedirect");
                         } else {
-                            // Just a refresh.
                             HTMLCS.addMessage(HTMLCS.ERROR, element, "Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.", "MetaRefresh");
                         }
                     }
@@ -1228,18 +748,6 @@ _global.HTMLCS_Section508_Sniffs_P = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2A = {
     name: "WCAG2A",
     description: "Web Content Accessibility Guidelines (WCAG) 2.0 A",
@@ -1252,18 +760,6 @@ _global.HTMLCS_WCAG2A = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AA = {
     name: "WCAG2AA",
     description: "Web Content Accessibility Guidelines (WCAG) 2.0 AA",
@@ -1276,18 +772,6 @@ _global.HTMLCS_WCAG2AA = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA = {
     name: "WCAG2AAA",
     description: "Web Content Accessibility Guidelines (WCAG) 2.0 AAA",
@@ -1311,13 +795,6 @@ _global.HTMLCS_WCAG2AAA = {
                 link: "http://www.w3.org/TR/WCAG20/#robust"
             }
         };
-        /**
-         * List of success criteria, their links in the WCAG20 doc, and their
-         * "priority" (to use a WCAG1 term)... priority 1 = single-A, 3 = triple-A.
-         *
-         * Priority 0 indicates a conformance requirement. CR1 isn't shown because
-         * all it says is "to conform to each level, it must pass all at that level".
-         */
         var successCritList = {
             CR2: {
                 name: "Full pages",
@@ -1661,36 +1138,10 @@ _global.HTMLCS_WCAG2AAA = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top", "img" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             this.addNullAltTextResults(top);
@@ -1705,14 +1156,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
             }
         }
     },
-    /**
-     * Driver function for the null alt text tests.
-     *
-     * This takes the generic result given by the alt text testing functions,
-     * and converts them into WCAG 2.0-specific messages.
-     *
-     * @param {DOMNode} element The element to test.
-     */
     addNullAltTextResults: function(top) {
         var errors = this.testNullAltText(top);
         for (var i = 0; i < errors.img.emptyAltInLink.length; i++) {
@@ -1743,18 +1186,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
             HTMLCS.addMessage(HTMLCS.NOTICE, errors.area.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_H24.2"), "H24.2");
         }
     },
-    /**
-     * Test for missing or null alt text in certain elements.
-     *
-     * Tested elements are:
-     * - IMG elements
-     * - INPUT elements with type="image" (ie. image submit buttons).
-     * - AREA elements (ie. in client-side image maps).
-     *
-     * @param {DOMNode} element The element to test.
-     *
-     * @returns {Object} A structured list of errors.
-     */
     testNullAltText: function(top) {
         var errors = {
             img: {
@@ -1788,7 +1219,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                     if (element.parentNode.textContent !== undefined) {
                         var textContent = element.parentNode.textContent;
                     } else {
-                        // Keep IE8 happy.
                         var textContent = element.parentNode.innerText;
                     }
                     if (HTMLCS.util.isStringEmpty(textContent) === true) {
@@ -1796,26 +1226,19 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                     }
                 }
             }
-            //end if
             if (element.hasAttribute("alt") === false) {
                 missingAlt = true;
             } else if (!element.getAttribute("alt") || HTMLCS.util.isStringEmpty(element.getAttribute("alt")) === true) {
                 nullAlt = true;
             }
-            // Now determine which test(s) should fire.
             switch (nodeName) {
               case "img":
                 if (linkOnlyChild === true && (missingAlt === true || nullAlt === true)) {
-                    // Img tags cannot have an empty alt text if it is the
-                    // only content in a link (as the link would not have a text
-                    // alternative).
                     errors.img.emptyAltInLink.push(element.parentNode);
                 } else if (missingAlt === true) {
                     errors.img.missingAlt.push(element);
                 } else if (nullAlt === true) {
                     if (element.hasAttribute("title") === true && HTMLCS.util.isStringEmpty(element.getAttribute("title")) === false) {
-                        // Title attribute present and not empty. This is wrong when
-                        // an image is marked as ignored.
                         errors.img.nullAltWithTitle.push(element);
                     } else {
                         errors.img.ignored.push(element);
@@ -1826,7 +1249,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                 break;
 
               case "input":
-                // Image submit buttons.
                 if (missingAlt === true || nullAlt === true) {
                     errors.inputImage.missingAlt.push(element);
                 } else {
@@ -1835,7 +1257,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                 break;
 
               case "area":
-                // Area tags in a client-side image map.
                 if (missingAlt === true || nullAlt === true) {
                     errors.area.missingAlt.push(element);
                 } else {
@@ -1844,46 +1265,17 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                 break;
 
               default:
-                // No other tags defined.
                 break;
             }
         }
-        //end for
         return errors;
     },
-    /**
-     * Test for longdesc attributes on images (technique H45).
-     *
-     * We throw a notice to ensure that a longdesc is available in an accessible
-     * way - ie. using body text or a link. Longdesc is specifically ignored as it
-     * is not accessible to sighted users.
-     *
-     * @param {DOMNode} element The element to test.
-     *
-     * @returns void
-     */
     testLongdesc: function(element) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_1_1_G73,G74"), "G73,G74");
     },
-    /**
-     * Test for link stutter with adjacent images and text (technique H2).
-     *
-     * Only runs on IMG elements contained inside an anchor (A) element. We test that
-     * its alt text does not duplicate the text content of a link directly beside it.
-     * We also test that the technique hasn't been applied incorrectly (Failure
-     * Examples 4 and 5 in technique H2).
-     *
-     * Error messages are given codes in the form "H2.EG5", meaning it is a case of
-     * the applicable failure example (3, 4, or 5).
-     *
-     * @param {DOMNode} element The image element to test.
-     */
     testLinkStutter: function(element) {
         if (element.parentNode.nodeName.toLowerCase() === "a") {
             var anchor = element.parentNode;
-            // If contained by an "a" link, check that the alt text does not duplicate
-            // the link text, or if no link text, check an adjacent link does not
-            // duplicate it.
             var nodes = {
                 anchor: {
                     href: anchor.getAttribute("href"),
@@ -1896,19 +1288,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
             }
             if (nodes.anchor.alt !== null && nodes.anchor.alt !== "") {
                 if (HTMLCS.util.trim(nodes.anchor.alt).toLowerCase() === HTMLCS.util.trim(nodes.anchor.text).toLowerCase()) {
-                    // H2 "Failure Example 5": they're in one link, but the alt text
-                    // duplicates the link text. Trimmed and lowercased because they
-                    // would sound the same to a screen reader.
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG5"), "H2.EG5");
                 }
             }
-            // If there is no supplementary text, try to catch H2 "Failure Examples"
-            // in cases where there are adjacent links with the same href:
-            // 3 - img text that duplicates link text in an adjacent link. (Screen
-            //     readers will stutter.)
-            // 4 - img text is blank when another link adjacent contains link text.
-            //     (This leaves one link with no text at all - the two should be
-            //      combined into one link.)
             if (nodes.anchor.text === "") {
                 var prevLink = HTMLCS.util.getPreviousSiblingElement(anchor, "a", true);
                 var nextLink = HTMLCS.util.getNextSiblingElement(anchor, "a", true);
@@ -1932,7 +1314,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                         nodes.next.alt = "";
                     }
                 }
-                // Test against the following link, if any.
                 if (nodes.next && nodes.next.href !== "" && nodes.next.href !== null && nodes.anchor.href === nodes.next.href) {
                     if (nodes.next.text !== "" && nodes.anchor.alt === "") {
                         HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG4"), "H2.EG4");
@@ -1940,7 +1321,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                         HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG3"), "H2.EG3");
                     }
                 }
-                // Test against the preceding link, if any.
                 if (nodes.previous && nodes.previous.href !== "" && nodes.previous.href !== null && nodes.anchor.href === nodes.previous.href) {
                     if (nodes.previous.text !== "" && nodes.anchor.alt === "") {
                         HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG4"), "H2.EG4");
@@ -1951,14 +1331,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
             }
         }
     },
-    /**
-     * Driver function for the media alternative (object/applet) tests.
-     *
-     * This takes the generic result given by the media alternative testing function,
-     * and converts them into WCAG 2.0-specific messages.
-     *
-     * @param {DOMNode} element The element to test.
-     */
     addMediaAlternativesResults: function(top) {
         var errors = this.testMediaTextAlternatives(top);
         for (var i = 0; i < errors.object.missingBody.length; i++) {
@@ -1994,8 +1366,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
             var element = elements[el];
             var nodeName = element.nodeName.toLowerCase();
             var childObject = element.querySelector("object");
-            // If we have an object as our alternative, skip it. Pass the blame onto
-            // the child.
             if (childObject === null) {
                 if (HTMLCS.util.isStringEmpty(HTMLCS.util.getElementTextContent(element, true)) === true) {
                     if (HTMLCS.util.hasValidAriaLabel(element) === false) {
@@ -2008,15 +1378,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                 }
             }
         }
-        //end if
         var elements = HTMLCS.util.getAllElements(top, "applet");
         for (var el = 0; el < elements.length; el++) {
-            // Test firstly for whether we have an object alternative.
             var childObject = element.querySelector("object");
             var hasError = false;
-            // If we have an object as our alternative, skip it. Pass the blame onto
-            // the child. (This is a special case: those that don't understand APPLET
-            // may understand OBJECT, but APPLET shouldn't be nested.)
             if (childObject === null) {
                 var textAlt = HTMLCS.util.getElementTextContent(element, true);
                 if (HTMLCS.util.isStringEmpty(textAlt) === true) {
@@ -2024,31 +1389,20 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                     hasError = true;
                 }
             }
-            //end if
             var altAttr = element.getAttribute("alt") || "";
             if (HTMLCS.util.isStringEmpty(altAttr) === true) {
                 errors.applet.missingAlt.push(element);
                 hasError = true;
             }
-            // Catch anything with a valid aria label.
             if (HTMLCS.util.hasValidAriaLabel(element) === true) {
                 hasError = false;
             }
             if (hasError === false) {
-                // No error? Remind of obligations about equivalence of alternatives.
                 errors.applet.generalAlt.push(element);
             }
         }
-        //end if
         return errors;
     },
-    /**
-     * Gets just the alt text from any images on a link.
-     *
-     * @param {DOMNode} anchor The link element being inspected.
-     *
-     * @returns {String} The alt text.
-     */
     _getLinkAltText: function(anchor) {
         var anchor = anchor.cloneNode(true);
         var nodes = [];
@@ -2058,7 +1412,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
         var alt = null;
         while (nodes.length > 0) {
             var node = nodes.shift();
-            // If it's an element, add any sub-nodes to the process list.
             if (node.nodeType === 1) {
                 if (node.nodeName.toLowerCase() === "img") {
                     if (node.hasAttribute("alt") === true) {
@@ -2066,7 +1419,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                         if (!alt) {
                             alt = "";
                         } else {
-                            // Trim the alt text.
                             alt = alt.replace(/^\s+|\s+$/g, "");
                         }
                         break;
@@ -2078,36 +1430,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "bgsound", "audio", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         if (nodeName !== "video") {
@@ -2119,310 +1445,83 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_2_G87,G93"), "G87,G93");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_3_G69,G78,G173,G8"), "G69,G78,G173,G8");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_4_G9,G87,G93"), "G9,G87,G93");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_5_G78,G173,G8"), "G78,G173,G8");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_6 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_6_G54,G81"), "G54,G81");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_7 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Check for elements that could potentially contain video.
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_7_G8"), "G8");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_8 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_8_G69,G159"), "G69,G159");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_9 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "bgsound", "audio" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_9_G150,G151,G157"), "G150,G151,G157");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_A = {
     _labelNames: null,
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var sniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
         if (element === top) {
@@ -2431,29 +1530,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_A = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_AAA = {
     _labelNames: null,
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var sniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
         if (element === top) {
@@ -2462,29 +1543,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_AAA = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
     _labelNames: null,
     register: function() {
         return [ "_top", "p", "div", "input", "select", "textarea", "button", "table", "fieldset", "form", "h1", "h2", "h3", "h4", "h5", "h6" ];
     },
-    /**
-	 * Process the registered element.
-	 *
-	 * @param {DOMNode} element The element registered.
-	 * @param {DOMNode} top     The top element of the tested code.
-	 */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         if (element === top) {
@@ -2535,11 +1598,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Test elements for presentation roles that also contain semantic child elements.
-	 *
-	 * @param {DOMNode} element The element to test.
-	 */
     testSemanticPresentationRole: function(element) {
         if (HTMLCS.util.isAriaHidden(element) === false && element.hasAttribute("role") && element.getAttribute("role") === "presentation") {
             var permitted = [ "div", "span", "b", "i" ];
@@ -2552,11 +1610,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Top-level test for labels that have no for attribute, or duplicate ones.
-	 *
-	 * @param {DOMNode} top The top element of the tested code.
-	 */
     testEmptyDupeLabelForAttrs: function(top) {
         this._labelNames = {};
         var labels = top.getElementsByTagName("label");
@@ -2592,38 +1645,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Test for appropriate labels on inputs.
-	 *
-	 * The appropriate WCAG2 techniques test is failure F68.
-	 * This test uses the September 2014 version of the technique:
-	 * http://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140916/F68
-	 *
-	 * For all input elements of type "radio", "checkbox", "text", "file" or "password",
-	 * and all textarea and select elements in the Web page:
-	 *
-	 * 1. Check that the visual design uses a text label that identifies the purpose of the control
-	 * 2. Check that these input elements have a programmatically determined label associated in one
-	 *    of the following ways:
-	 *    (a) the text label is contained in a label element that is correctly associated to the
-	 *        respective input element via the label's for attribute (the id given as value in the
-	 *        for attribute matches the id of the input element).
-	 *    (b) the control is contained within a label element that contains the label text.
-	 *    (c) the text label is correctly programmatically associated with the input element via the
-	 *        aria-labelledby attribute (the id given as value in the aria-labelledby attribute
-	 *        matches the id of the input element).
-	 *    (d) the [label] is programmatically determined through the value of either its
-	 *        aria-label or title attributes.
-	 *
-	 * This changed in March 2014. Before then, only 2(a) was permitted or 2(d) (title attribute only).
-	 * Notably, labels made through wrapping an element in a label attribute were not permitted.
-	 *
-	 * Associated techniques: H44 (LABEL element), H65 (title attribute),
-	 * ARIA6/ARIA14 (aria-label), ARIA9/ARIA16 (aria-labelledby).
-	 *
-	 * @param {DOMNode} element The element registered.
-	 * @param {DOMNode} top     The top element of the tested code.
-	 */
     testLabelsOnInputs: function(element, top, muteErrors) {
         var nodeName = element.nodeName.toLowerCase();
         var inputType = nodeName;
@@ -2639,7 +1660,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             if (!hasLabel) hasLabel = {};
             hasLabel[found] = true;
         };
-        // Firstly, work out whether it needs a label.
         var needsLabel = false;
         var labelPos = "left";
         var inputType = inputType.toLowerCase();
@@ -2651,12 +1671,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
         if (element.getAttribute("hidden") !== null) {
             needsLabel = false;
         }
-        // Find an explicit label.
         var explicitLabel = element.ownerDocument.querySelector('label[for="' + element.id + '"]');
         if (explicitLabel) {
             addToLabelList("explicit");
         }
-        // Find an implicit label.
         var foundImplicit = false;
         if (element.parentNode) {
             HTMLCS.util.eachParentNode(element, function(parent) {
@@ -2668,7 +1686,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
         if (foundImplicit === true) {
             addToLabelList("implicit");
         }
-        // Find a title attribute.
         var title = element.getAttribute("title");
         if (title !== null) {
             if (/^\s*$/.test(title) === true && needsLabel === true) {
@@ -2677,7 +1694,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 addToLabelList("title");
             }
         }
-        // Find an aria-label attribute.
         if (element.hasAttribute("aria-label") === true) {
             if (HTMLCS.util.hasValidAriaLabel(element) === false) {
                 HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_ARIA6"), "ARIA6");
@@ -2685,7 +1701,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 addToLabelList("aria-label");
             }
         }
-        // Find an aria-labelledby attribute.
         if (element.hasAttribute("aria-labelledby") === true) {
             if (HTMLCS.util.hasValidAriaLabel(element) === false) {
                 HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_ARIA16,ARIA9").replace(/\{\{id\}\}/g, element.getAttribute("aria-labelledby")), "ARIA16,ARIA9");
@@ -2695,39 +1710,18 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
         }
         if (!(muteErrors === true)) {
             if (hasLabel !== false && needsLabel === false) {
-                // Note that it is okay for buttons to have aria-labelledby or
-                // aria-label, or title. The former two override the button text,
-                // while title is a lower priority than either: the button text,
-                // and in submit/reset cases, the localised name for the words
-                // "Submit" and "Reset".
-                // http://www.w3.org/TR/html-aapi/#accessible-name-and-description-calculation
                 if (inputType === "hidden") {
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_F68.Hidden"), "F68.Hidden");
                 } else if (element.getAttribute("hidden") !== null) {
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_F68.HiddenAttr"), "F68.HiddenAttr");
                 }
             } else if (hasLabel === false && needsLabel === true) {
-                // Needs label.
                 HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_3_1_F68"), "F68");
             }
         }
         return hasLabel;
     },
-    /**
-	 * Test for the use of presentational elements (technique H49).
-	 *
-	 * In HTML4, certain elements are considered presentational code. In HTML5, they
-	 * are redefined (based on "they are being used, so they shouldn't be
-	 * deprecated") so they can be considered "somewhat" semantic. They should still
-	 * be considered a last resort.
-	 *
-	 * @param [DOMNode] top The top element of the tested code.
-	 */
     testPresentationMarkup: function(top) {
-        // In HTML4, the following were marked as presentational:
-        // b, i, u, s, strike, tt, big, small, center, font
-        // In HTML5, the following were repurposed as pseudo-semantic:
-        // b, i, u, s, small
         var _doc = HTMLCS.util.getElementWindow(top).document;
         var doctype = HTMLCS.util.getDocumentType(_doc);
         if (doctype && (doctype === "html5" || doctype === "xhtml5")) {
@@ -2736,7 +1730,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 var msgCode = "H49." + tags[i].nodeName.substr(0, 1).toUpperCase() + tags[i].nodeName.substr(1).toLowerCase();
                 HTMLCS.addMessage(HTMLCS.ERROR, tags[i], _global.HTMLCS.getTranslation("1_3_1_H49."), msgCode);
             }
-            // Align attributes, too.
             var tags = HTMLCS.util.getAllElements(top, "*[align]");
             for (var i = 0; i < tags.length; i++) {
                 var msgCode = "H49.AlignAttr";
@@ -2748,7 +1741,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 var msgCode = "H49." + tags[i].nodeName.substr(0, 1).toUpperCase() + tags[i].nodeName.substr(1).toLowerCase();
                 HTMLCS.addMessage(HTMLCS.WARNING, tags[i], _global.HTMLCS.getTranslation("1_3_1_H49.Semantic"), msgCode);
             }
-            // Align attributes, too.
             var tags = HTMLCS.util.getAllElements(top, "*[align]");
             for (var i = 0; i < tags.length; i++) {
                 var msgCode = "H49.AlignAttr";
@@ -2756,19 +1748,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Test for the possible use of non-semantic headings (technique H42).
-	 *
-	 * Test for P|DIV > STRONG|EM|other inline styling, when said inline
-	 * styling tag is the only element in the tag. It could possibly be a header
-	 * that should be using h1..h6 tags instead.
-	 *
-	 * @param [DOMNode] element The paragraph or DIV element to test.
-	 */
     testNonSemanticHeading: function(element) {
-        // Test for P|DIV > STRONG|EM|other inline styling, when said inline
-        // styling tag is the only element in the tag. It could possibly a header
-        // that should be using h1..h6 tags instead.
         var tag = element.nodeName.toLowerCase();
         if (tag === "p" || tag === "div") {
             var children = element.childNodes;
@@ -2780,44 +1760,17 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Test for the correct association of table data cells with their headers.
-	 *
-	 * This is actually a two-part test, using either the scope attribute (H63) or
-	 * the headers attribute (H43). Which one(s) are required or appropriate
-	 * depend on the types of headings available:
-	 * - If only one row or one column header, no association is required.
-	 * - If one row AND one column headers, scope or headers is suitable.
-	 * - If multi-level headers of any type, use of headers (only) is required.
-	 *
-	 * This test takes the results of two tests - one of headers and one of scope -
-	 * and works out which error messages should apply given the above type of table.
-	 *
-	 * Invalid or incorrect usage of scope or headers are always reported when used,
-	 * and cases where scope/headers are used on some of the table but not all is
-	 * also thrown.
-	 *
-	 * @param {DOMNode} table The table element to evaluate.
-	 *
-	 * @return void
-	 */
     testTableHeaders: function(table) {
         var headersAttr = HTMLCS.util.testTableHeaders(table);
         var scopeAttr = this._testTableScopeAttrs(table);
-        // Invalid scope attribute - emit always if scope tested.
         for (var i = 0; i < scopeAttr.invalid.length; i++) {
             HTMLCS.addMessage(HTMLCS.ERROR, scopeAttr.invalid[i], _global.HTMLCS.getTranslation("1_3_1_H63.3"), "H63.3");
         }
-        // TDs with scope attributes are obsolete in HTML5 - emit warnings if
-        // scope tested, but not as errors as they are valid HTML4.
         for (var i = 0; i < scopeAttr.obsoleteTd.length; i++) {
             HTMLCS.addMessage(HTMLCS.WARNING, scopeAttr.obsoleteTd[i], _global.HTMLCS.getTranslation("1_3_1_H63.2"), "H63.2");
         }
         if (headersAttr.allowScope === true) {
             if (scopeAttr.missing.length === 0) {
-                // If all scope attributes are set, let them be used, even if the
-                // attributes are in error. If the scope attrs are fixed, the table
-                // will be legitimate.
                 headersAttr.required === false;
             }
         } else {
@@ -2826,80 +1779,43 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 scopeAttr = null;
             }
         }
-        //end if
-        // Incorrect usage of headers - error; emit always.
         for (var i = 0; i < headersAttr.wrongHeaders.length; i++) {
             HTMLCS.addMessage(HTMLCS.ERROR, headersAttr.wrongHeaders[i].element, _global.HTMLCS.getTranslation("1_3_1_H43.IncorrectAttr").replace(/\{\{expected\}\}/g, headersAttr.wrongHeaders[i].expected).replace(/\{\{actual\}\}/g, headersAttr.wrongHeaders[i].actual), "H43.IncorrectAttr");
         }
-        // Errors where headers are compulsory.
         if (headersAttr.required === true && headersAttr.allowScope === false) {
             if (headersAttr.used === false) {
-                // Headers not used at all, and they are mandatory.
                 HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.HeadersRequired"), "H43.HeadersRequired");
             } else {
-                // Missing TH IDs - error; emit at this stage only if headers are compulsory.
                 if (headersAttr.missingThId.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"), "H43.MissingHeaderIds");
                 }
-                // Missing TD headers attributes - error; emit at this stage only if headers are compulsory.
                 if (headersAttr.missingTd.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"), "H43.MissingHeadersAttrs");
                 }
             }
         }
-        //end if
-        // Errors where either is permitted, but neither are done properly (missing
-        // certain elements).
-        // If they've only done it one way, presume that that is the way they want
-        // to continue. Otherwise provide a generic message if none are done or
-        // both have been done incorrectly.
         if (headersAttr.required === true && headersAttr.allowScope === true && headersAttr.correct === false && scopeAttr.correct === false) {
             if (scopeAttr.used === false && headersAttr.used === false) {
-                // Nothing used at all.
                 HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43,H63"), "H43,H63");
             } else if (scopeAttr.used === false && (headersAttr.missingThId.length > 0 || headersAttr.missingTd.length > 0)) {
-                // Headers attribute is used, but not all th elements have ids.
                 if (headersAttr.missingThId.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"), "H43.MissingHeaderIds");
                 }
-                // Headers attribute is used, but not all td elements have headers attrs.
                 if (headersAttr.missingTd.length > 0) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"), "H43.MissingHeadersAttrs");
                 }
             } else if (scopeAttr.missing.length > 0 && headersAttr.used === false) {
-                // Scope is used rather than headers, but not all th elements have them.
                 HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H63.1"), "H63.1");
             } else if (scopeAttr.missing.length > 0 && (headersAttr.missingThId.length > 0 || headersAttr.missingTd.length > 0)) {
-                // Both are used and both were done incorrectly. Provide generic message.
                 HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43,H63"), "H43,H63");
             }
         }
     },
-    /**
-	 * Test for the correct scope attributes on table cell elements.
-	 *
-	 * Return value contains the following elements:
-	 * - used (Boolean):       Whether scope has been used on at least one cell.
-	 * - correct (Boolean):    Whether scope has been correctly used (obsolete
-	 *                         elements do not invalidate this).
-	 * - missing (Array):      Array of th elements that have no scope attribute.
-	 * - invalid (Array):      Array of elements with incorrect scope attributes.
-	 * - obsoleteTd (Array):   Array of elements where we should throw a warning
-	 *                         about scope on td being obsolete in HTML5.
-	 *
-	 * @param {DOMNode} element Table element to test upon.
-	 *
-	 * @return {Object} The above return value structure.
-	 */
     _testTableScopeAttrs: function(table) {
         var elements = {
             th: table.getElementsByTagName("th"),
             td: table.getElementsByTagName("td")
         };
-        // Types of errors:
-        // - missing:    Errors that a th does not contain a scope attribute.
-        // - invalid:    Errors that the scope attribute is not a valid value.
-        // - obsoleteTd: Warnings that scopes on tds are obsolete in HTML5.
         var retval = {
             used: false,
             correct: true,
@@ -2919,20 +1835,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 }
                 if (element.nodeName.toLowerCase() === "th") {
                     if (/^\s*$/.test(scope) === true) {
-                        // Scope empty or just whitespace.
                         retval.correct = false;
                         retval.missing.push(element);
                     } else if (/^(row|col|rowgroup|colgroup)$/.test(scope) === false) {
-                        // Invalid scope value.
                         retval.correct = false;
                         retval.invalid.push(element);
                     }
                 } else {
                     if (scope !== "") {
-                        // Scope attribute found on TD element. This is obsolete in
-                        // HTML5. Does not make it incorrect.
                         retval.obsoleteTd.push(element);
-                        // Test for an invalid scope value regardless.
                         if (/^(row|col|rowgroup|colgroup)$/.test(scope) === false) {
                             retval.correct = false;
                             retval.invalid.push(element);
@@ -2941,14 +1852,8 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 }
             }
         }
-        //end for
         return retval;
     },
-    /**
-	 * Test table captions and summaries (techniques H39, H73).
-	 *
-	 * @param {DOMNode} table Table element to test upon.
-	 */
     testTableCaptionSummary: function(table) {
         var summary = table.getAttribute("summary") || "";
         var captionEl = table.getElementsByTagName("caption");
@@ -2956,7 +1861,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
         if (captionEl.length > 0) {
             caption = captionEl[0].innerHTML.replace(/^\s*(.*?)\s*$/g, "$1");
         }
-        // In HTML5, Summary no longer exists, so only run this for older versions.
         var doctype = HTMLCS.util.getDocumentType(table.ownerDocument);
         if (doctype && doctype.indexOf("html5") === -1) {
             summary = summary.replace(/^\s*(.*?)\s*$/g, "$1");
@@ -2975,7 +1879,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 }
             }
         }
-        //end if
         if (caption !== "") {
             if (HTMLCS.util.isLayoutTable(table) === true) {
                 HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H39.3.LayoutTable"), "H39.3.LayoutTable");
@@ -2988,41 +1891,18 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Test for fieldsets without legends (technique H71)
-	 *
-	 * @param {DOMNode} fieldset Fieldset element to test upon.
-	 */
     testFieldsetLegend: function(fieldset) {
         var legend = fieldset.querySelector("legend");
         if (legend === null || legend.parentNode !== fieldset) {
             HTMLCS.addMessage(HTMLCS.ERROR, fieldset, _global.HTMLCS.getTranslation("1_3_1_H71.NoLegend"), "H71.NoLegend");
         }
     },
-    /**
-	 * Test for select fields without optgroups (technique H85).
-	 *
-	 * It won't always be appropriate, so the error is emitted as a warning.
-	 *
-	 * @param {DOMNode} select Select element to test upon.
-	 */
     testOptgroup: function(select) {
         var optgroup = select.querySelector("optgroup");
         if (optgroup === null) {
-            // Optgroup isn't being used.
             HTMLCS.addMessage(HTMLCS.WARNING, select, _global.HTMLCS.getTranslation("1_3_1_H85.2"), "H85.2");
         }
     },
-    /**
-	 * Test for radio buttons and checkboxes with same name in a fieldset.
-	 *
-	 * One error will be fired at a form level, rather than firing one for each
-	 * violating group of inputs (as there could be many).
-	 *
-	 * @param {DOMNode} form The form to test.
-	 *
-	 * @returns void
-	 */
     testRequiredFieldsets: function(form) {
         var optionInputs = form.querySelectorAll("input[type=radio], input[type=checkbox]");
         var usedNames = {};
@@ -3030,42 +1910,27 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             var option = optionInputs[i];
             if (option.hasAttribute("name") === true) {
                 var optionName = option.getAttribute("name");
-                // Now find if we are in a fieldset. Stop at the top of the DOM, or
-                // at the form element.
                 var fieldset = option.parentNode;
                 while (fieldset.nodeName.toLowerCase() !== "fieldset" && fieldset !== null && fieldset !== form) {
                     fieldset = fieldset.parentNode;
                 }
                 if (fieldset.nodeName.toLowerCase() !== "fieldset") {
-                    // Record that this name is used, but there is no fieldset.
                     fieldset = null;
                 }
             }
-            //end if
             if (usedNames[optionName] === undefined) {
                 usedNames[optionName] = fieldset;
             } else if (fieldset === null || fieldset !== usedNames[optionName]) {
-                // Multiple names detected = should be in a fieldset.
-                // Either first instance or this one wasn't in a fieldset, or they
-                // are in different fieldsets.
                 HTMLCS.addMessage(HTMLCS.WARNING, form, _global.HTMLCS.getTranslation("1_3_1_H71.SameName"), "H71.SameName");
                 break;
             }
         }
     },
-    /**
-	 * Test for paragraphs that appear manually bulleted or numbered (technique H48).
-	 *
-	 * @param {DOMNode} element The element to test upon.
-	 */
     testListsWithBreaks: function(element) {
         var firstBreak = element.querySelector("br");
         var items = [];
-        // If there is a br tag, go break up the element and see what each line
-        // starts with.
         if (firstBreak !== null) {
             var nodes = [];
-            // Convert child nodes NodeList into an array.
             for (var i = 0; i < element.childNodes.length; i++) {
                 nodes.push(element.childNodes[i]);
             }
@@ -3073,34 +1938,27 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             while (nodes.length > 0) {
                 var subel = nodes.shift();
                 if (subel.nodeType === 1) {
-                    // Element node.
                     if (subel.nodeName.toLowerCase() === "br") {
-                        // Line break. Join and trim what we have now.
                         items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
                         thisItem = [];
                     } else {
-                        // Shift the contents of the sub element in, but in reverse.
                         for (var i = subel.childNodes.length - 1; i >= 0; --i) {
                             nodes.unshift(subel.childNodes[i]);
                         }
                     }
                 } else if (subel.nodeType === 3) {
-                    // Text node.
                     thisItem.push(subel.nodeValue);
                 }
             }
-            //end while
             if (thisItem.length > 0) {
                 items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
             }
             for (var i = 0; i < items.length; i++) {
                 if (/^[\-*]\s+/.test(items[0]) === true) {
-                    // Test for "- " or "* " cases.
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H48.1"), "H48.1");
                     break;
                 }
                 if (/^\d+[:\/\-.]?\s+/.test(items[0]) === true) {
-                    // Test for "1 " cases (or "1. ", "1: ", "1- ").
                     HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H48.2"), "H48.2");
                     break;
                 }
@@ -3115,8 +1973,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             if (headingNum - lastHeading > 1) {
                 var exampleMsg = "should be an h" + (lastHeading + 1) + " to be properly nested";
                 if (lastHeading === 0) {
-                    // If last heading is empty, we are at document top and we are
-                    // expecting a H1, generally speaking.
                     HTMLCS.addMessage(level, headings[i], _global.HTMLCS.getTranslation("1_3_1_G141_a").replace(/\{\{headingNum\}\}/g, headingNum), "G141");
                 }
                 HTMLCS.addMessage(level, headings[i], _global.HTMLCS.getTranslation("1_3_1_G141_b").replace(/\{\{headingNum\}\}/g, headingNum).replace(/\{\{properHeadingNum\}\}/g, lastHeading + 1), "G141");
@@ -3124,26 +1980,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             lastHeading = headingNum;
         }
     },
-    /**
-	 * Test for headings with no text, which should either be filled, or tags removed.
-	 *
-	 * @param {DOMNode} element The element to test.
-	 *
-	 * @returns void
-	 */
     testEmptyHeading: function(element) {
         var text = HTMLCS.util.getElementTextContent(element, true);
         if (/^\s*$/.test(text) === true) {
             HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_3_1_H42.2"), "H42.2");
         }
     },
-    /**
-	 * Test for the presence of a list around common navigation links (H48).
-	 *
-	 * @param {DOMNode} element The element to test.
-	 *
-	 * @returns void
-	 */
     testUnstructuredNavLinks: function(element) {
         var nodeName = element.nodeName.toLowerCase();
         var linksLength = 0;
@@ -3156,11 +1998,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                 }
             }
         }
-        //end for
         if (linksLength > 1) {
-            // Going to throw a warning here, mainly because we cannot easily tell
-            // whether it is just a paragraph with multiple links, or a navigation
-            // structure.
             var parent = element.parentNode;
             while (parent !== null && parent.nodeName.toLowerCase() !== "ul" && parent.nodeName.toLowerCase() !== "ol") {
                 parent = parent.parentNode;
@@ -3170,14 +2008,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
         }
     },
-    /**
-	 * Provide generic messages for tables depending on what type of table they
-	 * are - layout or data.
-	 *
-	 * @param {DOMNode} table The table element to test.
-	 *
-	 * @returns void
-	 */
     testGeneralTable: function(table) {
         if (HTMLCS.util.isLayoutTable(table) === true) {
             HTMLCS.addMessage(HTMLCS.NOTICE, table, _global.HTMLCS.getTranslation("1_3_1_LayoutTable"), "LayoutTable");
@@ -3187,158 +2017,42 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_3_2_G57"), "G57");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_3_3_G96"), "G96");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_1_G14,G18"), "G14,G182");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "bgsound", "audio", "video" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_2_F23"), "F23");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
     testContrastRatio: function(top, minContrast, minLargeContrast) {
         var startDate = new Date();
@@ -3352,13 +2066,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
         }
         while (toProcess.length > 0) {
             var node = toProcess.shift();
-            // This is an element.
-            // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
-            if (node && node.nodeType === 1 && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
+            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node) === false && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
-                    // Load up new nodes, but also only process this node when
-                    // there are direct text elements.
                     if (node.childNodes[i].nodeType === 1) {
                         toProcess.push(node.childNodes[i]);
                     } else if (node.childNodes[i].nodeType === 3) {
@@ -3370,26 +2080,26 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 if (processNode === true) {
                     var style = HTMLCS.util.style(node);
                     if (style) {
-                        var bgColour = "";
+                        var bgColour = style.backgroundColor;
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
                         var bgPosition = "";
                         var foreColour = style.color;
+                        var bgElement = node;
                         var hasBgImg = false;
                         var backgrounds = [];
-                        // For compatibility with CS, we retain their name for this variable, but
-                        // it now extends beyond just "absolute" to mean "is positioned outside of parent".
-                        // Essentially it means we can't reliably know our background colour.
                         var isAbsolute = false;
-                        // Calculate font size. Note that CSS 2.1 fixes a reference pixel
-                        // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
-                        // so this calculation should be safe.
+                        if (style.backgroundImage !== "none" && style.backgroundImage.startsWith("url")) {
+                            hasBgImg = true;
+                        }
+                        if (style.position === "absolute") {
+                            isAbsolute = true;
+                        }
                         var fontSize = parseFloat(style.fontSize, 10) * (72 / 96);
                         var fontSizePixels = parseInt(style.fontSize);
                         var fontWeight = parseInt(style.fontWeight);
                         var minLargeSize = 18;
-                        // Exclude text with no font size, this is a common screen reader hack.
                         if (!fontSizePixels) {
                             continue;
                         }
@@ -3399,13 +2109,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         var reqRatio = fontSize >= minLargeSize ? minLargeContrast : minContrast;
                         var currentNode = node;
                         var currentStyle = style;
-                        // Calculate our background colour(s) and image(s)
                         while (true) {
                             bgColour = currentStyle.backgroundColor;
                             if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
                                 bgColour = null;
                             }
-                            if (currentStyle.backgroundImage !== "none") {
+                            if (currentStyle.backgroundImage !== "none" && currentStyle.backgroundImage.startsWith("url")) {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
                                 bgRepeat = currentStyle.backgroundRepeat;
@@ -3426,7 +2135,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                     bgColor: bgColour,
                                     isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
-                                // Exist if the background is not even slightly transparent
                                 if (!HTMLCS.util.isColorTransparent(bgColour)) {
                                     break;
                                 }
@@ -3434,15 +2142,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             if (HTMLCS.util.isPositionedOutsideParent(currentStyle)) {
                                 isAbsolute = true;
                             }
-                            // Up one node, if we can
                             currentNode = currentNode.parentNode;
                             if (!currentNode || !currentNode.ownerDocument) {
                                 break;
                             }
                             currentStyle = HTMLCS.util.style(currentNode);
                         }
-                        // Calculate the combined background colour from all of our
-                        // relevant parents, by considering their alpha
                         bgColour = null;
                         for (var b = 0; b < backgrounds.length; b++) {
                             var thisBgColour = backgrounds[b].bgColor;
@@ -3455,8 +2160,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             }
                         }
                         if (hasBgImg === true) {
-                            // If we have a background image, skip the contrast ratio checks,
-                            // and push a warning instead.
                             failures.push({
                                 element: node,
                                 colour: foreColour,
@@ -3490,10 +2193,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize
                             });
                             continue;
-                        } else if (!bgColour) {
-                            // If the background colour is still transparent, this is probably
-                            // a fragment with which we cannot reliably make a statement about
-                            // contrast ratio. Skip the element.
+                        } else if (!bgColour || bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
                             continue;
                         }
                         var contrastRatio = HTMLCS.util.contrastRatio(bgColour, style.color);
@@ -3518,20 +2218,16 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 }
             }
         }
-        //end while
         return failures;
     },
-    /**
-     * Parse a string of format: url("foo")
-     *
-     * @param style
-     * @returns {*|string}
-     */
     getUrlFromStyle: function(style) {
-        return style.match(/url\(["']?([^"']*)["']?\)/)[1];
+        var matches = style.match(/url\(["']?([^"']*)["']?\)/);
+        if (matches instanceof Array && matches.length > 0) {
+            return matches[1];
+        }
+        return "";
     },
     recommendColour: function(back, fore, target) {
-        // Canonicalise the colours.
         var fore = HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(fore));
         var back = HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(back));
         var cr = HTMLCS.util.contrastRatio(fore, back);
@@ -3539,8 +2235,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
         var backDiff = Math.abs(HTMLCS.util.relativeLum(back) - .5);
         var recommendation = null;
         if (cr < target) {
-            // Work out which colour has more room to move.
-            // If they are the same, prefer changing the foreground colour.
             var multiplier = 1 + 1 / 400;
             if (foreDiff <= backDiff) {
                 var change = "back";
@@ -3563,10 +2257,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
             var i = 0;
             while (cr < target) {
                 if (newCol === "#fff" || newCol === "#000") {
-                    // Couldn't go far enough. Reset and try the other colour.
                     if (changed === true) {
-                        // We've already switched colours, so we have to start
-                        // winding back the other colour.
                         if (change === "fore") {
                             var oldBack = newBack;
                             var j = 1;
@@ -3608,7 +2299,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 }
                 var cr = HTMLCS.util.contrastRatio(newFore, newBack);
             }
-            //end while
             recommendation = {
                 fore: {
                     from: fore,
@@ -3620,13 +2310,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 }
             };
         }
-        //end if
         return recommendation;
     },
     multiplyColour: function(colour, multiplier) {
         var hsvColour = HTMLCS.util.sRGBtoHSV(colour);
         var chroma = hsvColour.saturation * hsvColour.value;
-        // If we are starting from black, start it from #010101 instead.
         if (hsvColour.value === 0) {
             hsvColour.value = 1 / 255;
         }
@@ -3643,64 +2331,16 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_F24 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Test for background/foreground stuff.
         var elements = HTMLCS.util.getAllElements(top, "*");
         for (var i = 0; i < elements.length; i++) {
             this.testColourComboFail(elements[i]);
         }
     },
-    /**
-     * Tests for setting foreground without background, or vice versa (failure F24).
-     *
-     * It is a failure for a background colour to be set without a foreground colour,
-     * or vice versa. A user agent style sheet could try and set both, and because
-     * one is overridden, the result could be unreadable.
-     *
-     * This is being thrown as a warning, not an error. The failure allows the FG
-     * and BG colours to be set further up the chain, as long as the content has both
-     * foreground and background colours set by  the time.
-
-     * Further, we can only test inline styles (either through attributes, CSS, or
-     * JavaScript setting through eg. jQuery) because computed styles cause issues.
-     * For instance, if no user style sheet is set, the default stylesheet (in
-     * Firefox) at least is "transparent background/black text", and this would show
-     * up in the computed style (and fail, since transparent is "not set"). The F24
-     * description (by my reading) allows the colours to be set further up the chain,
-     * as long as the content has -a- BG and -a- FG colour.
-     *
-     * @param Node element The element to test.
-     */
     testColourComboFail: function(element) {
         var hasFg = element.hasAttribute("color");
         hasFg = hasFg || element.hasAttribute("link");
@@ -3717,7 +2357,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_F24 = {
                 hasBg = true;
             }
         }
-        //end if
         if (hasBg !== hasFg) {
             if (hasBg === true) {
                 HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_F24.BGColour"), "F24.BGColour");
@@ -3728,36 +2367,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_F24 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             var failures = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(top, 4.5, 3);
@@ -3780,7 +2393,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                 var fontWeight = failures[i].fontWeight;
                 var minLargeSize = failures[i].minLargeSize;
                 var backgrounds = failures[i].backgrounds;
-                // If the values would look identical, add decimals to the value.
                 while (required === value) {
                     decimals++;
                     value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -3799,7 +2411,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
                         recommendText.push(_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation.Background") + " " + recommend.back.to);
                     }
                 }
-                //end if
                 if (recommendText.length > 0) {
                     recommendText = " " + _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation") + " " + recommendText.join(", ") + ".";
                 }
@@ -3869,71 +2480,19 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_4_G142"), "G142");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var imgObj = top.querySelector("img");
         if (imgObj !== null) {
@@ -3942,36 +2501,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_5 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             var failures = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(top, 7, 4.5);
@@ -3994,7 +2527,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                 var fontSizePixels = failures[i].fontSizePixels;
                 var minLargeSize = failures[i].minLargeSize;
                 var backgrounds = failures[i].backgrounds;
-                // If the values would look identical, add decimals to the value.
                 while (required === value) {
                     decimals++;
                     value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -4014,7 +2546,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
                         recommendText.push(_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation.Background") + recommend.back.to);
                     }
                 }
-                //end if
                 if (recommendText.length > 0) {
                     recommendText = " " + _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation") + " " + recommendText.join(", ") + ".";
                 }
@@ -4083,74 +2614,20 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_7 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "embed", "applet", "bgsound", "audio" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_4_7_G56"), "G56");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_8 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // This Success Criterion has five prongs, and each should be thrown as a
-        // separate notice as separate techniques apply to each.
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_G148,G156,G175"), "G148,G156,G175");
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_H87,C20"), "H87,C20");
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_C19,G172,G169"), "C19,G172,G169");
@@ -4159,36 +2636,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_8 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_9 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var imgObj = top.querySelector("img");
         if (imgObj !== null) {
@@ -4197,42 +2648,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_9 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Testing for elements that have explicit attributes for mouse-specific
-        // events. Note: onclick is considered keyboard accessible, as it is actually
-        // tied to the default action of a link or button - not merely a click.
         if (element === top) {
-            // Cannot detect event listeners here so only onclick attributes are checked.
             var keyboardTriggers = HTMLCS.util.getAllElements(top, "*[onclick], *[onkeyup], *[onkeydown], *[onkeypress], *[onfocus], *[onblur]");
             keyboardTriggers.forEach(function(elem) {
                 if (HTMLCS.util.isKeyboardNavigable(elem) === false) {
@@ -4267,84 +2688,26 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "object", "applet", "embed" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("2_1_2_F10"), "F10");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "meta" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Meta refresh testing under H76/F41. Fails if a non-zero timeout is provided.
-        // NOTE: H76 only lists criterion 3.2.5, but F41 also covers refreshes to
-        // same page (no URL content), which is covered by non-adjustable timeouts
-        // in criterion 2.2.1.
         if (element.hasAttribute("http-equiv") === true) {
             if (String(element.getAttribute("http-equiv")).toLowerCase() === "refresh") {
                 if (/^[1-9]\d*/.test(element.getAttribute("content").toLowerCase()) === true) {
                     if (/url=/.test(element.getAttribute("content").toLowerCase()) === true) {
-                        // Redirect.
                         HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_2_1_F40.2"), "F40.2");
                     } else {
-                        // Just a refresh.
                         HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_2_1_F41.2"), "F41.2");
                     }
                 }
@@ -4353,36 +2716,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top", "blink" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_2_SCR33,SCR22,G187,G152,G186,G191"), "SCR33,SCR22,G187,G152,G186,G191");
@@ -4401,218 +2738,55 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_2 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_3_G5"), "G5");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_4_SCR14"), "SCR14");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_5_G105,G181"), "G105,G181");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // The "small" flashing area is deliberately vague - users should see
-        // technique G176 for more details, as the threshold depends on both the
-        // size and resolution of a screen.
-        // The technique gives a baseline (based on a 15-17 inch monitor read at
-        // 22-26 inches, at 1024 x 768 resolution). A 10-degree field of vision is
-        // approximately 341 x 256 pixels in this environment, and a flashing area
-        // needs to be no more than 25% of this (not necessarily rectangular).
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_3_1_G19,G176"), "G19,G176");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_3_2_G19"), "G19");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "iframe", "a", "area", "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             this.testGenericBypassMsg(top);
@@ -4630,13 +2804,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
             }
         }
     },
-    /**
-     * Test for the presence of title attributes on the iframe element (technique H64).
-     *
-     * @param {DOMNode} element The element to test.
-     *
-     * @returns void
-     */
     testIframeTitle: function(element) {
         var nodeName = element.nodeName.toLowerCase();
         if (nodeName === "iframe") {
@@ -4653,28 +2820,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
             }
         }
     },
-    /**
-     * Throw a generic bypass blocks message.
-     *
-     * @param {DOMNode} top Top element of the testing source.
-     *
-     * @returns void
-     */
     testGenericBypassMsg: function(top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_4_1_G1,G123,G124,H69"), "G1,G123,G124,H69");
     },
-    /**
-     * Test for document fragment links to IDs that do not exist.
-     *
-     * These are links of the form "<a href="#content">", where the ID "content" does
-     * not exist. Area elements in image maps are also tested, as they are also
-     * likely to contain these attributes.
-     *
-     * @param {DOMNode} element The element to test.
-     * @param {DOMNode} top     Top element of the testing source.
-     *
-     * @returns void
-     */
     testSameDocFragmentLinks: function(element, top) {
         if (element.hasAttribute("href") === true) {
             var href = element.getAttribute("href");
@@ -4686,8 +2834,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
                     if (doc.ownerDocument) {
                         doc = doc.ownerDocument;
                     }
-                    // First search for an element with the appropriate ID, then search for a
-                    // named anchor using the name attribute.
                     var target = doc.getElementById(id);
                     if (target === null) {
                         var _doc = HTMLCS.util.getElementWindow(top).document;
@@ -4711,38 +2857,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "html" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Find a head first.
         var children = element.childNodes;
         var head = null;
         for (var i = 0; i < children.length; i++) {
@@ -4775,36 +2894,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_2 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             var tabIndexExists = top.querySelector("*[tabindex]");
@@ -4815,36 +2908,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_3 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "a" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element.hasAttribute("title") === true) {
             HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_4_H77,H78,H79,H80,H81,H33"), "H77,H78,H79,H80,H81,H33");
@@ -4854,110 +2921,29 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_4 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_5_G125,G64,G63,G161,G126,G185"), "G125,G64,G63,G161,G126,G185");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_6 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_6_G130,G131"), "G130,G131");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_7 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Fire this notice if there appears to be an input field or link on the page
-        // (which will be just about anything). Links are important because they can
-        // still be tabbed to.
         var inputField = top.querySelector("input, textarea, button, select, a");
         if (inputField !== null) {
             HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_4_7_G149,G165,G195,C15,SCR31"), "G149,G165,G195,C15,SCR31");
@@ -4965,45 +2951,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_7 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_8 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "link" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var linkParentName = element.parentNode.nodeName.toLowerCase();
-        // Check for the correct location. HTML4 states "it may only appear in the
-        // HEAD element". HTML5 states it appears "wherever metadata content is
-        // expected", which only includes the head element.
         if (linkParentName !== "head") {
             HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_8_H59.1"), "H59.1");
         }
-        // Check for mandatory elements.
         if (element.hasAttribute("rel") === false || !element.getAttribute("rel") || /^\s*$/.test(element.getAttribute("rel")) === true) {
             HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_8_H59.2a"), "H59.2a");
         }
@@ -5013,75 +2969,21 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_8 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_9 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "a" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_9_H30"), "H30");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "html" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element.hasAttribute("lang") === false && element.hasAttribute("xml:lang") === false) {
-            // TODO: if we can tell whether it's HTML or XHTML, we should split this
-            // into two - one asking for "lang", the other for "xml:lang".
             HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_1_H57.2"), "H57.2");
         } else {
             if (element.hasAttribute("lang") === true) {
@@ -5102,43 +3004,16 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1 = {
             }
         }
     },
-    /**
-     * Test for well-formed language tag as per IETF BCP 47.
-     *
-     * Note that this checks only for well-formedness, not whether the subtags are
-     * actually on the registered subtags list.
-     *
-     * @param {String} langTag The language tag to test.
-     *
-     * @returns {Boolean} the result of the regex test.
-     */
     isValidLanguageTag: function(langTag) {
-        // Allow irregular or private-use tags starting with 'i' or 'x'.
-        // Values after it are 1-8 alphanumeric characters.
         var regexStr = "^([ix](-[a-z0-9]{1,8})+)$|";
-        // Core language tags - 2 to 8 letters
         regexStr += "^[a-z]{2,8}";
-        // Extlang subtags - three letters, repeated 0 to 3 times
         regexStr += "(-[a-z]{3}){0,3}";
-        // Script subtag - four letters, optional.
         regexStr += "(-[a-z]{4})?";
-        // Region subtag - two letters for a country or a three-digit region; optional.
         regexStr += "(-[a-z]{2}|-[0-9]{3})?";
-        // Variant subtag - either digit + 3 alphanumeric, or
-        // 5-8 alphanumeric where it doesn't start with a digit; optional
-        // but repeatable.
         regexStr += "(-[0-9][a-z0-9]{3}|-[a-z0-9]{5,8})*";
-        // Extension subtag - one single alphanumeric character (but not "x"),
-        // followed by at least one value of 2-8 alphanumeric characters.
-        // The whole thing is optional but repeatable (for different extensions).
         regexStr += "(-[a-wy-z0-9](-[a-z0-9]{2,8})+)*";
-        // Private use subtag, starting with an "x" and containing at least one
-        // value of 1-8 alphanumeric characters. It must come last.
         regexStr += "(-x(-[a-z0-9]{1,8})+)?$";
-        // Make a regex out of it, and make it all case-insensitive.
         var regex = new RegExp(regexStr, "i");
-        // Throw the correct lang code depending on whether this is a document
-        // element or not.
         var valid = true;
         if (regex.test(langTag) === false) {
             valid = false;
@@ -5147,45 +3022,13 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Generic message for changes in language.
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_2_H58"), "H58");
-        // Alias the SC 3.1.1 object, which contains our "valid language tag" test.
         var sc3_1_1 = HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1;
-        // Note, going one element beyond the end, so we can test the top element
-        // (which doesn't get picked up by the above query). Instead of going off the
-        // cliff of the collection, the last loop (i === langEls.length) checks the
-        // top element.
         var langEls = HTMLCS.util.getAllElements(top, "*[lang]");
         for (var i = 0; i <= langEls.length; i++) {
             if (i === langEls.length) {
@@ -5193,8 +3036,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_2 = {
             } else {
                 var langEl = langEls[i];
             }
-            // Skip html nodes, they are covered by 3.1.1.
-            // Also skip if the top element is the document element.
             if (!langEl.documentElement && langEl.nodeName.toLowerCase() !== "html") {
                 if (langEl.hasAttribute("lang") === true) {
                     var lang = langEl.getAttribute("lang");
@@ -5213,148 +3054,41 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_2 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_3_H40,H54,H60,G62,G70"), "H40,H54,H60,G62,G70");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_4_G102,G55,G62,H28,G97"), "G102,G55,G62,H28,G97");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_5_G86,G103,G79,G153,G160"), "G86,G103,G79,G153,G160");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_6 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "ruby" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var rb = element.querySelectorAll("rb");
         var rt = element.querySelectorAll("rt");
         if (rt.length === 0) {
-            // Vary the message depending on whether an rb element exists. If it doesn't,
-            // the presumption is that we are using HTML5 that uses the body of the ruby
-            // element for the same purpose (otherwise, assume XHTML 1.1 with rb element).
             if (rb.length === 0) {
                 HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_6_H62.1.HTML5"), "H62.1.HTML5");
             } else {
@@ -5363,223 +3097,76 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_6 = {
         }
         var rp = element.querySelectorAll("rp");
         if (rp.length === 0) {
-            // No "ruby parentheses" tags for those user agents that don't support
-            // ruby at all.
             HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_6_H62.2"), "H62.2");
         }
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "input", "textarea", "button", "select" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_2_1_G107"), "G107");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         if (nodeName === "form") {
             this.checkFormSubmitButton(element);
         }
     },
-    /**
-     * Test for forms that don't have a submit button of some sort (technique H32).
-     *
-     * @param {DOMNode} form The form to test.
-     */
     checkFormSubmitButton: function(form) {
         var ok = false;
-        // Test for INPUT-based submit buttons. The type must be specified, as
-        // the default for INPUT is text.
         var inputButtons = form.querySelectorAll("input[type=submit], input[type=image]");
         if (inputButtons.length > 0) {
             ok = true;
         } else {
-            // Check for BUTTONs that aren't reset buttons, or normal buttons.
-            // If they're blank or invalid, they are submit buttons.
             var buttonButtons = form.querySelectorAll("button");
             var nonSubmitButtons = form.querySelectorAll("button[type=reset], button[type=button]");
             if (buttonButtons.length > nonSubmitButtons.length) {
                 ok = true;
             }
         }
-        //end if
         if (ok === false) {
             HTMLCS.addMessage(HTMLCS.ERROR, form, _global.HTMLCS.getTranslation("3_2_2_H32.2"), "H32.2");
         }
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_2_3_G61"), "G61");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_2_4_G197"), "G197");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "a" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         var nodeName = element.nodeName.toLowerCase();
         if (nodeName === "a") {
             this.checkNewWindowTarget(element);
         }
     },
-    /**
-     * Test for links that open in new windows but don't warn users (technique H83).
-     *
-     * @param {DOMNode} link The link to test.
-     */
     checkNewWindowTarget: function(link) {
         var hasTarget = link.hasAttribute("target");
         if (hasTarget === true) {
@@ -5591,251 +3178,64 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_5 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_1_G83,G84,G85"), "G83,G84,G85");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Only the generic message will be displayed here. If there were problems
-        // with input boxes not having labels, it will be pulled up as errors in
-        // other Success Criteria (eg. 1.3.1, 4.1.2).
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_2_G131,G89,G184,H90"), "G131,G89,G184,H90");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_3 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
-        // Only G177 (about providing suggestions) is flagged as a technique.
-        // The techniques in 3.3.1 are also listed in this Success Criterion.
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_3_G177"), "G177");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_4 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_4_G98,G99,G155,G164,G168.LegalForms"), "G98,G99,G155,G164,G168.LegalForms");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_5 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_5_G71,G184,G193"), "G71,G184,G193");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_6 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "form" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_6_G98,G99,G155,G164,G168.AllForms"), "G98,G99,G155,G164,G168.AllForms");
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_1 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             var elsWithIds = HTMLCS.util.getAllElements(top, "*[id]");
@@ -5846,8 +3246,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_1 = {
                     continue;
                 }
                 if (usedIds[id] !== undefined) {
-                    // F77 = "Failure of SC 4.1.1 due to duplicate values of type ID".
-                    // Appropriate technique in HTML is H93.
                     HTMLCS.addMessage(HTMLCS.ERROR, elsWithIds[i], _global.HTMLCS.getTranslation("4_1_1_F77").replace(/\{\{id\}\}/g, id), "F77");
                 } else {
                     usedIds[id] = true;
@@ -5857,36 +3255,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_1 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
-    /**
-     * Determines the elements to register for processing.
-     *
-     * Each element of the returned array can either be an element name, or "_top"
-     * which is the top element of the tested code.
-     *
-     * @returns {Array} The list of elements.
-     */
     register: function() {
         return [ "_top" ];
     },
-    /**
-     * Process the registered element.
-     *
-     * @param {DOMNode} element The element registered.
-     * @param {DOMNode} top     The top element of the tested code.
-     */
     process: function(element, top) {
         if (element === top) {
             var messages = this.processFormControls(top);
@@ -5944,13 +3316,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                 hrefFound = true;
             }
             if (hrefFound === false) {
-                // No href. We don't want these because, although they are commonly used
-                // to create targets, they can be picked up by screen readers and
-                // displayed to the user as empty links. A elements are defined by H91 as
-                // having an (ARIA) role of "link", and using them as targets are
-                // essentially misusing them. Place an ID on a parent element instead.
                 if (/^\s*$/.test(content) === true) {
-                    // Also no content. (eg. <a id=""></a> or <a name=""></a>)
                     if (element.hasAttribute("id") === true) {
                         errors.empty.push(element);
                     } else if (element.hasAttribute("name") === true) {
@@ -5959,31 +3325,20 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                         errors.emptyNoId.push(element);
                     }
                 } else {
-                    // Giving a benefit of the doubt here - if a link has text and also
-                    // an ID, but no href, it might be because it is being manipulated by
-                    // a script.
                     if (element.hasAttribute("id") === true || element.hasAttribute("name") === true) {
                         errors.noHref.push(element);
                     } else {
-                        // HTML5 allows A elements with text but no href, "for where a
-                        // link might otherwise have been placed, if it had been relevant".
-                        // Hence, thrown as a warning, not an error.
                         errors.placeholder.push(element);
                     }
                 }
             } else {
                 if (nameFound === false) {
-                    // Href provided, but no content, title or valid aria label.
-                    // We only fire this message when there are no images in the content.
-                    // A link around an image with no alt text is already covered in SC
-                    // 1.1.1 (test H30).
                     if (element.querySelectorAll("img").length === 0 && HTMLCS.util.hasValidAriaLabel(element) === false) {
                         errors.noContent.push(element);
                     }
                 }
             }
         }
-        //end for
         return errors;
     },
     processFormControls: function(top) {
@@ -6016,44 +3371,34 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
             var msgSubCode = element.nodeName.substr(0, 1).toUpperCase() + element.nodeName.substr(1).toLowerCase();
             if (nodeName === "input") {
                 if (element.hasAttribute("type") === false) {
-                    // If no type attribute, default to text.
                     nodeName += "_text";
                 } else {
                     nodeName += "_" + element.getAttribute("type").toLowerCase();
                 }
-                // Treat all input buttons as the same
                 if (nodeName === "input_submit" || nodeName === "input_reset") {
                     nodeName = "input_button";
                 }
-                // Get a format like "InputText".
                 var msgSubCode = "Input" + nodeName.substr(6, 1).toUpperCase() + nodeName.substr(7).toLowerCase();
             }
-            //end if
             var matchingRequiredNames = requiredNames[nodeName];
             var requiredValue = requiredValues[nodeName];
-            // Any element that doesn't have specific handling must have content or aria labels.
             if (!matchingRequiredNames && nodeName !== "input_hidden") {
                 matchingRequiredNames = [ "_content", "@aria-label", "@aria-labelledby" ];
             }
-            // Check all possible combinations of names to ensure that one exists.
             if (matchingRequiredNames) {
                 for (var i = 0; i < matchingRequiredNames.length; i++) {
                     var requiredName = matchingRequiredNames[i];
                     if (requiredName === "_content") {
-                        // Work with content.
                         var content = HTMLCS.util.getElementTextContent(element);
                         if (/^\s*$/.test(content) === false) {
                             break;
                         }
                     } else if (requiredName === "label") {
-                        // Label element. Re-use the label associating
-                        // functions in SC 1.3.1.
                         var hasLabel = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testLabelsOnInputs(element, top, true);
                         if (hasLabel !== false) {
                             break;
                         }
                     } else if (requiredName.charAt(0) === "@") {
-                        // Attribute.
                         requiredName = requiredName.substr(1, requiredName.length);
                         if ((requiredName === "aria-label" || requiredName === "aria-labelledby") && HTMLCS.util.hasValidAriaLabel(element)) {
                             break;
@@ -6062,7 +3407,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                             break;
                         }
                     } else {
-                        // Sub-element contents.
                         var subEl = element.querySelector(requiredName);
                         if (subEl !== null) {
                             var content = HTMLCS.util.getElementTextContent(subEl);
@@ -6072,7 +3416,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                         }
                     }
                 }
-                //end for
                 if (i === matchingRequiredNames.length) {
                     var msgNodeType = nodeName + " " + _global.HTMLCS.getTranslation("4_1_2_element");
                     if (nodeName.substr(0, 6) === "input_") {
@@ -6099,38 +3442,29 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                     });
                 }
             }
-            //end if
             var valueFound = false;
             if (requiredValue === undefined) {
-                // Nothing required of us.
                 valueFound = true;
             } else if (requiredValue === "_content") {
-                // Work with content.
                 var content = HTMLCS.util.getElementTextContent(element);
                 if (/^\s*$/.test(content) === false) {
                     valueFound = true;
                 }
             } else if (requiredValue === "option_selected") {
-                // Select lists are recommended to have a selected Option element.
                 if (element.hasAttribute("multiple") === false) {
                     var selected = element.querySelector("option[selected]");
                     if (selected !== null) {
                         valueFound = true;
                     }
                 } else {
-                    // Allow zero element selection to be valid where the SELECT
-                    // element has been declared as a multiple selection.
                     valueFound = true;
                 }
             } else if (requiredValue.charAt(0) === "@") {
-                // Attribute.
                 requiredValue = requiredValue.substr(1, requiredValue.length);
                 if (element.hasAttribute(requiredValue) === true) {
                     valueFound = true;
                 }
             }
-            //end if
-            // Check for valid aria labels.
             if (valueFound === false) {
                 valuFound = HTMLCS.util.hasValidAriaLabel(element);
             }
@@ -6145,9 +3479,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                 if (requiredValue === "_content") {
                     builtAttr = " " + _global.HTMLCS.getTranslation("4_1_2_msg_add_one");
                 } else if (requiredValue === "option_selected") {
-                    // Change the message instead. The value is only undefined in HTML 4/XHTML 1;
-                    // in HTML5 the first option in a single select dropdown is automatically selected.
-                    // Because of this, it should also be sent out as a warning, not an error.
                     warning = true;
                     msg = _global.HTMLCS.getTranslation("4_1_2_msg_pattern2").replace(/\{\{msgNodeType\}\}/g, msgNodeType);
                 } else if (requiredValue.charAt(0) === "@") {
@@ -6171,7 +3502,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
                 }
             }
         }
-        //end for
         return {
             errors: errors,
             warnings: warnings
@@ -6179,18 +3509,6 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
     }
 };
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS = new function() {
     var _standards = {};
     var _sniffs = [];
@@ -6199,25 +3517,11 @@ _global.HTMLCS = new function() {
     var _currentSniff = null;
     var _messages = [];
     var _msgOverrides = {};
-    /*
-        Message type constants.
-    */
     this.ERROR = 1;
     this.WARNING = 2;
     this.NOTICE = 3;
-    // The current language to use.
     this.lang = "en";
-    /**
-     * Loads the specified standard and run the sniffs.
-     *
-     * @param {String}      standard     The name of the standard to load.
-     * @param {String|Node} content      An HTML string or a DOM node object.
-     * @param {Function}    callback     The function that will be called when the testing is completed.
-     * @param {Function}    failCallback The fail callback which will be called if the standard load has failed.
-     * @param {String}      language     The language to use for text output.
-     */
     this.process = function(standard, content, callback, failCallback, language) {
-        // Clear previous runs.
         _standards = {};
         _sniffs = [];
         _tags = {};
@@ -6225,7 +3529,6 @@ _global.HTMLCS = new function() {
         if (!content) {
             return false;
         }
-        // Set a language to use.
         var languages = Object.keys(_global.translation);
         if (language && languages.indexOf(language) !== -1) {
             this.lang = language;
@@ -6238,13 +3541,6 @@ _global.HTMLCS = new function() {
             }, failCallback);
         }
     };
-    /**
-     * Gets a translation for a text value.
-     *
-     * @param {String} text The text to get the translation for.
-     *
-     * @return {String}
-     */
     this.getTranslation = function(text) {
         try {
             return _global.translation[this.lang][text];
@@ -6252,12 +3548,6 @@ _global.HTMLCS = new function() {
             throw new Error('Translation for "' + text + '" does not exist in current language ' + this.lang);
         }
     };
-    /**
-     * Loads the specified standard and its sniffs.
-     *
-     * @param {String}   standard The name of the standard to load.
-     * @param {Function} callback The function to call once the standard is loaded.
-     */
     this.loadStandard = function(standard, callback, failCallback) {
         if (!standard) {
             return false;
@@ -6267,12 +3557,6 @@ _global.HTMLCS = new function() {
             callback.call(this);
         }, failCallback);
     };
-    /**
-     * Runs the sniffs for the loaded standard.
-     *
-     * @param {Function}    callback The function to call once all sniffs are completed.
-     * @param {String|Node} content  An HTML string or a DOM node object.
-     */
     this.run = function(callback, content) {
         var element = null;
         var loadingFrame = false;
@@ -6301,7 +3585,6 @@ _global.HTMLCS = new function() {
                 elements.unshift(element);
                 _run(elements, element, callback);
             };
-            // Satisfy IE which doesn't like onload being set dynamically.
             elementFrame.onreadystatechange = function() {
                 if (/^(complete|loaded)$/.test(this.readyState) === true) {
                     this.onreadystatechange = null;
@@ -6324,26 +3607,12 @@ _global.HTMLCS = new function() {
         }
         callback = callback || function() {};
         _messages = [];
-        // Get all the elements in the parent element.
-        // Add the parent element too, which will trigger "_top" element codes.
         var elements = HTMLCS.util.getAllElements(element);
         elements.unshift(element);
-        // Run the sniffs.
         if (loadingFrame === false) {
             _run(elements, element, callback);
         }
     };
-    /**
-     * Returns true if the content passed appears to be from a full document.
-     *
-     * With string content, we consider a full document as the presence of <html>,
-     * or <head> + <body> elements. For an element, only the 'html' element (the
-     * document element) is accepted.
-     *
-     * @param {String|Node} content An HTML string or a DOM node object.
-     *
-     * @returns {Boolean}
-     */
     this.isFullDoc = function(content) {
         var fullDoc = false;
         if (typeof content === "string") {
@@ -6353,22 +3622,12 @@ _global.HTMLCS = new function() {
                 fullDoc = true;
             }
         } else {
-            // If we are the document, or the document element.
             if (content.nodeName.toLowerCase() === "html" || content.documentElement) {
                 fullDoc = true;
             }
         }
         return fullDoc;
     };
-    /**
-     * Adds a message.
-     *
-     * @param {Number}  type    The type of the message.
-     * @param {Node}    element The element that the message is related to.
-     * @param {String}  msg     The message string.
-     * @param {String}  code    Unique code for the message.
-     * @param {Object}  [data]  Extra data to store for the message.
-     */
     this.addMessage = function(type, element, msg, code, data) {
         code = _getMessageCode(code);
         _messages.push({
@@ -6379,24 +3638,9 @@ _global.HTMLCS = new function() {
             data: data
         });
     };
-    /**
-     * Returns all the messages for the last run.
-     *
-     * Return a copy of the array so the class variable doesn't get modified by
-     * future modification (eg. splicing).
-     *
-     * @returns {Array} Array of message objects.
-     */
     this.getMessages = function() {
         return _messages.concat([]);
     };
-    /**
-     * Runs the sniffs in the loaded standard for the specified element.
-     *
-     * @param {Node}     element    The element to test.
-     * @param {Node}     topElement The top element of the processing.
-     * @param {Function} [callback] The function to call once all tests are run.
-     */
     var _run = function(elements, topElement, callback) {
         var topMsgs = [];
         while (elements.length > 0) {
@@ -6406,8 +3650,6 @@ _global.HTMLCS = new function() {
             } else {
                 var tagName = element.tagName.toLowerCase();
             }
-            // First check whether any "top" messages need to be shifted off for this
-            // element. If so, dump off into the main messages.
             for (var i = 0; i < topMsgs.length; ) {
                 if (element === topMsgs[i].element) {
                     _messages.push(topMsgs[i]);
@@ -6416,21 +3658,15 @@ _global.HTMLCS = new function() {
                     i++;
                 }
             }
-            //end for
             if (_tags[tagName] && _tags[tagName].length > 0) {
                 _processSniffs(element, _tags[tagName].concat([]), topElement);
-                // Save "top" messages, and reset the messages array.
                 if (tagName === "_top") {
                     topMsgs = _messages;
                     _messages = [];
                 }
             }
         }
-        //end while
         _messages = _messages.concat(topMsgs);
-        // Due to filtering of presentation roles for general sniffing these need to be handled
-        // separately. The 1.3.1 sniff needs to run to detect any incorrect usage of the presentation
-        // role.
         var presentationElems = topElement.querySelectorAll('[role="presentation"]');
         _currentSniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
         [].forEach.call(presentationElems, function(element) {
@@ -6440,74 +3676,39 @@ _global.HTMLCS = new function() {
             callback.call(this);
         }
     };
-    /**
-     * Process the sniffs.
-     *
-     * @param {Node}     element    The element to test.
-     * @param {Array}    sniffs     Array of sniffs.
-     * @param {Node}     topElement The top element of the processing.
-     * @param {Function} [callback] The function to call once the processing is completed.
-     */
     var _processSniffs = function(element, sniffs, topElement, callback) {
         while (sniffs.length > 0) {
             var sniff = sniffs.shift();
             _currentSniff = sniff;
             if (sniff.useCallback === true) {
-                // If the useCallback property is set:
-                // - Process the sniff.
-                // - Recurse into ourselves with remaining sniffs, with no callback.
-                // - Clear out the list of sniffs (so they aren't run again), so the
-                //   callback (if not already recursed) can run afterwards.
                 sniff.process(element, topElement, function() {
                     _processSniffs(element, sniffs, topElement);
                     sniffs = [];
                 });
             } else {
-                // Process the sniff.
                 sniff.process(element, topElement);
             }
         }
-        //end while
         if (callback instanceof Function === true) {
             callback.call(this);
         }
     };
-    /**
-     * Includes the specified standard file.
-     *
-     * @param {String}   standard The name of the standard.
-     * @param {Function} callback The function to call once the standard is included.
-     * @param {Object}   options  The options for the standard (e.g. exclude sniffs).
-     */
     var _includeStandard = function(standard, callback, failCallback, options) {
         if (standard.indexOf("http") !== 0) {
             standard = _getStandardPath(standard);
         }
-        //end id
-        // See if the ruleset object is already included (eg. if minified).
         var parts = standard.split("/");
         var ruleSet = _global["HTMLCS_" + parts[parts.length - 2]];
         if (ruleSet) {
-            // Already included.
             _registerStandard(standard, callback, failCallback, options);
         } else {
             _includeScript(standard, function() {
-                // Script is included now register the standard.
                 _registerStandard(standard, callback, failCallback, options);
             }, failCallback);
         }
     };
-    /**
-     * Registers the specified standard and its sniffs.
-     *
-     * @param {String}   standard The name of the standard.
-     * @param {Function} callback The function to call once the standard is registered.
-     * @param {Object}   options  The options for the standard (e.g. exclude sniffs).
-     */
     var _registerStandard = function(standard, callback, failCallback, options) {
-        // Get the object name.
         var parts = standard.split("/");
-        // Get a copy of the ruleset object.
         var oldRuleSet = _global["HTMLCS_" + parts[parts.length - 2]];
         var ruleSet = {};
         for (var x in oldRuleSet) {
@@ -6519,13 +3720,10 @@ _global.HTMLCS = new function() {
             return false;
         }
         _standards[standard] = ruleSet;
-        // Process the options.
         if (options) {
             if (options.include && options.include.length > 0) {
-                // Included sniffs.
                 ruleSet.sniffs = options.include;
             } else if (options.exclude) {
-                // Excluded sniffs.
                 for (var i = 0; i < options.exclude.length; i++) {
                     var index = ruleSet.sniffs.find(options.exclude[i]);
                     if (index >= 0) {
@@ -6534,37 +3732,19 @@ _global.HTMLCS = new function() {
                 }
             }
         }
-        //end if
-        // Register the sniffs for this standard.
         var sniffs = ruleSet.sniffs.slice(0, ruleSet.sniffs.length);
         _registerSniffs(standard, sniffs, callback, failCallback);
     };
-    /**
-     * Registers the sniffs for the specified standard.
-     *
-     * @param {String}   standard The name of the standard.
-     * @param {Array}    sniffs   List of sniffs to register.
-     * @param {Function} callback The function to call once the sniffs are registered.
-     */
     var _registerSniffs = function(standard, sniffs, callback, failCallback) {
         if (sniffs.length === 0) {
             callback.call(this);
             return;
         }
-        // Include and register sniffs.
         var sniff = sniffs.shift();
         _loadSniffFile(standard, sniff, function() {
             _registerSniffs(standard, sniffs, callback, failCallback);
         }, failCallback);
     };
-    /**
-     * Includes the sniff's JS file and registers it.
-     *
-     * @param {String}        standard The name of the standard.
-     * @param {String|Object} sniff    The sniff to register, can be a string or
-     *                                 and object specifying another standard.
-     * @param {Function}      callback The function to call once the sniff is included and registered.
-     */
     var _loadSniffFile = function(standard, sniff, callback, failCallback) {
         if (typeof sniff === "string") {
             var sniffObj = _getSniff(standard, sniff);
@@ -6572,17 +3752,14 @@ _global.HTMLCS = new function() {
                 _registerSniff(standard, sniff);
                 callback.call(this);
             };
-            // Already loaded.
             if (sniffObj) {
                 cb();
             } else {
                 _includeScript(_getSniffPath(standard, sniff), cb, failCallback);
             }
         } else {
-            // Including a whole other standard.
             _includeStandard(sniff.standard, function() {
                 if (sniff.messages) {
-                    // Add message overrides.
                     for (var msg in sniff.messages) {
                         _msgOverrides[msg] = sniff.messages[msg];
                     }
@@ -6594,19 +3771,11 @@ _global.HTMLCS = new function() {
             });
         }
     };
-    /**
-     * Registers the specified sniff.
-     *
-     * @param {String} standard The name of the standard.
-     * @param {String} sniff    The name of the sniff.
-     */
     var _registerSniff = function(standard, sniff) {
-        // Get the sniff object.
         var sniffObj = _getSniff(standard, sniff);
         if (!sniffObj) {
             return false;
         }
-        // Call the register method of the sniff, it should return an array of tags.
         if (sniffObj.register) {
             var watchedTags = sniffObj.register();
             for (var i = 0; i < watchedTags.length; i++) {
@@ -6618,40 +3787,19 @@ _global.HTMLCS = new function() {
         }
         _sniffs.push(sniffObj);
     };
-    /**
-     * Returns the path to the sniff file.
-     *
-     * @param {String} standard The name of the standard.
-     * @param {String} sniff    The name of the sniff.
-     *
-     * @returns {String} The path to the JS file of the sniff.
-     */
     var _getSniffPath = function(standard, sniff) {
         var parts = standard.split("/");
         parts.pop();
         var path = parts.join("/") + "/Sniffs/" + sniff.replace(/\./g, "/") + ".js";
         return path;
     };
-    /**
-     * Returns the path to a local standard.
-     *
-     * @param {String} standard The name of the standard.
-     *
-     * @returns {String} The path to the local standard.
-     */
     var _getStandardPath = function(standard) {
-        // Get the include path of a local standard.
         var scripts = document.getElementsByTagName("script");
         var path = null;
-        // Loop through all the script tags that exist in the document and find the one
-        // that has included this file.
         for (var i = 0; i < scripts.length; i++) {
             if (scripts[i].src) {
                 if (scripts[i].src.match(/HTMLCS\.js/)) {
-                    // We have found our appropriate <script> tag that includes
-                    // this file, we can extract the path.
                     path = scripts[i].src.replace(/HTMLCS\.js/, "");
-                    // trim any trailing bits
                     path = path.substring(0, path.indexOf("?"));
                     break;
                 }
@@ -6659,14 +3807,6 @@ _global.HTMLCS = new function() {
         }
         return path + "Standards/" + standard + "/ruleset.js";
     };
-    /**
-     * Returns the sniff object.
-     *
-     * @param {String} standard The name of the standard.
-     * @param {String} sniff    The name of the sniff.
-     *
-     * @returns {Object} The sniff object.
-     */
     var _getSniff = function(standard, sniff) {
         var name = "HTMLCS_";
         name += _standards[standard].name + "_Sniffs_";
@@ -6677,23 +3817,10 @@ _global.HTMLCS = new function() {
         _global[name]._name = sniff;
         return _global[name];
     };
-    /**
-     * Returns the full message code.
-     *
-     * A full message code includes the standard name, the sniff name and the given code.
-     *
-     * @returns {String} The full message code.
-     */
     var _getMessageCode = function(code) {
         code = _standard + "." + _currentSniff._name + "." + code;
         return code;
     };
-    /**
-     * Includes the specified JS file.
-     *
-     * @param {String}   src      The URL to the JS file.
-     * @param {Function} callback The function to call once the script is loaded.
-     */
     var _includeScript = function(src, callback, failCallback) {
         var script = document.createElement("script");
         script.onload = function() {
@@ -6723,70 +3850,23 @@ _global.HTMLCS = new function() {
     };
 }();
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCS.util = function() {
     var self = {};
-    /**
-     * Trim off excess spaces on either side.
-     *
-     * @param {String} string The string with potentially extraneous whitespace.
-     *
-     * @returns {String}
-     */
     self.trim = function(string) {
-        // Code Sniffer's default trim regex doesn't capture everything that JS's trim() does; we
-        // combine both or some URLs will end with trailing whitespace.
         return string.replace(/^\s*(.*)\s*$/g, "$1").trim();
     };
-    /**
-     * Returns true if the string is "empty" according to WCAG standards.
-     *
-     * We can test for whether the string is entirely composed of whitespace, but
-     * WCAG standards explicitly state that non-breaking spaces (&nbsp;, &#160;)
-     * are not considered "empty". So we need this function to filter out that
-     * situation.
-     *
-     * @param {String} string The potentially empty string.
-     *
-     * @returns {Boolean}
-     */
     self.isStringEmpty = function(string) {
         if (typeof string !== "string") {
             return true;
         }
         var empty = true;
         if (string.indexOf(String.fromCharCode(160)) !== -1) {
-            // Has an NBSP, therefore cannot be empty.
             empty = false;
         } else if (/^\s*$/.test(string) === false) {
-            // Not spacing.
             empty = false;
         }
         return empty;
     };
-    /**
-     * Get the document type being tested.
-     *
-     * Possible values: html5, xhtml5, xhtml11, xhtml10, html401, html40
-     * ... or empty string if it couldn't work out the doctype.
-     *
-     * This will only give the thumbs-up to the "strict" doctypes.
-     *
-     * @param {Document} The document being tested.
-     *
-     * @return {String}
-     */
     self.getDocumentType = function(document) {
         var retval = null;
         var doctype = document.doctype;
@@ -6816,8 +3896,6 @@ _global.HTMLCS.util = function() {
                     retval = "xhtml11";
                 }
                 if (systemId.indexOf("about:legacy-compat") !== -1) {
-                    // Some tools don't like the lack of doctype for XHTML5 so permit
-                    // an "about:legacy-compat" SYSTEM doctype.
                     if (document.contentType === "application/xhtml+xml") {
                         var htmlElement = document.querySelector("html");
                         if (htmlElement.getAttribute("xmlns") === "http://www.w3.org/1999/xhtml") {
@@ -6827,8 +3905,6 @@ _global.HTMLCS.util = function() {
                 }
             }
         } else {
-            // XHTML5 has no doctype (at all) normally, but it only counts if the
-            // content type it was sent as is set correctly
             if (document.contentType === "application/xhtml+xml") {
                 var htmlElement = document.querySelector("html");
                 if (htmlElement.getAttribute("xmlns") === "http://www.w3.org/1999/xhtml") {
@@ -6838,14 +3914,6 @@ _global.HTMLCS.util = function() {
         }
         return retval;
     };
-    //end getDocumentType()
-    /**
-     * Get the window object relating to the passed element.
-     *
-     * @param {Node|Document} element The element (or document) to pass.
-     *
-     * @returns {Window}
-     */
     self.getElementWindow = function(element) {
         if (element.ownerDocument) {
             var doc = element.ownerDocument;
@@ -6860,18 +3928,9 @@ _global.HTMLCS.util = function() {
         }
         return window;
     };
-    /**
-     * Returns true if the element has a valid aria label.
-     *
-     * @param {Node} element The element we are checking.
-     *
-     * @return {Boolean}
-     */
     self.hasValidAriaLabel = function(element) {
         var found = false;
         if (element.hasAttribute("aria-labelledby") === true) {
-            // Checking aria-labelled by where the label exists AND it has text available
-            // to an accessibility API.
             var labelledByIds = element.getAttribute("aria-labelledby").split(/\s+/);
             labelledByIds.forEach(function(id) {
                 var elem = document.getElementById(id);
@@ -6890,15 +3949,6 @@ _global.HTMLCS.util = function() {
         }
         return found;
     };
-    /**
-     * Return the appropriate computed style object for an element.
-     *
-     * It's accessed in different ways depending on whether it's IE or not.
-     *
-     * @param {Node} element An element with style.
-     *
-     * @returns {Object}
-     */
     self.style = function(element) {
         var computedStyle = null;
         var window = self.getElementWindow(element);
@@ -6909,30 +3959,16 @@ _global.HTMLCS.util = function() {
         }
         return computedStyle;
     };
-    /**
-     * Return true if an element is hidden visually.
-     *
-     * If the computed style of an element cannot be determined for some reason,
-     * it is presumed it is NOT hidden.
-     *
-     * @param {Node} element The element that is hiding, or not.
-     * @returns {Boolean}
-     */
     self.isVisuallyHidden = function(element) {
         var style = self.style(element);
         if (style !== null) {
-            if (style.display === "none") {
+            if (style.visibility === "hidden" || style.display === "none") {
                 return true;
             }
-            // EPA (among others) use this hack to hide elements
             if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
                 return true;
             }
-            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
             if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
-                return true;
-            }
-            if (style.visibility === "hidden") {
                 return true;
             }
             var width = parseInt(style.width, 10);
@@ -6942,29 +3978,13 @@ _global.HTMLCS.util = function() {
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
                 return true;
             }
-            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
             if (parseInt(style.textIndent) + width < 0) {
                 return true;
             }
         }
         return false;
     };
-    /**
-     * Return true if a text element is hidden visually.
-     *
-     * Returns true only if an element is hidden in a way that appears
-     * to be intended to hide it from *ever* being seen, e.g. text that is designed for screen readers.
-     *
-     * This is used to detect text we shouldn't analyse for text contrast, for example, while
-     * still allowing us to analyse elements that are not visible at the time the page loaded
-     * (e.g. drop down menus, modals etc).
-     *
-     * @param {Node} element The element that is hiding, or not.
-     *
-     * @returns {Boolean}
-     */
     self.isHiddenText = function(element) {
-        // Some elements can never contain text
         var tagName = element.tagName;
         if (tagName === "SCRIPT" || tagName === "STYLE" || tagName === "NOSCRIPT") {
             return true;
@@ -6984,124 +4004,63 @@ _global.HTMLCS.util = function() {
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
                 return true;
             }
-            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
             if (parseInt(style.textIndent) + width < 0) {
                 return true;
             }
         }
         return false;
     };
-    /**
-     * Return true if the element appears to be positioned outside of its parent
-     * (for performance, the parent element may be specified directly).
-     *
-     * Naively, this is saying that the current element is positioned absolutely,
-     * but reality is more nuanced:
-     *
-     * + Positioned absolute AND has a position (top, left etc)
-     * + Positioned relative, fixed or sticky
-     *
-     * We use this to determine whether we can consider our parent's background
-     * as our background.
-     */
     self.isPositionedOutsideParent = function(style) {
         var position = style.position;
         if (position === "static") {
             return false;
         }
-        // We count relative positioning as still inside our parent.
-        // This is naive, but in 99% of occasions we're nudging inside a container and
-        // not utterly escaping it. We *could* do some smarter calc of position here,
-        // but other tools don't appear to.
         if (position === "relative") {
             return false;
         }
         if (position === "fixed" || position === "sticky") {
             return true;
         }
-        // Absolute positioning only counts where an explicit position is provided.
-        // A common accessibility hack is "position: absolute; clip: rect(1px, 1px, 1px, 1px)"
-        // which should not be considered being positioned outside of our parent.
         return !!(style.left || style.top || style.right || style.bottom);
     };
-    /**
-     * Parse a color string like rgba(200, 12, 53, 0.5) into an array
-     */
     self.parseColorString = function(string) {
         if (!string || string === "transparent") {
             return [ 0, 0, 0, 0 ];
         }
         var color = string.replace(/[^\d,\.]/g, "").split(",");
-        // Always add an alpha component
         if (color.length < 4) {
             color.push(1);
         }
         return color;
     };
-    /**
-     * Combine two colours, assuming background has no alpha and foreground may
-     * have some alpha.
-     */
     self.combineColors = function(foreground, background) {
         var f = self.parseColorString(foreground);
         var b = self.parseColorString(background);
         var c = [ f[0] * f[3] + b[0] * (1 - f[3]), f[1] * f[3] + b[1] * (1 - f[3]), f[2] * f[3] + b[2] * (1 - f[3]) ];
         return "rgb(" + Math.round(c[0]) + ", " + Math.round(c[1]) + ", " + Math.round(c[2]) + ")";
-    }, /**
-     * Return true if specified colour is at least slightly transparent.
-     */
-    self.isColorTransparent = function(string) {
+    }, self.isColorTransparent = function(string) {
         return self.parseColorString(string)[3] < 1;
-    }, /**
-     * Return true if specified colour is fully transparent.
-     */
-    self.isColorFullyTransparent = function(string) {
+    }, self.isColorFullyTransparent = function(string) {
         return self.parseColorString(string)[3] == 0;
-    }, /**
-     * Returns true if the element is deliberately hidden from Accessibility APIs using ARIA hidden.
-     *
-     * Not: This is separate to isAccessibilityHidden() due to a need to check specifically for aria hidden.
-     * 
-     * @param {Node} element The element to check.
-     *
-     * @return {Boolean}
-     */
-    self.isAriaHidden = function(element) {
+    }, self.isAriaHidden = function(element) {
         do {
-            // WAI-ARIA hidden attribute.
             if (element.hasAttribute("aria-hidden") && element.getAttribute("aria-hidden") === "true") {
                 return true;
             }
         } while (element = element.parentElement);
         return false;
     };
-    /**
-     * Returns true if the element is deliberately hidden from Accessibility APIs.
-     *
-     * @param {Node} element The element to check.
-     *
-     * @return {Boolean}
-     */
     self.isAccessibilityHidden = function(element) {
         do {
-            // WAI-ARIA presentation role.
             if (element.hasAttribute("role") && element.getAttribute("role") === "presentation") {
                 return true;
             }
-            // WAI-ARIA hidden attribute.
             if (element.hasAttribute("aria-hidden") && element.getAttribute("aria-hidden") === "true") {
                 return true;
             }
         } while (element = element.parentElement);
         return false;
     };
-    /**
-     * Returns TRUE if the element is able to be focused .
-     *
-     * @param {Node} element DOM Node to test.
-     *
-     * @return {Boolean}
-     */
     self.isFocusable = function(element) {
         var nodeName = element.nodeName.toLowerCase();
         if (self.isDisabled(element) === true) {
@@ -7110,23 +4069,14 @@ _global.HTMLCS.util = function() {
         if (self.isVisuallyHidden(element) === true) {
             return false;
         }
-        // Form elements.
         if (/^(input|select|textarea|button|object)$/.test(nodeName)) {
             return true;
         }
-        // Hyperlinks without empty hrefs are focusable.
         if (nodeName === "a" && element.hasAttribute("href") && /^\s*$/.test(element.getAttribute("href")) === false) {
             return true;
         }
         return false;
     };
-    /**
-     * Returns TRUE if the element is able to be focused by keyboard tabbing.
-     *
-     * @param {Node} element DOM Node to test.
-     *
-     * @return {Boolean}
-     */
     self.isKeyboardTabbable = function(element) {
         if (element.hasAttribute("tabindex") === true) {
             var index = element.getAttribute("tabindex");
@@ -7138,66 +4088,29 @@ _global.HTMLCS.util = function() {
         }
         return self.isFocusable(element);
     };
-    /**
-     * Returns TRUE if the element is able to be accessed via the keyboard.
-     *
-     * @param {Node} element DOM Node to test.
-     *
-     * @return {Boolean}
-     */
     self.isKeyboardNavigable = function(element) {
         if (element.hasAttribute("accesskey") && /^\s*$/.test(element.getAttribute("accesskey")) === false) {
             return true;
         }
         return self.isKeyboardTabbable(element);
     };
-    /**
-     * Return true if an element is disabled.
-     *
-     * If the computed style of an element cannot be determined for some reason,
-     * it is presumed it is NOT hidden.
-     *
-     * @param {Node} element The element that is hiding, or not.
-     *
-     * @returns {Boolean}
-     */
     self.isDisabled = function(element) {
         var disabled = false;
-        // Do not point to elem if its hidden. Use computed styles.
         if (element.disabled === true || element.getAttribute("aria-disabled") === "true") {
             disabled = true;
         }
         return disabled;
     };
-    /**
-     * Return true if an element is in a document.
-     *
-     * @param {Node} element The element that is in a doc, or not.
-     *
-     * @returns {Boolean}
-     */
     self.isInDocument = function(element) {
-        // Check whether the element is in the document, by looking up its
-        // DOM tree for a document object.
         var parent = element.parentNode;
         while (parent && parent.ownerDocument) {
             parent = parent.parentNode;
         }
-        //end while
-        // If we didn't hit a document, the element must not be in there.
         if (parent === null) {
             return false;
         }
         return true;
     };
-    /**
-     * Returns all elements that are visible to the accessibility API.
-     *
-     * @param {Node}   element  The parent element to search.
-     * @param {String} selector Optional selector to pass to 
-     *
-     * @return {Array}
-     */
     self.getAllElements = function(element, selector) {
         element = element || document;
         selector = selector || "*";
@@ -7205,7 +4118,6 @@ _global.HTMLCS.util = function() {
         var visible = elements.filter(function(elem) {
             return HTMLCS.util.isAccessibilityHidden(elem) === false;
         });
-        // We shouldn't be testing elements inside the injected auditor code if it's present.
         var auditor = document.getElementById("HTMLCS-wrapper");
         if (auditor) {
             visible = visible.filter(function(elem) {
@@ -7214,27 +4126,10 @@ _global.HTMLCS.util = function() {
         }
         return visible;
     };
-    /**
-     * Returns true if the passed child is contained by the passed parent.
-     *
-     * Uses either the IE contains() method or the W3C compareDocumentPosition()
-     * method, as appropriate.
-     *
-     * @param {Node|Document} parent The parent element or document.
-     * @param {Node|Document} child  The child.
-     *
-     * @returns {Boolean}
-     */
     self.contains = function(parent, child) {
         var contained = false;
-        // If the parent and the child are the same, they can't contain each
-        // other.
         if (parent !== child) {
             if (!parent.ownerDocument) {
-                // Parent is the document. Short-circuiting because contains()
-                // doesn't exist on the document element.
-                // We check whether the child can be contained, and whether the
-                // child is in the same document as the parent.
                 if (child.ownerDocument && child.ownerDocument === parent) {
                     contained = true;
                 }
@@ -7246,20 +4141,8 @@ _global.HTMLCS.util = function() {
                 }
             }
         }
-        //end if
         return contained;
     };
-    /**
-     * Returns true if the table passed is a layout table.
-     *
-     * If the passed table contains headings - through the use of the th
-     * element - HTML_CodeSniffer will assume it is a data table. This is in line
-     * with most other online checkers.
-     *
-     * @param {Node} table The table to check.
-     *
-     * @returns {Boolean}
-     */
     self.isLayoutTable = function(table) {
         var th = table.querySelector("th");
         if (th === null) {
@@ -7267,20 +4150,6 @@ _global.HTMLCS.util = function() {
         }
         return false;
     };
-    /**
-     * Calculate the contrast ratio between two colours.
-     *
-     * Colours should be in rgb() or 3/6-digit hex format; order does not matter
-     * (ie. it doesn't matter which is the lighter and which is the darker).
-     * Values should be in the range [1.0, 21.0]... a ratio of 1.0 means "they're
-     * exactly the same contrast", 21.0 means it's white-on-black or v.v.
-     * Formula as per WCAG 2.0 definitions.
-     *
-     * @param {String} colour1 The first colour to compare.
-     * @param {String} colour2 The second colour to compare.
-     *
-     * @returns {Number}
-     */
     self.contrastRatio = function(colour1, colour2) {
         var ratio = (.05 + self.relativeLum(colour1)) / (.05 + self.relativeLum(colour2));
         if (ratio < 1) {
@@ -7288,20 +4157,6 @@ _global.HTMLCS.util = function() {
         }
         return ratio;
     };
-    /**
-     * Calculate relative luminescence for a colour in the sRGB colour profile.
-     *
-     * Supports rgb() and hex colours. rgba() also supported but the alpha
-     * channel is currently ignored.
-     * Hex colours can have an optional "#" at the front, which is stripped.
-     * Relative luminescence formula is defined in the definitions of WCAG 2.0.
-     * It can be either three or six hex digits, as per CSS conventions.
-     * It should return a value in the range [0.0, 1.0].
-     *
-     * @param {String} colour The colour to calculate from.
-     *
-     * @returns {Number}
-     */
     self.relativeLum = function(colour) {
         if (colour.charAt) {
             var colour = self.colourStrToRGB(colour);
@@ -7314,25 +4169,12 @@ _global.HTMLCS.util = function() {
                 transformed[x] = Math.pow((colour[x] + .055) / 1.055, 2.4);
             }
         }
-        //end for
         var lum = transformed.red * .2126 + transformed.green * .7152 + transformed.blue * .0722;
         return lum;
     };
-    /**
-     * Convert a colour string to a structure with red/green/blue elements.
-     *
-     * Supports rgb() and hex colours (3 or 6 hex digits, optional "#").
-     * rgba() also supported but the alpha channel is currently ignored.
-     * Each red/green/blue element is in the range [0.0, 1.0].
-     *
-     * @param {String} colour The colour to convert.
-     *
-     * @returns {Object}
-     */
     self.colourStrToRGB = function(colour) {
         colour = colour.toLowerCase();
         if (colour.substring(0, 3) === "rgb") {
-            // rgb[a](0, 0, 0[, 0]) format.
             var matches = /^rgba?\s*\((\d+),\s*(\d+),\s*(\d+)([^)]*)\)$/.exec(colour);
             colour = {
                 red: matches[1] / 255,
@@ -7340,7 +4182,6 @@ _global.HTMLCS.util = function() {
                 blue: matches[3] / 255
             };
         } else {
-            // Hex digit format.
             if (colour.charAt(0) === "#") {
                 colour = colour.substr(1);
             }
@@ -7355,25 +4196,12 @@ _global.HTMLCS.util = function() {
         }
         return colour;
     };
-    /**
-     * Convert an RGB colour structure to a hex colour.
-     *
-     * The red/green/blue colour elements should be on a [0.0, 1.0] scale.
-     * Colours that can be converted into a three Hex-digit string will be
-     * converted as such (eg. rgb(34,34,34) => #222). Others will be converted
-     * to a six-digit string (eg. rgb(48,48,48) => #303030).
-     *
-     * @param {Object} colour Structure with "red", "green" and "blue" elements.
-     *
-     * @returns {String}
-     */
     self.RGBtoColourStr = function(colour) {
         colourStr = "#";
         colour.red = Math.round(colour.red * 255);
         colour.green = Math.round(colour.green * 255);
         colour.blue = Math.round(colour.blue * 255);
         if (colour.red % 17 === 0 && colour.green % 17 === 0 && colour.blue % 17 === 0) {
-            // Reducible to three hex digits.
             colourStr += (colour.red / 17).toString(16);
             colourStr += (colour.green / 17).toString(16);
             colourStr += (colour.blue / 17).toString(16);
@@ -7393,24 +4221,7 @@ _global.HTMLCS.util = function() {
         }
         return colourStr;
     };
-    /**
-     * Convert an RGB colour into hue-saturation-value.
-     *
-     * This is used for calculations changing the colour (for colour contrast
-     * purposes) to ensure that the hue is maintained.
-     * The parameter accepts either a string (hex or rgb() format) or a
-     * red/green/blue structure.
-     * The returned structure has hue, saturation, and value components: the
-     * latter two are in the range [0.0, 1.0]; hue is in degrees,
-     * range [0.0, 360.0).
-     * If there is no saturation then hue is technically undefined.
-     *
-     * @param {String|Object} colour A colour to convert.
-     *
-     * @returns {Object}
-     */
     self.sRGBtoHSV = function(colour) {
-        // If this is a string, then convert to a colour structure.
         if (colour.charAt) {
             colour = self.colourStrToRGB(colour);
         }
@@ -7433,27 +4244,14 @@ _global.HTMLCS.util = function() {
             } else {
                 hsvColour.hue = 4 + (colour.red - colour.green) / chroma;
             }
-            //end if
             hsvColour.hue = hsvColour.hue * 60;
             if (hsvColour.hue >= 360) {
                 hsvColour.hue -= 360;
             }
             hsvColour.saturation = chroma / hsvColour.value;
         }
-        //end if
         return hsvColour;
     };
-    /**
-     * Convert a hue-saturation-value structure into an RGB structure.
-     *
-     * The hue element should be a degree value in the region of [0.0, 360.0).
-     * The saturation and value elements should be in the range [0.0, 1.0].
-     * Use RGBtoColourStr to convert back into a hex colour.
-     *
-     * @param {Object} hsvColour A HSV structure to convert.
-     *
-     * @returns {Object}
-     */
     self.HSVtosRGB = function(hsvColour) {
         var colour = {
             red: 0,
@@ -7501,22 +4299,12 @@ _global.HTMLCS.util = function() {
                 colour.blue = interCol;
                 break;
             }
-            //end switch
             colour.red = colour.red + minColour;
             colour.green = colour.green + minColour;
             colour.blue = colour.blue + minColour;
         }
-        //end if
         return colour;
     };
-    /**
-     * Gets the text contents of an element.
-     *
-     * @param {Node}    element           The element being inspected.
-     * @param {Boolean} [includeAlt=true] Include alt text from images.
-     *
-     * @returns {String} The text contents.
-     */
     self.getElementTextContent = function(element, includeAlt) {
         if (includeAlt === undefined) {
             includeAlt = true;
@@ -7529,10 +4317,8 @@ _global.HTMLCS.util = function() {
         var text = [ element.textContent ];
         while (nodes.length > 0) {
             var node = nodes.shift();
-            // If it's an element, add any sub-nodes to the process list.
             if (node.nodeType === 1) {
                 if (node.nodeName.toLowerCase() === "img") {
-                    // If an image, include the alt text unless we are blocking it.
                     if (includeAlt === true && node.hasAttribute("alt") === true) {
                         text.push(node.getAttribute("alt"));
                     }
@@ -7542,22 +4328,12 @@ _global.HTMLCS.util = function() {
                     }
                 }
             } else if (node.nodeType === 3) {
-                // Text node.
                 text.push(node.nodeValue);
             }
         }
-        // Push the text nodes together and trim.
         text = text.join("").replace(/^\s+|\s+$/g, "");
         return text;
     };
-    /**
-     * Find a parent node matching a selector.
-     *
-     * @param {DOMNode} node     Node to search from.
-     * @param {String}  selector The selector to search.
-     *
-     * @return DOMNode|null
-     */
     self.findParentNode = function(node, selector) {
         if (node && node.matches && node.matches(selector)) {
             return node;
@@ -7570,27 +4346,12 @@ _global.HTMLCS.util = function() {
         }
         return null;
     };
-    /**
-     * Iterate parent nodes of an element.
-     *
-     * @param {DOMNode}  node Node to search from.
-     * @param {Function} cb    Callback function providing each parent node.
-     *
-     * @return void
-     */
     self.eachParentNode = function(node, cb) {
         while (node && node.parentNode) {
             cb(node);
             node = node.parentNode;
         }
     };
-    /**
-     * Returns TRUE if the provided node name is not a valid phrasing node.
-     *
-     * @param {String} nodeName The node name to test.
-     *
-     * @return {Boolean}
-     */
     self.isPhrasingNode = function(nodeName) {
         var nodeNames = [ "abbr", "audio", "b", "bdo", "br", "button", "canvas", "cite", "code", "command", "data", "datalist", "dfn", "em", "embed", "i", "iframe", "img", "input", "kbd", "keygen", "label", "mark", "math", "meter", "noscript", "object", "output", "progress", "q", "ruby", "samp", "script", "select", "small", "span", "strong", "sub", "sup", "svg", "textarea", "time", "var", "video", "wbr" ];
         return nodeNames.indexOf(nodeName.toLowerCase()) !== -1;
@@ -7601,7 +4362,6 @@ _global.HTMLCS.util = function() {
         }
         var rows = [];
         var allRows = table.getElementsByTagName(childNodeName);
-        // Filter out rows that don't belong to this table.
         for (var i = 0, l = allRows.length; i < l; i++) {
             if (self.findParentNode(allRows[i], "table") === table) {
                 rows.push(allRows[i]);
@@ -7609,26 +4369,6 @@ _global.HTMLCS.util = function() {
         }
         return rows;
     };
-    /**
-     * Test for the correct headers attributes on table cell elements.
-     *
-     * Return value contains the following elements:
-     * - required (Boolean):   Whether header association at all is required.
-     * - used (Boolean):       Whether headers attribute has been used on at least
-     *                         one table data (td) cell.
-     * - allowScope (Boolean): Whether scope is allowed to satisfy the association
-     *                         requirement (ie. max one row/one column).
-     * - correct (Boolean):    Whether headers have been correctly used.
-     * - missingThId (Array):  Array of th elements without IDs.
-     * - missingTd (Array):    Array of elements without headers attribute.
-     * - wrongHeaders (Array): Array of elements where headers attr is incorrect.
-     *                         Each is a structure with following keys: element,
-     *                         expected [headers attr], actual [headers attr].
-     *
-     * @param {DOMNode} element Table element to test upon.
-     *
-     * @return {Object} The above return value structure.
-     */
     self.testTableHeaders = function(element) {
         var retval = {
             required: true,
@@ -7642,7 +4382,6 @@ _global.HTMLCS.util = function() {
         var rows = self.getChildrenForTable(element, "tr");
         var tdCells = {};
         var skipCells = [];
-        // Header IDs already used.
         var headerIds = {
             rows: [],
             cols: []
@@ -7658,7 +4397,6 @@ _global.HTMLCS.util = function() {
             for (var item = 0; item < row.childNodes.length; item++) {
                 var cell = row.childNodes[item];
                 if (cell.nodeType === 1) {
-                    // Skip columns that are skipped due to rowspan.
                     if (skipCells[rownum]) {
                         while (skipCells[rownum][0] === colnum) {
                             skipCells[rownum].shift();
@@ -7668,8 +4406,6 @@ _global.HTMLCS.util = function() {
                     var nodeName = cell.nodeName.toLowerCase();
                     var rowspan = Number(cell.getAttribute("rowspan")) || 1;
                     var colspan = Number(cell.getAttribute("colspan")) || 1;
-                    // If rowspanned, mark columns as skippable in the following
-                    // row(s).
                     if (rowspan > 1) {
                         for (var i = rownum + 1; i < rownum + rowspan; i++) {
                             if (!skipCells[i]) {
@@ -7682,20 +4418,13 @@ _global.HTMLCS.util = function() {
                     }
                     if (nodeName === "th") {
                         var id = cell.getAttribute("id") || "";
-                        // Save the fact that we have a missing ID on the header.
                         if (id === "") {
                             retval.correct = false;
                             retval.missingThId.push(cell);
                         }
                         if (rowspan > 1 && colspan > 1) {
-                            // Multi-column AND multi-row header. Abandon all hope,
-                            // As it must span across more than one row+column
                             retval.allowScope = false;
                         } else if (retval.allowScope === true) {
-                            // If we haven't had a th in this column (row) yet,
-                            // record it. if we find another th in this column (row),
-                            // record that has multi-ths. If we already have a column
-                            // (row) with multi-ths, we cannot use scope.
                             if (headerIds.cols[colnum] === undefined) {
                                 headerIds.cols[colnum] = 0;
                             }
@@ -7710,12 +4439,10 @@ _global.HTMLCS.util = function() {
                             retval.used = true;
                         }
                     }
-                    //end if
                     colnum += colspan;
                 }
             }
         }
-        //end for
         for (var i = 0; i < headerIds.rows.length; i++) {
             if (headerIds.rows[i] > 1) {
                 multiHeaders.rows++;
@@ -7729,12 +4456,8 @@ _global.HTMLCS.util = function() {
         if (multiHeaders.rows > 1 || multiHeaders.cols > 1) {
             retval.allowScope = false;
         } else if (retval.allowScope === true && (multiHeaders.rows === 0 || multiHeaders.cols === 0)) {
-            // If only one column OR one row header.
             retval.required = false;
         }
-        //end if
-        // Calculate expected heading IDs. If they are not there or incorrect, flag
-        // them.
         var cells = HTMLCS.util.getCellHeaders(element);
         for (var i = 0; i < cells.length; i++) {
             var cell = cells[i].cell;
@@ -7762,31 +4485,8 @@ _global.HTMLCS.util = function() {
                 }
             }
         }
-        //end for
         return retval;
     };
-    /**
-     * Return expected cell headers from a table.
-     *
-     * Returns null if not a table.
-     *
-     * Returns an array of objects with two properties:
-     * - cell (Object) - the TD element referred to,
-     * - headers (String) - the normalised list of expected headers.
-     *
-     * Cells are returned in DOM order. This may mean cells in a tfoot (which
-     * normally precedes tbody if used) would come before tbody cells.
-     *
-     * If there are missing IDs on relevant table header (th) elements, this
-     * method won't complain about it - it will just return them as empty. Its
-     * job is to take the IDs it can get, not to complain about it (see, eg. the
-     * test in WCAG2's sniff 1_3_1). If there are no headers for a cell, it
-     * won't be included.
-     *
-     * @param {Object} table The table to test.
-     *
-     * @returns {Array}
-     */
     self.getCellHeaders = function(table) {
         if (typeof table !== "object") {
             return null;
@@ -7799,12 +4499,7 @@ _global.HTMLCS.util = function() {
             rows: {},
             cols: {}
         };
-        // List of cells and headers. Each item should be a two-property object:
-        // a "cell" object, and a normalised string of "headers".
         var cells = [];
-        // Now determine the row and column headers for the table.
-        // Go through once, first finding the th's to load up the header names,
-        // then finding the td's to dump them off.
         var targetNodeNames = [ "th", "td" ];
         for (var k = 0; k < targetNodeNames.length; k++) {
             var targetNode = targetNodeNames[k];
@@ -7814,7 +4509,6 @@ _global.HTMLCS.util = function() {
                 for (var item = 0; item < row.childNodes.length; item++) {
                     var thisCell = row.childNodes[item];
                     if (thisCell.nodeType === 1) {
-                        // Skip columns that are skipped due to rowspan.
                         if (skipCells[rownum]) {
                             while (skipCells[rownum][0] === colnum) {
                                 skipCells[rownum].shift();
@@ -7824,8 +4518,6 @@ _global.HTMLCS.util = function() {
                         var nodeName = thisCell.nodeName.toLowerCase();
                         var rowspan = Number(thisCell.getAttribute("rowspan")) || 1;
                         var colspan = Number(thisCell.getAttribute("colspan")) || 1;
-                        // If rowspanned, mark columns as skippable in the following
-                        // row(s).
                         if (rowspan > 1) {
                             for (var i = rownum + 1; i < rownum + rowspan; i++) {
                                 if (!skipCells[i]) {
@@ -7838,7 +4530,6 @@ _global.HTMLCS.util = function() {
                         }
                         if (nodeName === targetNode) {
                             if (nodeName === "th") {
-                                // Build up the cell headers.
                                 var id = thisCell.getAttribute("id") || "";
                                 for (var i = rownum; i < rownum + rowspan; i++) {
                                     headingIds.rows[i] = headingIds.rows[i] || {
@@ -7855,7 +4546,6 @@ _global.HTMLCS.util = function() {
                                     headingIds.cols[i].ids.push(id);
                                 }
                             } else if (nodeName === "td") {
-                                // Dump out the headers and cells.
                                 var exp = [];
                                 for (var i = rownum; i < rownum + rowspan; i++) {
                                     for (var j = colnum; j < colnum + colspan; j++) {
@@ -7867,7 +4557,6 @@ _global.HTMLCS.util = function() {
                                         }
                                     }
                                 }
-                                //end for
                                 if (exp.length > 0) {
                                     exp = " " + exp.sort().join(" ") + " ";
                                     exp = exp.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").replace(/^\s*(.*?)\s*$/g, "$1");
@@ -7883,27 +4572,8 @@ _global.HTMLCS.util = function() {
                 }
             }
         }
-        //end for
-        // Build the column and row headers that we expect.
         return cells;
     };
-    /**
-     * Get the previous sibling element.
-     *
-     * This is a substitute for previousSibling where there are text, comment and
-     * other nodes between elements.
-     *
-     * If tagName is null, immediate is ignored and effectively defaults to true: the
-     * previous element will be returned regardless of what it is.
-     *
-     * @param {DOMNode} element           Element to start from.
-     * @param {String}  [tagName=null]    Only match this tag. If null, match any.
-     *                                    Not case-sensitive.
-     * @param {Boolean} [immediate=false] Only match if the tag in tagName is the
-     *                                    immediately preceding non-whitespace node.
-     *
-     * @returns {DOMNode} The appropriate node or null if none is found.
-     */
     self.getPreviousSiblingElement = function(element, tagName, immediate) {
         if (tagName === undefined) {
             tagName = null;
@@ -7915,47 +4585,22 @@ _global.HTMLCS.util = function() {
         while (prevNode !== null) {
             if (prevNode.nodeType === 3) {
                 if (HTMLCS.util.isStringEmpty(prevNode.nodeValue) === false && immediate === true) {
-                    // Failed. Immediate node requested and we got text instead.
                     prevNode = null;
                     break;
                 }
             } else if (prevNode.nodeType === 1) {
-                // If this an element, we break regardless. If it's an "a" node,
-                // it's the one we want. Otherwise, there is no adjacent "a" node
-                // and it can be ignored.
                 if (tagName === null || prevNode.nodeName.toLowerCase() === tagName) {
-                    // Correct element, or we aren't picky.
                     break;
                 } else if (immediate === true) {
-                    // Failed. Immediate node requested and not correct tag name.
                     prevNode = null;
                     break;
                 }
                 break;
             }
-            //end if
             prevNode = prevNode.previousSibling;
         }
-        //end if
         return prevNode;
     };
-    /**
-     * Get the next sibling element.
-     *
-     * This is a substitute for nextSibling where there are text, comment and
-     * other nodes between elements.
-     *
-     * If tagName is null, immediate is ignored and effectively defaults to true: the
-     * next element will be returned regardless of what it is.
-     *
-     * @param {DOMNode} element           Element to start from.
-     * @param {String}  [tagName=null]    Only match this tag. If null, match any.
-     *                                    Not case-sensitive.
-     * @param {Boolean} [immediate=false] Only match if the tag in tagName is the
-     *                                    immediately following non-whitespace node.
-     *
-     * @returns {DOMNode} The appropriate node or null if none is found.
-     */
     self.getNextSiblingElement = function(element, tagName, immediate) {
         if (tagName === undefined) {
             tagName = null;
@@ -7967,28 +4612,20 @@ _global.HTMLCS.util = function() {
         while (nextNode !== null) {
             if (nextNode.nodeType === 3) {
                 if (HTMLCS.util.isStringEmpty(nextNode.nodeValue) === false && immediate === true) {
-                    // Failed. Immediate node requested and we got text instead.
                     nextNode = null;
                     break;
                 }
             } else if (nextNode.nodeType === 1) {
-                // If this an element, we break regardless. If it's an "a" node,
-                // it's the one we want. Otherwise, there is no adjacent "a" node
-                // and it can be ignored.
                 if (tagName === null || nextNode.nodeName.toLowerCase() === tagName) {
-                    // Correct element, or we aren't picky.
                     break;
                 } else if (immediate === true) {
-                    // Failed. Immediate node requested and not correct tag name.
                     nextNode = null;
                     break;
                 }
                 break;
             }
-            //end if
             nextNode = nextNode.nextSibling;
         }
-        //end if
         return nextNode;
     };
     return self;
@@ -7997,7 +4634,6 @@ _global.HTMLCS.util = function() {
 var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
     this.run = function(standard, callback) {
         var self = this;
-        // At the moment, it passes the whole DOM document.
         HTMLCS.process(standard, document, function() {
             var messages = HTMLCS.getMessages();
             var length = messages.length;
@@ -8016,7 +4652,6 @@ var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
         }, "en");
     };
     this.output = function(msg) {
-        // Simple output for now.
         var typeName = "UNKNOWN";
         switch (msg.type) {
           case HTMLCS.ERROR:
@@ -8031,7 +4666,6 @@ var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
             typeName = _global.HTMLCS.getTranslation("auditor_notice");
             break;
         }
-        //end switch
         var nodeName = "";
         if (msg.element) {
             nodeName = msg.element.nodeName.toLowerCase();
@@ -8040,7 +4674,6 @@ var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
         if (msg.element.id && msg.element.id !== "") {
             elementId = "#" + msg.element.id;
         }
-        // Clone the node to get it's outerHTML (with inner replaced with ... for brevity)
         var html = "";
         if (msg.element.outerHTML) {
             var node = msg.element.cloneNode(true);
@@ -8051,18 +4684,6 @@ var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
     };
 }();
 
-/**
- * +--------------------------------------------------------------------+
- * | This HTML_CodeSniffer file is Copyright (c)                        |
- * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
- * +--------------------------------------------------------------------+
- * | IMPORTANT: Your use of this Software is subject to the terms of    |
- * | the Licence provided in the file licence.txt. If you cannot find   |
- * | this file please contact Squiz (www.squiz.com.au) so we may        |
- * | provide you a copy.                                                |
- * +--------------------------------------------------------------------+
- *
- */
 _global.HTMLCSAuditor = new function() {
     var _prefix = "HTMLCS-";
     var _screen = "";
@@ -8076,11 +4697,6 @@ _global.HTMLCSAuditor = new function() {
     var _sbWidth = null;
     var self = this;
     this.pointerContainer = null;
-    /**
-     * Build the "summary section" square button.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildSummaryButton = function(id, className, title, onclick) {
         var button = _doc.createElement("div");
         button.id = id;
@@ -8100,11 +4716,6 @@ _global.HTMLCSAuditor = new function() {
         }
         return button;
     };
-    /**
-     * Build a checkbox.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildCheckbox = function(id, title, checked, disabled, onclick) {
         if (checked === undefined) {
             checked = false;
@@ -8138,16 +4749,10 @@ _global.HTMLCSAuditor = new function() {
                     onclick(input);
                 }
             }
-            //end if
             return false;
         };
         return label;
     };
-    /**
-     * Build a radio button.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildRadioButton = function(groupName, value, title, checked) {
         if (checked === undefined) {
             checked = false;
@@ -8167,11 +4772,6 @@ _global.HTMLCSAuditor = new function() {
         label.innerHTML = content;
         return label;
     };
-    /**
-     * Build the header section at the absolute top of the interface.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildHeaderSection = function(standard, wrapper) {
         var header = _doc.createElement("div");
         header.className = _prefix + "header";
@@ -8224,14 +4824,6 @@ _global.HTMLCSAuditor = new function() {
         header.appendChild(closeIcon);
         return header;
     };
-    /**
-     * Build the summary section of the interface.
-     *
-     * This includes the number of errors, warnings and notices; as well as buttons
-     * to access the settings interface, and to recheck the content.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildSummarySection = function(errors, warnings, notices) {
         var summary = _doc.createElement("div");
         summary.className = _prefix + "summary";
@@ -8264,10 +4856,8 @@ _global.HTMLCSAuditor = new function() {
             }
             leftContents.push("<strong>" + notices + "</strong> " + typeName);
         }
-        // Start lineage in left pane.
         var lineage = _doc.createElement("ol");
         lineage.className = _prefix + "lineage";
-        // Back to summary item.
         var lineageHomeItem = _doc.createElement("li");
         lineageHomeItem.className = _prefix + "lineage-item";
         var lineageHomeLink = _doc.createElement("a");
@@ -8279,7 +4869,6 @@ _global.HTMLCSAuditor = new function() {
         lineageHomeLink.onmousedown = function() {
             self.run(_standard, _sources, _options);
         };
-        // Issue totals.
         var lineageTotalsItem = _doc.createElement("li");
         lineageTotalsItem.className = _prefix + "lineage-item";
         lineageTotalsItem.innerHTML = leftContents.join(divider);
@@ -8290,14 +4879,6 @@ _global.HTMLCSAuditor = new function() {
         rightPane.appendChild(_doc.createTextNode(String.fromCharCode(160)));
         return summary;
     };
-    /**
-     * Build the summary section of the interface.
-     *
-     * This includes the number of errors, warnings and notices; as well as buttons
-     * to access the settings interface, and to recheck the content.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildDetailSummarySection = function(issue, totalIssues) {
         var summary = _doc.createElement("div");
         summary.className = _prefix + "summary-detail";
@@ -8305,7 +4886,6 @@ _global.HTMLCSAuditor = new function() {
         leftPane.className = _prefix + "summary-left";
         var rightPane = _doc.createElement("div");
         rightPane.className = _prefix + "summary-right";
-        // Start lineage.
         var lineage = _doc.createElement("ol");
         lineage.className = _prefix + "lineage";
         var lineageHomeItem = _doc.createElement("li");
@@ -8319,7 +4899,6 @@ _global.HTMLCSAuditor = new function() {
         lineageHomeLink.onmousedown = function() {
             self.run(_standard, _sources, _options);
         };
-        // Back to Report item.
         var lineageReportItem = _doc.createElement("li");
         lineageReportItem.className = _prefix + "lineage-item";
         var lineageReportLink = _doc.createElement("a");
@@ -8335,7 +4914,6 @@ _global.HTMLCSAuditor = new function() {
             var listSummary = _doc.querySelectorAll(".HTMLCS-summary")[0];
             listSummary.style.display = "block";
         };
-        // Issue Count item.
         var lineageTotalsItem = _doc.createElement("li");
         lineageTotalsItem.className = _prefix + "lineage-item";
         lineageTotalsItem.innerHTML = _global.HTMLCS.getTranslation("auditor_issue") + " " + issue + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalIssues;
@@ -8386,14 +4964,6 @@ _global.HTMLCSAuditor = new function() {
         summary.appendChild(rightPane);
         return summary;
     };
-    /**
-     * Build the main issue list section of the interface.
-     *
-     * This is what you see when the tests have finished running. A summary list of
-     * , paged five at a time.
-     *
-     * @return {HTMLDivElement}
-     */
     var buildIssueListSection = function(messages) {
         var issueListWidth = Math.ceil(messages.length / 5) * 300;
         var issueList = _doc.createElement("div");
@@ -8488,8 +5058,6 @@ _global.HTMLCSAuditor = new function() {
         };
         var wrapper = _doc.getElementById(_prefix + "wrapper");
         var levels = self.countIssues(_messages);
-        // Set default show options based on the first run. Don't re-do these, let
-        // the user's settings take priority, unless there is no message.
         if (_options.show === undefined && _messages.length > 0) {
             _options.show = {
                 error: true,
@@ -8539,7 +5107,6 @@ _global.HTMLCSAuditor = new function() {
                 }
             }
             var levelSwitch = buildCheckbox(_prefix + "include-" + level, "Toggle display of " + level + " messages", checked, disabled, function(input) {
-                // Only change checkboxes that haven't been disabled.
                 var enable = false;
                 if (_doc.getElementById(_prefix + "include-error").disabled === false) {
                     _options.show.error = _doc.getElementById(_prefix + "include-error").checked;
@@ -8563,7 +5130,6 @@ _global.HTMLCSAuditor = new function() {
             levelDiv.appendChild(levelSwitch);
             issueCountDiv.appendChild(levelDiv);
         }
-        // Only disable if we have "currently showing" setting on.
         if (_options.show !== undefined) {
             var enable = _options.show.error || _options.show.warning || _options.show.notice;
             if (enable === false) {
@@ -8598,10 +5164,8 @@ _global.HTMLCSAuditor = new function() {
             break;
 
           default:
-            // Not defined.
             break;
         }
-        //end switch
         var typeClass = typeText.toLowerCase();
         var messageMsg = message.msg;
         if (messageMsg.length > 115) {
@@ -8670,10 +5234,8 @@ _global.HTMLCSAuditor = new function() {
             break;
 
           default:
-            // Not defined.
             break;
         }
-        //end switch
         var typeClass = _prefix + typeText.toLowerCase();
         var standardObj = HTMLCS.util.getElementWindow(_doc)["HTMLCS_" + standard];
         var standardObj = _top["HTMLCS_" + standard];
@@ -8702,7 +5264,6 @@ _global.HTMLCSAuditor = new function() {
         msgDetailsDiv.appendChild(msgTitle);
         msgDetailsDiv.appendChild(msgRef);
         msgDiv.appendChild(msgDetailsDiv);
-        // If the item cannot be pointed to, tell them why.
         if (pointer.isPointable(message.element) === false) {
             var msgElementSource = _doc.createElement("div");
             msgElementSource.className = _prefix + "issue-source";
@@ -8727,13 +5288,10 @@ _global.HTMLCSAuditor = new function() {
             if (msgElementSourceInner.textContent !== undefined) {
                 msgElementSourceInner.textContent = msg;
             } else {
-                // IE8 uses innerText instead. Oh well.
                 msgElementSourceInner.innerText = msg;
             }
             msgElementSource.appendChild(msgElementSourceInner);
         }
-        // Build the source view, if outerHTML exists (Firefox >= 11, Webkit, IE),
-        // and applies to the particular element (ie. document doesn't have it).
         if (_options.customIssueSource) {
             var msgElementSource = _doc.createElement("div");
             msgElementSource.className = _prefix + "issue-source";
@@ -8742,7 +5300,6 @@ _global.HTMLCSAuditor = new function() {
         } else {
             var msgElementSource = _doc.createElement("div");
             msgElementSource.className = _prefix + "issue-source";
-            // Header row.
             var msgElementSourceHeader = _doc.createElement("div");
             msgElementSourceHeader.className = _prefix + "issue-source-header";
             var msgSourceHeaderText = _doc.createElement("strong");
@@ -8761,17 +5318,14 @@ _global.HTMLCSAuditor = new function() {
                 } else {
                     var outerHTML = message.element.outerHTML;
                 }
-                // Find previous siblings.
                 var preNode = message.element.previousSibling;
                 while (preText.length <= 31) {
                     if (preNode === null) {
                         break;
                     } else {
                         if (preNode.nodeType === 1) {
-                            // Element node.
                             preText = preNode.outerHTML;
                         } else if (preNode.nodeType === 3) {
-                            // Text node.
                             if (preNode.textContent !== undefined) {
                                 preText = preNode.textContent + preText;
                             } else {
@@ -8784,18 +5338,14 @@ _global.HTMLCSAuditor = new function() {
                     }
                     preNode = preNode.previousSibling;
                 }
-                //end while
-                // Find following siblings.
                 var postNode = message.element.nextSibling;
                 while (postText.length <= 31) {
                     if (postNode === null) {
                         break;
                     } else {
                         if (postNode.nodeType === 1) {
-                            // Element node.
                             postText += postNode.outerHTML;
                         } else if (postNode.nodeType === 3) {
-                            // Text node.
                             if (postNode.textContent !== undefined) {
                                 postText += postNode.textContent;
                             } else {
@@ -8808,15 +5358,12 @@ _global.HTMLCSAuditor = new function() {
                     }
                     postNode = postNode.nextSibling;
                 }
-                //end while
-                // Actual source code, highlighting offending element.
                 var msgElementSourceInner = _doc.createElement("div");
                 msgElementSourceInner.className = _prefix + "issue-source-inner";
                 var msgElementSourceMain = _doc.createElement("strong");
                 if (msgElementSourceMain.textContent !== undefined) {
                     msgElementSourceMain.textContent = outerHTML;
                 } else {
-                    // IE8 uses innerText instead. Oh well.
                     msgElementSourceMain.innerText = outerHTML;
                 }
                 msgElementSourceInner.appendChild(_doc.createTextNode(preText));
@@ -8824,17 +5371,14 @@ _global.HTMLCSAuditor = new function() {
                 msgElementSourceInner.appendChild(_doc.createTextNode(postText));
                 msgElementSource.appendChild(msgElementSourceInner);
             } else if (message.element.nodeName === "#document") {} else {
-                // No support for outerHTML.
                 var msgElementSourceInner = _doc.createElement("div");
                 msgElementSourceInner.className = _prefix + "issue-source-not-supported";
                 var nsText = _global.HTMLCS.getTranslation("auditor_unsupported_browser");
                 msgElementSourceInner.appendChild(_doc.createTextNode(nsText));
                 msgElementSource.appendChild(msgElementSourceInner);
             }
-            //end if
             msgDiv.appendChild(msgElementSource);
         }
-        //end if
         return msgDiv;
     };
     var buildNavigation = function(page, totalPages) {
@@ -8849,7 +5393,6 @@ _global.HTMLCSAuditor = new function() {
         navDiv.appendChild(prev);
         var pageNum = _doc.createElement("span");
         pageNum.className = _prefix + "page-number";
-        // pageNum.innerHTML = 'Page ' + page + ' of ' + totalPages;
         pageNum.innerHTML = _global.HTMLCS.getTranslation("auditor_issue") + " " + page + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalPages;
         navDiv.appendChild(pageNum);
         var next = _doc.createElement("span");
@@ -8923,12 +5466,6 @@ _global.HTMLCSAuditor = new function() {
             loadStandards(standards, callback);
         });
     };
-    /**
-     * Includes the specified JS file.
-     *
-     * @param {String}   src      The URL to the JS file.
-     * @param {Function} callback The function to call once the script is loaded.
-     */
     var _includeScript = function(src, callback) {
         var script = document.createElement("script");
         script.onload = function() {
@@ -8978,7 +5515,6 @@ _global.HTMLCSAuditor = new function() {
                 break;
             }
         }
-        //end for
         return counts;
     };
     this.build = function(standard, messages, options) {
@@ -8990,7 +5526,6 @@ _global.HTMLCSAuditor = new function() {
         var warnings = 0;
         var notices = 0;
         for (var i = 0; i < messages.length; i++) {
-            // Filter only the wanted error types.
             var ignore = false;
             switch (messages[i].type) {
               case HTMLCS.ERROR:
@@ -9017,13 +5552,11 @@ _global.HTMLCSAuditor = new function() {
                 }
                 break;
             }
-            //end switch
             if (ignore === true) {
                 messages.splice(i, 1);
                 i--;
             }
         }
-        //end for
         _messages = messages;
         var settingsContents = "";
         var summaryContents = "";
@@ -9088,7 +5621,6 @@ _global.HTMLCSAuditor = new function() {
     };
     this.changeScreen = function(screen) {
         var wrapper = _doc.getElementById(_prefix + "wrapper");
-        // Remove current "showing" section, add new one, then clean up the class name.
         wrapper.className = wrapper.className.replace(new RegExp("showing-" + _screen), "");
         wrapper.className += " showing-" + screen;
         wrapper.className = wrapper.className.replace(/\s+/, " ");
@@ -9151,9 +5683,7 @@ _global.HTMLCSAuditor = new function() {
                     }
                 } catch (ex) {}
             }
-            //end for
             if (largestFrame === null) {
-                // They're all iframes. Just use the main document body.
                 parentEl = document.body;
             } else {
                 parentEl = largestFrame;
@@ -9170,11 +5700,6 @@ _global.HTMLCSAuditor = new function() {
         }
         return _doc;
     };
-    /**
-     * Get the current document's language.
-     *
-     * @return string
-     */
     this.getDocumentLanguage = function() {
         var defaultLang = "en";
         var doc = this.getOwnerDocument();
@@ -9187,13 +5712,7 @@ _global.HTMLCSAuditor = new function() {
         }
         return defaultLang;
     };
-    /**
-     * Run HTML_CodeSniffer and place the results in the auditor.
-     *
-     * @returns undefined
-     */
     this.run = function(standard, source, options) {
-        // Save the top window.
         _top = window;
         var standards = this.getStandardList();
         var standardsToLoad = [];
@@ -9209,7 +5728,6 @@ _global.HTMLCSAuditor = new function() {
             return;
         }
         if (source === null || source === undefined) {
-            // If not defined (or no longer existing?), check the document.
             source = [];
             if (document.querySelectorAll("frameset").length === 0) {
                 source.push(document);
@@ -9222,32 +5740,25 @@ _global.HTMLCSAuditor = new function() {
                 }
             }
         } else if (source.nodeName) {
-            // See if we are being sent a text box or text area; if so then
-            // examine its contents rather than the node itself.
             if (source.nodeName.toLowerCase() === "input") {
                 if (source.hasAttribute("type") === false) {
-                    // Inputs with no type default to text fields.
                     source = source.value;
                 } else {
                     var inputType = source.getAttribute("type").toLowerCase();
                     if (inputType === "text") {
-                        // Text field.
                         source = source.value;
                     }
                 }
             } else if (source.nodeName.toLowerCase() === "textarea") {
-                // Text area.
                 source = source.value;
             }
         }
         if (source instanceof Array === false) {
             source = [ source ];
         }
-        //end if
         if (options === undefined) {
             options = {};
         }
-        // Save the options at this point, so we can refresh with them.
         _standard = standard;
         _sources = source;
         _options = options;
@@ -9271,7 +5782,6 @@ _global.HTMLCSAuditor = new function() {
         this.includeCss("HTMLCS");
         var target = _doc.getElementById(_prefix + "wrapper");
         var newlyOpen = false;
-        // Load the "processing" screen.
         var wrapper = self.buildSummaryPage();
         wrapper.className += " HTMLCS-processing";
         if (target) {
@@ -9279,24 +5789,19 @@ _global.HTMLCSAuditor = new function() {
             wrapper.style.top = target.style.top;
             parentEl.replaceChild(wrapper, target);
         } else {
-            // Being opened for the first time (in this frame).
             if (_options.openCallback) {
                 _options.openCallback.call(this);
             }
             newlyOpen = true;
             parentEl.appendChild(wrapper);
         }
-        // Process and replace with the issue list when finished.
         var _finalise = function() {
-            // Before then, ignore warnings arising from the Advisor interface itself.
             for (var i = 0; i < _messages.length; i++) {
                 var ignore = false;
                 if (wrapper) {
                     if (wrapper === _messages[i].element) {
                         ignore = true;
                     } else if (_messages[i].element.documentElement) {
-                        // Short-circuit document objects. IE doesn't like documents
-                        // being the argument of contains() calls.
                         ignore = false;
                     } else if (wrapper.contains && wrapper.contains(_messages[i].element) === true) {
                         ignore = true;
@@ -9304,7 +5809,6 @@ _global.HTMLCSAuditor = new function() {
                         ignore = true;
                     }
                 }
-                //end if
                 for (var j = 0; j < options.ignoreMsgCodes.length; j++) {
                     if (new RegExp(options.ignoreMsgCodes[j]).test(_messages[i].code) === true) {
                         ignore = true;
@@ -9316,7 +5820,6 @@ _global.HTMLCSAuditor = new function() {
                     i--;
                 }
             }
-            //end for
             if (_options.runCallback) {
                 var _newMsgs = _options.runCallback.call(this, _messages, newlyOpen);
                 if (_newMsgs instanceof Array === true) {
@@ -9333,8 +5836,6 @@ _global.HTMLCSAuditor = new function() {
         };
         var _processSource = function(standard, sources) {
             var source = sources.shift();
-            // Source is undefined. Keep shifting, until we find one or we run
-            // out of array elements.
             while (!source) {
                 if (sources.length === 0) {
                     _finalise();
@@ -9395,7 +5896,6 @@ _global.HTMLCSAuditor = new function() {
             if (!element) {
                 return null;
             }
-            // Retrieve the coordinates and dimensions of the element.
             var coords = this.getElementCoords(element);
             var dimensions = this.getElementDimensions(element);
             var result = {
@@ -9416,7 +5916,6 @@ _global.HTMLCSAuditor = new function() {
         getElementCoords: function(element, absolute) {
             var left = 0;
             var top = 0;
-            // Get parent window coords.
             var window = HTMLCS.util.getElementWindow(element);
             if (absolute === true) {
                 var topWin = window.top;
@@ -9434,12 +5933,10 @@ _global.HTMLCSAuditor = new function() {
                     element = window.frameElement;
                     window = window.parent;
                     if (element.nodeName.toLowerCase() === "frame") {
-                        // We can't go any further if we hit a proper frame.
                         break;
                     }
                 }
             }
-            //end while
             return {
                 x: left,
                 y: top
@@ -9451,35 +5948,26 @@ _global.HTMLCSAuditor = new function() {
             var windowWidth = 0;
             var windowHeight = 0;
             if (window.innerWidth) {
-                // Will work on Mozilla, Opera and Safari etc.
                 windowWidth = window.innerWidth;
                 windowHeight = window.innerHeight;
-                // If the scrollbar is showing (it is always showing in IE) then its'
-                // width needs to be subtracted from the height and/or width.
                 var scrollWidth = this.getScrollbarWidth(elem);
-                // The documentElement.scrollHeight.
                 if (doc.documentElement.scrollHeight > windowHeight) {
-                    // Scrollbar is shown.
                     if (typeof scrollWidth === "number") {
                         windowWidth -= scrollWidth;
                     }
                 }
                 if (doc.body.scrollWidth > windowWidth) {
-                    // Scrollbar is shown.
                     if (typeof scrollWidth === "number") {
                         windowHeight -= scrollWidth;
                     }
                 }
             } else if (doc.documentElement && (doc.documentElement.clientWidth || doc.documentElement.clientHeight)) {
-                // Internet Explorer.
                 windowWidth = doc.documentElement.clientWidth;
                 windowHeight = doc.documentElement.clientHeight;
             } else if (doc.body && (doc.body.clientWidth || doc.body.clientHeight)) {
-                // Browsers that are in quirks mode or weird examples fall through here.
                 windowWidth = doc.body.clientWidth;
                 windowHeight = doc.body.clientHeight;
             }
-            //end if
             var result = {
                 width: windowWidth,
                 height: windowHeight
@@ -9495,34 +5983,23 @@ _global.HTMLCSAuditor = new function() {
             var childDiv = null;
             var widthNoScrollBar = 0;
             var widthWithScrollBar = 0;
-            // Outer scrolling div.
             wrapDiv = doc.createElement("div");
             wrapDiv.style.position = "absolute";
             wrapDiv.style.top = "-1000px";
             wrapDiv.style.left = "-1000px";
             wrapDiv.style.width = "100px";
             wrapDiv.style.height = "50px";
-            // Start with no scrollbar.
             wrapDiv.style.overflow = "hidden";
-            // Inner content div.
             childDiv = doc.createElement("div");
             childDiv.style.width = "100%";
             childDiv.style.height = "200px";
-            // Put the inner div in the scrolling div.
             wrapDiv.appendChild(childDiv);
-            // Append the scrolling div to the doc.
             _doc.body.appendChild(wrapDiv);
-            // Width of the inner div sans scrollbar.
             widthNoScrollBar = childDiv.offsetWidth;
-            // Add the scrollbar.
             wrapDiv.style.overflow = "auto";
-            // Width of the inner div width scrollbar.
             widthWithScrollBar = childDiv.offsetWidth;
-            // Remove the scrolling div from the doc.
             doc.body.removeChild(doc.body.lastChild);
-            // Pixel width of the scroller.
             var scrollBarWidth = widthNoScrollBar - widthWithScrollBar;
-            // Set the auditor-level variable so we don't have to run this again.
             _sbWidth = scrollBarWidth;
             return scrollBarWidth;
         },
@@ -9532,18 +6009,12 @@ _global.HTMLCSAuditor = new function() {
             var scrollX = 0;
             var scrollY = 0;
             if (window.pageYOffset) {
-                // Mozilla, Firefox, Safari and Opera will fall into here.
                 scrollX = window.pageXOffset;
                 scrollY = window.pageYOffset;
             } else if (doc.body && (doc.body.scrollLeft || doc.body.scrollTop)) {
-                // This is the DOM compliant method of retrieving the scroll position.
-                // Safari and OmniWeb supply this, but report wrongly when the window
-                // is not scrolled. They are caught by the first condition however, so
-                // this is not a problem.
                 scrollX = doc.body.scrollLeft;
                 scrollY = doc.body.scrollTop;
             } else {
-                // Internet Explorer will get into here when in strict mode.
                 scrollX = doc.documentElement.scrollLeft;
                 scrollY = doc.documentElement.scrollTop;
             }
@@ -9554,23 +6025,16 @@ _global.HTMLCSAuditor = new function() {
             return coords;
         },
         isPointable: function(elem) {
-            // If the specified elem is not in the DOM then we cannot point to it.
-            // Also, cannot point to the document itself.
             if (elem.ownerDocument === null) {
                 return false;
             }
-            // Check whether the element is in the document, by looking up its
-            // DOM tree for a document object.
             var parent = elem.parentNode;
             while (parent && parent.ownerDocument) {
                 parent = parent.parentNode;
             }
-            //end while
-            // If we didn't hit a document, the element must not be in there.
             if (parent === null) {
                 return false;
             }
-            // Do not point to elem if its hidden. Use computed styles.
             if (HTMLCS.util.isVisuallyHidden(elem) === true) {
                 return false;
             }
@@ -9581,7 +6045,6 @@ _global.HTMLCSAuditor = new function() {
         },
         getPointerDirection: function(elem) {
             var direction = null;
-            // Get element coords.
             var rect = this.getBoundingRectangle(elem);
             var myPointer = this.getPointer(elem);
             var doc = elem.ownerDocument;
@@ -9590,22 +6053,16 @@ _global.HTMLCSAuditor = new function() {
             this.pointerDim.height = 62;
             this.pointerDim.width = 62;
             var bounceHeight = 20;
-            // Determine where to show the arrow.
             var winDim = this.getWindowDimensions(elem);
             var window = HTMLCS.util.getElementWindow(elem);
             var scrollY = Math.max(0, Math.min(rect.y1 - 100, doc.documentElement.offsetHeight - winDim.height));
-            // Try to position the pointer.
             if (rect.y1 - this.pointerDim.height - bounceHeight > scrollY) {
-                // Arrow direction down.
                 direction = "down";
             } else if (rect.y2 + this.pointerDim.height < winDim.height - scrollY) {
-                // Up.
                 direction = "up";
             } else if (rect.x2 + this.pointerDim.width < winDim.width) {
-                // Left.
                 direction = "left";
             } else if (rect.x1 - this.pointerDim.width > 0) {
-                // Right.
                 direction = "right";
             }
             myPointer.className = myPointer.className.replace("HTMLCS-pointer-hidden-block", "");
@@ -9613,7 +6070,6 @@ _global.HTMLCSAuditor = new function() {
             return direction;
         },
         pointTo: function(elem) {
-            // Do not point to elem if its hidden.
             if (elem.ownerDocument) {
                 var doc = elem.ownerDocument;
             } else {
@@ -9626,7 +6082,6 @@ _global.HTMLCSAuditor = new function() {
             if (this.isPointable(elem) === false) {
                 return;
             }
-            // Get element coords.
             var topWin = HTMLCS.util.getElementWindow(elem).top;
             var winDim = this.getWindowDimensions(topWin.document.documentElement);
             var direction = this.getPointerDirection(elem);
@@ -9647,7 +6102,6 @@ _global.HTMLCSAuditor = new function() {
                     }
                     parent = parent.parentNode;
                 }
-                //end while
                 if (isFixed === true) {
                     myPointer.style.position = "fixed";
                 } else {
@@ -9667,7 +6121,6 @@ _global.HTMLCSAuditor = new function() {
                         }
                     }
                 }
-                //end if
                 this.showPointer(elem, direction);
             }
         },
@@ -9728,12 +6181,9 @@ _global.HTMLCSAuditor = new function() {
                 top = this.getRectMidPnt(rect, true) - this.pointerDim.height / 2;
                 break;
             }
-            //end switch
             var frameScroll = this.getScrollCoords(elem);
             myPointer.style.top = top + "px";
             myPointer.style.left = left + "px";
-            // Check if the help window is under the pointer then re-position it.
-            // Unless it is an element within the HTMLCS pop-up.
             var coords = this.getBoundingRectangle(this.container);
             rect = this.getBoundingRectangle(myPointer);
             var posOffset = 20;
