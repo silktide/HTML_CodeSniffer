@@ -217,10 +217,11 @@ _global.HTMLCS.util = function() {
      */
     self.isVisuallyHidden = function(element) {
 
+        // Do not point to elem if its hidden. Used computed styles.
         var style = self.style(element);
         if (style !== null) {
 
-            if (style.display === 'none') {
+            if ((style.visibility === 'hidden') || (style.display === 'none')) {
                 return true;
             }
 
@@ -231,10 +232,6 @@ _global.HTMLCS.util = function() {
 
             // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
             if (style.clipPath.replace(/ /g, '') === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
-                return true;
-            }
-
-            if (style.visibility === 'hidden') {
                 return true;
             }
 

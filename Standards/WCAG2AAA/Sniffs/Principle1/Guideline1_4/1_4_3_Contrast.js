@@ -30,7 +30,9 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
 
             // This is an element.
             // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
-            if (node && (node.nodeType === 1) && (HTMLCS.util.isHiddenText(node) === false) && (HTMLCS.util.isDisabled(node) === false)) {
+            if (node && (node.nodeType === 1) && (HTMLCS.util.isVisuallyHidden(node) === false) &&
+                (HTMLCS.util.isHiddenText(node) === false) &&
+                (HTMLCS.util.isDisabled(node) === false)) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
@@ -48,12 +50,13 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                     var style = HTMLCS.util.style(node);
 
                     if (style) {
-                        var bgColour = "";
+                        var bgColour = style.backgroundColor;
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
                         var bgPosition = "";
                         var foreColour = style.color;
+                        var bgElement = node;
                         var hasBgImg   = false;
                         var backgrounds = [];
 
@@ -61,6 +64,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                         // it now extends beyond just "absolute" to mean "is positioned outside of parent".
                         // Essentially it means we can't reliably know our background colour.
                         var isAbsolute = false;
+
+
+                        if (style.backgroundImage !== 'none' && style.backgroundImage.startsWith('url')) {
+                            hasBgImg = true;
+                        }
+
+                        if (style.position === 'absolute') {
+                            isAbsolute = true;
+                        }
 
                         // Calculate font size. Note that CSS 2.1 fixes a reference pixel
                         // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
@@ -91,7 +103,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 bgColour = null;
                             }
 
-                            if (currentStyle.backgroundImage !== 'none') {
+                            if (currentStyle.backgroundImage !== 'none' && currentStyle.backgroundImage.startsWith('url')) {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
                                 bgRepeat = currentStyle.backgroundRepeat;
@@ -182,7 +194,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize,
                             });
                             continue;
-                        } else if (!bgColour) {
+                        } else if (!bgColour || (bgColour === 'transparent') || (bgColour === 'rgba(0, 0, 0, 0)'))  {
                             // If the background colour is still transparent, this is probably
                             // a fragment with which we cannot reliably make a statement about
                             // contrast ratio. Skip the element.
@@ -223,7 +235,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
      * @returns {*|string}
      */
     getUrlFromStyle: function(style) {
-        return style.match(/url\(["']?([^"']*)["']?\)/)[1];
+        var matches=style.match(/url\(["']?([^"']*)["']?\)/);
+        if (matches instanceof Array && matches.length>0) {
+            return matches[1];
+        }
+        return '';
     },
 
     recommendColour: function(back, fore, target) {
