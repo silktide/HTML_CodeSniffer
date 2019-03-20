@@ -300,8 +300,10 @@ _global.HTMLCS.util = function() {
                 return true;
             }
 
-            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
-            if (parseInt(style.textIndent) + width < 0) {
+            // Wine Barrel uses < 0, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            // University of San Francisco uses > width, e.g. https://www.usfca.edu/calendar
+            var textIndent = parseInt(style.textIndent);
+            if (textIndent + width < 0 || textIndent > width) {
                 return true;
             }
         }
