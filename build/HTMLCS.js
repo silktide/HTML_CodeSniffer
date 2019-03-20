@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2018-11-16 */
+/*! silktide-html-codesniffer - v2.2.0 - 2019-03-16 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -6990,8 +6990,10 @@ _global.HTMLCS.util = function() {
             if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
                 return true;
             }
-            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
-            if (parseInt(style.textIndent) + width < 0) {
+            // Wine Barrel uses < 0, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            // University of San Francisco uses > width, e.g. https://www.usfca.edu/calendar
+            var textIndent = parseInt(style.textIndent);
+            if (textIndent + width < 0 || textIndent > width) {
                 return true;
             }
         }
