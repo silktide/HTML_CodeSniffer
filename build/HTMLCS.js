@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2019-03-20 */
+/*! silktide-html-codesniffer - v2.2.0 - 2019-03-21 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -12,15 +12,9 @@
  *
  */
 (function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['htmlcs'], factory);
-    } else if (typeof exports === 'object') {
-        module.exports = factory();
-    } else {
-        var exports = factory();
-        for (var prop in exports) {
-            root[prop] = exports[prop];
-        }
+    var exports = factory();
+    for (var prop in exports) {
+        root[prop] = exports[prop];
     }
 }(this, function () {
     var _global = {
@@ -3360,7 +3354,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
             var node = toProcess.shift();
             // This is an element.
             // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
-            if (node && node.nodeType === 1 && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
+            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node) === false && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
                 var processNode = false;
                 for (var i = 0; i < node.childNodes.length; i++) {
                     // Load up new nodes, but also only process this node when
@@ -3376,18 +3370,25 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                 if (processNode === true) {
                     var style = HTMLCS.util.style(node);
                     if (style) {
-                        var bgColour = "";
+                        var bgColour = style.backgroundColor;
                         var bgImg = "";
                         var bgRepeat = "";
                         var bgSize = "";
                         var bgPosition = "";
                         var foreColour = style.color;
+                        var bgElement = node;
                         var hasBgImg = false;
                         var backgrounds = [];
                         // For compatibility with CS, we retain their name for this variable, but
                         // it now extends beyond just "absolute" to mean "is positioned outside of parent".
                         // Essentially it means we can't reliably know our background colour.
                         var isAbsolute = false;
+                        if (style.backgroundImage !== "none" && style.backgroundImage.startsWith("url")) {
+                            hasBgImg = true;
+                        }
+                        if (style.position === "absolute") {
+                            isAbsolute = true;
+                        }
                         // Calculate font size. Note that CSS 2.1 fixes a reference pixel
                         // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
                         // so this calculation should be safe.
@@ -3411,7 +3412,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
                                 bgColour = null;
                             }
-                            if (currentStyle.backgroundImage !== "none") {
+                            if (currentStyle.backgroundImage !== "none" && currentStyle.backgroundImage.startsWith("url")) {
                                 hasBgImg = true;
                                 bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
                                 bgRepeat = currentStyle.backgroundRepeat;
@@ -3496,7 +3497,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                 minLargeSize: minLargeSize
                             });
                             continue;
-                        } else if (!bgColour) {
+                        } else if (!bgColour || bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
                             // If the background colour is still transparent, this is probably
                             // a fragment with which we cannot reliably make a statement about
                             // contrast ratio. Skip the element.
@@ -3534,7 +3535,11 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
      * @returns {*|string}
      */
     getUrlFromStyle: function(style) {
-        return style.match(/url\(["']?([^"']*)["']?\)/)[1];
+        var matches = style.match(/url\(["']?([^"']*)["']?\)/);
+        if (matches instanceof Array && matches.length > 0) {
+            return matches[1];
+        }
+        return "";
     },
     recommendColour: function(back, fore, target) {
         // Canonicalise the colours.
@@ -6925,9 +6930,10 @@ _global.HTMLCS.util = function() {
      * @returns {Boolean}
      */
     self.isVisuallyHidden = function(element) {
+        // Do not point to elem if its hidden. Used computed styles.
         var style = self.style(element);
         if (style !== null) {
-            if (style.display === "none") {
+            if (style.visibility === "hidden" || style.display === "none") {
                 return true;
             }
             // EPA (among others) use this hack to hide elements
@@ -6936,9 +6942,6 @@ _global.HTMLCS.util = function() {
             }
             // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
             if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
-                return true;
-            }
-            if (style.visibility === "hidden") {
                 return true;
             }
             var width = parseInt(style.width, 10);
