@@ -180,14 +180,25 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
                     } else if (missingAlt === true) {
                         errors.img.missingAlt.push(element);
                     } else if (nullAlt === true) {
+                        var height = element.height;
+                        var width = element.width;
+
                         var computedHeight = parseFloat(window.getComputedStyle(element ,null).getPropertyValue('height'));
                         var computedWidth = parseFloat(window.getComputedStyle(element ,null).getPropertyValue('width'));
+
+                        if (!height && computedHeight) {
+                            height = computedHeight;
+                        }
+
+                        if (!width && computedWidth) {
+                            width = computedWidth;
+                        }
 
                         if ((element.hasAttribute('title') === true) && (HTMLCS.util.isStringEmpty(element.getAttribute('title')) === false)) {
                             // Title attribute present and not empty. This is wrong when
                             // an image is marked as ignored.
                             errors.img.nullAltWithTitle.push(element);
-                        } else if (computedHeight > 1 || computedWidth > 1) {
+                        } else if (height > 1 || width > 1) {
                             // Do the > 1 checks as if we have any 0x0 or 1x1 pixel images, let's ignore them.
                             // 99.9% of the time they're just tracking pixels.
                             errors.img.ignored.push(element);
