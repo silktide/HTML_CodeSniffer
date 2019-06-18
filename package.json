@@ -29,7 +29,8 @@
     "load-grunt-tasks": "^3.5.2"
   },
   "devDependencies": {
-    "grunt-contrib-uglify": "^2.3.0"
+    "grunt-contrib-uglify": "^2.3.0",
+    "husky": "^2.4.1"
   },
   "husky": {
     "hooks": {
