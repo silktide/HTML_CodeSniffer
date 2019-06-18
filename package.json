@@ -30,5 +30,10 @@
   },
   "devDependencies": {
     "grunt-contrib-uglify": "^2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "./pre-push-hook.sh"
+    }
   }
 }
