@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! git diff --exit-code; then
-    echo "No changes can staged and not committed pre-push in this repository"
+    echo "No changes can be staged and not committed pre-push in this repository"
     exit 1
 fi
 
