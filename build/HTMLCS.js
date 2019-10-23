@@ -21,10 +21,9850 @@
         translation: {}
     };
 
-_global.translation.en={auditor_name:"HTML_CodeSniffer by Squiz",auditor_using_standard:"Using standard",auditor_standards:"Standards",auditor_code_snippet:"Code Snippet",auditor_close:"Close",auditor_select_types:"Select the types of issues to include in the report",auditor_home:"Home",auditor_view_report:"View Report",auditor_report:"Report",auditor_back_to_report:"Back to Report",auditor_previous_issue:"Previous Issue",auditor_next_issue:"Next Issue",auditor_issue:"Issue",auditor_of:"of",auditor_errors:"Errors",auditor_error:"Error",auditor_warnings:"Warnings",auditor_warning:"Warning",auditor_notices:"Notices",auditor_notice:"Notice",auditor_toggle_display_of:"Toggle display of",auditor_messages:"messages",auditor_unable_to_point:"Unable to point to the element associated with this issue.",auditor_unable_to_point_entire:"Unable to point to this issue, as it relates to the entire document.",auditor_unable_to_point_removed:"Unable to point to this element as it has been removed from the document since the report was generated.",auditor_unable_to_point_outside:"Unable to point to this element because it is located outside the document's body element.",auditor_unable_to_point_hidden:"Unable to point to this element because it is hidden from view, or does not have a visual representation.",auditor_point_to_element:"Point to Element",auditor_unsupported_browser:"The code snippet functionality is not supported in this browser.",auditor_page:"Page",auditor_updated_to:"HTML_CodeSniffer has been updated to version",auditor_view_the_changelog:"View the changelog",auditor_success_criterion:"Success Criterion",auditor_suggested_techniques:"Suggested Techniques",auditor_applies_entire_document:"This applies to the entire document","1_1_1_H30.2":"Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.","1_1_1_H67.1":"Img element with empty alt text must have absent or empty title attribute.","1_1_1_H67.2":"Img element is marked so that it is ignored by Assistive Technology.","1_1_1_H37":"Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.","1_1_1_G94.Image":"Ensure that the img element's alt text serves the same purpose and presents the same information as the image.","1_1_1_H36":"Image submit button missing an alt attribute. Specify a text alternative that describes the button's function, using the alt attribute.","1_1_1_G94.Button":"Ensure that the image submit button's alt text identifies the purpose of the button.","1_1_1_H24":"Area element in an image map missing an alt attribute. Each area element must have a text alternative that describes the function of the image map area.","1_1_1_H24.2":"Ensure that the area element's text alternative serves the same purpose as the part of image map image it references.","1_1_1_G73,G74":"If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link.","1_1_1_H2.EG5":"Img element inside a link must not use alt text that duplicates the text content of the link.","1_1_1_H2.EG4":"Img element inside a link has empty or missing alt text when a link beside it contains link text. Consider combining the links.","1_1_1_H2.EG3":"Img element inside a link must not use alt text that duplicates the content of a text link beside it.","1_1_1_H53,ARIA6":"Object elements must contain a text alternative after all other alternatives are exhausted.","1_1_1_G94,G92.Object,ARIA6":"Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.","1_1_1_H35.3":"Applet elements must contain a text alternative in the element's body, for browsers without support for the applet element.","1_1_1_H35.2":"Applet elements must contain an alt attribute, to provide a text alternative to browsers supporting the element but are unable to load the applet.","1_1_1_G94,G92.Applet":"Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.","1_2_1_G158":"If this embedded object contains pre-recorded audio only, and is not provided as an alternative for text content, check that an alternative text version is available.","1_2_1_G159,G166":"If this embedded object contains pre-recorded video only, and is not provided as an alternative for text content, check that an alternative text version is available, or an audio track is provided that presents equivalent information.","1_2_2_G87,G93":"If this embedded object contains pre-recorded synchronised media and is not provided as an alternative for text content, check that captions are provided for audio content.","1_2_3_G69,G78,G173,G8":"If this embedded object contains pre-recorded synchronised media and is not provided as an alternative for text content, check that an audio description of its video, and/or an alternative text version of the content is provided.","1_2_4_G9,G87,G93":"If this embedded object contains synchronised media, check that captions are provided for live audio content.","1_2_5_G78,G173,G8":"If this embedded object contains pre-recorded synchronised media, check that an audio description is provided for its video content.","1_2_6_G54,G81":"If this embedded object contains pre-recorded synchronised media, check that a sign language interpretation is provided for its audio.","1_2_7_G8":"If this embedded object contains synchronised media, and where pauses in foreground audio is not sufficient to allow audio descriptions to convey the sense of pre-recorded video, check that an extended audio description is provided, either through scripting or an alternate version.","1_2_8_G69,G159":"If this embedded object contains pre-recorded synchronised media or video-only content, check that an alternative text version of the content is provided.","1_2_9_G150,G151,G157":"If this embedded object contains live audio-only content, check that an alternative text version of the content is provided.","1_3_1_F92,ARIA4":'This element\'s role is "presentation" but contains child elements with semantic meaning.',"1_3_1_H44.NonExistent":'This label\'s "for" attribute contains an ID that does not exist in the document.',"1_3_1_H44.NonExistentFragment":'This label\'s "for" attribute contains an ID that does not exist in the document fragment.',"1_3_1_H44.NotFormControl":'This label\'s "for" attribute contains an ID for an element that is not a form control. Ensure that you have entered the correct ID for the intended element.',"1_3_1_H65":'This form control has a "title" attribute that is empty or contains only spaces. It will be ignored for labelling test purposes.',"1_3_1_ARIA6":'This form control has an "aria-label" attribute that is empty or contains only spaces. It will be ignored for labelling test purposes.',"1_3_1_ARIA16,ARIA9":'This form control contains an aria-labelledby attribute, however it includes an ID "{{id}}" that does not exist on an element. The aria-labelledby attribute will be ignored for labelling test purposes.',"1_3_1_F68.Hidden":"This hidden form field is labelled in some way. There should be no need to label a hidden form field.","1_3_1_F68.HiddenAttr":'This form field is intended to be hidden (using the "hidden" attribute), but is also labelled in some way. There should be no need to label a hidden form field.',"1_3_1_F68":'This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.',"1_3_1_H49.":"Presentational markup used that has become obsolete in HTML5.","1_3_1_H49.AlignAttr":"Align attributes.","1_3_1_H49.Semantic":"Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.","1_3_1_H49.AlignAttr.Semantic":"Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.","1_3_1_H42":"Heading markup should be used if this content is intended as a heading.","1_3_1_H63.3":"Table cell has an invalid scope attribute. Valid values are row, col, rowgroup, or colgroup.","1_3_1_H63.2":"Scope attributes on td elements that act as headings for other elements are obsolete in HTML5. Use a th element instead.","1_3_1_H43.ScopeAmbiguous":"Scope attributes on th elements are ambiguous in a table with multiple levels of headings. Use the headers attribute on td elements instead.","1_3_1_H43.IncorrectAttr":'Incorrect headers attribute on this td element. Expected "{{expected}}" but found "{{actual}}"',"1_3_1_H43.HeadersRequired":"The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.","1_3_1_H43.MissingHeaderIds":"Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements' headers attributes.","1_3_1_H43.MissingHeadersAttrs":"Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.","1_3_1_H43,H63":"The relationship between td elements and their associated th elements is not defined. Use either the scope attribute on th elements, or the headers attribute on td elements.","1_3_1_H63.1":"Not all th elements in this table have a scope attribute. These cells should contain a scope attribute to identify their association with td elements.","1_3_1_H73.3.LayoutTable":"This table appears to be used for layout, but contains a summary attribute. Layout tables must not contain summary attributes, or if supplied, must be empty.","1_3_1_H39,H73.4":"If this table is a data table, and both a summary attribute and a caption element are present, the summary should not duplicate the caption.","1_3_1_H73.3.Check":"If this table is a data table, check that the summary attribute describes the table's organization or explains how to use the table.","1_3_1_H73.3.NoSummary":"If this table is a data table, consider using the summary attribute of the table element to give an overview of this table.","1_3_1_H39.3.LayoutTable":"This table appears to be used for layout, but contains a caption element. Layout tables must not contain captions.","1_3_1_H39.3.Check":"If this table is a data table, check that the caption element accurately describes this table.","1_3_1_H39.3.NoCaption":"If this table is a data table, consider using a caption element to the table element to identify this table.","1_3_1_H71.NoLegend":"Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.","1_3_1_H85.2":"If this selection list contains groups of related options, they should be grouped with optgroup.","1_3_1_H71.SameName":"If these radio buttons or check boxes require a further group-level description, they should be contained within a fieldset element.","1_3_1_H48.1":"This content looks like it is simulating an unordered list using plain text. If so, marking up this content with a ul element would add proper structure information to the document.","1_3_1_H48.2":"This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.","1_3_1_G141_a":"The heading structure is not logically nested. This h{{headingNum}} element appears to be the primary document heading, so should be an h1 element.","1_3_1_G141_b":"The heading structure is not logically nested. This h{{headingNum}} element should be an h{{properHeadingNum}} to be properly nested.","1_3_1_H42.2":"Heading tag found with no content. Text that is not intended as a heading should not be marked up with heading tags.","1_3_1_H48":"If this element contains a navigation section, it is recommended that it be marked up as a list.","1_3_1_LayoutTable":"This table appears to be a layout table. If it is meant to instead be a data table, ensure header cells are identified using th elements.","1_3_1_DataTable":"This table appears to be a data table. If it is meant to instead be a layout table, ensure there are no th elements, and no summary or caption.","1_3_2_G57":"Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.","1_3_3_G96":"Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects.","1_4_1_G14,G18":"Check that any information conveyed using colour alone is also available in text, or through other visual cues.","1_4_2_F23":"If this element contains audio that plays automatically for longer than 3 seconds, check that there is the ability to pause, stop or mute the audio.","1_4_3_F24.BGColour":"Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image.","1_4_3_F24.FGColour":"Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.","1_4_3_G18_or_G145.Abs":"This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least {{required}}:1.","1_4_3_G18_or_G145.BgImage":"This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least {{required}}:1.","1_4_3_G18_or_G145.Fail":"This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least {{required}}:1, but text in this element has a contrast ratio of {{value}}:1.","1_4_3_G18_or_G145.Fail.Recomendation":"Recommendation: change","1_4_3_G18_or_G145.Fail.Recomendation.Text":"text colour to","1_4_3_G18_or_G145.Fail.Recomendation.Background":"background to","1_4_4_G142":"Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality.","1_4_5_G140,C22,C30.AALevel":"If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements.","1_4_6_G18_or_G17.Abs":"This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least {{required}}:1.","1_4_6_G18_or_G17.BgImage":"This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least {{required}}:1.","1_4_6_G18_or_G17.Fail":"This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least {{required}}:1, but text in this element has a contrast ratio of {{value}}:1.","1_4_6_G18_or_G17.Fail.Recomendation":"Recommendation: change","1_4_6_G18_or_G17.Fail.Recomendation.Text":"text colour to","1_4_6_G18_or_G17.Fail.Recomendation.Background":"background to","1_4_7_G56":"For pre-recorded audio-only content in this element that is primarily speech (such as narration), any background sounds should be muteable, or be at least 20 dB (or about 4 times) quieter than the speech.","1_4_8_G148,G156,G175":"Check that a mechanism is available for the user to select foreground and background colours for blocks of text, either through the Web page or the browser.","1_4_8_H87,C20":"Check that a mechanism exists to reduce the width of a block of text to no more than 80 characters (or 40 in Chinese, Japanese or Korean script).","1_4_8_C19,G172,G169":"Check that blocks of text are not fully justified - that is, to both left and right edges - or a mechanism exists to remove full justification.","1_4_8_G188,C21":"Check that line spacing in blocks of text are at least 150% in paragraphs, and paragraph spacing is at least 1.5 times the line spacing, or that a mechanism is available to achieve this.","1_4_8_H87,G146,C26":"Check that text can be resized without assistive technology up to 200 percent without requiring the user to scroll horizontally on a full-screen window.","1_4_9_G140,C22,C30.NoException":"Check that images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.","2_1_1_G90":"Ensure the functionality provided by an event handler for this element is available through the keyboard","2_1_1_SCR20.DblClick":"Ensure the functionality provided by double-clicking on this element is available through the keyboard.","2_1_1_SCR20.MouseOver":"Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.","2_1_1_SCR20.MouseOut":"Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.","2_1_1_SCR20.MouseMove":"Ensure the functionality provided by moving the mouse on this element is available through the keyboard.","2_1_1_SCR20.MouseDown":"Ensure the functionality provided by mousing down on this element is available through the keyboard; for instance, using the keydown event.","2_1_1_SCR20.MouseUp":"Ensure the functionality provided by mousing up on this element is available through the keyboard; for instance, using the keyup event.","2_1_2_F10":"Check that this applet or plugin provides the ability to move the focus away from itself when using the keyboard.","2_2_1_F40.2":"Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.","2_2_1_F41.2":"Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.","2_2_2_SCR33,SCR22,G187,G152,G186,G191":"If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content.","2_2_2_F4":"Ensure there is a mechanism available to stop this blinking element in less than five seconds.","2_2_2_F47":"Blink elements cannot satisfy the requirement that blinking information can be stopped within five seconds.","2_2_3_G5":"Check that timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.","2_2_4_SCR14":"Check that all interruptions (including updates to content) can be postponed or suppressed by the user, except interruptions involving an emergency.","2_2_5_G105,G181":"If this Web page is part of a set of Web pages with an inactivity time limit, check that an authenticated user can continue the activity without loss of data after re-authenticating.","2_3_1_G19,G176":"Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small.","2_3_2_G19":"Check that no component of the content flashes more than three times in any 1-second period.","2_4_1_H64.1":"Iframe element requires a non-empty title attribute that identifies the frame.","2_4_1_H64.2":"Check that the title attribute of this element contains text that identifies the frame.","2_4_1_G1,G123,G124,H69":"Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.","2_4_1_G1,G123,G124.NoSuchID":'This link points to a named anchor "{{id}}" within the document, but no anchor exists with that name.',"2_4_1_G1,G123,G124.NoSuchIDFragment":'This link points to a named anchor "{{id}}" within the document, but no anchor exists with that name in the fragment tested.',"2_4_2_H25.1.NoHeadEl":"There is no head section in which to place a descriptive title element.","2_4_2_H25.1.NoTitleEl":"A title should be provided for the document, using a non-empty title element in the head section.","2_4_2_H25.1.EmptyTitle":"The title element in the head section should be non-empty.","2_4_2_H25.2":"Check that the title element describes the document.","2_4_3_H4.2":"If tabindex is used, check that the tab order specified by the tabindex attributes follows relationships in the content.","2_4_4_H77,H78,H79,H80,H81,H33":"Check that the link text combined with programmatically determined link context, or its title attribute, identifies the purpose of the link.","2_4_4_H77,H78,H79,H80,H81":"Check that the link text combined with programmatically determined link context identifies the purpose of the link.","2_4_5_G125,G64,G63,G161,G126,G185":"If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages.","2_4_6_G130,G131":"Check that headings and labels describe topic or purpose.","2_4_7_G149,G165,G195,C15,SCR31":"Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls.","2_4_8_H59.1":"Link elements can only be located in the head section of the document.","2_4_8_H59.2a":"Link element is missing a non-empty rel attribute identifying the link type.","2_4_8_H59.2b":"Link element is missing a non-empty href attribute pointing to the resource being linked.","2_4_9_H30":"Check that text of the link describes the purpose of the link.","3_1_1_H57.2":"The html element should have a lang or xml:lang attribute which describes the language of the document.","3_1_1_H57.3.Lang":"The language specified in the lang attribute of the document element does not appear to be well-formed.","3_1_1_H57.3.XmlLang":"The language specified in the xml:lang attribute of the document element does not appear to be well-formed.","3_1_2_H58":"Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate.","3_1_2_H58.1.Lang":"The language specified in the lang attribute of this element does not appear to be well-formed.","3_1_2_H58.1.XmlLang":"The language specified in the xml:lang attribute of this element does not appear to be well-formed.","3_1_3_H40,H54,H60,G62,G70":"Check that there is a mechanism available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.","3_1_4_G102,G55,G62,H28,G97":"Check that a mechanism for identifying the expanded form or meaning of abbreviations is available.","3_1_5_G86,G103,G79,G153,G160":"Where the content requires reading ability more advanced than the lower secondary education level, supplemental content or an alternative version should be provided.","3_1_6_H62.1.HTML5":"Ruby element does not contain an rt element containing pronunciation information for its body text.","3_1_6_H62.1.XHTML11":"Ruby element does not contain an rt element containing pronunciation information for the text inside the rb element.","3_1_6_H62.2":"Ruby element does not contain rp elements, which provide extra punctuation to browsers not supporting ruby text.","3_2_1_G107":"Check that a change of context does not occur when this input field receives focus.","3_2_2_H32.2":'This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.',"3_2_3_G61":"Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.","3_2_4_G197":"Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs.","3_2_5_H83.3":"Check that this link's link text contains information indicating that the link will open in a new window.","3_3_1_G83,G84,G85":"If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text.","3_3_2_G131,G89,G184,H90":"Check that descriptive labels or instructions (including for required fields) are provided for user input in this form.","3_3_3_G177":"Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content.","3_3_4_G98,G99,G155,G164,G168.LegalForms":"If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user.","3_3_5_G71,G184,G193":"Check that context-sensitive help is available for this form, at a Web-page and/or control level.","3_3_6_G98,G99,G155,G164,G168.AllForms":"Check that submissions to this form are either reversible, checked for input errors, and/or confirmed by the user.","4_1_1_F77":'Duplicate id attribute value "{{id}}" found on the web page.',"4_1_2_H91.A.Empty":"Anchor element found with an ID but without a href or link text. Consider moving its ID to a parent or nearby element.","4_1_2_H91.A.EmptyWithName":"Anchor element found with a name attribute but without a href or link text. Consider moving the name attribute to become an ID of a parent or nearby element.","4_1_2_H91.A.EmptyNoId":"Anchor element found with no link content and no name and/or ID attribute.","4_1_2_H91.A.NoHref":"Anchor elements should not be used for defining in-page link targets. If not using the ID for other purposes (such as CSS or scripting), consider moving it to a parent element.","4_1_2_H91.A.Placeholder":"Anchor element found with link content, but no href, ID or name attribute has been supplied.","4_1_2_H91.A.NoContent":"Anchor element found with a valid href attribute, but no link content has been supplied.","4_1_2_input_element":"input element","4_1_2_role_of_button":'element has a role of "button" but',"4_1_2_element_content":"element content","4_1_2_element":"element","4_1_2_msg_pattern":"This {{msgNodeType}} does not have a name available to an accessibility API. Valid names are: {{builtAttrs}}.","4_1_2_msg_pattern2":"This {{msgNodeType}} does not have a value available to an accessibility API.","4_1_2_msg_add_one":"Add one by adding content to the element.","4_1_2_msg_pattern3":"This {{msgNodeType}} does not have an initially selected option. Depending on your HTML version, the value exposed to an accessibility API may be undefined.","4_1_2_value_exposed_using_attribute":"A value is exposed using the {{requiredValue}} attribute.","4_1_2_value_exposed_using_element":"A value is exposed using the {{requiredValue}} element."},_global.HTMLCS_Section508={name:"Section508",description:"U.S. Section 508 Standard",sniffs:["A","B","C","D","G","H","I","J","K","L","M","N","O","P"],getMsgInfo:function(a){return[["Section","1194.22 ("+a.split(".",3)[1].toLowerCase()+")"]]}},_global.HTMLCS_Section508_Sniffs_A={register:function(){return["_top","img","object","bgsound","audio"]},process:function(a,b){if(a===b)this.addNullAltTextResults(b),this.addMediaAlternativesResults(b);else{var c=a.nodeName.toLowerCase();"object"!==c&&"bgsound"!==c&&"audio"!==c||HTMLCS.addMessage(HTMLCS.NOTICE,a,"For multimedia containing audio only, ensure an alternative is available, such as a full text transcript.","Audio")}},testNullAltText:function(a){var b={img:{generalAlt:[],missingAlt:[],ignored:[],nullAltWithTitle:[],emptyAltInLink:[]},inputImage:{generalAlt:[],missingAlt:[]},area:{generalAlt:[],missingAlt:[]}};elements=HTMLCS.util.getAllElements(a,'img, area, input[type="image"]');for(var c=0;c<elements.length;c++){var d=elements[c],e=d.nodeName.toLowerCase(),f=!1,g=!1,h=!1;if("a"===d.parentNode.nodeName.toLowerCase()){var i=HTMLCS.util.getPreviousSiblingElement(d,null),j=HTMLCS.util.getNextSiblingElement(d,null);if(null===i&&null===j){var k=d.parentNode.textContent;if(void 0!==d.parentNode.textContent)var k=d.parentNode.textContent;else var k=d.parentNode.innerText;!0===HTMLCS.util.isStringEmpty(k)&&(f=!0)}}switch(!1===d.hasAttribute("alt")?g=!0:d.getAttribute("alt")&&!0!==HTMLCS.util.isStringEmpty(d.getAttribute("alt"))||(h=!0),e){case"img":!0!==f||!0!==g&&!0!==h?!0===g?b.img.missingAlt.push(d):!0===h?!0===d.hasAttribute("title")&&!1===HTMLCS.util.isStringEmpty(d.getAttribute("title"))?b.img.nullAltWithTitle.push(d):b.img.ignored.push(d):b.img.generalAlt.push(d):b.img.emptyAltInLink.push(d.parentNode);break;case"input":!0===g||!0===h?b.inputImage.missingAlt.push(d):b.inputImage.generalAlt.push(d);break;case"area":!0===g||!0===h?b.area.missingAlt.push(d):b.inputImage.generalAlt.push(d)}}return b},addNullAltTextResults:function(a){for(var b=this.testNullAltText(a),c=0;c<b.img.emptyAltInLink.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.emptyAltInLink[c],"Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.","Img.EmptyAltInLink");for(var c=0;c<b.img.nullAltWithTitle.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.nullAltWithTitle[c],"Img element with empty alt text must have absent or empty title attribute.","Img.NullAltWithTitle");for(var c=0;c<b.img.ignored.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.img.ignored[c],"Img element is marked so that it is ignored by Assistive Technology.","Img.Ignored");for(var c=0;c<b.img.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.missingAlt[c],"Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.","Img.MissingAlt");for(var c=0;c<b.img.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.img.generalAlt[c],"Ensure that the img element's alt text serves the same purpose and presents the same information as the image.","Img.GeneralAlt");for(var c=0;c<b.inputImage.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.inputImage.missingAlt[c],"Image submit button missing an alt attribute. Specify a text alternative that describes the button's function, using the alt attribute.","InputImage.MissingAlt");for(var c=0;c<b.inputImage.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.inputImage.generalAlt[c],"Ensure that the image submit button's alt text identifies the purpose of the button.","InputImage.GeneralAlt");for(var c=0;c<b.area.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.area.missingAlt[c],"Area element in an image map missing an alt attribute. Each area element must have a text alternative that describes the function of the image map area.","Area.MissingAlt");for(var c=0;c<b.area.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.area.generalAlt[c],"Ensure that the area element's text alternative serves the same purpose as the part of image map image it references.","Area.GeneralAlt")},testMediaTextAlternatives:function(a){for(var b={object:{missingBody:[],generalAlt:[]},applet:{missingBody:[],missingAlt:[],generalAlt:[]}},c=HTMLCS.util.getAllElements(a,"object"),d=0;d<c.length;d++){var e=c[d],f=(e.nodeName.toLowerCase(),e.querySelector("object"));if(null===f){var g=HTMLCS.util.getElementTextContent(e,!0);""===g?b.object.missingBody.push(e):b.object.generalAlt.push(e)}}for(var c=HTMLCS.util.getAllElements(a,"applet"),d=0;d<c.length;d++){var f=e.querySelector("object"),h=!1;if(null===f){var g=HTMLCS.util.getElementTextContent(e,!0);!0===HTMLCS.util.isStringEmpty(g)&&(b.applet.missingBody.push(e),h=!0)}var i=e.getAttribute("alt")||"";!0===HTMLCS.util.isStringEmpty(i)&&(b.applet.missingAlt.push(e),h=!0),!1===h&&b.applet.generalAlt.push(e)}return b},addMediaAlternativesResults:function(a){
-for(var b=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1.testMediaTextAlternatives(a),c=0;c<b.object.missingBody.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.object.missingBody[c],"Object elements must contain a text alternative after all other alternatives are exhausted.","Object.MissingBody");for(var c=0;c<b.object.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.object.generalAlt[c],"Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.","Object.GeneralAlt");for(var c=0;c<b.applet.missingBody.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.applet.missingBody[c],"Applet elements must contain a text alternative in the element's body, for browsers without support for the applet element.","Applet.MissingBody");for(var c=0;c<b.applet.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.applet.missingAlt[c],"Applet elements must contain an alt attribute, to provide a text alternative to browsers supporting the element but are unable to load the applet.","Applet.MissingAlt");for(var c=0;c<b.applet.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.applet.generalAlt[c],"Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.","Applet.GeneralAlt")}},_global.HTMLCS_Section508_Sniffs_B={register:function(){return["object","applet","embed","video"]},process:function(a,b){a.nodeName.toLowerCase();HTMLCS.addMessage(HTMLCS.NOTICE,a,"For multimedia containing video, ensure a synchronised audio description or text alternative for the video portion is provided.","Video"),HTMLCS.addMessage(HTMLCS.NOTICE,a,"For multimedia containing synchronised audio and video, ensure synchronised captions are provided for the audio portion.","Captions")}},_global.HTMLCS_Section508_Sniffs_C={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,"Ensure that any information conveyed using colour alone is also available without colour, such as through context or markup.","Colour")}},_global.HTMLCS_Section508_Sniffs_D={register:function(){return["_top"]},process:function(a,b){if(a===b){HTMLCS.addMessage(HTMLCS.NOTICE,b,"Ensure that content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.","Linearised"),this.testPresentationMarkup(b),this.testHeadingOrder(b);HTMLCS.util.getAllElements(b,'script, link[rel="stylesheet"]').length>0&&HTMLCS.addMessage(HTMLCS.NOTICE,b,'If content is hidden and made visible using scripting (such as "click to expand" sections), ensure this content is readable when scripts and style sheets are disabled.',"HiddenText")}},testPresentationMarkup:function(a){_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testPresentationMarkup(a)},testHeadingOrder:function(a){for(var b=0,c=HTMLCS.util.getAllElements(a,"h1, h2, h3, h4, h5, h6"),d=0;d<c.length;d++){var e=parseInt(c[d].nodeName.substr(1,1));if(e-b>1){var f="should be an h"+(b+1)+" to be properly nested";0===b&&(f="appears to be the primary document heading, so should be an h1 element"),HTMLCS.addMessage(HTMLCS.ERROR,c[d],"The heading structure is not logically nested. This h"+e+" element "+f+".","HeadingOrder")}b=e}}},_global.HTMLCS_Section508_Sniffs_G={register:function(){return["table"]},process:function(a,b){!0===HTMLCS.util.isLayoutTable(a)&&HTMLCS.addMessage(HTMLCS.NOTICE,a,"This table has no headers. If this is a data table, ensure row and column headers are identified using th elements.","TableHeaders")}},_global.HTMLCS_Section508_Sniffs_H={register:function(){return["table"]},process:function(a,b){for(var c=HTMLCS.util.testTableHeaders(a),d=0;d<c.wrongHeaders.length;d++)HTMLCS.addMessage(HTMLCS.ERROR,c.wrongHeaders[d].element,'Incorrect headers attribute on this td element. Expected "'+c.wrongHeaders[d].expected+'" but found "'+c.wrongHeaders[d].actual+'"',"IncorrectHeadersAttr");!0===c.required&&!1===c.allowScope&&(!1===c.used?HTMLCS.addMessage(HTMLCS.ERROR,a,"The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.","MissingHeadersAttrs"):(c.missingThId.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,"Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements' headers attributes.","MissingHeaderIds"),c.missingTd.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,"Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.","IncompleteHeadersAttrs")))}},_global.HTMLCS_Section508_Sniffs_I={register:function(){return["frame","iframe","object"]},process:function(a,b){var c=a.nodeName.toLowerCase(),d=a.hasAttribute("title"),e=!0;!0===d&&(e=HTMLCS.util.isStringEmpty(a.getAttribute("title"))),!0===e&&HTMLCS.addMessage(HTMLCS.ERROR,b,"This "+c+" element is missing title text. Frames should be titled with text that facilitates frame identification and navigation.","Frames")}},_global.HTMLCS_Section508_Sniffs_J={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,"Check that no component of the content flickers at a rate of greater than 2 and less than 55 times per second.","Flicker")}},_global.HTMLCS_Section508_Sniffs_K={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,"If this page cannot be made compliant, a text-only page with equivalent information or functionality should be provided. The alternative page needs to be updated in line with this page's content.","AltVersion")}},_global.HTMLCS_Section508_Sniffs_L={register:function(){return["_top"]},process:function(a,b){a===b&&(this.addProcessLinksMessages(b),this.testKeyboard(b))},addProcessLinksMessages:function(a){for(var b=this.processLinks(a),c=0;c<b.emptyNoId.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.emptyNoId[c],"Anchor element found with no link content and no name and/or ID attribute.","EmptyAnchorNoId");for(var c=0;c<b.placeholder.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.placeholder[c],"Anchor element found with link content, but no href, ID, or name attribute has been supplied.","PlaceholderAnchor");for(var c=0;c<b.noContent.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.noContent[c],"Anchor element found with a valid href attribute, but no link content has been supplied.","NoContentAnchor")},processLinks:function(a){for(var b={empty:[],emptyWithName:[],emptyNoId:[],noHref:[],placeholder:[],noContent:[]},c=HTMLCS.util.getAllElements(a,"a"),d=0;d<c.length;d++){var e=c[d],f=!1,g=HTMLCS.util.getElementTextContent(e);!0===e.hasAttribute("title")&&!1===/^\s*$/.test(e.getAttribute("title"))?!0:!1===/^\s*$/.test(g)&&!0,!0===e.hasAttribute("href")&&!1===/^\s*$/.test(e.getAttribute("href"))&&(f=!0),!1===f?!0===/^\s*$/.test(g)?!0===e.hasAttribute("id")?b.empty.push(e):!0===e.hasAttribute("name")?b.emptyWithName.push(e):b.emptyNoId.push(e):!0===e.hasAttribute("id")||!0===e.hasAttribute("name")?b.noHref.push(e):b.placeholder.push(e):!0===/^\s*$/.test(g)&&0===e.querySelectorAll("img").length&&b.noContent.push(e)}return b},testKeyboard:function(a){for(var b=HTMLCS.util.getAllElements(a,"*[ondblclick]"),c=0;c<b.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b[c],"Ensure the functionality provided by double-clicking on this element is available through the keyboard.","DblClick");for(var d=HTMLCS.util.getAllElements(a,"*[onmouseover]"),c=0;c<d.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,d[c],"Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.","MouseOver");for(var e=HTMLCS.util.getAllElements(a,"*[onmouseout]"),c=0;c<e.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,e[c],"Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.","MouseOut");for(var f=HTMLCS.util.getAllElements(a,"*[onmousemove]"),c=0;c<f.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,f[c],"Ensure the functionality provided by moving the mouse on this element is available through the keyboard.","MouseMove");for(var g=HTMLCS.util.getAllElements(a,"*[onmousedown]"),c=0;c<g.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,g[c],"Ensure the functionality provided by mousing down on this element is available through the keyboard; for instance, using the keydown event.","MouseDown");for(var h=HTMLCS.util.getAllElements(a,"*[onmouseup]"),c=0;c<h.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,h[c],"Ensure the functionality provided by mousing up on this element is available through the keyboard; for instance, using the keyup event.","MouseUp")}},_global.HTMLCS_Section508_Sniffs_M={register:function(){return["object","applet","bgsound","embed","audio","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,"If external media requires a plugin or application to view, ensure a link is provided to a plugin or application that complies with Section 508 accessibility requirements for applications.","PluginLink")}},_global.HTMLCS_Section508_Sniffs_N={register:function(){return["form"]},process:function(a,b){"form"===a.nodeName.toLowerCase()&&(HTMLCS.addMessage(HTMLCS.NOTICE,a,"If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text.","Errors"),HTMLCS.addMessage(HTMLCS.NOTICE,a,"Check that descriptive labels or instructions (including for required fields) are provided for user input in this form.","Labels"),HTMLCS.addMessage(HTMLCS.NOTICE,a,"Ensure that this form can be navigated using the keyboard and other accessibility tools.","KeyboardNav"))}},_global.HTMLCS_Section508_Sniffs_O={register:function(){return["_top","a","area"]},process:function(a,b){if(a===b)HTMLCS.addMessage(HTMLCS.NOTICE,b,"Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.","SkipLinks");else if(!0===a.hasAttribute("href")){var c=a.getAttribute("href");if(c=HTMLCS.util.trim(c),c.length>1&&"#"===c.charAt(0)){var d=c.substr(1);try{var e=b;e.ownerDocument&&(e=e.ownerDocument);var f=e.getElementById(d);null===f&&(f=e.querySelector('a[name="'+d+'"]')),null!==f&&!1!==HTMLCS.util.contains(b,f)||(!0===HTMLCS.isFullDoc(b)||"body"===b.nodeName.toLowerCase()?HTMLCS.addMessage(HTMLCS.ERROR,a,'This link points to a named anchor "'+d+'" within the document, but no anchor exists with that name.',"NoSuchID"):HTMLCS.addMessage(HTMLCS.WARNING,a,'This link points to a named anchor "'+d+'" within the document, but no anchor exists with that name in the fragment tested.',"NoSuchIDFragment"))}catch(a){}}}}},_global.HTMLCS_Section508_Sniffs_P={register:function(){return["_top","meta"]},process:function(a,b){a===b?HTMLCS.addMessage(HTMLCS.NOTICE,b,"If a timed response is required on this page, alert the user and provide sufficient time to allow them to indicate that more time is required.","TimeLimit"):!0===a.hasAttribute("http-equiv")&&"refresh"===String(a.getAttribute("http-equiv")).toLowerCase()&&!0===/^[1-9]\d*/.test(a.getAttribute("content").toLowerCase())&&(!0===/url=/.test(a.getAttribute("content").toLowerCase())?HTMLCS.addMessage(HTMLCS.ERROR,a,"Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.","MetaRedirect"):HTMLCS.addMessage(HTMLCS.ERROR,a,"Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.","MetaRefresh"))}},_global.HTMLCS_WCAG2A={name:"WCAG2A",description:"Web Content Accessibility Guidelines (WCAG) 2.0 A",sniffs:[{standard:"WCAG2AAA",include:["Principle1.Guideline1_1.1_1_1","Principle1.Guideline1_2.1_2_1","Principle1.Guideline1_2.1_2_2","Principle1.Guideline1_2.1_2_3","Principle1.Guideline1_3.1_3_1","Principle1.Guideline1_3.1_3_1_A","Principle1.Guideline1_3.1_3_2","Principle1.Guideline1_3.1_3_3","Principle1.Guideline1_4.1_4_1","Principle1.Guideline1_4.1_4_2","Principle2.Guideline2_1.2_1_1","Principle2.Guideline2_1.2_1_2","Principle2.Guideline2_2.2_2_1","Principle2.Guideline2_2.2_2_2","Principle2.Guideline2_3.2_3_1","Principle2.Guideline2_4.2_4_1","Principle2.Guideline2_4.2_4_2","Principle2.Guideline2_4.2_4_3","Principle2.Guideline2_4.2_4_4","Principle3.Guideline3_1.3_1_1","Principle3.Guideline3_2.3_2_1","Principle3.Guideline3_2.3_2_2","Principle3.Guideline3_3.3_3_1","Principle3.Guideline3_3.3_3_2","Principle4.Guideline4_1.4_1_1","Principle4.Guideline4_1.4_1_2"]}],getMsgInfo:function(a){return HTMLCS_WCAG2AAA.getMsgInfo(a)}},_global.HTMLCS_WCAG2AA={name:"WCAG2AA",description:"Web Content Accessibility Guidelines (WCAG) 2.0 AA",sniffs:[{standard:"WCAG2AAA",include:["Principle1.Guideline1_1.1_1_1","Principle1.Guideline1_2.1_2_1","Principle1.Guideline1_2.1_2_2","Principle1.Guideline1_2.1_2_4","Principle1.Guideline1_2.1_2_5","Principle1.Guideline1_3.1_3_1","Principle1.Guideline1_3.1_3_1_A","Principle1.Guideline1_3.1_3_2","Principle1.Guideline1_3.1_3_3","Principle1.Guideline1_4.1_4_1","Principle1.Guideline1_4.1_4_2","Principle1.Guideline1_4.1_4_3","Principle1.Guideline1_4.1_4_3_F24","Principle1.Guideline1_4.1_4_3_Contrast","Principle1.Guideline1_4.1_4_4","Principle1.Guideline1_4.1_4_5","Principle2.Guideline2_1.2_1_1","Principle2.Guideline2_1.2_1_2","Principle2.Guideline2_2.2_2_1","Principle2.Guideline2_2.2_2_2","Principle2.Guideline2_3.2_3_1","Principle2.Guideline2_4.2_4_1","Principle2.Guideline2_4.2_4_2","Principle2.Guideline2_4.2_4_3","Principle2.Guideline2_4.2_4_4","Principle2.Guideline2_4.2_4_5","Principle2.Guideline2_4.2_4_6","Principle2.Guideline2_4.2_4_7","Principle3.Guideline3_1.3_1_1","Principle3.Guideline3_1.3_1_2","Principle3.Guideline3_2.3_2_1","Principle3.Guideline3_2.3_2_2","Principle3.Guideline3_2.3_2_3","Principle3.Guideline3_2.3_2_4","Principle3.Guideline3_3.3_3_1","Principle3.Guideline3_3.3_3_2","Principle3.Guideline3_3.3_3_3","Principle3.Guideline3_3.3_3_4","Principle4.Guideline4_1.4_1_1","Principle4.Guideline4_1.4_1_2"]}],getMsgInfo:function(a){return HTMLCS_WCAG2AAA.getMsgInfo(a)}},_global.HTMLCS_WCAG2AAA={name:"WCAG2AAA",description:"Web Content Accessibility Guidelines (WCAG) 2.0 AAA",sniffs:["Principle1.Guideline1_1.1_1_1","Principle1.Guideline1_2.1_2_1","Principle1.Guideline1_2.1_2_2","Principle1.Guideline1_2.1_2_4","Principle1.Guideline1_2.1_2_5","Principle1.Guideline1_2.1_2_6","Principle1.Guideline1_2.1_2_7","Principle1.Guideline1_2.1_2_8","Principle1.Guideline1_2.1_2_9","Principle1.Guideline1_3.1_3_1","Principle1.Guideline1_3.1_3_1_AAA","Principle1.Guideline1_3.1_3_2","Principle1.Guideline1_3.1_3_3","Principle1.Guideline1_4.1_4_1","Principle1.Guideline1_4.1_4_2","Principle1.Guideline1_4.1_4_3_F24","Principle1.Guideline1_4.1_4_3_Contrast","Principle1.Guideline1_4.1_4_6","Principle1.Guideline1_4.1_4_7","Principle1.Guideline1_4.1_4_8","Principle1.Guideline1_4.1_4_9","Principle2.Guideline2_1.2_1_1","Principle2.Guideline2_1.2_1_2","Principle2.Guideline2_2.2_2_2","Principle2.Guideline2_2.2_2_3","Principle2.Guideline2_2.2_2_4","Principle2.Guideline2_2.2_2_5","Principle2.Guideline2_3.2_3_2","Principle2.Guideline2_4.2_4_1","Principle2.Guideline2_4.2_4_2","Principle2.Guideline2_4.2_4_3","Principle2.Guideline2_4.2_4_5","Principle2.Guideline2_4.2_4_6","Principle2.Guideline2_4.2_4_7","Principle2.Guideline2_4.2_4_8","Principle2.Guideline2_4.2_4_9","Principle3.Guideline3_1.3_1_1","Principle3.Guideline3_1.3_1_2","Principle3.Guideline3_1.3_1_3","Principle3.Guideline3_1.3_1_4","Principle3.Guideline3_1.3_1_5","Principle3.Guideline3_1.3_1_6","Principle3.Guideline3_2.3_2_1","Principle3.Guideline3_2.3_2_2","Principle3.Guideline3_2.3_2_3","Principle3.Guideline3_2.3_2_4","Principle3.Guideline3_2.3_2_5","Principle3.Guideline3_3.3_3_1","Principle3.Guideline3_3.3_3_2","Principle3.Guideline3_3.3_3_3","Principle3.Guideline3_3.3_3_5","Principle3.Guideline3_3.3_3_6","Principle4.Guideline4_1.4_1_1","Principle4.Guideline4_1.4_1_2"],getMsgInfo:function(a){for(var b={Principle1:{name:"Perceivable",link:"http://www.w3.org/TR/WCAG20/#perceivable"},Principle2:{name:"Operable",link:"http://www.w3.org/TR/WCAG20/#operable"},Principle3:{name:"Understandable",link:"http://www.w3.org/TR/WCAG20/#understandable"},Principle4:{name:"Robust",link:"http://www.w3.org/TR/WCAG20/#robust"}},c={CR2:{name:"Full pages",landmark:"cc2",priority:0},CR3:{name:"Complete processes",landmark:"cc3",priority:0},CR4:{name:"Only Accessibility-Supported Ways of Using Technologies",landmark:"cc4",priority:0},CR5:{name:"Non-Interference",landmark:"cc5",priority:0},"1.1.1":{name:"Non-Text Content",landmark:"text-equiv-all",priority:1},"1.2.1":{name:"Audio-only and Video-only (Prerecorded)",landmark:"media-equiv-av-only-alt",priority:1},"1.2.2":{name:"Captions (Prerecorded)",landmark:"media-equiv-captions",priority:1},"1.2.3":{name:"Audio Description or Media Alternative (Prerecorded)",landmark:"media-equiv-audio-desc",priority:1},"1.2.4":{name:"Captions (Live)",landmark:"media-equiv-captions",priority:2},"1.2.5":{name:"Audio Description (Prerecorded)",landmark:"media-equiv-audio-desc",priority:2},"1.2.6":{name:"Sign Language (Prerecorded)",landmark:"media-equiv-sign",priority:3},"1.2.7":{name:"Extended Audio Description (Prerecorded)",landmark:"media-equiv-extended-ad",priority:3},"1.2.8":{name:"Media Alternative (Prerecorded)",landmark:"media-equiv-text-doc",priority:3},"1.2.9":{name:"Audio-only (Live)",landmark:"media-equiv-live-audio-only",priority:3},"1.3.1":{name:"Info and Relationships",landmark:"content-structure-separation-programmatic",priority:1},"1.3.2":{name:"Meaningful Sequence",landmark:"content-structure-separation-sequence",priority:1},"1.3.3":{name:"Sensory Characteristics",landmark:"content-structure-separation-understanding",priority:1},"1.4.1":{name:"Use of Colour",landmark:"visual-audio-contrast-without-color",priority:1},"1.4.2":{name:"Audio Control",landmark:"visual-audio-contrast-dis-audio",priority:1},"1.4.3":{name:"Contrast (Minimum)",landmark:"visual-audio-contrast-contrast",priority:1},"1.4.4":{name:"Resize Text",landmark:"visual-audio-contrast-scale",priority:1},"1.4.5":{name:"Images of Text",landmark:"visual-audio-contrast-text-presentation",priority:1},"1.4.6":{name:"Contrast (Enhanced)",landmark:"visual-audio-contrast7",priority:3},"1.4.7":{name:"Low or No Background Audio",landmark:"visual-audio-contrast-noaudio",priority:3},"1.4.8":{name:"Visual Presentation",landmark:"visual-audio-contrast-visual-presentation",priority:3},"1.4.9":{name:"Images of Text (No Exception)",landmark:"visual-audio-contrast-text-images",priority:3},"2.1.1":{name:"Keyboard",landmark:"keyboard-operation-keyboard-operable",priority:1},"2.1.2":{name:"No Keyboard Trap",landmark:"keyboard-operation-trapping",priority:1},"2.1.3":{name:"Keyboard (No Exception)",landmark:"keyboard-operation-all-funcs",priority:3},"2.2.1":{name:"Timing Adjustable",landmark:"time-limits-required-behaviors",priority:1},"2.2.2":{name:"Pause, Stop, Hide",landmark:"time-limits-pause",priority:1},"2.2.3":{name:"No Timing",landmark:"time-limits-no-exceptions",priority:3},"2.2.4":{name:"Interruptions",landmark:"time-limits-postponed",priority:3},"2.2.5":{name:"Re-authenticating",landmark:"time-limits-server-timeout",priority:3},"2.3.1":{name:"Three Flashes or Below Threshold",landmark:"seizure-does-not-violate",priority:1},"2.3.2":{name:"Three Flashes",landmark:"seizure-three-times",priority:3},"2.4.1":{name:"Bypass Blocks",landmark:"navigation-mechanisms-skip",priority:1},"2.4.2":{name:"Page Titled",landmark:"navigation-mechanisms-title",priority:1},"2.4.3":{name:"Focus Order",landmark:"navigation-mechanisms-focus-order",priority:1},"2.4.4":{name:"Link Purpose (In Context)",landmark:"navigation-mechanisms-refs",priority:1},"2.4.5":{name:"Multiple Ways",landmark:"navigation-mechanisms-mult-loc",priority:2},"2.4.6":{name:"Headings and Labels",landmark:"navigation-mechanisms-descriptive",priority:2},"2.4.7":{name:"Focus Visible",landmark:"navigation-mechanisms-focus-visible",priority:2},"2.4.8":{name:"Location",landmark:"navigation-mechanisms-location",priority:3},"2.4.9":{name:"Link Purpose (Link Only)",landmark:"navigation-mechanisms-link",priority:3},"2.4.10":{name:"Section Headings",landmark:"navigation-mechanisms-headings",priority:3},"3.1.1":{name:"Language of Page",landmark:"meaning-doc-lang-id",priority:1},"3.1.2":{name:"Language of Parts",landmark:"meaning-other-lang-id",priority:2},"3.1.3":{name:"Unusual Words",landmark:"meaning-idioms",priority:3},"3.1.4":{name:"Abbreviations",landmark:"meaning-located",priority:3},"3.1.5":{name:"Reading Level",landmark:"meaning-supplements",priority:3},"3.1.6":{name:"Pronunciation",landmark:"meaning-pronunciation",priority:3},"3.2.1":{name:"On Focus",landmark:"consistent-behavior-receive-focus",priority:1},"3.2.2":{name:"On Input",landmark:"consistent-behavior-unpredictable-change",priority:1},"3.2.3":{name:"Consistent Navigation",landmark:"consistent-behavior-consistent-locations",priority:2},"3.2.4":{name:"Consistent Navigation",landmark:"consistent-behavior-consistent-functionality",priority:2},"3.2.5":{name:"Change on Request",landmark:"consistent-behavior-no-extreme-changes-context",priority:3},"3.3.1":{name:"Error Identification",landmark:"minimize-error-identified",priority:1},"3.3.2":{name:"Labels or Instructions",landmark:"minimize-error-cues",priority:1},"3.3.3":{name:"Error Suggestion",landmark:"minimize-error-suggestions",priority:2},"3.3.4":{name:"Error Prevention (Legal, Financial, Data)",landmark:"minimize-error-reversible",priority:2},"3.3.5":{name:"Help",landmark:"minimize-error-context-help",priority:3},"3.3.6":{name:"Error Prevention (All)",landmark:"minimize-error-reversible-all",priority:3},"4.1.1":{name:"Parsing",landmark:"ensure-compat-parses",priority:1},"4.1.2":{name:"Name, Role, Value",landmark:"ensure-compat-rsv",priority:1}},d=a.split(".",5),e=d[1],f=d[3].split("_").slice(0,3).join("."),g=d[4].split(","),h=[],i=0;i<g.length;i++)g[i]=g[i].split("."),h.push('<a href="http://www.w3.org/TR/WCAG20-TECHS/'+g[i][0]+'" target="_blank">'+g[i][0]+"</a>");var j=['<a href="http://www.w3.org/TR/WCAG20/#'+c[f].landmark,'" target="_blank">',f,": ",c[f].name,"</a>"].join("");['<a href="',b[e].link,'" target="_blank">',b[e].name,"</a>"].join("");return[[_global.HTMLCS.getTranslation("auditor_success_criterion"),j],[_global.HTMLCS.getTranslation("auditor_suggested_techniques"),h.join(" ")]]}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1={register:function(){return["_top","img"]},process:function(a,b){if(a===b)this.addNullAltTextResults(b),this.addMediaAlternativesResults(b);else{switch(a.nodeName.toLowerCase()){case"img":this.testLinkStutter(a),this.testLongdesc(a)}}},addNullAltTextResults:function(a){for(var b=this.testNullAltText(a),c=0;c<b.img.emptyAltInLink.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.emptyAltInLink[c],_global.HTMLCS.getTranslation("1_1_1_H30.2"),"H30.2");for(var c=0;c<b.img.nullAltWithTitle.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.nullAltWithTitle[c],_global.HTMLCS.getTranslation("1_1_1_H67.1"),"H67.1");for(var c=0;c<b.img.ignored.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.img.ignored[c],_global.HTMLCS.getTranslation("1_1_1_H67.2"),"H67.2");for(var c=0;c<b.img.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.img.missingAlt[c],_global.HTMLCS.getTranslation("1_1_1_H37"),"H37");for(var c=0;c<b.img.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.img.generalAlt[c],_global.HTMLCS.getTranslation("1_1_1_G94.Image"),"G94.Image");for(var c=0;c<b.inputImage.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.inputImage.missingAlt[c],_global.HTMLCS.getTranslation("1_1_1_H36"),"H36");for(var c=0;c<b.inputImage.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.inputImage.generalAlt[c],_global.HTMLCS.getTranslation("1_1_1_G94.Button"),"G94.Button");for(var c=0;c<b.area.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.area.missingAlt[c],_global.HTMLCS.getTranslation("1_1_1_H24"),"H24");for(var c=0;c<b.area.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.area.generalAlt[c],_global.HTMLCS.getTranslation("1_1_1_H24.2"),"H24.2")},testNullAltText:function(a){var b={img:{generalAlt:[],missingAlt:[],ignored:[],nullAltWithTitle:[],emptyAltInLink:[]},inputImage:{generalAlt:[],missingAlt:[]},area:{generalAlt:[],missingAlt:[]}};elements=HTMLCS.util.getAllElements(a,'img, area, input[type="image"]');for(var c=0;c<elements.length;c++){var d=elements[c],e=d.nodeName.toLowerCase(),f=!1,g=!1,h=!1;if("a"===d.parentNode.nodeName.toLowerCase()){var i=HTMLCS.util.getPreviousSiblingElement(d,null),j=HTMLCS.util.getNextSiblingElement(d,null);if(null===i&&null===j){var k=d.parentNode.textContent;if(void 0!==d.parentNode.textContent)var k=d.parentNode.textContent;else var k=d.parentNode.innerText;!0===HTMLCS.util.isStringEmpty(k)&&(f=!0)}}switch(!1===d.hasAttribute("alt")?g=!0:d.getAttribute("alt")&&!0!==HTMLCS.util.isStringEmpty(d.getAttribute("alt"))||(h=!0),e){case"img":if(!0!==f||!0!==g&&!0!==h)if(!0===g)b.img.missingAlt.push(d);else if(!0===h){var l=d.height,m=d.width,n=parseFloat(window.getComputedStyle(d,null).getPropertyValue("height")),o=parseFloat(window.getComputedStyle(d,null).getPropertyValue("width"));!l&&n&&(l=n),!m&&o&&(m=o),!0===d.hasAttribute("title")&&!1===HTMLCS.util.isStringEmpty(d.getAttribute("title"))?b.img.nullAltWithTitle.push(d):(l>1||m>1)&&b.img.ignored.push(d)}else b.img.generalAlt.push(d);else b.img.emptyAltInLink.push(d.parentNode);break;case"input":!0===g||!0===h?b.inputImage.missingAlt.push(d):b.inputImage.generalAlt.push(d);break;case"area":!0===g||!0===h?b.area.missingAlt.push(d):b.inputImage.generalAlt.push(d)}}return b},testLongdesc:function(a){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_1_1_G73,G74"),"G73,G74")},testLinkStutter:function(a){if("a"===a.parentNode.nodeName.toLowerCase()){var b=a.parentNode,c={anchor:{href:b.getAttribute("href"),text:HTMLCS.util.getElementTextContent(b,!1),alt:this._getLinkAltText(b)}};if(null===c.anchor.alt&&(c.anchor.alt=""),null!==c.anchor.alt&&""!==c.anchor.alt&&HTMLCS.util.trim(c.anchor.alt).toLowerCase()===HTMLCS.util.trim(c.anchor.text).toLowerCase()&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_1_1_H2.EG5"),"H2.EG5"),""===c.anchor.text){var d=HTMLCS.util.getPreviousSiblingElement(b,"a",!0),e=HTMLCS.util.getNextSiblingElement(b,"a",!0);null!==d&&(c.previous={href:d.getAttribute("href"),text:HTMLCS.util.getElementTextContent(d,!1),alt:this._getLinkAltText(d)},null===c.previous.alt&&(c.previous.alt="")),null!==e&&(c.next={href:e.getAttribute("href"),text:HTMLCS.util.getElementTextContent(e,!1),alt:this._getLinkAltText(e)},null===c.next.alt&&(c.next.alt="")),c.next&&""!==c.next.href&&null!==c.next.href&&c.anchor.href===c.next.href&&(""!==c.next.text&&""===c.anchor.alt?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_1_1_H2.EG4"),"H2.EG4"):c.next.text.toLowerCase()===c.anchor.alt.toLowerCase()&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_1_1_H2.EG3"),"H2.EG3")),c.previous&&""!==c.previous.href&&null!==c.previous.href&&c.anchor.href===c.previous.href&&(""!==c.previous.text&&""===c.anchor.alt?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_1_1_H2.EG4"),"H2.EG4"):c.previous.text.toLowerCase()===c.anchor.alt.toLowerCase()&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_1_1_H2.EG3")))}}},addMediaAlternativesResults:function(a){for(var b=this.testMediaTextAlternatives(a),c=0;c<b.object.missingBody.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.object.missingBody[c],_global.HTMLCS.getTranslation("1_1_1_H53,ARIA6"),"H53,ARIA6");for(var c=0;c<b.object.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.object.generalAlt[c],_global.HTMLCS.getTranslation("1_1_1_G94,G92.Object,ARIA6"),"G94,G92.Object,ARIA6");for(var c=0;c<b.applet.missingBody.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.applet.missingBody[c],_global.HTMLCS.getTranslation("1_1_1_H35.3"),"H35.3");for(var c=0;c<b.applet.missingAlt.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.applet.missingAlt[c],_global.HTMLCS.getTranslation("1_1_1_H35.2"),"H35.2");for(var c=0;c<b.applet.generalAlt.length;c++)HTMLCS.addMessage(HTMLCS.NOTICE,b.applet.generalAlt[c],_global.HTMLCS.getTranslation("1_1_1_G94,G92.Applet"),"G94,G92.Applet")},testMediaTextAlternatives:function(a){for(var b={object:{missingBody:[],generalAlt:[]},applet:{missingBody:[],missingAlt:[],generalAlt:[]}},c=HTMLCS.util.getAllElements(a,"object"),d=0;d<c.length;d++){var e=c[d],f=(e.nodeName.toLowerCase(),e.querySelector("object"));null===f&&(!0===HTMLCS.util.isStringEmpty(HTMLCS.util.getElementTextContent(e,!0))?!1===HTMLCS.util.hasValidAriaLabel(e)&&b.object.missingBody.push(e):!1===HTMLCS.util.hasValidAriaLabel(e)&&b.object.generalAlt.push(e))}for(var c=HTMLCS.util.getAllElements(a,"applet"),d=0;d<c.length;d++){var f=e.querySelector("object"),g=!1;if(null===f){var h=HTMLCS.util.getElementTextContent(e,!0);!0===HTMLCS.util.isStringEmpty(h)&&(b.applet.missingBody.push(e),g=!0)}var i=e.getAttribute("alt")||"";!0===HTMLCS.util.isStringEmpty(i)&&(b.applet.missingAlt.push(e),g=!0),!0===HTMLCS.util.hasValidAriaLabel(e)&&(g=!1),!1===g&&b.applet.generalAlt.push(e)}return b},_getLinkAltText:function(a){for(var a=a.cloneNode(!0),b=[],c=0;c<a.childNodes.length;c++)b.push(a.childNodes[c]);for(var d=null;b.length>0;){var e=b.shift();if(1===e.nodeType&&"img"===e.nodeName.toLowerCase()&&!0===e.hasAttribute("alt")){d=e.getAttribute("alt"),d=d?d.replace(/^\s+|\s+$/g,""):"";break}}return d}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_1={register:function(){return["object","embed","applet","bgsound","audio","video"]},process:function(a,b){var c=a.nodeName.toLowerCase();"video"!==c&&HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_1_G158"),"G158"),"bgsound"!==c&&"audio"!==c&&HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_1_G159,G166"),"G159,G166")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_2={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_2_G87,G93"),"G87,G93")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_3={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_3_G69,G78,G173,G8"),"G69,G78,G173,G8")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_4={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_4_G9,G87,G93"),"G9,G87,G93")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_5={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_5_G78,G173,G8"),"G78,G173,G8")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_6={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_6_G54,G81"),"G54,G81")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_7={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_7_G8"),"G8")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_8={register:function(){return["object","embed","applet","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_8_G69,G159"),"G69,G159")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_9={
-register:function(){return["object","embed","applet","bgsound","audio"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_2_9_G150,G151,G157"),"G150,G151,G157")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_A={_labelNames:null,register:function(){return["_top"]},process:function(a,b){var c=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;a===b&&c.testHeadingOrder(b,HTMLCS.WARNING)}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_AAA={_labelNames:null,register:function(){return["_top"]},process:function(a,b){var c=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;a===b&&c.testHeadingOrder(b,HTMLCS.ERROR)}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1={_labelNames:null,register:function(){return["_top","p","div","input","select","textarea","button","table","fieldset","form","h1","h2","h3","h4","h5","h6"]},process:function(a,b){var c=a.nodeName.toLowerCase();if(a===b)this.testPresentationMarkup(b),this.testEmptyDupeLabelForAttrs(b);else switch(c){case"input":case"textarea":case"button":this.testLabelsOnInputs(a,b);break;case"form":this.testRequiredFieldsets(a);break;case"select":this.testLabelsOnInputs(a,b),this.testOptgroup(a);break;case"p":case"div":this.testNonSemanticHeading(a),this.testListsWithBreaks(a),this.testUnstructuredNavLinks(a);break;case"table":this.testGeneralTable(a),this.testTableHeaders(a),this.testTableCaptionSummary(a);break;case"fieldset":this.testFieldsetLegend(a);break;case"h1":case"h2":case"h3":case"h4":case"h5":case"h6":this.testEmptyHeading(a)}},testSemanticPresentationRole:function(a){if(!1===HTMLCS.util.isAriaHidden(a)&&a.hasAttribute("role")&&"presentation"===a.getAttribute("role")){var b=["div","span","b","i"],c=a.querySelectorAll("*:not("+b.join("):not(")+")");c=[].filter.call(c,function(a){return!1===a.hasAttribute("role")}),c.length&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_F92,ARIA4"),"F92,ARIA4")}},testEmptyDupeLabelForAttrs:function(a){this._labelNames={};for(var b=a.getElementsByTagName("label"),c=0;c<b.length;c++)if(null!==b[c].getAttribute("for")&&""!==b[c].getAttribute("for")){var d=b[c].getAttribute("for");if(this._labelNames[d]&&null!==this._labelNames[d])this._labelNames[d]=null;else{if(this._labelNames[d]=b[c],a.ownerDocument)var e=a.ownerDocument.getElementById(d);else var e=a.getElementById(d);if(null===e){var f=HTMLCS.ERROR,g=_global.HTMLCS.getTranslation("1_3_1_H44.NonExistent"),h="H44.NonExistent";if(!0===HTMLCS.isFullDoc(a)||"body"===a.nodeName.toLowerCase()){f=HTMLCS.WARNING,g=_global.HTMLCS.getTranslation("1_3_1_H44.NonExistentFragment");var h="H44.NonExistentFragment"}HTMLCS.addMessage(f,b[c],g,h)}else{var i=e.nodeName.toLowerCase();-1==="input|select|textarea|button|keygen|meter|output|progress".indexOf(i)&&HTMLCS.addMessage(HTMLCS.WARNING,b[c],_global.HTMLCS.getTranslation("1_3_1_H44.NotFormControl"),"H44.NotFormControl")}}}},testLabelsOnInputs:function(a,b,c){var d=a.nodeName.toLowerCase(),e=d;"input"===e&&(e=!0===a.hasAttribute("type")?a.getAttribute("type"):"text");var f=!1,g=function(a){f||(f={}),f[a]=!0},h=!1,e=e.toLowerCase();"select"===e||"textarea"===e?h=!0:!0===/^(radio|checkbox|text|file|password)$/.test(e)&&(h=!0),null!==a.getAttribute("hidden")&&(h=!1),a.ownerDocument.querySelector('label[for="'+a.id+'"]')&&g("explicit");var i=!1;a.parentNode&&HTMLCS.util.eachParentNode(a,function(a){"label"===a.nodeName.toLowerCase()&&(i=!0)}),!0===i&&g("implicit");var j=a.getAttribute("title");return null!==j&&(!0===/^\s*$/.test(j)&&!0===h?HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H65"),"H65"):g("title")),!0===a.hasAttribute("aria-label")&&(!1===HTMLCS.util.hasValidAriaLabel(a)?HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_ARIA6"),"ARIA6"):g("aria-label")),!0===a.hasAttribute("aria-labelledby")&&(!1===HTMLCS.util.hasValidAriaLabel(a)?HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_ARIA16,ARIA9").replace(/\{\{id\}\}/g,a.getAttribute("aria-labelledby")),"ARIA16,ARIA9"):g("aria-labelledby")),!0!==c&&(!1!==f&&!1===h?"hidden"===e?HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_F68.Hidden"),"F68.Hidden"):null!==a.getAttribute("hidden")&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_F68.HiddenAttr"),"F68.HiddenAttr"):!1===f&&!0===h&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_F68"),"F68")),f},testPresentationMarkup:function(a){var b=HTMLCS.util.getElementWindow(a).document,c=HTMLCS.util.getDocumentType(b);if(!c||"html5"!==c&&"xhtml5"!==c){for(var d=HTMLCS.util.getAllElements(a,"b, i, u, s, strike, tt, big, small, center, font"),e=0;e<d.length;e++){var f="H49."+d[e].nodeName.substr(0,1).toUpperCase()+d[e].nodeName.substr(1).toLowerCase();HTMLCS.addMessage(HTMLCS.WARNING,d[e],_global.HTMLCS.getTranslation("1_3_1_H49.Semantic"),f)}for(var d=HTMLCS.util.getAllElements(a,"*[align]"),e=0;e<d.length;e++){var f="H49.AlignAttr";HTMLCS.addMessage(HTMLCS.WARNING,d[e],_global.HTMLCS.getTranslation("1_3_1_H49.AlignAttr.Semantic"),f)}}else{for(var d=HTMLCS.util.getAllElements(a,"strike, tt, big, center, font"),e=0;e<d.length;e++){var f="H49."+d[e].nodeName.substr(0,1).toUpperCase()+d[e].nodeName.substr(1).toLowerCase();HTMLCS.addMessage(HTMLCS.ERROR,d[e],_global.HTMLCS.getTranslation("1_3_1_H49."),f)}for(var d=HTMLCS.util.getAllElements(a,"*[align]"),e=0;e<d.length;e++){var f="H49.AlignAttr";HTMLCS.addMessage(HTMLCS.ERROR,d[e],"Align attributes .",f)}}},testNonSemanticHeading:function(a){var b=a.nodeName.toLowerCase();if("p"===b||"div"===b){var c=a.childNodes;if(1===c.length&&1===c[0].nodeType){!0===/^(strong|em|b|i|u)$/.test(c[0].nodeName.toLowerCase())&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H42"),"H42")}}},testTableHeaders:function(a){for(var b=HTMLCS.util.testTableHeaders(a),c=this._testTableScopeAttrs(a),d=0;d<c.invalid.length;d++)HTMLCS.addMessage(HTMLCS.ERROR,c.invalid[d],_global.HTMLCS.getTranslation("1_3_1_H63.3"),"H63.3");for(var d=0;d<c.obsoleteTd.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,c.obsoleteTd[d],_global.HTMLCS.getTranslation("1_3_1_H63.2"),"H63.2");!0===b.allowScope?0===c.missing.length&&b.required:!0===c.used&&(HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H43.ScopeAmbiguous"),"H43.ScopeAmbiguous"),c=null);for(var d=0;d<b.wrongHeaders.length;d++)HTMLCS.addMessage(HTMLCS.ERROR,b.wrongHeaders[d].element,_global.HTMLCS.getTranslation("1_3_1_H43.IncorrectAttr").replace(/\{\{expected\}\}/g,b.wrongHeaders[d].expected).replace(/\{\{actual\}\}/g,b.wrongHeaders[d].actual),"H43.IncorrectAttr");!0===b.required&&!1===b.allowScope&&(!1===b.used?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43.HeadersRequired"),"H43.HeadersRequired"):(b.missingThId.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"),"H43.MissingHeaderIds"),b.missingTd.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"),"H43.MissingHeadersAttrs"))),!0===b.required&&!0===b.allowScope&&!1===b.correct&&!1===c.correct&&(!1===c.used&&!1===b.used?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43,H63"),"H43,H63"):!1===c.used&&(b.missingThId.length>0||b.missingTd.length>0)?(b.missingThId.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"),"H43.MissingHeaderIds"),b.missingTd.length>0&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"),"H43.MissingHeadersAttrs")):c.missing.length>0&&!1===b.used?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H63.1"),"H63.1"):c.missing.length>0&&(b.missingThId.length>0||b.missingTd.length>0)&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H43,H63"),"H43,H63"))},_testTableScopeAttrs:function(a){var b={th:a.getElementsByTagName("th"),td:a.getElementsByTagName("td")},c={used:!1,correct:!0,missing:[],invalid:[],obsoleteTd:[]};for(var d in b)for(var e=0;e<b[d].length;e++){var f=b[d][e],g="";!0===f.hasAttribute("scope")&&(c.used=!0,f.getAttribute("scope")&&(g=f.getAttribute("scope"))),"th"===f.nodeName.toLowerCase()?!0===/^\s*$/.test(g)?(c.correct=!1,c.missing.push(f)):!1===/^(row|col|rowgroup|colgroup)$/.test(g)&&(c.correct=!1,c.invalid.push(f)):""!==g&&(c.obsoleteTd.push(f),!1===/^(row|col|rowgroup|colgroup)$/.test(g)&&(c.correct=!1,c.invalid.push(f)))}return c},testTableCaptionSummary:function(a){var b=a.getAttribute("summary")||"",c=a.getElementsByTagName("caption"),d="";c.length>0&&(d=c[0].innerHTML.replace(/^\s*(.*?)\s*$/g,"$1"));var e=HTMLCS.util.getDocumentType(a.ownerDocument);e&&-1===e.indexOf("html5")&&(b=b.replace(/^\s*(.*?)\s*$/g,"$1"),""!==b?!0===HTMLCS.util.isLayoutTable(a)?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H73.3.LayoutTable"),"H73.3.LayoutTable"):(d===b&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H39,H73.4"),"H39,H73.4"),HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_3_1_H73.3.Check"),"H73.3.Check")):!1===HTMLCS.util.isLayoutTable(a)&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H73.3.NoSummary"),"H73.3.NoSummary")),""!==d?!0===HTMLCS.util.isLayoutTable(a)?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H39.3.LayoutTable"),"H39.3.LayoutTable"):HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_3_1_H39.3.Check"),"H39.3.Check"):!1===HTMLCS.util.isLayoutTable(a)&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H39.3.NoCaption"),"H39.3.NoCaption")},testFieldsetLegend:function(a){var b=a.querySelector("legend");null!==b&&b.parentNode===a||HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H71.NoLegend"),"H71.NoLegend")},testOptgroup:function(a){null===a.querySelector("optgroup")&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H85.2"),"H85.2")},testRequiredFieldsets:function(a){for(var b=a.querySelectorAll("input[type=radio], input[type=checkbox]"),c={},d=0;d<b.length;d++){var e=b[d];if(!0===e.hasAttribute("name")){for(var f=e.getAttribute("name"),g=e.parentNode;"fieldset"!==g.nodeName.toLowerCase()&&null!==g&&g!==a;)g=g.parentNode;"fieldset"!==g.nodeName.toLowerCase()&&(g=null)}if(void 0===c[f])c[f]=g;else if(null===g||g!==c[f]){HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H71.SameName"),"H71.SameName");break}}},testListsWithBreaks:function(a){var b=a.querySelector("br"),c=[];if(null!==b){for(var d=[],e=0;e<a.childNodes.length;e++)d.push(a.childNodes[e]);for(var f=[];d.length>0;){var g=d.shift();if(1===g.nodeType)if("br"===g.nodeName.toLowerCase())c.push(f.join(" ").replace(/^\s*(.*?)\s*$/g,"$1")),f=[];else for(var e=g.childNodes.length-1;e>=0;--e)d.unshift(g.childNodes[e]);else 3===g.nodeType&&f.push(g.nodeValue)}f.length>0&&c.push(f.join(" ").replace(/^\s*(.*?)\s*$/g,"$1"));for(var e=0;e<c.length;e++){if(!0===/^[\-*]\s+/.test(c[0])){HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H48.1"),"H48.1");break}if(!0===/^\d+[:\/\-.]?\s+/.test(c[0])){HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H48.2"),"H48.2");break}}}},testHeadingOrder:function(a,b){for(var c=0,d=HTMLCS.util.getAllElements(a,"h1, h2, h3, h4, h5, h6"),e=0;e<d.length;e++){var f=parseInt(d[e].nodeName.substr(1,1));if(f-c>1){0===c&&HTMLCS.addMessage(b,d[e],_global.HTMLCS.getTranslation("1_3_1_G141_a").replace(/\{\{headingNum\}\}/g,f),"G141"),HTMLCS.addMessage(b,d[e],_global.HTMLCS.getTranslation("1_3_1_G141_b").replace(/\{\{headingNum\}\}/g,f).replace(/\{\{properHeadingNum\}\}/g,c+1),"G141")}c=f}},testEmptyHeading:function(a){!0===/^\s*$/.test(HTMLCS.util.getElementTextContent(a,!0))&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_3_1_H42.2"),"H42.2")},testUnstructuredNavLinks:function(a){for(var b=(a.nodeName.toLowerCase(),0),c=a.childNodes,d=0;d<c.length&&!(1===c[d].nodeType&&"a"===c[d].nodeName.toLowerCase()&&++b>1);d++);if(b>1){for(var e=a.parentNode;null!==e&&"ul"!==e.nodeName.toLowerCase()&&"ol"!==e.nodeName.toLowerCase();)e=e.parentNode;null===e&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_3_1_H48"),"H48")}},testGeneralTable:function(a){!0===HTMLCS.util.isLayoutTable(a)?HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_3_1_LayoutTable"),"LayoutTable"):HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_3_1_DataTable"),"DataTable")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_2={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_3_2_G57"),"G57")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_3={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_3_3_G96"),"G96")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_1={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_1_G14,G18"),"G14,G182")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_2={register:function(){return["object","embed","applet","bgsound","audio","video"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_2_F23"),"F23")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast={testContrastRatio:function(a,b,c){var d=(new Date,[]);if(a.ownerDocument)var e=[a];else var e=[a.getElementsByTagName("body")[0]];for(;e.length>0;){var f=e.shift();if(f&&1===f.nodeType&&!1===HTMLCS.util.isVisuallyHidden(f)&&!1===HTMLCS.util.isHiddenText(f)&&!1===HTMLCS.util.isDisabled(f)){for(var g=!1,h=0;h<f.childNodes.length;h++)1===f.childNodes[h].nodeType?e.push(f.childNodes[h]):3===f.childNodes[h].nodeType&&""!==HTMLCS.util.trim(f.childNodes[h].nodeValue)&&(g=!0);if(!0===g){var i=HTMLCS.util.style(f);if(i){var j=i.backgroundColor,k="",l="",m="",n="",o=i.color,p=!1,q=[],r=!1;"none"!==i.backgroundImage&&i.backgroundImage.startsWith("url")&&(p=!0),"absolute"===i.position&&(r=!0);var s=.75*parseFloat(i.fontSize,10),t=parseInt(i.fontSize),u=parseInt(i.fontWeight),v=18;if(!t)continue;("bold"===i.fontWeight||parseInt(i.fontWeight,10)>=600)&&(v=14);for(var w=s>=v?c:b,x=f,y=i;;){j=y.backgroundColor,HTMLCS.util.isColorFullyTransparent(j)&&(j=null);var z=y.backgroundImage?this.getUrlFromStyle(y.backgroundImage):"";if(z)p=!0,k=z,l=y.backgroundRepeat,m=y.backgroundSize,n=y.backgroundPosition,q.push({tagName:x.tagName,bgImg:k,bgRepeat:l,bgSize:m,bgPosition:n,bgColor:j,isAbsolute:HTMLCS.util.isPositionedOutsideParent(y)});else if(j&&(q.push({tagName:x.tagName,bgColor:j,isAbsolute:HTMLCS.util.isPositionedOutsideParent(y)}),!HTMLCS.util.isColorTransparent(j)))break;if(HTMLCS.util.isPositionedOutsideParent(y)&&(r=!0),!(x=x.parentNode)||!x.ownerDocument)break;y=HTMLCS.util.style(x)}j=null;for(var A=0;A<q.length;A++){var B=q[A].bgColor;B&&(j=j?HTMLCS.util.combineColors(j,B):B)}if(!0===p){d.push({element:f,colour:o,bgColour:j,backgrounds:q,value:void 0,required:w,hasBgImage:!0,bgImg:k,bgRepeat:l,bgSize:m,bgPosition:n,fontSize:s,fontSizePixels:t,fontWeight:u,minLargeSize:v});continue}if(!0===r){d.push({element:f,colour:o,bgColour:j,backgrounds:q,value:void 0,required:w,isAbsolute:!0,fontSize:s,fontSizePixels:t,fontWeight:u,minLargeSize:v});continue}if(!j||"transparent"===j||"rgba(0, 0, 0, 0)"===j)continue;var C=HTMLCS.util.contrastRatio(j,i.color);if(C<w){var D=this.recommendColour(j,i.color,w);d.push({element:f,colour:i.color,bgColour:j,backgrounds:q,fontSize:s,bgPosition:n,fontSizePixels:t,fontWeight:u,minLargeSize:v,value:C,required:w,recommendation:D})}}}}}return d},getUrlFromStyle:function(a){if("none"===a)return"";if(a.match(/^data:/i))return"";var b=a.match(/url\(["']?([^"']*)["']?\)/);return b instanceof Array&&b.length>0?b[1]:a},recommendColour:function(a,b,c){var b=HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(b)),a=HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(a)),d=HTMLCS.util.contrastRatio(b,a),e=Math.abs(HTMLCS.util.relativeLum(b)-.5),f=Math.abs(HTMLCS.util.relativeLum(a)-.5),g=null;if(d<c){var h=1.0025;if(e<=f){var i="back",j=a;if(HTMLCS.util.relativeLum(a)<.5)var h=1/h}else{var i="fore",j=b;if(HTMLCS.util.relativeLum(b)<.5)var h=1/h}for(var k=HTMLCS.util.sRGBtoHSV(j),l=(k.saturation,k.value,b),m=a,n=!1,o=0;d<c;){if("#fff"===j||"#000"===j)if(!0===n)if("fore"===i)for(var p=m,q=1;m===p;){var m=this.multiplyColour(m,Math.pow(1/h,q));q++}else for(var r=l,q=1;l===r;){var l=this.multiplyColour(l,Math.pow(1/h,q));q++}else{if(l=b,m=a,h=1/h,"fore"===i){i="back";var k=a}else{i="fore";var k=b}k=HTMLCS.util.sRGBtoHSV(k),k.saturation*k.value,n=!0}o++;var j=HTMLCS.util.HSVtosRGB(k),j=this.multiplyColour(j,Math.pow(h,o));if("fore"===i)var l=j;else var m=j;var d=HTMLCS.util.contrastRatio(l,m)}g={fore:{from:b,to:l},back:{from:a,to:m}}}return g},multiplyColour:function(a,b){var c=HTMLCS.util.sRGBtoHSV(a),d=c.saturation*c.value;return 0===c.value&&(c.value=1/255),c.value=c.value*b,0===c.value?c.saturation=0:c.saturation=d/c.value,c.value=Math.min(1,c.value),c.saturation=Math.min(1,c.saturation),HTMLCS.util.RGBtoColourStr(HTMLCS.util.HSVtosRGB(c))}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_F24={register:function(){return["_top"]},process:function(a,b){for(var c=HTMLCS.util.getAllElements(b,"*"),d=0;d<c.length;d++)this.testColourComboFail(c[d])},testColourComboFail:function(a){var b=a.hasAttribute("color");b=b||a.hasAttribute("link"),b=b||a.hasAttribute("vlink"),b=b||a.hasAttribute("alink");var c=a.hasAttribute("bgcolor");if(a.style){var d=a.style.color,e=a.style.background;""!==d&&"auto"!==d&&(b=!0),""!==e&&"auto"!==e&&(c=!0)}c!==b&&(!0===c?HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_3_F24.BGColour"),"F24.BGColour"):HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_3_F24.FGColour"),"F24.FGColour"))}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3={register:function(){return["_top"]},process:function(a,b){if(a===b)for(var c=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(b,4.5,3),d=0;d<c.length;d++){for(var a=c[d].element,e=2,f=Math.round(c[d].value*Math.pow(10,e))/Math.pow(10,e),g=c[d].required,h=c[d].recommendation,i=c[d].hasBgImage||!1,j=c[d].bgRepeat,k=c[d].bgSize,l=c[d].bgPosition,m=c[d].colour||!1,n=c[d].fontSize,o=c[d].bgColour,p=c[d].isAbsolute||!1,q=c[d].bgImg||"",r=c[d].fontSizePixels,s=c[d].fontWeight,t=c[d].minLargeSize,u=c[d].backgrounds;g===f;)e++,f=Math.round(c[d].value*Math.pow(10,e))/Math.pow(10,e);if(4.5===g)var v="G18";else if(3===g)var v="G145";var w=[];h&&(h.fore.from!==h.fore.to&&w.push(_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation.Text")+" "+h.fore.to),h.back.from!==h.back.to&&w.push(_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation.Background")+" "+h.back.to)),w.length>0&&(w=" "+_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation")+" "+w.join(", ")+"."),!0===p?(v+=".Abs",HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g,g),v,{color:m,bgColor:o,backgrounds:u,hasBgImage:i,bgRepeat:j,bgSize:k,bgPosition:l,fontSize:n,bgImg:q,fontSizePixels:r,fontWeight:s,minLargeSize:t,isLarge:n>=t,contrast:f,requiredContrast:g,recommend:h})):!0===i?(v+=".BgImage",HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g,g),v,{color:m,bgColor:o,backgrounds:u,hasBgImage:i,bgRepeat:j,bgSize:k,bgPosition:l,fontSize:n,bgImg:q,fontSizePixels:r,fontWeight:s,minLargeSize:t,isLarge:n>=t,contrast:f,requiredContrast:g,recommend:h})):(v+=".Fail",HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g,g).replace(/\{\{value\}\}/g,f)+w,v,{color:m,bgColor:o,backgrounds:u,hasBgImage:i,bgRepeat:j,bgSize:k,bgPosition:l,fontSize:n,bgImg:q,fontSizePixels:r,fontWeight:s,minLargeSize:t,isLarge:n>=t,contrast:f,requiredContrast:g,recommend:h}))}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_4={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_4_G142"),"G142")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_5={register:function(){return["_top"]},process:function(a,b){null!==b.querySelector("img")&&HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_5_G140,C22,C30.AALevel"),"G140,C22,C30.AALevel")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6={register:function(){return["_top"]},process:function(a,b){if(a===b)for(var c=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(b,7,4.5),d=0;d<c.length;d++){for(var a=c[d].element,e=2,f=Math.round(c[d].value*Math.pow(10,e))/Math.pow(10,e),g=c[d].required,h=c[d].recommendation,i=c[d].fontSize,j=c[d].hasBgImage||!1,k=c[d].isAbsolute||!1,l=c[d].colour,m=c[d].bgColour,n=c[d].bgRepeat,o=c[d].bgSize,p=c[d].bgPosition,q=c[d].fontWeight,r=c[d].bgImg||"",s=c[d].fontSizePixels,t=c[d].minLargeSize,u=c[d].backgrounds;g===f;)e++,f=Math.round(c[d].value*Math.pow(10,e))/Math.pow(10,e);var v;4.5===g?v="G18":7===g&&(v="G17");var w=[];h&&(h.fore.from!==h.fore.to&&w.push(_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation.Text")+" "+h.fore.to),h.back.from!==h.back.to&&w.push(_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation.Background")+h.back.to)),w.length>0&&(w=" "+_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation")+" "+w.join(", ")+"."),!0===k?(v+=".Abs",HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Abs").replace(/\{\{required\}\}/g,g),v,{color:l,bgColor:m,fontSize:i,bgImg:r,bgRepeat:n,bgSize:o,bgPosition:p,backgrounds:u,fontSizePixels:s,fontWeight:q,minLargeSize:t,isLarge:i>=t,contrast:f,requiredContrast:g,recommend:h})):!0===j?(v+=".BgImage",HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.BgImage").replace(/\{\{required\}\}/g,g),v,{color:l,bgColor:m,hasBgImage:j,fontSize:i,bgImg:r,bgRepeat:n,bgSize:o,bgPosition:p,backgrounds:u,fontSizePixels:s,fontWeight:q,minLargeSize:t,isLarge:i>=t,contrast:f,requiredContrast:g,recommend:h})):(v+=".Fail",HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail").replace(/\{\{required\}\}/g,g).replace(/\{\{value\}\}/g,f)+w,v,{color:l,bgColor:m,fontSize:i,hasBgImage:j,bgImg:r,bgRepeat:n,bgSize:o,bgPosition:p,backgrounds:u,fontSizePixels:s,fontWeight:q,minLargeSize:t,isLarge:i>=t,contrast:f,requiredContrast:g,recommend:h}))}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_7={register:function(){return["object","embed","applet","bgsound","audio"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("1_4_7_G56"),"G56")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_8={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_8_G148,G156,G175"),"G148,G156,G175"),HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_8_H87,C20"),"H87,C20"),HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_8_C19,G172,G169"),"C19,G172,G169"),HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_8_G188,C21"),"G188,C21"),HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_8_H87,G146,C26"),"H87,G146,C26")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_9={register:function(){return["_top"]},process:function(a,b){null!==b.querySelector("img")&&HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("1_4_9_G140,C22,C30.NoException"),"G140,C22,C30.NoException")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_1={register:function(){return["_top"]},process:function(a,b){if(a===b){HTMLCS.util.getAllElements(b,"*[onclick], *[onkeyup], *[onkeydown], *[onkeypress], *[onfocus], *[onblur]").forEach(function(a){!1===HTMLCS.util.isKeyboardNavigable(a)&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("2_1_1_G90"),"G90")});for(var c=HTMLCS.util.getAllElements(b,"*[ondblclick]"),d=0;d<c.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,c[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.DblClick"),"SCR20.DblClick");for(var e=HTMLCS.util.getAllElements(b,"*[onmouseover]"),d=0;d<e.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,e[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.MouseOver"),"SCR20.MouseOver");for(var f=HTMLCS.util.getAllElements(b,"*[onmouseout]"),d=0;d<f.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,f[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.MouseOut"),"SCR20.MouseOut");for(var g=HTMLCS.util.getAllElements(b,"*[onmousemove]"),d=0;d<g.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,g[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.MouseMove"),"SCR20.MouseMove");for(var h=HTMLCS.util.getAllElements(b,"*[onmousedown]"),d=0;d<h.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,h[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.MouseDown"),"SCR20.MouseDown");for(var i=HTMLCS.util.getAllElements(b,"*[onmouseup]"),d=0;d<i.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,i[d],_global.HTMLCS.getTranslation("2_1_1_SCR20.MouseUp"),"SCR20.MouseUp")}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_2={register:function(){return["object","applet","embed"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("2_1_2_F10"),"F10")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_1={register:function(){return["meta"]},process:function(a,b){!0===a.hasAttribute("http-equiv")&&"refresh"===String(a.getAttribute("http-equiv")).toLowerCase()&&!0===/^[1-9]\d*/.test(a.getAttribute("content").toLowerCase())&&(!0===/url=/.test(a.getAttribute("content").toLowerCase())?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_2_1_F40.2"),"F40.2"):HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_2_1_F41.2"),"F41.2"))}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_2={register:function(){return["_top","blink"]},process:function(a,b){if(a===b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_2_2_SCR33,SCR22,G187,G152,G186,G191"),"SCR33,SCR22,G187,G152,G186,G191");for(var c=HTMLCS.util.getAllElements(b,"*"),d=0;d<c.length;d++){var e=HTMLCS.util.style(c[d]);e&&!0===/blink/.test(e["text-decoration"])&&HTMLCS.addMessage(HTMLCS.WARNING,c[d],_global.HTMLCS.getTranslation("2_2_2_F4"),"F4")}}else"blink"===a.nodeName.toLowerCase()&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_2_2_F47"),"F47")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_3={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_2_3_G5"),"G5")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_4={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_2_4_SCR14"),"SCR14")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_5={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_2_5_G105,G181"),"G105,G181")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_1={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("2_3_1_G19,G176"),"G19,G176")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_2={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("2_3_2_G19"),"G19")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1={register:function(){return["iframe","a","area","_top"]},process:function(a,b){if(a===b)this.testGenericBypassMsg(b);else{switch(a.nodeName.toLowerCase()){case"iframe":this.testIframeTitle(a);break;case"a":case"area":this.testSameDocFragmentLinks(a,b)}}},testIframeTitle:function(a){if("iframe"===a.nodeName.toLowerCase()){var b=!1;!0===a.hasAttribute("title")&&a.getAttribute("title")&&!1===/^\s+$/.test(a.getAttribute("title"))&&(b=!0),!1===b?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_1_H64.1"),"H64.1"):HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_1_H64.2"),"H64.2")}},testGenericBypassMsg:function(a){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_1_G1,G123,G124,H69"),"G1,G123,G124,H69")},testSameDocFragmentLinks:function(a,b){if(!0===a.hasAttribute("href")){var c=a.getAttribute("href");if(c=HTMLCS.util.trim(c),c.length>1&&"#"===c.charAt(0)){var d=c.substr(1);try{var e=b;e.ownerDocument&&(e=e.ownerDocument);var f=e.getElementById(d);if(null===f){var g=HTMLCS.util.getElementWindow(b).document,h=HTMLCS.util.getDocumentType(g),i="a";h&&-1===h.indexOf("html5")&&(i="*"),f=e.querySelector(i+'[name="'+d+'"]')}null!==f&&!1!==HTMLCS.util.contains(b,f)||(!0===HTMLCS.isFullDoc(b)||"body"===b.nodeName.toLowerCase()?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_1_G1,G123,G124.NoSuchID").replace(/\{\{id\}\}/g,d),"G1,G123,G124.NoSuchID"):HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("2_4_1_G1,G123,G124.NoSuchIDFragment").replace(/\{\{id\}\}/g,d),"G1,G123,G124.NoSuchIDFragment"))}catch(a){}}}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_2={register:function(){return["html"]},process:function(a,b){for(var c=a.childNodes,d=null,e=0;e<c.length;e++)if("head"===c[e].nodeName.toLowerCase()){d=c[e];break}if(null===d)HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_2_H25.1.NoHeadEl"),"H25.1.NoHeadEl");else{for(var c=d.childNodes,f=null,e=0;e<c.length;e++)if("title"===c[e].nodeName.toLowerCase()){f=c[e];break}null===f?HTMLCS.addMessage(HTMLCS.ERROR,d,_global.HTMLCS.getTranslation("2_4_2_H25.1.NoTitleEl"),"H25.1.NoTitleEl"):!0===/^\s*$/.test(f.innerHTML)?HTMLCS.addMessage(HTMLCS.ERROR,f,_global.HTMLCS.getTranslation("2_4_2_H25.1.EmptyTitle"),"H25.1.EmptyTitle"):HTMLCS.addMessage(HTMLCS.NOTICE,f,_global.HTMLCS.getTranslation("2_4_2_H25.2"),"H25.2")}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_3={register:function(){return["_top"]},process:function(a,b){if(a===b){b.querySelector("*[tabindex]")&&HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_3_H4.2"),"H4.2")}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_4={register:function(){return["a"]},process:function(a,b){!0===a.hasAttribute("title")?HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_4_H77,H78,H79,H80,H81,H33"),"H77,H78,H79,H80,H81,H33"):HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_4_H77,H78,H79,H80,H81"),"H77,H78,H79,H80,H81")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_5={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_5_G125,G64,G63,G161,G126,G185"),"G125,G64,G63,G161,G126,G185")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_6={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_6_G130,G131"),"G130,G131")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_7={register:function(){return["_top"]},process:function(a,b){null!==b.querySelector("input, textarea, button, select, a")&&HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("2_4_7_G149,G165,G195,C15,SCR31"),"G149,G165,G195,C15,SCR31")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_8={register:function(){return["link"]},process:function(a,b){
-"head"!==a.parentNode.nodeName.toLowerCase()&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_8_H59.1"),"H59.1"),!1!==a.hasAttribute("rel")&&a.getAttribute("rel")&&!0!==/^\s*$/.test(a.getAttribute("rel"))||HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_8_H59.2a"),"H59.2a"),!1!==a.hasAttribute("href")&&a.getAttribute("href")&&!0!==/^\s*$/.test(a.getAttribute("href"))||HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("2_4_8_H59.2b"),"H59.2b")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_9={register:function(){return["a"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("2_4_9_H30"),"H30")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1={register:function(){return["html"]},process:function(a,b){if(!1===a.hasAttribute("lang")&&!1===a.hasAttribute("xml:lang"))HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("3_1_1_H57.2"),"H57.2");else{if(!0===a.hasAttribute("lang")){var c=a.getAttribute("lang");!1===this.isValidLanguageTag(c)&&HTMLCS.addMessage(HTMLCS.ERROR,b,_global.HTMLCS.getTranslation("3_1_1_H57.3.Lang"),"H57.3.Lang",{lang:c})}if(!0===a.hasAttribute("xml:lang")){var c=a.getAttribute("xml:lang");!1===this.isValidLanguageTag(c)&&HTMLCS.addMessage(HTMLCS.ERROR,b,_global.HTMLCS.getTranslation("3_1_1_H57.3.XmlLang"),"H57.3.XmlLang",{lang:c})}}},isValidLanguageTag:function(a){var b="^([ix](-[a-z0-9]{1,8})+)$|";b+="^[a-z]{2,8}",b+="(-[a-z]{3}){0,3}",b+="(-[a-z]{4})?",b+="(-[a-z]{2}|-[0-9]{3})?",b+="(-[0-9][a-z0-9]{3}|-[a-z0-9]{5,8})*",b+="(-[a-wy-z0-9](-[a-z0-9]{2,8})+)*",b+="(-x(-[a-z0-9]{1,8})+)?$";var c=new RegExp(b,"i"),d=!0;return!1===c.test(a)&&(d=!1),d}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_2={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_1_2_H58"),"H58");for(var c=HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1,d=HTMLCS.util.getAllElements(b,"*[lang]"),e=0;e<=d.length;e++){if(e===d.length)var f=b;else var f=d[e];if(!f.documentElement&&"html"!==f.nodeName.toLowerCase()){if(!0===f.hasAttribute("lang")){var g=f.getAttribute("lang");!1===c.isValidLanguageTag(g)&&HTMLCS.addMessage(HTMLCS.ERROR,f,_global.HTMLCS.getTranslation("3_1_2_H58.1.Lang"),"H58.1.Lang")}if(!0===f.hasAttribute("xml:lang")){var g=f.getAttribute("xml:lang");!1===c.isValidLanguageTag(g)&&HTMLCS.addMessage(HTMLCS.ERROR,f,_global.HTMLCS.getTranslation("3_1_2_H58.1.XmlLang"),"H58.1.XmlLang")}}}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_3={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_1_3_H40,H54,H60,G62,G70"),"H40,H54,H60,G62,G70")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_4={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_1_4_G102,G55,G62,H28,G97"),"G102,G55,G62,H28,G97")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_5={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_1_5_G86,G103,G79,G153,G160"),"G86,G103,G79,G153,G160")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_6={register:function(){return["ruby"]},process:function(a,b){var c=a.querySelectorAll("rb");0===a.querySelectorAll("rt").length&&(0===c.length?HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("3_1_6_H62.1.HTML5"),"H62.1.HTML5"):HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("3_1_6_H62.1.XHTML11"),"H62.1.XHTML11")),0===a.querySelectorAll("rp").length&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("3_1_6_H62.2"),"H62.2")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_1={register:function(){return["input","textarea","button","select"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_2_1_G107"),"G107")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_2={register:function(){return["form"]},process:function(a,b){"form"===a.nodeName.toLowerCase()&&this.checkFormSubmitButton(a)},checkFormSubmitButton:function(a){var b=!1;if(a.querySelectorAll("input[type=submit], input[type=image]").length>0)b=!0;else{var c=a.querySelectorAll("button"),d=a.querySelectorAll("button[type=reset], button[type=button]");c.length>d.length&&(b=!0)}!1===b&&HTMLCS.addMessage(HTMLCS.ERROR,a,_global.HTMLCS.getTranslation("3_2_2_H32.2"),"H32.2")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_3={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_2_3_G61"),"G61")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_4={register:function(){return["_top"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,b,_global.HTMLCS.getTranslation("3_2_4_G197"),"G197")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_5={register:function(){return["a"]},process:function(a,b){"a"===a.nodeName.toLowerCase()&&this.checkNewWindowTarget(a)},checkNewWindowTarget:function(a){!0===a.hasAttribute("target")&&("_blank"===(a.getAttribute("target")||"")&&!1===/new window/i.test(a.innerHTML)&&HTMLCS.addMessage(HTMLCS.WARNING,a,_global.HTMLCS.getTranslation("3_2_5_H83.3"),"H83.3"))}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_1={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_1_G83,G84,G85"),"G83,G84,G85")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_2={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_2_G131,G89,G184,H90"),"G131,G89,G184,H90")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_3={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_3_G177"),"G177")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_4={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_4_G98,G99,G155,G164,G168.LegalForms"),"G98,G99,G155,G164,G168.LegalForms")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_5={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_5_G71,G184,G193"),"G71,G184,G193")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_6={register:function(){return["form"]},process:function(a,b){HTMLCS.addMessage(HTMLCS.NOTICE,a,_global.HTMLCS.getTranslation("3_3_6_G98,G99,G155,G164,G168.AllForms"),"G98,G99,G155,G164,G168.AllForms")}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_1={register:function(){return["_top"]},process:function(a,b){if(a===b)for(var c=HTMLCS.util.getAllElements(b,"*[id]"),d={},e=0;e<c.length;e++){var f=c[e].getAttribute("id");!0!==/^\s*$/.test(f)&&(void 0!==d[f]?HTMLCS.addMessage(HTMLCS.ERROR,c[e],_global.HTMLCS.getTranslation("4_1_1_F77").replace(/\{\{id\}\}/g,f),"F77"):d[f]=!0)}}},_global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2={register:function(){return["_top"]},process:function(a,b){if(a===b){for(var c=this.processFormControls(b),d=0;d<c.errors.length;d++)HTMLCS.addMessage(HTMLCS.ERROR,c.errors[d].element,c.errors[d].msg,"H91."+c.errors[d].subcode);for(var d=0;d<c.warnings.length;d++)HTMLCS.addMessage(HTMLCS.WARNING,c.warnings[d].element,c.warnings[d].msg,"H91."+c.warnings[d].subcode);this.addProcessLinksMessages(b)}},addProcessLinksMessages:function(a){for(var b=this.processLinks(a),c=0;c<b.empty.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.empty[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.Empty"),"H91.A.Empty");for(var c=0;c<b.emptyWithName.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.emptyWithName[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.EmptyWithName"),"H91.A.EmptyWithName");for(var c=0;c<b.emptyNoId.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.emptyNoId[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.EmptyNoId"),"H91.A.EmptyNoId");for(var c=0;c<b.noHref.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.noHref[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.NoHref"),"H91.A.NoHref");for(var c=0;c<b.placeholder.length;c++)HTMLCS.addMessage(HTMLCS.WARNING,b.placeholder[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.Placeholder"),"H91.A.Placeholder");for(var c=0;c<b.noContent.length;c++)HTMLCS.addMessage(HTMLCS.ERROR,b.noContent[c],_global.HTMLCS.getTranslation("4_1_2_H91.A.NoContent"),"H91.A.NoContent")},processLinks:function(a){for(var b={empty:[],emptyWithName:[],emptyNoId:[],noHref:[],placeholder:[],noContent:[]},c=HTMLCS.util.getAllElements(a,'a:not([role="button"])'),d=0;d<c.length;d++){var e=c[d],f=!1,g=!1,h=HTMLCS.util.getElementTextContent(e);!0===e.hasAttribute("title")&&!1===/^\s*$/.test(e.getAttribute("title"))?f=!0:!1===/^\s*$/.test(h)&&(f=!0),!0===e.hasAttribute("href")&&!1===/^\s*$/.test(e.getAttribute("href"))&&(g=!0),!1===g?!0===/^\s*$/.test(h)?!0===e.hasAttribute("id")?b.empty.push(e):!0===e.hasAttribute("name")?b.emptyWithName.push(e):b.emptyNoId.push(e):!0===e.hasAttribute("id")||!0===e.hasAttribute("name")?b.noHref.push(e):b.placeholder.push(e):!1===f&&0===e.querySelectorAll("img").length&&!1===HTMLCS.util.hasValidAriaLabel(e)&&b.noContent.push(e)}return b},processFormControls:function(a){for(var b=HTMLCS.util.getAllElements(a,'button, fieldset, input, select, textarea, [role="button"]'),c=[],d=[],e={button:["@title","_content","@aria-label","@aria-labelledby"],fieldset:["legend","@aria-label","@aria-labelledby"],input_button:["@value","@aria-label","@aria-labelledby"],input_text:["label","@title","@aria-label","@aria-labelledby"],input_file:["label","@title","@aria-label","@aria-labelledby"],input_password:["label","@title","@aria-label","@aria-labelledby"],input_checkbox:["label","@title","@aria-label","@aria-labelledby"],input_radio:["label","@title","@aria-label","@aria-labelledby"],input_image:["@alt","@title","@aria-label","@aria-labelledby"],select:["label","@title","@aria-label","@aria-labelledby"],textarea:["label","@title","@aria-label","@aria-labelledby"]},f=["email","search","date","datetime-local","month","number","tel","time","url","week","range","color"],g=0,h=f.length;g<h;g++)e["input_"+f[g]]=["label","@title","@aria-label","@aria-labelledby"];for(var i={select:"option_selected"},j=0,k=b.length;j<k;j++){var l=b[j],m=l.nodeName.toLowerCase(),n=l.nodeName.substr(0,1).toUpperCase()+l.nodeName.substr(1).toLowerCase();if("input"===m){!1===l.hasAttribute("type")?m+="_text":m+="_"+l.getAttribute("type").toLowerCase(),"input_submit"!==m&&"input_reset"!==m||(m="input_button");var n="Input"+m.substr(6,1).toUpperCase()+m.substr(7).toLowerCase()}var o=e[m],p=i[m];if(o||"input_hidden"===m||(o=["_content","@aria-label","@aria-labelledby"]),o){for(var g=0;g<o.length;g++){var q=o[g];if("_content"===q){var r=HTMLCS.util.getElementTextContent(l);if(!1===/^\s*$/.test(r))break}else if("label"===q){var s=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testLabelsOnInputs(l,a,!0);if(!1!==s)break}else if("@"===q.charAt(0)){if(("aria-label"===(q=q.substr(1,q.length))||"aria-labelledby"===q)&&HTMLCS.util.hasValidAriaLabel(l))break;if(!0===l.hasAttribute(q)&&!1===/^\s*$/.test(l.getAttribute(q)))break}else{var t=l.querySelector(q);if(null!==t){var r=HTMLCS.util.getElementTextContent(t);if(!1===/^\s*$/.test(r))break}}}if(g===o.length){var u=m+" "+_global.HTMLCS.getTranslation("4_1_2_element");"input_"===m.substr(0,6)&&(u=m.substr(6)+_global.HTMLCS.getTranslation("4_1_2_input_element")),l.hasAttribute("role")&&"button"===l.getAttribute("role")&&(u=_global.HTMLCS.getTranslation("4_1_2_role_of_button"));for(var v=o.slice(0,o.length),w=0;w<v.length;w++)"_content"===v[w]?v[w]=_global.HTMLCS.getTranslation("4_1_2_element_content"):"@"===v[w].charAt(0)?v[w]=v[w].substr(1)+" "+_global.HTMLCS.getTranslation("4_1_2_attribute"):v[w]=v[w]+" "+_global.HTMLCS.getTranslation("4_1_2_element");var x=_global.HTMLCS.getTranslation("4_1_2_msg_pattern").replace(/\{\{msgNodeType\}\}/g,u).replace(/\{\{builtAttrs\}\}/g,v.join(", "));c.push({element:l,msg:x,subcode:n+".Name"})}}var y=!1;if(void 0===p)y=!0;else if("_content"===p){var r=HTMLCS.util.getElementTextContent(l);!1===/^\s*$/.test(r)&&(y=!0)}else if("option_selected"===p)if(!1===l.hasAttribute("multiple")){var z=l.querySelector("option[selected]");null!==z&&(y=!0)}else y=!0;else"@"===p.charAt(0)&&(p=p.substr(1,p.length),!0===l.hasAttribute(p)&&(y=!0));if(!1===y&&(valuFound=HTMLCS.util.hasValidAriaLabel(l)),!1===y){var u=m+" "+_global.HTMLCS.getTranslation("4_1_2_element");"input_"===m.substr(0,6)&&(u=m.substr(6)+" input element");var x=_global.HTMLCS.getTranslation("4_1_2_msg_pattern2").replace(/\{\{msgNodeType\}\}/g,u),A="",B=!1;"_content"===p?A=" "+_global.HTMLCS.getTranslation("4_1_2_msg_add_one"):"option_selected"===p?(B=!0,x=_global.HTMLCS.getTranslation("4_1_2_msg_pattern2").replace(/\{\{msgNodeType\}\}/g,u)):A="@"===p.charAt(0)?" "+_global.HTMLCS.getTranslation("4_1_2_value_exposed_using_attribute").replace(/\{\{requiredValue\}\}/g,p):" "+_global.HTMLCS.getTranslation("4_1_2_value_exposed_using_element").replace(/\{\{requiredValue\}\}/g,p),x+=A,!1===B?c.push({element:l,msg:x,subcode:n+".Value"}):d.push({element:l,msg:x,subcode:n+".Value"})}}return{errors:c,warnings:d}}},_global.HTMLCS=new function(){var a={},b=[],c={},d=null,e=null,f=[],g={};this.ERROR=1,this.WARNING=2,this.NOTICE=3,this.lang="en",this.process=function(e,f,g,h,i){if(a={},b=[],c={},d=null,!f)return!1;var j=Object.keys(_global.translation);i&&-1!==j.indexOf(i)&&(this.lang=i),a[p(e)]?HTMLCS.run(g,f):this.loadStandard(e,function(){HTMLCS.run(g,f)},h)},this.getTranslation=function(a){try{return _global.translation[this.lang][a]}catch(b){throw new Error('Translation for "'+a+'" does not exist in current language '+this.lang)}},this.loadStandard=function(a,b,c){if(!a)return!1;j(a,function(){d=a,b.call(this)},c)},this.run=function(a,b){var c=null,d=!1;if("string"==typeof b){d=!0;var e=document.createElement("iframe");e.style.display="none",e=document.body.insertBefore(e,null),e.contentDocument?c=e.contentDocument:c.contentWindow&&(c=e.contentWindow.document),e.load=function(){if(this.onreadystatechange=null,this.onload=null,!1===HTMLCS.isFullDoc(b)){c=c.getElementsByTagName("body")[0];var d=c.getElementsByTagName("div")[0];d&&"__HTMLCS-source-wrap"===d.id&&(d.id="",c=d)}var e=HTMLCS.util.getAllElements(c);e.unshift(c),h(e,c,a)},e.onreadystatechange=function(){!0===/^(complete|loaded)$/.test(this.readyState)&&(this.onreadystatechange=null,this.load())},e.onload=e.load,!1===HTMLCS.isFullDoc(b)&&-1===b.indexOf("<body")?c.write('<div id="__HTMLCS-source-wrap">'+b+"</div>"):c.write(b),c.close()}else c=b;if(!c)return void a.call(this);a=a||function(){},f=[];var g=HTMLCS.util.getAllElements(c);g.unshift(c),!1===d&&h(g,c,a)},this.isFullDoc=function(a){var b=!1;return"string"==typeof a?-1!==a.toLowerCase().indexOf("<html")?b=!0:-1!==a.toLowerCase().indexOf("<head")&&-1!==a.toLowerCase().indexOf("<body")&&(b=!0):("html"===a.nodeName.toLowerCase()||a.documentElement)&&(b=!0),b},this.addMessage=function(a,b,c,d,e){d=r(d),f.push({type:a,element:b,msg:g[d]||c,code:d,data:e})},this.getMessages=function(){return f.concat([])};var h=function(a,b,d){for(var g=[];a.length>0;){var h=a.shift();if(h===b)var j="_top";else var j=h.tagName.toLowerCase();for(var k=0;k<g.length;)h===g[k].element?(f.push(g[k]),g.splice(k,1)):k++;c[j]&&c[j].length>0&&(i(h,c[j].concat([]),b),"_top"===j&&(g=f,f=[]))}f=f.concat(g);var l=b.querySelectorAll('[role="presentation"]');e=HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1,[].forEach.call(l,function(a){e.testSemanticPresentationRole(a)}),d instanceof Function==!0&&d.call(this)},i=function(a,b,c,d){for(;b.length>0;){var f=b.shift();e=f,!0===f.useCallback?f.process(a,c,function(){i(a,b,c),b=[]}):f.process(a,c)}d instanceof Function==!0&&d.call(this)},j=function(a,b,c,d){0!==a.indexOf("http")&&(a=p(a));var e=a.split("/");_global["HTMLCS_"+e[e.length-2]]?k(a,b,c,d):s(a,function(){k(a,b,c,d)},c)},k=function(b,c,d,e){var f=b.split("/"),g=_global["HTMLCS_"+f[f.length-2]],h={};for(var i in g)!0===g.hasOwnProperty(i)&&(h[i]=g[i]);if(!h)return!1;if(a[b]=h,e)if(e.include&&e.include.length>0)h.sniffs=e.include;else if(e.exclude)for(var j=0;j<e.exclude.length;j++){var k=h.sniffs.find(e.exclude[j]);k>=0&&h.sniffs.splice(k,1)}var m=h.sniffs.slice(0,h.sniffs.length);l(b,m,c,d)},l=function(a,b,c,d){if(0===b.length)return void c.call(this);var e=b.shift();m(a,e,function(){l(a,b,c,d)},d)},m=function(a,b,c,d){if("string"==typeof b){var e=q(a,b),f=function(){n(a,b),c.call(this)};e?f():s(o(a,b),f,d)}else j(b.standard,function(){if(b.messages)for(var a in b.messages)g[a]=b.messages[a];c.call(this)},d,{exclude:b.exclude,include:b.include})},n=function(a,d){var e=q(a,d);if(!e)return!1;if(e.register)for(var f=e.register(),g=0;g<f.length;g++)c[f[g]]||(c[f[g]]=[]),c[f[g]].push(e);b.push(e)},o=function(a,b){var c=a.split("/");return c.pop(),c.join("/")+"/Sniffs/"+b.replace(/\./g,"/")+".js"},p=function(a){for(var b=document.getElementsByTagName("script"),c=null,d=0;d<b.length;d++)if(b[d].src&&b[d].src.match(/HTMLCS\.js/)){c=b[d].src.replace(/HTMLCS\.js/,""),c=c.substring(0,c.indexOf("?"));break}return c+"Standards/"+a+"/ruleset.js"},q=function(b,c){var d="HTMLCS_";return d+=a[b].name+"_Sniffs_",d+=c.split(".").join("_"),_global[d]?(_global[d]._name=c,_global[d]):null},r=function(a){return a=d+"."+e._name+"."+a},s=function(a,b,c){var d=document.createElement("script");d.onload=function(){d.onload=null,d.onreadystatechange=null,b.call(this)},d.onerror=function(){d.onload=null,d.onreadystatechange=null,c&&c.call(this)},d.onreadystatechange=function(){!0===/^(complete|loaded)$/.test(this.readyState)&&(d.onreadystatechange=null,d.onload())},d.src=a,document.head?document.head.appendChild(d):document.getElementsByTagName("head")[0].appendChild(d)}},_global.HTMLCS.util=function(){var a={};return a.trim=function(a){return a.replace(/^\s*(.*)\s*$/g,"$1").trim()},a.isStringEmpty=function(a){if("string"!=typeof a)return!0;var b=!0;return-1!==a.indexOf(String.fromCharCode(160))?b=!1:!1===/^\s*$/.test(a)&&(b=!1),b},a.getDocumentType=function(a){var b=null,c=a.doctype;if(c){var d=c.name,e=c.publicId,f=c.systemId;if(null===d&&(d=""),null===f&&(f=""),null===e&&(e=""),"html"===d.toLowerCase()&&(""===e&&""===f?b="html5":-1!==e.indexOf("//DTD HTML 4.01")||-1!==f.indexOf("w3.org/TR/html4/strict.dtd")?b="html401":-1!==e.indexOf("//DTD HTML 4.0")||-1!==f.indexOf("w3.org/TR/REC-html40/strict.dtd")?b="html40":-1!==e.indexOf("//DTD XHTML 1.0 Strict")&&-1!==f.indexOf("w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd")?b="xhtml10":-1!==e.indexOf("//DTD XHTML 1.1")&&-1!==f.indexOf("w3.org/TR/xhtml11/DTD/xhtml11.dtd")&&(b="xhtml11"),-1!==f.indexOf("about:legacy-compat")&&"application/xhtml+xml"===a.contentType)){var g=a.querySelector("html");"http://www.w3.org/1999/xhtml"===g.getAttribute("xmlns")&&(b="xhtml5")}}else if("application/xhtml+xml"===a.contentType){var g=a.querySelector("html");"http://www.w3.org/1999/xhtml"===g.getAttribute("xmlns")&&(b="xhtml5")}return b},a.getElementWindow=function(a){if(a.ownerDocument)var b=a.ownerDocument;else var b=a;return b.defaultView?b.defaultView:b.parentWindow},a.hasValidAriaLabel=function(b){var c=!1;if(!0===b.hasAttribute("aria-labelledby")){b.getAttribute("aria-labelledby").split(/\s+/).forEach(function(b){var d=document.getElementById(b);if(d){!1===/^\s*$/.test(a.getElementTextContent(d))&&(c=!0)}})}else if(!0===b.hasAttribute("aria-label")){var d=b.getAttribute("aria-label");!1===/^\s*$/.test(d)&&(c=!0)}return c},a.style=function(b){var c=null,d=a.getElementWindow(b);return b.currentStyle?c=b.currentStyle:d.getComputedStyle&&(c=d.getComputedStyle(b,null)),c},a.isVisuallyHidden=function(b){var c=a.style(b);if(null!==c){if("hidden"===c.visibility||"none"===c.display)return!0;if("rect(1px,1px,1px,1px)"===c.clip.replace(/ /g,""))return!0;if("polygon(0px0px,0px0px,0px0px,0px0px)"===c.clipPath.replace(/ /g,""))return!0;var d=parseInt(c.width,10);if(parseInt(c.left,10)+d<0)return!0;if(parseInt(c.top,10)+parseInt(c.height,10)<0)return!0;if(parseInt(c.textIndent)+d<0)return!0}return!1},a.isHiddenText=function(b){var c=b.tagName;if("SCRIPT"===c||"STYLE"===c||"NOSCRIPT"===c)return!0;var d=a.style(b);if(null!==d){if("hidden"===d.visibility)return!0;if("hidden"===d.visibility)return!0;var e=parseInt(d.width,10);if(parseInt(d.left,10)+e<0)return!0;if(parseInt(d.top,10)+parseInt(d.height,10)<0)return!0;var f=parseInt(d.textIndent);if(f+e<0||f>e)return!0}return!1},a.isPositionedOutsideParent=function(a){var b=a.position;return"static"!==b&&("relative"!==b&&("fixed"===b||"sticky"===b||!!(a.left||a.top||a.right||a.bottom)))},a.parseColorString=function(a){if(!a||"transparent"===a)return[0,0,0,0];var b=a.replace(/[^\d,\.]/g,"").split(",");return b.length<4&&b.push(1),b},a.combineColors=function(b,c){var d=a.parseColorString(b),e=a.parseColorString(c),f=[d[0]*d[3]+e[0]*(1-d[3]),d[1]*d[3]+e[1]*(1-d[3]),d[2]*d[3]+e[2]*(1-d[3])];return"rgb("+Math.round(f[0])+", "+Math.round(f[1])+", "+Math.round(f[2])+")"},a.isColorTransparent=function(b){return a.parseColorString(b)[3]<1},a.isColorFullyTransparent=function(b){return 0==a.parseColorString(b)[3]},a.isAriaHidden=function(a){do{if(a.hasAttribute("aria-hidden")&&"true"===a.getAttribute("aria-hidden"))return!0}while(a=a.parentElement);return!1},a.isAccessibilityHidden=function(a){do{if(a.hasAttribute("role")&&"presentation"===a.getAttribute("role"))return!0;if(a.hasAttribute("aria-hidden")&&"true"===a.getAttribute("aria-hidden"))return!0}while(a=a.parentElement);return!1},a.isFocusable=function(b){var c=b.nodeName.toLowerCase();return!0!==a.isDisabled(b)&&(!0!==a.isVisuallyHidden(b)&&(!!/^(input|select|textarea|button|object)$/.test(c)||!("a"!==c||!b.hasAttribute("href")||!1!==/^\s*$/.test(b.getAttribute("href")))))},a.isKeyboardTabbable=function(b){if(!0===b.hasAttribute("tabindex")){return"-1"!==b.getAttribute("tabindex")}return a.isFocusable(b)},a.isKeyboardNavigable=function(b){return!(!b.hasAttribute("accesskey")||!1!==/^\s*$/.test(b.getAttribute("accesskey")))||a.isKeyboardTabbable(b)},a.isDisabled=function(a){var b=!1;return!0!==a.disabled&&"true"!==a.getAttribute("aria-disabled")||(b=!0),b},a.isInDocument=function(a){for(var b=a.parentNode;b&&b.ownerDocument;)b=b.parentNode;return null!==b},a.getAllElements=function(a,b){a=a||document,b=b||"*";var c=Array.prototype.slice.call(a.querySelectorAll(b)),d=c.filter(function(a){return!1===HTMLCS.util.isAccessibilityHidden(a)}),e=document.getElementById("HTMLCS-wrapper");return e&&(d=d.filter(function(a){return!1===e.contains(a)})),d},a.contains=function(a,b){var c=!1;return a!==b&&(a.ownerDocument?a.contains&&!0===a.contains(b)?c=!0:a.compareDocumentPosition&&(16&a.compareDocumentPosition(b))>0&&(c=!0):b.ownerDocument&&b.ownerDocument===a&&(c=!0)),c},a.isLayoutTable=function(a){return null===a.querySelector("th")},a.contrastRatio=function(b,c){var d=(.05+a.relativeLum(b))/(.05+a.relativeLum(c));return d<1&&(d=1/d),d},a.relativeLum=function(b){if(b.charAt)var b=a.colourStrToRGB(b);var c={};for(var d in b)b[d]<=.03928?c[d]=b[d]/12.92:c[d]=Math.pow((b[d]+.055)/1.055,2.4);return.2126*c.red+.7152*c.green+.0722*c.blue},a.colourStrToRGB=function(a){if(a=a.toLowerCase(),"rgb"===a.substring(0,3)){var b=/^rgba?\s*\((\d+),\s*(\d+),\s*(\d+)([^)]*)\)$/.exec(a);a={red:b[1]/255,green:b[2]/255,blue:b[3]/255}}else"#"===a.charAt(0)&&(a=a.substr(1)),3===a.length&&(a=a.replace(/^(.)(.)(.)$/,"$1$1$2$2$3$3")),a={red:parseInt(a.substr(0,2),16)/255,green:parseInt(a.substr(2,2),16)/255,blue:parseInt(a.substr(4,2),16)/255};return a},a.RGBtoColourStr=function(a){return colourStr="#",a.red=Math.round(255*a.red),a.green=Math.round(255*a.green),a.blue=Math.round(255*a.blue),a.red%17==0&&a.green%17==0&&a.blue%17==0?(colourStr+=(a.red/17).toString(16),colourStr+=(a.green/17).toString(16),colourStr+=(a.blue/17).toString(16)):(a.red<16&&(colourStr+="0"),colourStr+=a.red.toString(16),a.green<16&&(colourStr+="0"),colourStr+=a.green.toString(16),a.blue<16&&(colourStr+="0"),colourStr+=a.blue.toString(16)),colourStr},a.sRGBtoHSV=function(b){b.charAt&&(b=a.colourStrToRGB(b));var c={hue:0,saturation:0,value:0},d=Math.max(b.red,b.green,b.blue),e=Math.min(b.red,b.green,b.blue),f=d-e;return 0===f?c.value=b.red:(c.value=d,d===b.red?c.hue=(b.green-b.blue)/f:d===b.green?c.hue=2+(b.blue-b.red)/f:c.hue=4+(b.red-b.green)/f,c.hue=60*c.hue,c.hue>=360&&(c.hue-=360),c.saturation=f/c.value),c},a.HSVtosRGB=function(a){var b={red:0,green:0,blue:0};if(0===a.saturation)b.red=a.value,b.green=a.value,b.blue=a.value;else{var c=a.value*a.saturation,d=a.value-c,e=a.hue/60,f=e-2*Math.floor(e/2),g=c*(1-Math.abs(f-1));switch(Math.floor(e)){case 0:b.red=c,b.green=g;break;case 1:b.green=c,b.red=g;break;case 2:b.green=c,b.blue=g;break;case 3:b.blue=c,b.green=g;break;case 4:b.blue=c,b.red=g;break;case 5:b.red=c,b.blue=g}b.red=b.red+d,b.green=b.green+d,b.blue=b.blue+d}return b},a.getElementTextContent=function(a,b){void 0===b&&(b=!0);for(var a=a.cloneNode(!0),c=[],d=0;d<a.childNodes.length;d++)c.push(a.childNodes[d]);for(var e=[a.textContent];c.length>0;){var f=c.shift();if(1===f.nodeType)if("img"===f.nodeName.toLowerCase())!0===b&&!0===f.hasAttribute("alt")&&e.push(f.getAttribute("alt"));else for(var d=0;d<f.childNodes.length;d++)c.push(f.childNodes[d]);else 3===f.nodeType&&e.push(f.nodeValue)}return e=e.join("").replace(/^\s+|\s+$/g,"")},a.findParentNode=function(a,b){if(a&&a.matches&&a.matches(b))return a;for(;a&&a.parentNode;)if((a=a.parentNode)&&a.matches&&a.matches(b))return a;return null},a.eachParentNode=function(a,b){for(;a&&a.parentNode;)b(a),a=a.parentNode},a.isPhrasingNode=function(a){return-1!==["abbr","audio","b","bdo","br","button","canvas","cite","code","command","data","datalist","dfn","em","embed","i","iframe","img","input","kbd","keygen","label","mark","math","meter","noscript","object","output","progress","q","ruby","samp","script","select","small","span","strong","sub","sup","svg","textarea","time","var","video","wbr"].indexOf(a.toLowerCase())},a.getChildrenForTable=function(b,c){if("table"!==b.nodeName.toLowerCase())return null;for(var d=[],e=b.getElementsByTagName(c),f=0,g=e.length;f<g;f++)a.findParentNode(e[f],"table")===b&&d.push(e[f]);return d},a.testTableHeaders=function(b){for(var c={required:!0,used:!1,correct:!0,allowScope:!0,missingThId:[],missingTd:[],wrongHeaders:[]},d=a.getChildrenForTable(b,"tr"),e=[],f={rows:[],cols:[]},g={rows:0,cols:0},h=0;h<d.length;h++)for(var i=d[h],j=0,k=0;k<i.childNodes.length;k++){var l=i.childNodes[k];if(1===l.nodeType){if(e[h])for(;e[h][0]===j;)e[h].shift(),j++;var m=l.nodeName.toLowerCase(),n=Number(l.getAttribute("rowspan"))||1,o=Number(l.getAttribute("colspan"))||1;if(n>1)for(var p=h+1;p<h+n;p++){e[p]||(e[p]=[]);for(var q=j;q<j+o;q++)e[p].push(q)}if("th"===m){var r=l.getAttribute("id")||"";""===r&&(c.correct=!1,c.missingThId.push(l)),n>1&&o>1?c.allowScope=!1:!0===c.allowScope&&(void 0===f.cols[j]&&(f.cols[j]=0),void 0===f.rows[h]&&(f.rows[h]=0),f.rows[h]+=o,f.cols[j]+=n)}else"td"===m&&!0===l.hasAttribute("headers")&&!1===/^\s*$/.test(l.getAttribute("headers"))&&(c.used=!0);j+=o}}for(var p=0;p<f.rows.length;p++)f.rows[p]>1&&g.rows++;for(var p=0;p<f.cols.length;p++)f.cols[p]>1&&g.cols++;g.rows>1||g.cols>1?c.allowScope=!1:!0!==c.allowScope||0!==g.rows&&0!==g.cols||(c.required=!1);for(var s=HTMLCS.util.getCellHeaders(b),p=0;p<s.length;p++){var l=s[p].cell,t=s[p].headers;if(!1===l.hasAttribute("headers"))c.correct=!1,c.missingTd.push(l);else{var u=(l.getAttribute("headers")||"").split(/\s+/);if(0===u.length)c.correct=!1,c.missingTd.push(l);else if(u=" "+u.sort().join(" ")+" ",u=u.replace(/\s+/g," ").replace(/(\w+\s)\1+/g,"$1").replace(/^\s*(.*?)\s*$/g,"$1"),t!==u){c.correct=!1;var v={element:l,expected:t,actual:l.getAttribute("headers")||""};c.wrongHeaders.push(v)}}}return c},a.getCellHeaders=function(b){if("object"!=typeof b)return null;if("table"!==b.nodeName.toLowerCase())return null;for(var c=a.getChildrenForTable(b,"tr"),d=[],e={rows:{},cols:{}},f=[],g=["th","td"],h=0;h<g.length;h++)for(var i=g[h],j=0;j<c.length;j++)for(var k=c[j],l=0,m=0;m<k.childNodes.length;m++){var n=k.childNodes[m];if(1===n.nodeType){if(d[j])for(;d[j][0]===l;)d[j].shift(),l++;var o=n.nodeName.toLowerCase(),p=Number(n.getAttribute("rowspan"))||1,q=Number(n.getAttribute("colspan"))||1;if(p>1)for(var r=j+1;r<j+p;r++){d[r]||(d[r]=[]);for(var s=l;s<l+q;s++)d[r].push(s)}if(o===i)if("th"===o){for(var t=n.getAttribute("id")||"",r=j;r<j+p;r++)e.rows[r]=e.rows[r]||{first:l,ids:[]},e.rows[r].ids.push(t);for(var r=l;r<l+q;r++)e.cols[r]=e.cols[r]||{first:j,ids:[]},e.cols[r].ids.push(t)}else if("td"===o){for(var u=[],r=j;r<j+p;r++)for(var s=l;s<l+q;s++)e.rows[r]&&s>=e.rows[r].first&&(u=u.concat(e.rows[r].ids)),e.cols[s]&&r>=e.cols[s].first&&(u=u.concat(e.cols[s].ids));u.length>0&&(u=" "+u.sort().join(" ")+" ",u=u.replace(/\s+/g," ").replace(/(\w+\s)\1+/g,"$1").replace(/^\s*(.*?)\s*$/g,"$1"),f.push({cell:n,headers:u}))}l+=q}}return f},a.getPreviousSiblingElement=function(a,b,c){void 0===b&&(b=null),void 0===c&&(c=!1);for(var d=a.previousSibling;null!==d;){if(3===d.nodeType){if(!1===HTMLCS.util.isStringEmpty(d.nodeValue)&&!0===c){d=null;break}}else if(1===d.nodeType){if(null===b||d.nodeName.toLowerCase()===b)break;if(!0===c){d=null;break}break}d=d.previousSibling}return d},a.getNextSiblingElement=function(a,b,c){void 0===b&&(b=null),void 0===c&&(c=!1);for(var d=a.nextSibling;null!==d;){if(3===d.nodeType){if(!1===HTMLCS.util.isStringEmpty(d.nodeValue)&&!0===c){d=null;break}}else if(1===d.nodeType){if(null===b||d.nodeName.toLowerCase()===b)break;if(!0===c){d=null;break}break}d=d.nextSibling}return d},a}();var HTMLCS_RUNNER=_global.HTMLCS_RUNNER=new function(){this.run=function(a,b){var c=this;HTMLCS.process(a,document,function(){var a=HTMLCS.getMessages(),b=a.length,d={};d[HTMLCS.ERROR]=0,d[HTMLCS.WARNING]=0,d[HTMLCS.NOTICE]=0;for(var e=0;e<b;e++)c.output(a[e]),d[a[e].type]++;console.log("done")},function(){console.log("Something in HTML_CodeSniffer failed to parse. Cannot run."),console.log("done")},"en")},this.output=function(a){var b="UNKNOWN";switch(a.type){case HTMLCS.ERROR:b=_global.HTMLCS.getTranslation("auditor_error");break;case HTMLCS.WARNING:b=_global.HTMLCS.getTranslation("auditor_warning");break;case HTMLCS.NOTICE:b=_global.HTMLCS.getTranslation("auditor_notice")}var c="";a.element&&(c=a.element.nodeName.toLowerCase());var d="";a.element.id&&""!==a.element.id&&(d="#"+a.element.id);var e="";if(a.element.outerHTML){var f=a.element.cloneNode(!0);f.innerHTML="...",e=f.outerHTML}console.log("[HTMLCS] "+b+"|"+a.code+"|"+c+"|"+d+"|"+a.msg+"|"+e)}};_global.HTMLCSAuditor=new function(){var a="HTMLCS-",b="",c="",d=[],e={},f=null,g=null,h=[],j=1,k=null,l=this;this.pointerContainer=null;var m=function(a,b,c,d){var e=f.createElement("div");e.id=a,e.className="HTMLCS-button",e.setAttribute("title",c);var g=f.createElement("span");g.className="HTMLCS-button-icon HTMLCS-button-"+b,e.appendChild(g);var h=f.createTextNode(String.fromCharCode(160));return e.appendChild(h),d instanceof Function==!0&&(e.onclick=function(){!1===/disabled/.test(e.className)&&d(e)}),e},n=function(a,b,c,d,e){void 0===c&&(c=!1);var g=f.createElement("label"),h="";g.className="HTMLCS-checkbox",h+='<span class="HTMLCS-checkbox-switch">',h+='<span class="HTMLCS-checkbox-slider"></span>',h+='<input id="'+a+'" type="checkbox"',!0===c&&(h+=' checked="checked"',g.className+=" active"),!0===d&&(h+=' disabled="disabled"',g.className+=" disabled"),h+=' title="'+b+'" /></span>',g.innerHTML=h;var i=g.getElementsByTagName("input")[0];return g.onclick=function(a){return!1===d&&(i.checked=!i.checked,!0===i.checked?g.className+=" active":g.className=g.className.replace("active",""),
-e instanceof Function==!0&&e(i)),!1},g},o=function(a,b){var c=f.createElement("div");c.className="HTMLCS-header",c.innerHTML="HTML_CodeSniffer by Squiz",c.setAttribute("title",_global.HTMLCS.getTranslation("auditor_using_standard")+a);var d=!1,e=0,g=0;c.onmousedown=function(a){return a=a||window.event,d=!0,e=a.clientX,g=a.clientY,!1},f.onmousemove=function(a){if(a=a||window.event,!0===d){var c=b.offsetTop,f=b.offsetLeft;g<a.clientY?(c+=a.clientY-g,b.style.top=c+"px"):g>a.clientY&&(c-=g-a.clientY,b.style.top=c+"px"),e<a.clientX?(f+=a.clientX-e,b.style.left=f+"px"):e>a.clientX&&(f-=e-a.clientX,b.style.left=f+"px"),e=a.clientX,g=a.clientY}},f.onmouseup=function(a){d=!1};var h=f.createElement("div");return h.className="HTMLCS-close",h.setAttribute("title",_global.HTMLCS.getTranslation("auditor_close")),h.onmousedown=function(){l.close.call(l)},c.appendChild(h),c},p=function(a,b,g){var h=f.createElement("div");h.className="HTMLCS-summary";var i=f.createElement("div");i.className="HTMLCS-summary-left",h.appendChild(i);var j=f.createElement("div");j.className="HTMLCS-summary-right",h.appendChild(j);var k=[];if(a>0){var m=_global.HTMLCS.getTranslation("auditor_errors");1===a&&(m=_global.HTMLCS.getTranslation("auditor_error")),k.push("<strong>"+a+"</strong> "+m)}if(b>0){var m=_global.HTMLCS.getTranslation("auditor_warnings");1===b&&(m=_global.HTMLCS.getTranslation("auditor_warning")),k.push("<strong>"+b+"</strong> "+m)}if(g>0){var m=_global.HTMLCS.getTranslation("auditor_notices");1===g&&(m=_global.HTMLCS.getTranslation("auditor_notice")),k.push("<strong>"+g+"</strong> "+m)}var n=f.createElement("ol");n.className="HTMLCS-lineage";var o=f.createElement("li");o.className="HTMLCS-lineage-item";var p=f.createElement("a");p.className="HTMLCS-lineage-link",p.href="javascript:";var q=f.createElement("span");q.innerHTML="Home",p.appendChild(q),p.onmousedown=function(){l.run(c,d,e)};var r=f.createElement("li");return r.className="HTMLCS-lineage-item",r.innerHTML=k.join(', &#160;<span class="HTMLCS-divider"></span>'),o.appendChild(p),n.appendChild(o),n.appendChild(r),i.appendChild(n),j.appendChild(f.createTextNode(String.fromCharCode(160))),h},q=function(a,b){var g=f.createElement("div");g.className="HTMLCS-summary-detail";var i=f.createElement("div");i.className="HTMLCS-summary-left";var j=f.createElement("div");j.className="HTMLCS-summary-right";var k=f.createElement("ol");k.className="HTMLCS-lineage";var n=f.createElement("li");n.className="HTMLCS-lineage-item";var o=f.createElement("a");o.className="HTMLCS-lineage-link",o.href="javascript:";var p=f.createElement("span");p.innerHTML=_global.HTMLCS.getTranslation("auditor_home"),o.appendChild(p),o.onmousedown=function(){l.run(c,d,e)};var r=f.createElement("li");r.className="HTMLCS-lineage-item";var s=f.createElement("a");s.className="HTMLCS-lineage-link",s.href="javascript:",s.innerHTML=_global.HTMLCS.getTranslation("auditor_report"),s.setAttribute("title",_global.HTMLCS.getTranslation("auditor_back_to_report")),s.onmousedown=function(){var a=f.querySelectorAll(".HTMLCS-inner-wrapper")[0];a.style.marginLeft="0px",a.style.maxHeight=null,g.style.display="none",f.querySelectorAll(".HTMLCS-summary")[0].style.display="block"};var t=f.createElement("li");t.className="HTMLCS-lineage-item",t.innerHTML=_global.HTMLCS.getTranslation("auditor_issue")+" "+a+" "+_global.HTMLCS.getTranslation("auditor_of")+" "+b,n.appendChild(o),r.appendChild(s),k.appendChild(n),k.appendChild(r),k.appendChild(t),i.appendChild(k);var u=f.createElement("div");u.className="HTMLCS-button-group";var w=m("HTMLCS-button-previous-issue","previous",_global.HTMLCS.getTranslation("auditor_previous_issue"),function(c){var d=Number(a)-1;if(d>=1){v(d-1),wrapper=g.parentNode;var e=q(d,b);wrapper.replaceChild(e,g),e.style.display="block";var h=f.querySelectorAll(".HTMLCS-issue-detail-list")[0];h.firstChild.style.marginLeft=parseInt(h.firstChild.style.marginLeft,10)+300+"px",y(d-1)}}),x=m("HTMLCS-button-next-issue","next",_global.HTMLCS.getTranslation("auditor_next_issue"),function(c){var d=Number(a)+1;if(d<=h.length){v(d-1),wrapper=g.parentNode;var e=q(d,b);wrapper.replaceChild(e,g),e.style.display="block";var i=f.querySelectorAll(".HTMLCS-issue-detail-list")[0];i.firstChild.style.marginLeft=parseInt(i.firstChild.style.marginLeft,10)-300+"px",y(d-1)}});return 1===a&&(w.className+=" disabled"),a===b&&(x.className+=" disabled"),u.appendChild(w),u.appendChild(x),j.appendChild(u),g.appendChild(i),g.appendChild(j),g},r=function(a){var b=300*Math.ceil(a.length/5),c=f.createElement("div");c.id="HTMLCS-issues",c.className="HTMLCS-details",c.setAttribute("style","width: "+b+"px");var d=f.createElement("ol");d.className="HTMLCS-issue-list",d.setAttribute("style","margin-left: 0");for(var e=0;e<a.length;e++){if(e>0&&e%5==0){c.appendChild(d);var d=f.createElement("ol");d.className="HTMLCS-issue-list"}var g=u(e,a[e]);d.appendChild(g)}return c.appendChild(d),c},s=function(a){var b=300*a.length,c=f.createElement("div");c.id="HTMLCS-issues-detail",c.className="HTMLCS-details",c.setAttribute("style","width: "+b+"px");var d=f.createElement("ol");d.className="HTMLCS-issue-detail-list",d.setAttribute("style","margin-left: 0");for(var e=0;e<a.length;e++){var g=w(e,a[e]);d.appendChild(g)}return c.appendChild(d),c},t=function(){var a=f.createElement("div");a.className="HTMLCS-settings";var b=f.createElement("div");b.id="HTMLCS-settings-use-standard";var g=f.createElement("label");g.innerHTML=_global.HTMLCS.getTranslation("auditor_standards")+":",g.setAttribute("for","HTMLCS-settings-use-standard-select");var i=f.createElement("select");i.id="HTMLCS-settings-use-standard-select",i.innerHTML="";for(var j=HTMLCSAuditor.getStandardList(),k=0;k<j.length;k++){var m=j[k],o=f.createElement("option");o.value=m,o.innerHTML=_global["HTMLCS_"+m].name,m===c&&(o.selected=!0),i.appendChild(o),i.onchange=function(){c=this.options[this.selectedIndex].value,l.run(c,d,e)}}var p=f.createElement("div");p.id="HTMLCS-settings-issue-count";var q=f.createElement("div");q.id="HTMLCS-settings-issue-count-help",q.innerHTML=_global.HTMLCS.getTranslation("auditor_select_types");var r=f.createElement("div");r.id="HTMLCS-settings-view-report",r.innerHTML=_global.HTMLCS.getTranslation("auditor_view_report"),r.onclick=function(){if(!1===/disabled/.test(this.className)){e.show={error:f.getElementById("HTMLCS-include-error").checked,warning:f.getElementById("HTMLCS-include-warning").checked,notice:f.getElementById("HTMLCS-include-notice").checked};var a=f.getElementById("HTMLCS-wrapper"),b=l.build(c,h,e);e.parentElement?e.parentElement.replaceChild(b,a):(b.style.left=a.style.left,b.style.top=a.style.top,f.body.replaceChild(b,a)),e.listUpdateCallback&&e.listUpdateCallback.call(this,h)}};var s=(f.getElementById("HTMLCS-wrapper"),l.countIssues(h));void 0===e.show&&h.length>0&&(e.show={error:!0,warning:!0,notice:!1},0===s.error&&0===s.warning&&(e.show.notice=!0));for(var t in s){var u=s[t],v=f.createElement("div");v.className="HTMLCS-issue-tile HTMLCS-"+t.toLowerCase();var w=null,x=f.createElement("div");x.className="HTMLCS-tile-text","error"==t&&(w=_global.HTMLCS.getTranslation("auditor_error"),1!==u&&(w=_global.HTMLCS.getTranslation("auditor_errors"))),"warning"==t&&(w=_global.HTMLCS.getTranslation("auditor_warning"),1!==u&&(w=_global.HTMLCS.getTranslation("auditor_warnings"))),"notice"==t&&(w=_global.HTMLCS.getTranslation("auditor_notice"),1!==u&&(w=_global.HTMLCS.getTranslation("auditor_notices")));var y="<strong>"+u+"</strong> "+w;if(x.innerHTML=y,void 0===e.show)var z=!1,A=!0;else{var z=e.show[t],A=!1;0===u&&(z=!1,A=!0)}var B=n("HTMLCS-include-"+t,"Toggle display of "+t+" messages",z,A,function(a){var b=!1;!1===f.getElementById("HTMLCS-include-error").disabled&&(e.show.error=f.getElementById("HTMLCS-include-error").checked,b=b||e.show.error),!1===f.getElementById("HTMLCS-include-warning").disabled&&(e.show.warning=f.getElementById("HTMLCS-include-warning").checked,b=b||e.show.warning),!1===f.getElementById("HTMLCS-include-notice").disabled&&(e.show.notice=f.getElementById("HTMLCS-include-notice").checked,b=b||e.show.notice),!0===b?r.className=r.className.replace(/ disabled/g,""):r.className+=" disabled"});v.appendChild(x),v.appendChild(B),p.appendChild(v)}if(void 0!==e.show){!1===(e.show.error||e.show.warning||e.show.notice)&&(r.className+=" disabled")}else r.className+=" disabled";return b.appendChild(g),b.appendChild(i),a.appendChild(b),a.appendChild(p),a.appendChild(q),a.appendChild(r),a},u=function(a,b){var c="",d="",e="";switch(b.type){case HTMLCS.ERROR:d="Error";break;case HTMLCS.WARNING:d="Warning";break;case HTMLCS.NOTICE:d="Notice"}var e=d.toLowerCase(),g=b.msg;g.length>115&&(g=g.substr(0,115)+"...");var c=f.createElement("li");c.id="HTMLCS-msg-"+a;var i=f.createElement("span");i.className="HTMLCS-issue-type HTMLCS-"+e,i.setAttribute("title",d),c.appendChild(i);var j=f.createElement("span");return j.className="HTMLCS-issue-title",j.innerHTML=g,c.appendChild(j),c.onclick=function(){var a=this.id.replace(new RegExp("HTMLCS-msg-"),"");v(a);var b=f.querySelectorAll(".HTMLCS-issue-detail-list")[0];b.className+=" HTMLCS-transition-disabled",b.firstChild.style.marginLeft=-300*a+"px",y(a),setTimeout(function(){b.className=b.className.replace(new RegExp(" HTMLCS-transition-disabled"),"")},500);var c=f.querySelectorAll(".HTMLCS-inner-wrapper")[0];c.style.marginLeft="-300px",c.style.maxHeight="15em",summary=f.querySelectorAll(".HTMLCS-summary-detail")[0];var d=q(parseInt(a)+1,h.length);summary.parentNode.replaceChild(d,summary),d.style.display="block",f.querySelectorAll(".HTMLCS-summary")[0].style.display="none"},c},v=function(a){for(var b=f.querySelectorAll(".HTMLCS-issue-detail-list")[0],c=b.getElementsByTagName("li"),d=0;d<c.length;d++)c[d].className=c[d].className.replace(new RegExp(" HTMLCS-current"),"");f.getElementById("HTMLCS-msg-detail-"+a).className+=" HTMLCS-current",e.showIssueCallback&&e.showIssueCallback.call(this,a)},w=function(b,d,h){void 0===h&&(h=c);var i="";switch(d.type){case HTMLCS.ERROR:i="Error";break;case HTMLCS.WARNING:i="Warning";break;case HTMLCS.NOTICE:i="Notice"}var j=a+i.toLowerCase(),k=HTMLCS.util.getElementWindow(f)["HTMLCS_"+h],k=g["HTMLCS_"+h],n=[];k.getMsgInfo&&(n=k.getMsgInfo(d.code));var o=f.createElement("li");o.id="HTMLCS-msg-detail-"+b;var p=f.createElement("div");p.className="HTMLCS-issue-details";var q=f.createElement("span");q.className="HTMLCS-issue-type "+j,q.setAttribute("title",i);var r=f.createElement("div");r.className="HTMLCS-issue-title",r.innerHTML=d.msg;var s=f.createElement("div");s.className="HTMLCS-issue-wcag-ref";for(var t="",u=0;u<n.length;u++)t+="<em>"+n[u][0]+":</em> "+n[u][1]+"<br/>";if(s.innerHTML=t,p.appendChild(q),p.appendChild(r),p.appendChild(s),o.appendChild(p),!1===A.isPointable(d.element)){var v=f.createElement("div");v.className="HTMLCS-issue-source",o.appendChild(v);var w=f.createElement("div");w.className="HTMLCS-issue-source-inner-u2p";var x=_global.HTMLCS.getTranslation("auditor_unable_to_point");if("#document"===d.element.nodeName)x=_global.HTMLCS.getTranslation("auditor_applies_entire_document");else if(null===d.element.ownerDocument)x=_global.HTMLCS.getTranslation("auditor_unable_to_point_removed");else{var y=d.element.ownerDocument.getElementsByTagName("body")[0];!1===HTMLCS.util.isInDocument(d.element)?x+=_global.HTMLCS.getTranslation("auditor_unable_to_point_entire"):!1===HTMLCS.util.contains(y,d.element)?x=_global.HTMLCS.getTranslation("auditor_unable_to_point_outside"):x+=_global.HTMLCS.getTranslation("auditor_unable_to_point_outside")}void 0!==w.textContent?w.textContent=x:w.innerText=x,v.appendChild(w)}if(e.customIssueSource){var v=f.createElement("div");v.className="HTMLCS-issue-source",o.appendChild(v),e.customIssueSource.call(this,b,d,h,v,p)}else{var v=f.createElement("div");v.className="HTMLCS-issue-source";var z=f.createElement("div");z.className="HTMLCS-issue-source-header";var B=f.createElement("strong");B.innerHTML=_global.HTMLCS.getTranslation("auditor_code_snippet");var C=m("HTMLCS-button-point-to-element-"+b,"pointer",_global.HTMLCS.getTranslation("auditor_point_to_element"),function(){l.pointToElement(d.element)});if(z.appendChild(B),z.appendChild(C),v.appendChild(z),d.element.outerHTML){var D="",E="";if(d.element.innerHTML.length>31)var F=d.element.outerHTML.replace(d.element.innerHTML,d.element.innerHTML.substr(0,31)+"...");else var F=d.element.outerHTML;for(var G=d.element.previousSibling;D.length<=31&&null!==G;)1===G.nodeType?D=G.outerHTML:3===G.nodeType&&(D=void 0!==G.textContent?G.textContent+D:G.nodeValue+D),D.length>31&&(D="..."+D.substr(D.length-31)),G=G.previousSibling;for(var H=d.element.nextSibling;E.length<=31&&null!==H;)1===H.nodeType?E+=H.outerHTML:3===H.nodeType&&(void 0!==H.textContent?E+=H.textContent:E+=H.nodeValue),E.length>31&&(E=E.substr(0,31)+"..."),H=H.nextSibling;var w=f.createElement("div");w.className="HTMLCS-issue-source-inner";var I=f.createElement("strong");void 0!==I.textContent?I.textContent=F:I.innerText=F,w.appendChild(f.createTextNode(D)),w.appendChild(I),w.appendChild(f.createTextNode(E)),v.appendChild(w)}else if("#document"===d.element.nodeName);else{var w=f.createElement("div");w.className="HTMLCS-issue-source-not-supported";var J=_global.HTMLCS.getTranslation("auditor_unsupported_browser");w.appendChild(f.createTextNode(J)),v.appendChild(w)}o.appendChild(v)}return o},x=function(a,b){var c=f.createElement("div");c.className="HTMLCS-navigation";var d=f.createElement("span");d.className="HTMLCS-nav-button HTMLCS-previous",d.innerHTML=String.fromCharCode(160),1===a&&(d.className+=" HTMLCS-disabled"),c.appendChild(d);var e=f.createElement("span");e.className="HTMLCS-page-number",e.innerHTML=_global.HTMLCS.getTranslation("auditor_issue")+" "+a+" "+_global.HTMLCS.getTranslation("auditor_of")+" "+b,c.appendChild(e);var g=f.createElement("span");return g.className="HTMLCS-nav-button HTMLCS-next",g.innerHTML=String.fromCharCode(160),a===b&&(g.className+=" HTMLCS-disabled"),c.appendChild(g),d.onclick=function(){j>1&&1===--j&&(d.className+=" HTMLCS-disabled"),b>1&&(g.className=g.className.replace(new RegExp(" HTMLCS-disabled"),"")),e.innerHTML="",e.appendChild(document.createTextNode(_global.HTMLCS.getTranslation("auditor_issue")+" "+j+" "+_global.HTMLCS.getTranslation("auditor_of")+" "+b)),f.querySelectorAll(".HTMLCS-issue-list")[0].style.marginLeft=-300*(j-1)+"px"},g.onclick=function(){j<b&&++j===b&&(g.className+=" HTMLCS-disabled"),b>1&&(d.className=d.className.replace(new RegExp(" HTMLCS-disabled"),"")),e.innerHTML="",e.appendChild(document.createTextNode(_global.HTMLCS.getTranslation("auditor_issue")+" "+j+" "+_global.HTMLCS.getTranslation("auditor_of")+" "+b)),f.querySelectorAll(".HTMLCS-issue-list")[0].style.marginLeft=-300*(j-1)+"px"},c},y=function(a){var b=h[Number(a)];if(b.element){var c=f.getElementById("HTMLCS-button-point-to-element-"+a);if(A.container=l.pointerContainer||f.getElementById("HTMLCS-wrapper"),!1===A.isPointable(b.element)){var d=A.getPointer(b.element);A.pointer&&(d.className+=" HTMLCS-pointer-hidden"),c&&(c.className+=" disabled")}else c&&(c.className=c.className.replace(" disabled","")),A.pointTo(b.element)}},z=function(a,b){if(0===a.length)return void b.call(this);var c=a.shift();HTMLCS.loadStandard(c,function(){z(a,b)})};this.setOption=function(a,b){e[a]=b},this.getIssue=function(a){return h[a]},this.countIssues=function(a){for(var b={error:0,warning:0,notice:0},c=0;c<a.length;c++)switch(a[c].type){case HTMLCS.ERROR:b.error++;break;case HTMLCS.WARNING:b.warning++;break;case HTMLCS.NOTICE:b.notice++}return b},this.build=function(a,b,c){var d=null;if(f)var d=f.getElementById("HTMLCS-wrapper");for(var g=0,i=0,j=0,k=0;k<b.length;k++){var l=!1;switch(b[k].type){case HTMLCS.ERROR:!1===e.show.error?l=!0:g++;break;case HTMLCS.WARNING:!1===e.show.warning?l=!0:i++;break;case HTMLCS.NOTICE:!1===e.show.notice?l=!0:j++}!0===l&&(b.splice(k,1),k--)}h=b;for(var m="",n="",k=0;k<b.length;k++)k%5==0&&(m+='<ol class="HTMLCS-issue-list"',0===k&&(m+='style="margin-left: 0em"'),m+=">"),m+=u(k,b[k]),k%5!=4&&k!==b.length-1||(m+="</ol>"),n+=w(k,b[k],a);var d=f.createElement("div");if(d.id="HTMLCS-wrapper",d.className="showing-issue-list",!0!==e.noHeader){var t=o(a,d);d.appendChild(t)}var v=p(g,i,j),y=q(1,b.length),z=f.createElement("div");z.id="HTMLCS-issues-wrapper",z.className="HTMLCS-inner-wrapper";var A=r(b);z.appendChild(A);var B=Math.ceil(b.length/5),C=x(1,B);z.appendChild(C);var D=f.createElement("div");D.className="HTMLCS-outer-wrapper",D.appendChild(z);var z=f.createElement("div");z.id="HTMLCS-issues-detail-wrapper",z.className="HTMLCS-inner-wrapper";var E=s(b);return z.appendChild(E),D.appendChild(z),d.appendChild(v),d.appendChild(y),d.appendChild(D),d},this.buildSummaryPage=function(){var a=f.createElement("div");if(a.id="HTMLCS-wrapper",a.className="showing-settings",!0!==e.noHeader){var b=o(c,a);a.appendChild(b)}var d=t();return a.appendChild(d),a},this.changeScreen=function(a){var c=f.getElementById("HTMLCS-wrapper");c.className=c.className.replace(new RegExp("showing-"+b),""),c.className+=" showing-"+a,c.className=c.className.replace(/\s+/," "),b=a},this.includeCss=function(a,b){if(!1!==e.includeCss){void 0===b&&(b=f);for(var c=b.querySelector("head"),d=c.getElementsByTagName("link"),g=!1,h=0;h<d.length;h++)if(!0===new RegExp(a+".css").test(d[h].getAttribute("href"))){g=!0;break}if(!1===g){var i=b.createElement("link");i.rel="stylesheet",i.type="text/css",i.href=e.path+a+".css",c.appendChild(i)}}},this.getStandardList=function(){var a=/^HTMLCS_[^_]+$/,b=[];for(i in window)if(!0===a.test(i)){var c=window[i];c.sniffs&&c.name&&b.push(i.substr(7))}return b},this.getParentElement=function(){var a=null;if(e.parentElement)a=e.parentElement;else if(g.frames.length>0){for(var b=-1,c=null,d=0;d<g.frames.length;d++)try{if("frame"===window.frames[d].frameElement.nodeName.toLowerCase()&&window.frames[d].document){var f=window.frames[d].innerWidth*window.frames[d].innerHeight;f>b&&(b=f,c=window.frames[d].document.body)}}catch(a){}a=null===c?document.body:c}else a=document.body;return a},this.getOwnerDocument=function(){var a=this.getParentElement();return a.ownerDocument&&(a=a.ownerDocument),a},this.getDocumentLanguage=function(){var a=this.getOwnerDocument(),b=a.getElementsByTagName("html")[0];if(b){var c=b.getAttribute("lang");if(c)return c}return"en"},this.run=function(a,i,k){g=window;for(var m=this.getStandardList(),n=[],o=0;o<m.length;o++)_global["HTMLCS_"+m[o]]||n.push(m[o]);if(n.length>0)return void z(n,function(){l.run(a,i,k)});if(null===i||void 0===i){if(i=[],0===document.querySelectorAll("frameset").length&&i.push(document),g.frames.length>0)for(var o=0;o<g.frames.length;o++)try{i.push(g.frames[o].document)}catch(a){}}else if(i.nodeName)if("input"===i.nodeName.toLowerCase())if(!1===i.hasAttribute("type"))i=i.value;else{var p=i.getAttribute("type").toLowerCase();"text"===p&&(i=i.value)}else"textarea"===i.nodeName.toLowerCase()&&(i=i.value);i instanceof Array==!1&&(i=[i]),void 0===k&&(k={}),c=a,d=i,e=k,j=1,b="",h=[];var q=this.getParentElement();f=this.getOwnerDocument(),e.path||(e.path="./"),k.lang||(e.lang=this.getDocumentLanguage()),void 0===e.includeCss&&(e.includeCss=!0),void 0===e.ignoreMsgCodes&&(e.ignoreMsgCodes=[]),this.includeCss("HTMLCS");var r=f.getElementById("HTMLCS-wrapper"),s=!1,t=l.buildSummaryPage();t.className+=" HTMLCS-processing",r?(t.style.left=r.style.left,t.style.top=r.style.top,q.replaceChild(t,r)):(e.openCallback&&e.openCallback.call(this),s=!0,q.appendChild(t));var u=function(){for(var a=0;a<h.length;a++){var b=!1;t&&(t===h[a].element?b=!0:h[a].element.documentElement?b=!1:t.contains&&!0===t.contains(h[a].element)?b=!0:t.compareDocumentPosition&&(16&t.compareDocumentPosition(h[a].element))>0&&(b=!0));for(var c=0;c<k.ignoreMsgCodes.length;c++)if(!0===new RegExp(k.ignoreMsgCodes[c]).test(h[a].code)){b=!0;break}!0===b&&(h.splice(a,1),a--)}if(e.runCallback){var d=e.runCallback.call(this,h,s);d instanceof Array==!0&&(h=d)}setTimeout(function(){var a=f.getElementById("HTMLCS-wrapper"),b=l.buildSummaryPage();b.style.left=a.style.left,b.style.top=a.style.top,q.replaceChild(b,a)},400)},v=function(a,b){for(var c=b.shift();!c;){if(0===b.length)return void u();c=b.shift()}HTMLCS.process(a,c,function(){h=h.concat(HTMLCS.getMessages()),0===b.length?u():v(a,b)},function(){},k.lang)};v(a,d.concat([]))},this.versionCheck=function(a){if(a&&null!==a.currentVersion&&a.newVersion>a.currentVersion){var b=f.createElement("div");b.id="HTMLCS-settings-updated-notification",f.documentElement.querySelector(".HTMLCS-settings").appendChild(b);var c="HTML_CodeSniffer has been updated to version "+a.newVersion+".";c+=' <a href="http://squizlabs.github.io/HTML_CodeSniffer/patches/'+a.newVersion+'">View the changelog</a>',b.innerHTML=c}},this.close=function(){if(f){var a=f.getElementById("HTMLCS-wrapper");if(a){var b=A.getPointer(a);b&&b.parentNode&&b.parentNode.removeChild(b),a.parentNode.removeChild(a),e.closeCallback&&(h=e.closeCallback.call(this))}}},this.pointToElement=function(a){A.container=l.pointerContainer||f.getElementById("HTMLCS-wrapper"),A.pointTo(a)},this.getCurrentStandard=function(){return c};var A={pointerDim:{},container:null,getBoundingRectangle:function(a){if(!a)return null;var b=this.getElementCoords(a),c=this.getElementDimensions(a);return{x1:b.x,y1:b.y,x2:b.x+c.width,y2:b.y+c.height}},getElementDimensions:function(a){return{width:a.offsetWidth,height:a.offsetHeight}},getElementCoords:function(a,b){var c=0,d=0,e=HTMLCS.util.getElementWindow(a);if(!0===b)var f=e.top;else var f=e;for(;;){do{c+=a.offsetLeft,d+=a.offsetTop}while(a=a.offsetParent);if(e===f)break;if(a=e.frameElement,e=e.parent,"frame"===a.nodeName.toLowerCase())break}return{x:c,y:d}},getWindowDimensions:function(a){var b=HTMLCS.util.getElementWindow(a),c=a.ownerDocument,d=0,e=0;if(b.innerWidth){d=b.innerWidth,e=b.innerHeight;var f=this.getScrollbarWidth(a);c.documentElement.scrollHeight>e&&"number"==typeof f&&(d-=f),c.body.scrollWidth>d&&"number"==typeof f&&(e-=f)}else c.documentElement&&(c.documentElement.clientWidth||c.documentElement.clientHeight)?(d=c.documentElement.clientWidth,e=c.documentElement.clientHeight):c.body&&(c.body.clientWidth||c.body.clientHeight)&&(d=c.body.clientWidth,e=c.body.clientHeight);return{width:d,height:e}},getScrollbarWidth:function(a){if(null!==k)return k;doc=a.ownerDocument;var b=null,c=null,d=0,e=0;b=doc.createElement("div"),b.style.position="absolute",b.style.top="-1000px",b.style.left="-1000px",b.style.width="100px",b.style.height="50px",b.style.overflow="hidden",c=doc.createElement("div"),c.style.width="100%",c.style.height="200px",b.appendChild(c),f.body.appendChild(b),d=c.offsetWidth,b.style.overflow="auto",e=c.offsetWidth,doc.body.removeChild(doc.body.lastChild);var g=d-e;return k=g,g},getScrollCoords:function(a){var b=HTMLCS.util.getElementWindow(a);doc=a.ownerDocument;var c=0,d=0;return b.pageYOffset?(c=b.pageXOffset,d=b.pageYOffset):doc.body&&(doc.body.scrollLeft||doc.body.scrollTop)?(c=doc.body.scrollLeft,d=doc.body.scrollTop):(c=doc.documentElement.scrollLeft,d=doc.documentElement.scrollTop),{x:c,y:d}},isPointable:function(a){if(null===a.ownerDocument)return!1;for(var b=a.parentNode;b&&b.ownerDocument;)b=b.parentNode;return null!==b&&(!0!==HTMLCS.util.isVisuallyHidden(a)&&null!==this.getPointerDirection(a))},getPointerDirection:function(a){var b=null,c=this.getBoundingRectangle(a),d=this.getPointer(a),e=a.ownerDocument;d.className=d.className.replace("HTMLCS-pointer-hidden",""),d.className+=" HTMLCS-pointer-hidden-block",this.pointerDim.height=62,this.pointerDim.width=62;var f=this.getWindowDimensions(a),g=(HTMLCS.util.getElementWindow(a),Math.max(0,Math.min(c.y1-100,e.documentElement.offsetHeight-f.height)));return c.y1-this.pointerDim.height-20>g?b="down":c.y2+this.pointerDim.height<f.height-g?b="up":c.x2+this.pointerDim.width<f.width?b="left":c.x1-this.pointerDim.width>0&&(b="right"),d.className=d.className.replace("HTMLCS-pointer-hidden-block",""),d.className+=" HTMLCS-pointer-hidden",b},pointTo:function(a){if(a.ownerDocument)var b=a.ownerDocument;else var b=a;var c=b.getElementById("HTMLCS-pointer");if(c&&c.parentNode.removeChild(c),!1!==this.isPointable(a)){var d=HTMLCS.util.getElementWindow(a).top,e=(this.getWindowDimensions(d.document.documentElement),this.getPointerDirection(a)),f=this.getPointer(a);if(f.className=f.className.replace("HTMLCS-pointer-hidden-block",""),null===e)f.className+=" HTMLCS-pointer-hidden";else{var g=!1;if("fixed"===HTMLCS.util.style(a).position)var g=!0;for(var h=a.parentNode;h.ownerDocument;){if("fixed"===HTMLCS.util.style(h).position){g=!0;break}h=h.parentNode}if(!0===g)f.style.position="fixed";else{f.style.position="absolute";for(var i=this.getElementCoords(a,!0),j=HTMLCS.util.getElementWindow(a),k=Math.max(i.y-100,0);k>=0;){j.scrollTo(0,k);if(k-=this.getScrollCoords(j.document.documentElement).y,k=Math.max(k,0),j===d)break;j=j.parent}}this.showPointer(a,e)}}},getPointer:function(a){try{var b=a.ownerDocument;HTMLCSAuditor.includeCss("HTMLCS",b);var c="HTMLCS",d=b.getElementById(c+"-pointer");d||(d=b.createElement("div"),d.id=c+"-pointer",d.className=c+"-pointer "+c+"-pointer-hidden",b.body.appendChild(d))}catch(a){}return d},showPointer:function(a,b){var c="HTMLCS",d=this.getPointer(a);this._removeDirectionClasses(d),d.className+=" "+c+"-pointer-"+b,d.className=d.className.replace(c+"-pointer-hidden","");var e=this.getBoundingRectangle(a),f=0,g=0,h=20;switch(b){case"up":h=-h,f=e.y2,g=e.x2-e.x1<250?this.getRectMidPnt(e)-this.pointerDim.width/2:e.x1;break;case"down":default:f=e.y1-this.pointerDim.height,g=e.x2-e.x1<250?this.getRectMidPnt(e)-this.pointerDim.width/2:e.x1;break;case"left":g=e.x2,f=this.getRectMidPnt(e,!0)-this.pointerDim.height/2;break;case"right":h=-h,g=e.x1-this.pointerDim.width,f=this.getRectMidPnt(e,!0)-this.pointerDim.height/2}var i=this.getScrollCoords(a);d.style.top=f+"px",d.style.left=g+"px";var j=this.getBoundingRectangle(this.container);e=this.getBoundingRectangle(d);var k=e.x1+(e.x2-e.x1)/2,l=e.y1+(e.y2-e.y1)/2;if("fixed"!==HTMLCS.util.style(d).position&&(l-=i.y),j.x1<=k&&j.x2>=k&&j.y1<=l&&j.y2>=l){var m=this;this.container.className+=" HTMLCS-translucent",setTimeout(function(){m.container.className=m.container.className.replace("HTMLCS-translucent","")},4e3)}this.bounce(d,function(){setTimeout(function(){d.parentNode&&d.parentNode.removeChild(d)},1500)},b)},bounce:function(a,b,c){var d=c,e=0,f="",g=0;switch(c){case"up":d=c+"-op",g=30;case"down":f="top";break;case"left":d=c+"-op",g=30;case"right":f="left"}e=Number(a.style[f].replace("px",""))+g;var h=e,i=e-30,j=0,k=setInterval(function(){if(d===c){if(h--,a.style[f]=h+"px",h<i&&(d=c+"-op",5===j&&0!==g))return clearInterval(k),void b.call(this)}else if(h++,a.style[f]=h+"px",h>=e&&(d=c,5===++j&&0===g))return clearInterval(k),void b.call(this)},10)},getRectMidPnt:function(a,b){return!0===b?a.y1+(a.y2-a.y1)/2:a.x1+(a.x2-a.x1)/2},_removeDirectionClasses:function(a){for(var b=["down","up","left","right"],c=b.length,d=0;d<c;d++)a.className=a.className.replace("HTMLCS-pointer-"+b[d],"")}}};    // Expose globals.
+_global.translation["en"] = {
+    //HTMLCSAuditor.js
+    auditor_name: "HTML_CodeSniffer by Squiz",
+    auditor_using_standard: "Using standard",
+    auditor_standards: "Standards",
+    auditor_code_snippet: "Code Snippet",
+    auditor_close: "Close",
+    auditor_select_types: "Select the types of issues to include in the report",
+    auditor_home: "Home",
+    auditor_view_report: "View Report",
+    auditor_report: "Report",
+    auditor_back_to_report: "Back to Report",
+    auditor_previous_issue: "Previous Issue",
+    auditor_next_issue: "Next Issue",
+    auditor_issue: "Issue",
+    auditor_of: "of",
+    auditor_errors: "Errors",
+    auditor_error: "Error",
+    auditor_warnings: "Warnings",
+    auditor_warning: "Warning",
+    auditor_notices: "Notices",
+    auditor_notice: "Notice",
+    auditor_toggle_display_of: "Toggle display of",
+    auditor_messages: "messages",
+    auditor_unable_to_point: "Unable to point to the element associated with this issue.",
+    auditor_unable_to_point_entire: "Unable to point to this issue, as it relates to the entire document.",
+    auditor_unable_to_point_removed: "Unable to point to this element as it has been removed from the document since the report was generated.",
+    auditor_unable_to_point_outside: "Unable to point to this element because it is located outside the document's body element.",
+    auditor_unable_to_point_hidden: "Unable to point to this element because it is hidden from view, or does not have a visual representation.",
+    auditor_point_to_element: "Point to Element",
+    auditor_unsupported_browser: "The code snippet functionality is not supported in this browser.",
+    auditor_page: "Page",
+    auditor_updated_to: "HTML_CodeSniffer has been updated to version",
+    auditor_view_the_changelog: "View the changelog",
+    auditor_success_criterion: "Success Criterion",
+    auditor_suggested_techniques: "Suggested Techniques",
+    auditor_applies_entire_document: "This applies to the entire document",
+    "1_1_1_H30.2": "Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.",
+    "1_1_1_H67.1": "Img element with empty alt text must have absent or empty title attribute.",
+    "1_1_1_H67.2": "Img element is marked so that it is ignored by Assistive Technology.",
+    "1_1_1_H37": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+    "1_1_1_G94.Image": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image.",
+    "1_1_1_H36": "Image submit button missing an alt attribute. Specify a text alternative that describes the button's function, using the alt attribute.",
+    "1_1_1_G94.Button": "Ensure that the image submit button's alt text identifies the purpose of the button.",
+    "1_1_1_H24": "Area element in an image map missing an alt attribute. Each area element must have a text alternative that describes the function of the image map area.",
+    "1_1_1_H24.2": "Ensure that the area element's text alternative serves the same purpose as the part of image map image it references.",
+    "1_1_1_G73,G74": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link.",
+    "1_1_1_H2.EG5": "Img element inside a link must not use alt text that duplicates the text content of the link.",
+    "1_1_1_H2.EG4": "Img element inside a link has empty or missing alt text when a link beside it contains link text. Consider combining the links.",
+    "1_1_1_H2.EG3": "Img element inside a link must not use alt text that duplicates the content of a text link beside it.",
+    "1_1_1_H53,ARIA6": "Object elements must contain a text alternative after all other alternatives are exhausted.",
+    "1_1_1_G94,G92.Object,ARIA6": "Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.",
+    "1_1_1_H35.3": "Applet elements must contain a text alternative in the element's body, for browsers without support for the applet element.",
+    "1_1_1_H35.2": "Applet elements must contain an alt attribute, to provide a text alternative to browsers supporting the element but are unable to load the applet.",
+    "1_1_1_G94,G92.Applet": "Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.",
+    "1_2_1_G158": "If this embedded object contains pre-recorded audio only, and is not provided as an alternative for text content, check that an alternative text version is available.",
+    "1_2_1_G159,G166": "If this embedded object contains pre-recorded video only, and is not provided as an alternative for text content, check that an alternative text version is available, or an audio track is provided that presents equivalent information.",
+    "1_2_2_G87,G93": "If this embedded object contains pre-recorded synchronised media and is not provided as an alternative for text content, check that captions are provided for audio content.",
+    "1_2_3_G69,G78,G173,G8": "If this embedded object contains pre-recorded synchronised media and is not provided as an alternative for text content, check that an audio description of its video, and/or an alternative text version of the content is provided.",
+    "1_2_4_G9,G87,G93": "If this embedded object contains synchronised media, check that captions are provided for live audio content.",
+    "1_2_5_G78,G173,G8": "If this embedded object contains pre-recorded synchronised media, check that an audio description is provided for its video content.",
+    "1_2_6_G54,G81": "If this embedded object contains pre-recorded synchronised media, check that a sign language interpretation is provided for its audio.",
+    "1_2_7_G8": "If this embedded object contains synchronised media, and where pauses in foreground audio is not sufficient to allow audio descriptions to convey the sense of pre-recorded video, check that an extended audio description is provided, either through scripting or an alternate version.",
+    "1_2_8_G69,G159": "If this embedded object contains pre-recorded synchronised media or video-only content, check that an alternative text version of the content is provided.",
+    "1_2_9_G150,G151,G157": "If this embedded object contains live audio-only content, check that an alternative text version of the content is provided.",
+    "1_3_1_F92,ARIA4": 'This element\'s role is "presentation" but contains child elements with semantic meaning.',
+    "1_3_1_H44.NonExistent": 'This label\'s "for" attribute contains an ID that does not exist in the document.',
+    "1_3_1_H44.NonExistentFragment": 'This label\'s "for" attribute contains an ID that does not exist in the document fragment.',
+    "1_3_1_H44.NotFormControl": 'This label\'s "for" attribute contains an ID for an element that is not a form control. Ensure that you have entered the correct ID for the intended element.',
+    "1_3_1_H65": 'This form control has a "title" attribute that is empty or contains only spaces. It will be ignored for labelling test purposes.',
+    "1_3_1_ARIA6": 'This form control has an "aria-label" attribute that is empty or contains only spaces. It will be ignored for labelling test purposes.',
+    "1_3_1_ARIA16,ARIA9": 'This form control contains an aria-labelledby attribute, however it includes an ID "{{id}}" that does not exist on an element. The aria-labelledby attribute will be ignored for labelling test purposes.',
+    "1_3_1_F68.Hidden": "This hidden form field is labelled in some way. There should be no need to label a hidden form field.",
+    "1_3_1_F68.HiddenAttr": 'This form field is intended to be hidden (using the "hidden" attribute), but is also labelled in some way. There should be no need to label a hidden form field.',
+    "1_3_1_F68": 'This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.',
+    "1_3_1_H49.": "Presentational markup used that has become obsolete in HTML5.",
+    "1_3_1_H49.AlignAttr": "Align attributes.",
+    "1_3_1_H49.Semantic": "Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.",
+    "1_3_1_H49.AlignAttr.Semantic": "Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.",
+    "1_3_1_H42": "Heading markup should be used if this content is intended as a heading.",
+    "1_3_1_H63.3": "Table cell has an invalid scope attribute. Valid values are row, col, rowgroup, or colgroup.",
+    "1_3_1_H63.2": "Scope attributes on td elements that act as headings for other elements are obsolete in HTML5. Use a th element instead.",
+    "1_3_1_H43.ScopeAmbiguous": "Scope attributes on th elements are ambiguous in a table with multiple levels of headings. Use the headers attribute on td elements instead.",
+    "1_3_1_H43.IncorrectAttr": 'Incorrect headers attribute on this td element. Expected "{{expected}}" but found "{{actual}}"',
+    "1_3_1_H43.HeadersRequired": "The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.",
+    "1_3_1_H43.MissingHeaderIds": "Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements' headers attributes.",
+    "1_3_1_H43.MissingHeadersAttrs": "Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.",
+    "1_3_1_H43,H63": "The relationship between td elements and their associated th elements is not defined. Use either the scope attribute on th elements, or the headers attribute on td elements.",
+    "1_3_1_H63.1": "Not all th elements in this table have a scope attribute. These cells should contain a scope attribute to identify their association with td elements.",
+    "1_3_1_H73.3.LayoutTable": "This table appears to be used for layout, but contains a summary attribute. Layout tables must not contain summary attributes, or if supplied, must be empty.",
+    "1_3_1_H39,H73.4": "If this table is a data table, and both a summary attribute and a caption element are present, the summary should not duplicate the caption.",
+    "1_3_1_H73.3.Check": "If this table is a data table, check that the summary attribute describes the table's organization or explains how to use the table.",
+    "1_3_1_H73.3.NoSummary": "If this table is a data table, consider using the summary attribute of the table element to give an overview of this table.",
+    "1_3_1_H39.3.LayoutTable": "This table appears to be used for layout, but contains a caption element. Layout tables must not contain captions.",
+    "1_3_1_H39.3.Check": "If this table is a data table, check that the caption element accurately describes this table.",
+    "1_3_1_H39.3.NoCaption": "If this table is a data table, consider using a caption element to the table element to identify this table.",
+    "1_3_1_H71.NoLegend": "Fieldset does not contain a legend element. All fieldsets should contain a legend element that describes a description of the field group.",
+    "1_3_1_H85.2": "If this selection list contains groups of related options, they should be grouped with optgroup.",
+    "1_3_1_H71.SameName": "If these radio buttons or check boxes require a further group-level description, they should be contained within a fieldset element.",
+    "1_3_1_H48.1": "This content looks like it is simulating an unordered list using plain text. If so, marking up this content with a ul element would add proper structure information to the document.",
+    "1_3_1_H48.2": "This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.",
+    "1_3_1_G141_a": "The heading structure is not logically nested. This h{{headingNum}} element appears to be the primary document heading, so should be an h1 element.",
+    "1_3_1_G141_b": "The heading structure is not logically nested. This h{{headingNum}} element should be an h{{properHeadingNum}} to be properly nested.",
+    "1_3_1_H42.2": "Heading tag found with no content. Text that is not intended as a heading should not be marked up with heading tags.",
+    "1_3_1_H48": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+    "1_3_1_LayoutTable": "This table appears to be a layout table. If it is meant to instead be a data table, ensure header cells are identified using th elements.",
+    "1_3_1_DataTable": "This table appears to be a data table. If it is meant to instead be a layout table, ensure there are no th elements, and no summary or caption.",
+    "1_3_2_G57": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.",
+    "1_3_3_G96": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects.",
+    "1_4_1_G14,G18": "Check that any information conveyed using colour alone is also available in text, or through other visual cues.",
+    "1_4_2_F23": "If this element contains audio that plays automatically for longer than 3 seconds, check that there is the ability to pause, stop or mute the audio.",
+    "1_4_3_F24.BGColour": "Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image.",
+    "1_4_3_F24.FGColour": "Check that this element has an inherited background colour or image to complement the corresponding inline foreground colour.",
+    "1_4_3_G18_or_G145.Abs": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least {{required}}:1.",
+    "1_4_3_G18_or_G145.BgImage": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least {{required}}:1.",
+    "1_4_3_G18_or_G145.Fail": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least {{required}}:1, but text in this element has a contrast ratio of {{value}}:1.",
+    "1_4_3_G18_or_G145.Fail.Recomendation": "Recommendation: change",
+    "1_4_3_G18_or_G145.Fail.Recomendation.Text": "text colour to",
+    "1_4_3_G18_or_G145.Fail.Recomendation.Background": "background to",
+    "1_4_4_G142": "Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+    "1_4_5_G140,C22,C30.AALevel": "If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements.",
+    "1_4_6_G18_or_G17.Abs": "This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least {{required}}:1.",
+    "1_4_6_G18_or_G17.BgImage": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least {{required}}:1.",
+    "1_4_6_G18_or_G17.Fail": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least {{required}}:1, but text in this element has a contrast ratio of {{value}}:1.",
+    "1_4_6_G18_or_G17.Fail.Recomendation": "Recommendation: change",
+    "1_4_6_G18_or_G17.Fail.Recomendation.Text": "text colour to",
+    "1_4_6_G18_or_G17.Fail.Recomendation.Background": "background to",
+    "1_4_7_G56": "For pre-recorded audio-only content in this element that is primarily speech (such as narration), any background sounds should be muteable, or be at least 20 dB (or about 4 times) quieter than the speech.",
+    "1_4_8_G148,G156,G175": "Check that a mechanism is available for the user to select foreground and background colours for blocks of text, either through the Web page or the browser.",
+    "1_4_8_H87,C20": "Check that a mechanism exists to reduce the width of a block of text to no more than 80 characters (or 40 in Chinese, Japanese or Korean script).",
+    "1_4_8_C19,G172,G169": "Check that blocks of text are not fully justified - that is, to both left and right edges - or a mechanism exists to remove full justification.",
+    "1_4_8_G188,C21": "Check that line spacing in blocks of text are at least 150% in paragraphs, and paragraph spacing is at least 1.5 times the line spacing, or that a mechanism is available to achieve this.",
+    "1_4_8_H87,G146,C26": "Check that text can be resized without assistive technology up to 200 percent without requiring the user to scroll horizontally on a full-screen window.",
+    "1_4_9_G140,C22,C30.NoException": "Check that images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
+    "2_1_1_G90": "Ensure the functionality provided by an event handler for this element is available through the keyboard",
+    "2_1_1_SCR20.DblClick": "Ensure the functionality provided by double-clicking on this element is available through the keyboard.",
+    "2_1_1_SCR20.MouseOver": "Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.",
+    "2_1_1_SCR20.MouseOut": "Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.",
+    "2_1_1_SCR20.MouseMove": "Ensure the functionality provided by moving the mouse on this element is available through the keyboard.",
+    "2_1_1_SCR20.MouseDown": "Ensure the functionality provided by mousing down on this element is available through the keyboard; for instance, using the keydown event.",
+    "2_1_1_SCR20.MouseUp": "Ensure the functionality provided by mousing up on this element is available through the keyboard; for instance, using the keyup event.",
+    "2_1_2_F10": "Check that this applet or plugin provides the ability to move the focus away from itself when using the keyboard.",
+    "2_2_1_F40.2": "Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.",
+    "2_2_1_F41.2": "Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.",
+    "2_2_2_SCR33,SCR22,G187,G152,G186,G191": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content.",
+    "2_2_2_F4": "Ensure there is a mechanism available to stop this blinking element in less than five seconds.",
+    "2_2_2_F47": "Blink elements cannot satisfy the requirement that blinking information can be stopped within five seconds.",
+    "2_2_3_G5": "Check that timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
+    "2_2_4_SCR14": "Check that all interruptions (including updates to content) can be postponed or suppressed by the user, except interruptions involving an emergency.",
+    "2_2_5_G105,G181": "If this Web page is part of a set of Web pages with an inactivity time limit, check that an authenticated user can continue the activity without loss of data after re-authenticating.",
+    "2_3_1_G19,G176": "Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small.",
+    "2_3_2_G19": "Check that no component of the content flashes more than three times in any 1-second period.",
+    "2_4_1_H64.1": "Iframe element requires a non-empty title attribute that identifies the frame.",
+    "2_4_1_H64.2": "Check that the title attribute of this element contains text that identifies the frame.",
+    "2_4_1_G1,G123,G124,H69": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.",
+    "2_4_1_G1,G123,G124.NoSuchID": 'This link points to a named anchor "{{id}}" within the document, but no anchor exists with that name.',
+    "2_4_1_G1,G123,G124.NoSuchIDFragment": 'This link points to a named anchor "{{id}}" within the document, but no anchor exists with that name in the fragment tested.',
+    "2_4_2_H25.1.NoHeadEl": "There is no head section in which to place a descriptive title element.",
+    "2_4_2_H25.1.NoTitleEl": "A title should be provided for the document, using a non-empty title element in the head section.",
+    "2_4_2_H25.1.EmptyTitle": "The title element in the head section should be non-empty.",
+    "2_4_2_H25.2": "Check that the title element describes the document.",
+    "2_4_3_H4.2": "If tabindex is used, check that the tab order specified by the tabindex attributes follows relationships in the content.",
+    "2_4_4_H77,H78,H79,H80,H81,H33": "Check that the link text combined with programmatically determined link context, or its title attribute, identifies the purpose of the link.",
+    "2_4_4_H77,H78,H79,H80,H81": "Check that the link text combined with programmatically determined link context identifies the purpose of the link.",
+    "2_4_5_G125,G64,G63,G161,G126,G185": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages.",
+    "2_4_6_G130,G131": "Check that headings and labels describe topic or purpose.",
+    "2_4_7_G149,G165,G195,C15,SCR31": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls.",
+    "2_4_8_H59.1": "Link elements can only be located in the head section of the document.",
+    "2_4_8_H59.2a": "Link element is missing a non-empty rel attribute identifying the link type.",
+    "2_4_8_H59.2b": "Link element is missing a non-empty href attribute pointing to the resource being linked.",
+    "2_4_9_H30": "Check that text of the link describes the purpose of the link.",
+    "3_1_1_H57.2": "The html element should have a lang or xml:lang attribute which describes the language of the document.",
+    "3_1_1_H57.3.Lang": "The language specified in the lang attribute of the document element does not appear to be well-formed.",
+    "3_1_1_H57.3.XmlLang": "The language specified in the xml:lang attribute of the document element does not appear to be well-formed.",
+    "3_1_2_H58": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate.",
+    "3_1_2_H58.1.Lang": "The language specified in the lang attribute of this element does not appear to be well-formed.",
+    "3_1_2_H58.1.XmlLang": "The language specified in the xml:lang attribute of this element does not appear to be well-formed.",
+    "3_1_3_H40,H54,H60,G62,G70": "Check that there is a mechanism available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+    "3_1_4_G102,G55,G62,H28,G97": "Check that a mechanism for identifying the expanded form or meaning of abbreviations is available.",
+    "3_1_5_G86,G103,G79,G153,G160": "Where the content requires reading ability more advanced than the lower secondary education level, supplemental content or an alternative version should be provided.",
+    "3_1_6_H62.1.HTML5": "Ruby element does not contain an rt element containing pronunciation information for its body text.",
+    "3_1_6_H62.1.XHTML11": "Ruby element does not contain an rt element containing pronunciation information for the text inside the rb element.",
+    "3_1_6_H62.2": "Ruby element does not contain rp elements, which provide extra punctuation to browsers not supporting ruby text.",
+    "3_2_1_G107": "Check that a change of context does not occur when this input field receives focus.",
+    "3_2_2_H32.2": 'This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.',
+    "3_2_3_G61": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+    "3_2_4_G197": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs.",
+    "3_2_5_H83.3": "Check that this link's link text contains information indicating that the link will open in a new window.",
+    "3_3_1_G83,G84,G85": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text.",
+    "3_3_2_G131,G89,G184,H90": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form.",
+    "3_3_3_G177": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content.",
+    "3_3_4_G98,G99,G155,G164,G168.LegalForms": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user.",
+    "3_3_5_G71,G184,G193": "Check that context-sensitive help is available for this form, at a Web-page and/or control level.",
+    "3_3_6_G98,G99,G155,G164,G168.AllForms": "Check that submissions to this form are either reversible, checked for input errors, and/or confirmed by the user.",
+    "4_1_1_F77": 'Duplicate id attribute value "{{id}}" found on the web page.',
+    "4_1_2_H91.A.Empty": "Anchor element found with an ID but without a href or link text. Consider moving its ID to a parent or nearby element.",
+    "4_1_2_H91.A.EmptyWithName": "Anchor element found with a name attribute but without a href or link text. Consider moving the name attribute to become an ID of a parent or nearby element.",
+    "4_1_2_H91.A.EmptyNoId": "Anchor element found with no link content and no name and/or ID attribute.",
+    "4_1_2_H91.A.NoHref": "Anchor elements should not be used for defining in-page link targets. If not using the ID for other purposes (such as CSS or scripting), consider moving it to a parent element.",
+    "4_1_2_H91.A.Placeholder": "Anchor element found with link content, but no href, ID or name attribute has been supplied.",
+    "4_1_2_H91.A.NoContent": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "4_1_2_input_element": "input element",
+    "4_1_2_role_of_button": 'element has a role of "button" but',
+    "4_1_2_element_content": "element content",
+    "4_1_2_element": "element",
+    "4_1_2_msg_pattern": "This {{msgNodeType}} does not have a name available to an accessibility API. Valid names are: {{builtAttrs}}.",
+    "4_1_2_msg_pattern2": "This {{msgNodeType}} does not have a value available to an accessibility API.",
+    "4_1_2_msg_add_one": "Add one by adding content to the element.",
+    "4_1_2_msg_pattern3": "This {{msgNodeType}} does not have an initially selected option. Depending on your HTML version, the value exposed to an accessibility API may be undefined.",
+    "4_1_2_value_exposed_using_attribute": "A value is exposed using the {{requiredValue}} attribute.",
+    "4_1_2_value_exposed_using_element": "A value is exposed using the {{requiredValue}} element."
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508 = {
+    name: "Section508",
+    description: "U.S. Section 508 Standard",
+    sniffs: [ "A", "B", "C", "D", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" ],
+    getMsgInfo: function(code) {
+        var msgCodeParts = code.split(".", 3);
+        var paragraph = msgCodeParts[1].toLowerCase();
+        var retval = [ [ "Section", "1194.22 (" + paragraph + ")" ] ];
+        return retval;
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_A = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top", "img", "object", "bgsound", "audio" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            this.addNullAltTextResults(top);
+            this.addMediaAlternativesResults(top);
+        } else {
+            var nodeName = element.nodeName.toLowerCase();
+            if (nodeName === "object" || nodeName === "bgsound" || nodeName === "audio") {
+                // Audio transcript notice. Yes, this is in A rather than B, since
+                // audio is not considered "multimedia" (roughly equivalent to a
+                // "synchronised media" presentation in WCAG 2.0). It is non-text,
+                // though, so a transcript is required.
+                HTMLCS.addMessage(HTMLCS.NOTICE, element, "For multimedia containing audio only, ensure an alternative is available, such as a full text transcript.", "Audio");
+            }
+        }
+    },
+    /**
+     * Test for missing or null alt text in certain elements.
+     *
+     * Tested elements are:
+     * - IMG elements
+     * - INPUT elements with type="image" (ie. image submit buttons).
+     * - AREA elements (ie. in client-side image maps).
+     *
+     * @param {DOMNode} element The element to test.
+     *
+     * @returns {Object} A structured list of errors.
+     */
+    testNullAltText: function(top) {
+        var errors = {
+            img: {
+                generalAlt: [],
+                missingAlt: [],
+                ignored: [],
+                nullAltWithTitle: [],
+                emptyAltInLink: []
+            },
+            inputImage: {
+                generalAlt: [],
+                missingAlt: []
+            },
+            area: {
+                generalAlt: [],
+                missingAlt: []
+            }
+        };
+        elements = HTMLCS.util.getAllElements(top, 'img, area, input[type="image"]');
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nodeName = element.nodeName.toLowerCase();
+            var linkOnlyChild = false;
+            var missingAlt = false;
+            var nullAlt = false;
+            if (element.parentNode.nodeName.toLowerCase() === "a") {
+                var prevNode = HTMLCS.util.getPreviousSiblingElement(element, null);
+                var nextNode = HTMLCS.util.getNextSiblingElement(element, null);
+                if (prevNode === null && nextNode === null) {
+                    var textContent = element.parentNode.textContent;
+                    if (element.parentNode.textContent !== undefined) {
+                        var textContent = element.parentNode.textContent;
+                    } else {
+                        // Keep IE8 happy.
+                        var textContent = element.parentNode.innerText;
+                    }
+                    if (HTMLCS.util.isStringEmpty(textContent) === true) {
+                        linkOnlyChild = true;
+                    }
+                }
+            }
+            //end if
+            if (element.hasAttribute("alt") === false) {
+                missingAlt = true;
+            } else if (!element.getAttribute("alt") || HTMLCS.util.isStringEmpty(element.getAttribute("alt")) === true) {
+                nullAlt = true;
+            }
+            // Now determine which test(s) should fire.
+            switch (nodeName) {
+              case "img":
+                if (linkOnlyChild === true && (missingAlt === true || nullAlt === true)) {
+                    // Img tags cannot have an empty alt text if it is the
+                    // only content in a link (as the link would not have a text
+                    // alternative).
+                    errors.img.emptyAltInLink.push(element.parentNode);
+                } else if (missingAlt === true) {
+                    errors.img.missingAlt.push(element);
+                } else if (nullAlt === true) {
+                    if (element.hasAttribute("title") === true && HTMLCS.util.isStringEmpty(element.getAttribute("title")) === false) {
+                        // Title attribute present and not empty. This is wrong when
+                        // an image is marked as ignored.
+                        errors.img.nullAltWithTitle.push(element);
+                    } else {
+                        errors.img.ignored.push(element);
+                    }
+                } else {
+                    errors.img.generalAlt.push(element);
+                }
+                break;
+
+              case "input":
+                // Image submit buttons.
+                if (missingAlt === true || nullAlt === true) {
+                    errors.inputImage.missingAlt.push(element);
+                } else {
+                    errors.inputImage.generalAlt.push(element);
+                }
+                break;
+
+              case "area":
+                // Area tags in a client-side image map.
+                if (missingAlt === true || nullAlt === true) {
+                    errors.area.missingAlt.push(element);
+                } else {
+                    errors.inputImage.generalAlt.push(element);
+                }
+                break;
+
+              default:
+                // No other tags defined.
+                break;
+            }
+        }
+        //end for
+        return errors;
+    },
+    /**
+     * Driver function for the null alt text tests.
+     *
+     * This takes the generic result given by the alt text testing functions
+     * (located in WCAG 2.0 SC 1.1.1), and converts them into Section 508-specific
+     * messages.
+     *
+     * @param {DOMNode} element The element to test.
+     */
+    addNullAltTextResults: function(top) {
+        var errors = this.testNullAltText(top);
+        for (var i = 0; i < errors.img.emptyAltInLink.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.emptyAltInLink[i], "Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.", "Img.EmptyAltInLink");
+        }
+        for (var i = 0; i < errors.img.nullAltWithTitle.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.nullAltWithTitle[i], "Img element with empty alt text must have absent or empty title attribute.", "Img.NullAltWithTitle");
+        }
+        for (var i = 0; i < errors.img.ignored.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.img.ignored[i], "Img element is marked so that it is ignored by Assistive Technology.", "Img.Ignored");
+        }
+        for (var i = 0; i < errors.img.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.missingAlt[i], "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.", "Img.MissingAlt");
+        }
+        for (var i = 0; i < errors.img.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.img.generalAlt[i], "Ensure that the img element's alt text serves the same purpose and presents the same information as the image.", "Img.GeneralAlt");
+        }
+        for (var i = 0; i < errors.inputImage.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.inputImage.missingAlt[i], "Image submit button missing an alt attribute. Specify a text alternative that describes the button's function, using the alt attribute.", "InputImage.MissingAlt");
+        }
+        for (var i = 0; i < errors.inputImage.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.inputImage.generalAlt[i], "Ensure that the image submit button's alt text identifies the purpose of the button.", "InputImage.GeneralAlt");
+        }
+        for (var i = 0; i < errors.area.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.area.missingAlt[i], "Area element in an image map missing an alt attribute. Each area element must have a text alternative that describes the function of the image map area.", "Area.MissingAlt");
+        }
+        for (var i = 0; i < errors.area.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.area.generalAlt[i], "Ensure that the area element's text alternative serves the same purpose as the part of image map image it references.", "Area.GeneralAlt");
+        }
+    },
+    testMediaTextAlternatives: function(top) {
+        var errors = {
+            object: {
+                missingBody: [],
+                generalAlt: []
+            },
+            applet: {
+                missingBody: [],
+                missingAlt: [],
+                generalAlt: []
+            }
+        };
+        var elements = HTMLCS.util.getAllElements(top, "object");
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nodeName = element.nodeName.toLowerCase();
+            var childObject = element.querySelector("object");
+            // If we have an object as our alternative, skip it. Pass the blame onto
+            // the child.
+            if (childObject === null) {
+                var textAlt = HTMLCS.util.getElementTextContent(element, true);
+                if (textAlt === "") {
+                    errors.object.missingBody.push(element);
+                } else {
+                    errors.object.generalAlt.push(element);
+                }
+            }
+        }
+        //end if
+        var elements = HTMLCS.util.getAllElements(top, "applet");
+        for (var el = 0; el < elements.length; el++) {
+            // Test firstly for whether we have an object alternative.
+            var childObject = element.querySelector("object");
+            var hasError = false;
+            // If we have an object as our alternative, skip it. Pass the blame onto
+            // the child. (This is a special case: those that don't understand APPLET
+            // may understand OBJECT, but APPLET shouldn't be nested.)
+            if (childObject === null) {
+                var textAlt = HTMLCS.util.getElementTextContent(element, true);
+                if (HTMLCS.util.isStringEmpty(textAlt) === true) {
+                    errors.applet.missingBody.push(element);
+                    hasError = true;
+                }
+            }
+            //end if
+            var altAttr = element.getAttribute("alt") || "";
+            if (HTMLCS.util.isStringEmpty(altAttr) === true) {
+                errors.applet.missingAlt.push(element);
+                hasError = true;
+            }
+            if (hasError === false) {
+                // No error? Remind of obligations about equivalence of alternatives.
+                errors.applet.generalAlt.push(element);
+            }
+        }
+        //end if
+        return errors;
+    },
+    /**
+     * Driver function for the media alternative (object/applet) tests.
+     *
+     * This takes the generic result given by the media alternative testing function
+     * (located in WCAG 2.0 SC 1.1.1), and converts them into Section
+     * 508-specific messages.
+     *
+     * @param {DOMNode} element The element to test.
+     */
+    addMediaAlternativesResults: function(top) {
+        var errors = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1.testMediaTextAlternatives(top);
+        for (var i = 0; i < errors.object.missingBody.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.object.missingBody[i], "Object elements must contain a text alternative after all other alternatives are exhausted.", "Object.MissingBody");
+        }
+        for (var i = 0; i < errors.object.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.object.generalAlt[i], "Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.", "Object.GeneralAlt");
+        }
+        for (var i = 0; i < errors.applet.missingBody.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.applet.missingBody[i], "Applet elements must contain a text alternative in the element's body, for browsers without support for the applet element.", "Applet.MissingBody");
+        }
+        for (var i = 0; i < errors.applet.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.applet.missingAlt[i], "Applet elements must contain an alt attribute, to provide a text alternative to browsers supporting the element but are unable to load the applet.", "Applet.MissingAlt");
+        }
+        for (var i = 0; i < errors.applet.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.applet.generalAlt[i], "Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.", "Applet.GeneralAlt");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_B = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "applet", "embed", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, "For multimedia containing video, ensure a synchronised audio description or text alternative for the video portion is provided.", "Video");
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, "For multimedia containing synchronised audio and video, ensure synchronised captions are provided for the audio portion.", "Captions");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_C = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that any information conveyed using colour alone is also available without colour, such as through context or markup.", "Colour");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_D = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.", "Linearised");
+            this.testPresentationMarkup(top);
+            this.testHeadingOrder(top);
+            // Look for any script elements, and fire off another notice regarding
+            // potentially hidden text (eg. "click to expand" sections). For instance,
+            // such text should be stored semantically in the page, not loaded into
+            // a container through AJAX (and thus not accessible with scripting off).
+            var hasScript = HTMLCS.util.getAllElements(top, 'script, link[rel="stylesheet"]');
+            if (hasScript.length > 0) {
+                HTMLCS.addMessage(HTMLCS.NOTICE, top, 'If content is hidden and made visible using scripting (such as "click to expand" sections), ensure this content is readable when scripts and style sheets are disabled.', "HiddenText");
+            }
+        }
+    },
+    /**
+     * Test for the use of presentational elements.
+     *
+     * @param [DOMNode] top The top element of the tested code.
+     */
+    testPresentationMarkup: function(top) {
+        _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testPresentationMarkup(top);
+    },
+    testHeadingOrder: function(top) {
+        var lastHeading = 0;
+        var headings = HTMLCS.util.getAllElements(top, "h1, h2, h3, h4, h5, h6");
+        for (var i = 0; i < headings.length; i++) {
+            var headingNum = parseInt(headings[i].nodeName.substr(1, 1));
+            if (headingNum - lastHeading > 1) {
+                var exampleMsg = "should be an h" + (lastHeading + 1) + " to be properly nested";
+                if (lastHeading === 0) {
+                    // If last heading is empty, we are at document top and we are
+                    // expecting a H1, generally speaking.
+                    exampleMsg = "appears to be the primary document heading, so should be an h1 element";
+                }
+                HTMLCS.addMessage(HTMLCS.ERROR, headings[i], "The heading structure is not logically nested. This h" + headingNum + " element " + exampleMsg + ".", "HeadingOrder");
+            }
+            lastHeading = headingNum;
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_G = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "table" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // If no table headers, emit notice about the table.
+        if (HTMLCS.util.isLayoutTable(element) === true) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, "This table has no headers. If this is a data table, ensure row and column headers are identified using th elements.", "TableHeaders");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_H = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "table" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(table, top) {
+        var headersAttr = HTMLCS.util.testTableHeaders(table);
+        // Incorrect usage of headers - error; emit always.
+        for (var i = 0; i < headersAttr.wrongHeaders.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, headersAttr.wrongHeaders[i].element, 'Incorrect headers attribute on this td element. Expected "' + headersAttr.wrongHeaders[i].expected + '" but found "' + headersAttr.wrongHeaders[i].actual + '"', "IncorrectHeadersAttr");
+        }
+        // Errors where headers are compulsory.
+        if (headersAttr.required === true && headersAttr.allowScope === false) {
+            if (headersAttr.used === false) {
+                // Headers not used at all, and they are mandatory.
+                HTMLCS.addMessage(HTMLCS.ERROR, table, "The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.", "MissingHeadersAttrs");
+            } else {
+                // Missing TH IDs - error; emit at this stage only if headers are compulsory.
+                if (headersAttr.missingThId.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, "Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements' headers attributes.", "MissingHeaderIds");
+                }
+                // Missing TD headers attributes - error; emit at this stage only if headers are compulsory.
+                if (headersAttr.missingTd.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, "Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.", "IncompleteHeadersAttrs");
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_I = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "frame", "iframe", "object" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        var hasTitle = element.hasAttribute("title");
+        var titleEmpty = true;
+        if (hasTitle === true) {
+            titleEmpty = HTMLCS.util.isStringEmpty(element.getAttribute("title"));
+        }
+        if (titleEmpty === true) {
+            HTMLCS.addMessage(HTMLCS.ERROR, top, "This " + nodeName + " element is missing title text. Frames should be titled with text that facilitates frame identification and navigation.", "Frames");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_J = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // The term in Sec. 508 is "flicker" rather than flash.
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, "Check that no component of the content flickers at a rate of greater than 2 and less than 55 times per second.", "Flicker");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_K = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, "If this page cannot be made compliant, a text-only page with equivalent information or functionality should be provided. The alternative page needs to be updated in line with this page's content.", "AltVersion");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_L = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            this.addProcessLinksMessages(top);
+            this.testKeyboard(top);
+        }
+    },
+    addProcessLinksMessages: function(top) {
+        var errors = this.processLinks(top);
+        for (var i = 0; i < errors.emptyNoId.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.emptyNoId[i], "Anchor element found with no link content and no name and/or ID attribute.", "EmptyAnchorNoId");
+        }
+        for (var i = 0; i < errors.placeholder.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.placeholder[i], "Anchor element found with link content, but no href, ID, or name attribute has been supplied.", "PlaceholderAnchor");
+        }
+        for (var i = 0; i < errors.noContent.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.noContent[i], "Anchor element found with a valid href attribute, but no link content has been supplied.", "NoContentAnchor");
+        }
+    },
+    processLinks: function(top) {
+        var errors = {
+            empty: [],
+            emptyWithName: [],
+            emptyNoId: [],
+            noHref: [],
+            placeholder: [],
+            noContent: []
+        };
+        var elements = HTMLCS.util.getAllElements(top, "a");
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nameFound = false;
+            var hrefFound = false;
+            var content = HTMLCS.util.getElementTextContent(element);
+            if (element.hasAttribute("title") === true && /^\s*$/.test(element.getAttribute("title")) === false) {
+                nameFound = true;
+            } else if (/^\s*$/.test(content) === false) {
+                nameFound = true;
+            }
+            if (element.hasAttribute("href") === true && /^\s*$/.test(element.getAttribute("href")) === false) {
+                hrefFound = true;
+            }
+            if (hrefFound === false) {
+                // No href. We don't want these because, although they are commonly used
+                // to create targets, they can be picked up by screen readers and
+                // displayed to the user as empty links. A elements are defined by H91 as
+                // having an (ARIA) role of "link", and using them as targets are
+                // essentially misusing them. Place an ID on a parent element instead.
+                if (/^\s*$/.test(content) === true) {
+                    // Also no content. (eg. <a id=""></a> or <a name=""></a>)
+                    if (element.hasAttribute("id") === true) {
+                        errors.empty.push(element);
+                    } else if (element.hasAttribute("name") === true) {
+                        errors.emptyWithName.push(element);
+                    } else {
+                        errors.emptyNoId.push(element);
+                    }
+                } else {
+                    // Giving a benefit of the doubt here - if a link has text and also
+                    // an ID, but no href, it might be because it is being manipulated by
+                    // a script.
+                    if (element.hasAttribute("id") === true || element.hasAttribute("name") === true) {
+                        errors.noHref.push(element);
+                    } else {
+                        // HTML5 allows A elements with text but no href, "for where a
+                        // link might otherwise have been placed, if it had been relevant".
+                        // Hence, thrown as a warning, not an error.
+                        errors.placeholder.push(element);
+                    }
+                }
+            } else {
+                if (/^\s*$/.test(content) === true) {
+                    // Href provided, but no content.
+                    // We only fire this message when there are no images in the content.
+                    // A link around an image with no alt text is already covered in SC
+                    // 1.1.1 (test H30).
+                    if (element.querySelectorAll("img").length === 0) {
+                        errors.noContent.push(element);
+                    }
+                }
+            }
+        }
+        //end for
+        return errors;
+    },
+    /**
+     * Process mouse-specific functions.
+     *
+     * @param {DOMNode} top The top element of the tested code.
+     */
+    testKeyboard: function(top) {
+        // Testing for elements that have explicit attributes for mouse-specific
+        // events. Note: onclick is considered keyboard accessible, as it is actually
+        // tied to the default action of a link or button - not merely a click.
+        var dblClickEls = HTMLCS.util.getAllElements(top, "*[ondblclick]");
+        for (var i = 0; i < dblClickEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, dblClickEls[i], "Ensure the functionality provided by double-clicking on this element is available through the keyboard.", "DblClick");
+        }
+        var mouseOverEls = HTMLCS.util.getAllElements(top, "*[onmouseover]");
+        for (var i = 0; i < mouseOverEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, mouseOverEls[i], "Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.", "MouseOver");
+        }
+        var mouseOutEls = HTMLCS.util.getAllElements(top, "*[onmouseout]");
+        for (var i = 0; i < mouseOutEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, mouseOutEls[i], "Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.", "MouseOut");
+        }
+        var mouseMoveEls = HTMLCS.util.getAllElements(top, "*[onmousemove]");
+        for (var i = 0; i < mouseMoveEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, mouseMoveEls[i], "Ensure the functionality provided by moving the mouse on this element is available through the keyboard.", "MouseMove");
+        }
+        var mouseDownEls = HTMLCS.util.getAllElements(top, "*[onmousedown]");
+        for (var i = 0; i < mouseDownEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, mouseDownEls[i], "Ensure the functionality provided by mousing down on this element is available through the keyboard; for instance, using the keydown event.", "MouseDown");
+        }
+        var mouseUpEls = HTMLCS.util.getAllElements(top, "*[onmouseup]");
+        for (var i = 0; i < mouseUpEls.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, mouseUpEls[i], "Ensure the functionality provided by mousing up on this element is available through the keyboard; for instance, using the keyup event.", "MouseUp");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_M = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "applet", "bgsound", "embed", "audio", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, "If external media requires a plugin or application to view, ensure a link is provided to a plugin or application that complies with Section 508 accessibility requirements for applications.", "PluginLink");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_N = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (nodeName === "form") {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text.", "Errors");
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form.", "Labels");
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, "Ensure that this form can be navigated using the keyboard and other accessibility tools.", "KeyboardNav");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_O = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top", "a", "area" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.", "SkipLinks");
+        } else {
+            if (element.hasAttribute("href") === true) {
+                var href = element.getAttribute("href");
+                href = HTMLCS.util.trim(href);
+                if (href.length > 1 && href.charAt(0) === "#") {
+                    var id = href.substr(1);
+                    try {
+                        var doc = top;
+                        if (doc.ownerDocument) {
+                            doc = doc.ownerDocument;
+                        }
+                        // First search for an element with the appropriate ID, then search for a
+                        // named anchor using the name attribute.
+                        var target = doc.getElementById(id);
+                        if (target === null) {
+                            target = doc.querySelector('a[name="' + id + '"]');
+                        }
+                        if (target === null || HTMLCS.util.contains(top, target) === false) {
+                            if (HTMLCS.isFullDoc(top) === true || top.nodeName.toLowerCase() === "body") {
+                                HTMLCS.addMessage(HTMLCS.ERROR, element, 'This link points to a named anchor "' + id + '" within the document, but no anchor exists with that name.', "NoSuchID");
+                            } else {
+                                HTMLCS.addMessage(HTMLCS.WARNING, element, 'This link points to a named anchor "' + id + '" within the document, but no anchor exists with that name in the fragment tested.', "NoSuchIDFragment");
+                            }
+                        }
+                    } catch (ex) {}
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_Section508_Sniffs_P = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top", "meta" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, "If a timed response is required on this page, alert the user and provide sufficient time to allow them to indicate that more time is required.", "TimeLimit");
+        } else {
+            if (element.hasAttribute("http-equiv") === true) {
+                if (String(element.getAttribute("http-equiv")).toLowerCase() === "refresh") {
+                    if (/^[1-9]\d*/.test(element.getAttribute("content").toLowerCase()) === true) {
+                        if (/url=/.test(element.getAttribute("content").toLowerCase()) === true) {
+                            // Redirect.
+                            HTMLCS.addMessage(HTMLCS.ERROR, element, "Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.", "MetaRedirect");
+                        } else {
+                            // Just a refresh.
+                            HTMLCS.addMessage(HTMLCS.ERROR, element, "Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.", "MetaRefresh");
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2A = {
+    name: "WCAG2A",
+    description: "Web Content Accessibility Guidelines (WCAG) 2.0 A",
+    sniffs: [ {
+        standard: "WCAG2AAA",
+        include: [ "Principle1.Guideline1_1.1_1_1", "Principle1.Guideline1_2.1_2_1", "Principle1.Guideline1_2.1_2_2", "Principle1.Guideline1_2.1_2_3", "Principle1.Guideline1_3.1_3_1", "Principle1.Guideline1_3.1_3_1_A", "Principle1.Guideline1_3.1_3_2", "Principle1.Guideline1_3.1_3_3", "Principle1.Guideline1_4.1_4_1", "Principle1.Guideline1_4.1_4_2", "Principle2.Guideline2_1.2_1_1", "Principle2.Guideline2_1.2_1_2", "Principle2.Guideline2_2.2_2_1", "Principle2.Guideline2_2.2_2_2", "Principle2.Guideline2_3.2_3_1", "Principle2.Guideline2_4.2_4_1", "Principle2.Guideline2_4.2_4_2", "Principle2.Guideline2_4.2_4_3", "Principle2.Guideline2_4.2_4_4", "Principle3.Guideline3_1.3_1_1", "Principle3.Guideline3_2.3_2_1", "Principle3.Guideline3_2.3_2_2", "Principle3.Guideline3_3.3_3_1", "Principle3.Guideline3_3.3_3_2", "Principle4.Guideline4_1.4_1_1", "Principle4.Guideline4_1.4_1_2" ]
+    } ],
+    getMsgInfo: function(code) {
+        return HTMLCS_WCAG2AAA.getMsgInfo(code);
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AA = {
+    name: "WCAG2AA",
+    description: "Web Content Accessibility Guidelines (WCAG) 2.0 AA",
+    sniffs: [ {
+        standard: "WCAG2AAA",
+        include: [ "Principle1.Guideline1_1.1_1_1", "Principle1.Guideline1_2.1_2_1", "Principle1.Guideline1_2.1_2_2", "Principle1.Guideline1_2.1_2_4", "Principle1.Guideline1_2.1_2_5", "Principle1.Guideline1_3.1_3_1", "Principle1.Guideline1_3.1_3_1_A", "Principle1.Guideline1_3.1_3_2", "Principle1.Guideline1_3.1_3_3", "Principle1.Guideline1_4.1_4_1", "Principle1.Guideline1_4.1_4_2", "Principle1.Guideline1_4.1_4_3", "Principle1.Guideline1_4.1_4_3_F24", "Principle1.Guideline1_4.1_4_3_Contrast", "Principle1.Guideline1_4.1_4_4", "Principle1.Guideline1_4.1_4_5", "Principle2.Guideline2_1.2_1_1", "Principle2.Guideline2_1.2_1_2", "Principle2.Guideline2_2.2_2_1", "Principle2.Guideline2_2.2_2_2", "Principle2.Guideline2_3.2_3_1", "Principle2.Guideline2_4.2_4_1", "Principle2.Guideline2_4.2_4_2", "Principle2.Guideline2_4.2_4_3", "Principle2.Guideline2_4.2_4_4", "Principle2.Guideline2_4.2_4_5", "Principle2.Guideline2_4.2_4_6", "Principle2.Guideline2_4.2_4_7", "Principle3.Guideline3_1.3_1_1", "Principle3.Guideline3_1.3_1_2", "Principle3.Guideline3_2.3_2_1", "Principle3.Guideline3_2.3_2_2", "Principle3.Guideline3_2.3_2_3", "Principle3.Guideline3_2.3_2_4", "Principle3.Guideline3_3.3_3_1", "Principle3.Guideline3_3.3_3_2", "Principle3.Guideline3_3.3_3_3", "Principle3.Guideline3_3.3_3_4", "Principle4.Guideline4_1.4_1_1", "Principle4.Guideline4_1.4_1_2" ]
+    } ],
+    getMsgInfo: function(code) {
+        return HTMLCS_WCAG2AAA.getMsgInfo(code);
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA = {
+    name: "WCAG2AAA",
+    description: "Web Content Accessibility Guidelines (WCAG) 2.0 AAA",
+    sniffs: [ "Principle1.Guideline1_1.1_1_1", "Principle1.Guideline1_2.1_2_1", "Principle1.Guideline1_2.1_2_2", "Principle1.Guideline1_2.1_2_4", "Principle1.Guideline1_2.1_2_5", "Principle1.Guideline1_2.1_2_6", "Principle1.Guideline1_2.1_2_7", "Principle1.Guideline1_2.1_2_8", "Principle1.Guideline1_2.1_2_9", "Principle1.Guideline1_3.1_3_1", "Principle1.Guideline1_3.1_3_1_AAA", "Principle1.Guideline1_3.1_3_2", "Principle1.Guideline1_3.1_3_3", "Principle1.Guideline1_4.1_4_1", "Principle1.Guideline1_4.1_4_2", "Principle1.Guideline1_4.1_4_3_F24", "Principle1.Guideline1_4.1_4_3_Contrast", "Principle1.Guideline1_4.1_4_6", "Principle1.Guideline1_4.1_4_7", "Principle1.Guideline1_4.1_4_8", "Principle1.Guideline1_4.1_4_9", "Principle2.Guideline2_1.2_1_1", "Principle2.Guideline2_1.2_1_2", "Principle2.Guideline2_2.2_2_2", "Principle2.Guideline2_2.2_2_3", "Principle2.Guideline2_2.2_2_4", "Principle2.Guideline2_2.2_2_5", "Principle2.Guideline2_3.2_3_2", "Principle2.Guideline2_4.2_4_1", "Principle2.Guideline2_4.2_4_2", "Principle2.Guideline2_4.2_4_3", "Principle2.Guideline2_4.2_4_5", "Principle2.Guideline2_4.2_4_6", "Principle2.Guideline2_4.2_4_7", "Principle2.Guideline2_4.2_4_8", "Principle2.Guideline2_4.2_4_9", "Principle3.Guideline3_1.3_1_1", "Principle3.Guideline3_1.3_1_2", "Principle3.Guideline3_1.3_1_3", "Principle3.Guideline3_1.3_1_4", "Principle3.Guideline3_1.3_1_5", "Principle3.Guideline3_1.3_1_6", "Principle3.Guideline3_2.3_2_1", "Principle3.Guideline3_2.3_2_2", "Principle3.Guideline3_2.3_2_3", "Principle3.Guideline3_2.3_2_4", "Principle3.Guideline3_2.3_2_5", "Principle3.Guideline3_3.3_3_1", "Principle3.Guideline3_3.3_3_2", "Principle3.Guideline3_3.3_3_3", "Principle3.Guideline3_3.3_3_5", "Principle3.Guideline3_3.3_3_6", "Principle4.Guideline4_1.4_1_1", "Principle4.Guideline4_1.4_1_2" ],
+    getMsgInfo: function(code) {
+        var principles = {
+            Principle1: {
+                name: "Perceivable",
+                link: "http://www.w3.org/TR/WCAG20/#perceivable"
+            },
+            Principle2: {
+                name: "Operable",
+                link: "http://www.w3.org/TR/WCAG20/#operable"
+            },
+            Principle3: {
+                name: "Understandable",
+                link: "http://www.w3.org/TR/WCAG20/#understandable"
+            },
+            Principle4: {
+                name: "Robust",
+                link: "http://www.w3.org/TR/WCAG20/#robust"
+            }
+        };
+        /**
+         * List of success criteria, their links in the WCAG20 doc, and their
+         * "priority" (to use a WCAG1 term)... priority 1 = single-A, 3 = triple-A.
+         *
+         * Priority 0 indicates a conformance requirement. CR1 isn't shown because
+         * all it says is "to conform to each level, it must pass all at that level".
+         */
+        var successCritList = {
+            CR2: {
+                name: "Full pages",
+                landmark: "cc2",
+                priority: 0
+            },
+            CR3: {
+                name: "Complete processes",
+                landmark: "cc3",
+                priority: 0
+            },
+            CR4: {
+                name: "Only Accessibility-Supported Ways of Using Technologies",
+                landmark: "cc4",
+                priority: 0
+            },
+            CR5: {
+                name: "Non-Interference",
+                landmark: "cc5",
+                priority: 0
+            },
+            "1.1.1": {
+                name: "Non-Text Content",
+                landmark: "text-equiv-all",
+                priority: 1
+            },
+            "1.2.1": {
+                name: "Audio-only and Video-only (Prerecorded)",
+                landmark: "media-equiv-av-only-alt",
+                priority: 1
+            },
+            "1.2.2": {
+                name: "Captions (Prerecorded)",
+                landmark: "media-equiv-captions",
+                priority: 1
+            },
+            "1.2.3": {
+                name: "Audio Description or Media Alternative (Prerecorded)",
+                landmark: "media-equiv-audio-desc",
+                priority: 1
+            },
+            "1.2.4": {
+                name: "Captions (Live)",
+                landmark: "media-equiv-captions",
+                priority: 2
+            },
+            "1.2.5": {
+                name: "Audio Description (Prerecorded)",
+                landmark: "media-equiv-audio-desc",
+                priority: 2
+            },
+            "1.2.6": {
+                name: "Sign Language (Prerecorded)",
+                landmark: "media-equiv-sign",
+                priority: 3
+            },
+            "1.2.7": {
+                name: "Extended Audio Description (Prerecorded)",
+                landmark: "media-equiv-extended-ad",
+                priority: 3
+            },
+            "1.2.8": {
+                name: "Media Alternative (Prerecorded)",
+                landmark: "media-equiv-text-doc",
+                priority: 3
+            },
+            "1.2.9": {
+                name: "Audio-only (Live)",
+                landmark: "media-equiv-live-audio-only",
+                priority: 3
+            },
+            "1.3.1": {
+                name: "Info and Relationships",
+                landmark: "content-structure-separation-programmatic",
+                priority: 1
+            },
+            "1.3.2": {
+                name: "Meaningful Sequence",
+                landmark: "content-structure-separation-sequence",
+                priority: 1
+            },
+            "1.3.3": {
+                name: "Sensory Characteristics",
+                landmark: "content-structure-separation-understanding",
+                priority: 1
+            },
+            "1.4.1": {
+                name: "Use of Colour",
+                landmark: "visual-audio-contrast-without-color",
+                priority: 1
+            },
+            "1.4.2": {
+                name: "Audio Control",
+                landmark: "visual-audio-contrast-dis-audio",
+                priority: 1
+            },
+            "1.4.3": {
+                name: "Contrast (Minimum)",
+                landmark: "visual-audio-contrast-contrast",
+                priority: 1
+            },
+            "1.4.4": {
+                name: "Resize Text",
+                landmark: "visual-audio-contrast-scale",
+                priority: 1
+            },
+            "1.4.5": {
+                name: "Images of Text",
+                landmark: "visual-audio-contrast-text-presentation",
+                priority: 1
+            },
+            "1.4.6": {
+                name: "Contrast (Enhanced)",
+                landmark: "visual-audio-contrast7",
+                priority: 3
+            },
+            "1.4.7": {
+                name: "Low or No Background Audio",
+                landmark: "visual-audio-contrast-noaudio",
+                priority: 3
+            },
+            "1.4.8": {
+                name: "Visual Presentation",
+                landmark: "visual-audio-contrast-visual-presentation",
+                priority: 3
+            },
+            "1.4.9": {
+                name: "Images of Text (No Exception)",
+                landmark: "visual-audio-contrast-text-images",
+                priority: 3
+            },
+            "2.1.1": {
+                name: "Keyboard",
+                landmark: "keyboard-operation-keyboard-operable",
+                priority: 1
+            },
+            "2.1.2": {
+                name: "No Keyboard Trap",
+                landmark: "keyboard-operation-trapping",
+                priority: 1
+            },
+            "2.1.3": {
+                name: "Keyboard (No Exception)",
+                landmark: "keyboard-operation-all-funcs",
+                priority: 3
+            },
+            "2.2.1": {
+                name: "Timing Adjustable",
+                landmark: "time-limits-required-behaviors",
+                priority: 1
+            },
+            "2.2.2": {
+                name: "Pause, Stop, Hide",
+                landmark: "time-limits-pause",
+                priority: 1
+            },
+            "2.2.3": {
+                name: "No Timing",
+                landmark: "time-limits-no-exceptions",
+                priority: 3
+            },
+            "2.2.4": {
+                name: "Interruptions",
+                landmark: "time-limits-postponed",
+                priority: 3
+            },
+            "2.2.5": {
+                name: "Re-authenticating",
+                landmark: "time-limits-server-timeout",
+                priority: 3
+            },
+            "2.3.1": {
+                name: "Three Flashes or Below Threshold",
+                landmark: "seizure-does-not-violate",
+                priority: 1
+            },
+            "2.3.2": {
+                name: "Three Flashes",
+                landmark: "seizure-three-times",
+                priority: 3
+            },
+            "2.4.1": {
+                name: "Bypass Blocks",
+                landmark: "navigation-mechanisms-skip",
+                priority: 1
+            },
+            "2.4.2": {
+                name: "Page Titled",
+                landmark: "navigation-mechanisms-title",
+                priority: 1
+            },
+            "2.4.3": {
+                name: "Focus Order",
+                landmark: "navigation-mechanisms-focus-order",
+                priority: 1
+            },
+            "2.4.4": {
+                name: "Link Purpose (In Context)",
+                landmark: "navigation-mechanisms-refs",
+                priority: 1
+            },
+            "2.4.5": {
+                name: "Multiple Ways",
+                landmark: "navigation-mechanisms-mult-loc",
+                priority: 2
+            },
+            "2.4.6": {
+                name: "Headings and Labels",
+                landmark: "navigation-mechanisms-descriptive",
+                priority: 2
+            },
+            "2.4.7": {
+                name: "Focus Visible",
+                landmark: "navigation-mechanisms-focus-visible",
+                priority: 2
+            },
+            "2.4.8": {
+                name: "Location",
+                landmark: "navigation-mechanisms-location",
+                priority: 3
+            },
+            "2.4.9": {
+                name: "Link Purpose (Link Only)",
+                landmark: "navigation-mechanisms-link",
+                priority: 3
+            },
+            "2.4.10": {
+                name: "Section Headings",
+                landmark: "navigation-mechanisms-headings",
+                priority: 3
+            },
+            "3.1.1": {
+                name: "Language of Page",
+                landmark: "meaning-doc-lang-id",
+                priority: 1
+            },
+            "3.1.2": {
+                name: "Language of Parts",
+                landmark: "meaning-other-lang-id",
+                priority: 2
+            },
+            "3.1.3": {
+                name: "Unusual Words",
+                landmark: "meaning-idioms",
+                priority: 3
+            },
+            "3.1.4": {
+                name: "Abbreviations",
+                landmark: "meaning-located",
+                priority: 3
+            },
+            "3.1.5": {
+                name: "Reading Level",
+                landmark: "meaning-supplements",
+                priority: 3
+            },
+            "3.1.6": {
+                name: "Pronunciation",
+                landmark: "meaning-pronunciation",
+                priority: 3
+            },
+            "3.2.1": {
+                name: "On Focus",
+                landmark: "consistent-behavior-receive-focus",
+                priority: 1
+            },
+            "3.2.2": {
+                name: "On Input",
+                landmark: "consistent-behavior-unpredictable-change",
+                priority: 1
+            },
+            "3.2.3": {
+                name: "Consistent Navigation",
+                landmark: "consistent-behavior-consistent-locations",
+                priority: 2
+            },
+            "3.2.4": {
+                name: "Consistent Navigation",
+                landmark: "consistent-behavior-consistent-functionality",
+                priority: 2
+            },
+            "3.2.5": {
+                name: "Change on Request",
+                landmark: "consistent-behavior-no-extreme-changes-context",
+                priority: 3
+            },
+            "3.3.1": {
+                name: "Error Identification",
+                landmark: "minimize-error-identified",
+                priority: 1
+            },
+            "3.3.2": {
+                name: "Labels or Instructions",
+                landmark: "minimize-error-cues",
+                priority: 1
+            },
+            "3.3.3": {
+                name: "Error Suggestion",
+                landmark: "minimize-error-suggestions",
+                priority: 2
+            },
+            "3.3.4": {
+                name: "Error Prevention (Legal, Financial, Data)",
+                landmark: "minimize-error-reversible",
+                priority: 2
+            },
+            "3.3.5": {
+                name: "Help",
+                landmark: "minimize-error-context-help",
+                priority: 3
+            },
+            "3.3.6": {
+                name: "Error Prevention (All)",
+                landmark: "minimize-error-reversible-all",
+                priority: 3
+            },
+            "4.1.1": {
+                name: "Parsing",
+                landmark: "ensure-compat-parses",
+                priority: 1
+            },
+            "4.1.2": {
+                name: "Name, Role, Value",
+                landmark: "ensure-compat-rsv",
+                priority: 1
+            }
+        };
+        var msgCodeParts = code.split(".", 5);
+        var principle = msgCodeParts[1];
+        var successCrit = msgCodeParts[3].split("_").slice(0, 3).join(".");
+        var techniques = msgCodeParts[4].split(",");
+        var techniquesStr = [];
+        for (var i = 0; i < techniques.length; i++) {
+            techniques[i] = techniques[i].split(".");
+            techniquesStr.push('<a href="http://www.w3.org/TR/WCAG20-TECHS/' + techniques[i][0] + '" target="_blank">' + techniques[i][0] + "</a>");
+        }
+        var successCritStr = [ '<a href="http://www.w3.org/TR/WCAG20/#' + successCritList[successCrit].landmark, '" target="_blank">', successCrit, ": ", successCritList[successCrit].name, "</a>" ].join("");
+        var principleStr = [ '<a href="', principles[principle].link, '" target="_blank">', principles[principle].name, "</a>" ].join("");
+        var retval = [ [ _global.HTMLCS.getTranslation("auditor_success_criterion"), successCritStr ], [ _global.HTMLCS.getTranslation("auditor_suggested_techniques"), techniquesStr.join(" ") ] ];
+        return retval;
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_1_1_1_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top", "img" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            this.addNullAltTextResults(top);
+            this.addMediaAlternativesResults(top);
+        } else {
+            var nodeName = element.nodeName.toLowerCase();
+            switch (nodeName) {
+              case "img":
+                this.testLinkStutter(element);
+                this.testLongdesc(element);
+                break;
+            }
+        }
+    },
+    /**
+     * Driver function for the null alt text tests.
+     *
+     * This takes the generic result given by the alt text testing functions,
+     * and converts them into WCAG 2.0-specific messages.
+     *
+     * @param {DOMNode} element The element to test.
+     */
+    addNullAltTextResults: function(top) {
+        var errors = this.testNullAltText(top);
+        for (var i = 0; i < errors.img.emptyAltInLink.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.emptyAltInLink[i], _global.HTMLCS.getTranslation("1_1_1_H30.2"), "H30.2");
+        }
+        for (var i = 0; i < errors.img.nullAltWithTitle.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.nullAltWithTitle[i], _global.HTMLCS.getTranslation("1_1_1_H67.1"), "H67.1");
+        }
+        for (var i = 0; i < errors.img.ignored.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.img.ignored[i], _global.HTMLCS.getTranslation("1_1_1_H67.2"), "H67.2");
+        }
+        for (var i = 0; i < errors.img.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.img.missingAlt[i], _global.HTMLCS.getTranslation("1_1_1_H37"), "H37");
+        }
+        for (var i = 0; i < errors.img.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.img.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_G94.Image"), "G94.Image");
+        }
+        for (var i = 0; i < errors.inputImage.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.inputImage.missingAlt[i], _global.HTMLCS.getTranslation("1_1_1_H36"), "H36");
+        }
+        for (var i = 0; i < errors.inputImage.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.inputImage.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_G94.Button"), "G94.Button");
+        }
+        for (var i = 0; i < errors.area.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.area.missingAlt[i], _global.HTMLCS.getTranslation("1_1_1_H24"), "H24");
+        }
+        for (var i = 0; i < errors.area.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.area.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_H24.2"), "H24.2");
+        }
+    },
+    /**
+     * Test for missing or null alt text in certain elements.
+     *
+     * Tested elements are:
+     * - IMG elements
+     * - INPUT elements with type="image" (ie. image submit buttons).
+     * - AREA elements (ie. in client-side image maps).
+     *
+     * @param {DOMNode} element The element to test.
+     *
+     * @returns {Object} A structured list of errors.
+     */
+    testNullAltText: function(top) {
+        var errors = {
+            img: {
+                generalAlt: [],
+                missingAlt: [],
+                ignored: [],
+                nullAltWithTitle: [],
+                emptyAltInLink: []
+            },
+            inputImage: {
+                generalAlt: [],
+                missingAlt: []
+            },
+            area: {
+                generalAlt: [],
+                missingAlt: []
+            }
+        };
+        elements = HTMLCS.util.getAllElements(top, 'img, area, input[type="image"]');
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nodeName = element.nodeName.toLowerCase();
+            var linkOnlyChild = false;
+            var missingAlt = false;
+            var nullAlt = false;
+            if (element.parentNode.nodeName.toLowerCase() === "a") {
+                var prevNode = HTMLCS.util.getPreviousSiblingElement(element, null);
+                var nextNode = HTMLCS.util.getNextSiblingElement(element, null);
+                if (prevNode === null && nextNode === null) {
+                    var textContent = element.parentNode.textContent;
+                    if (element.parentNode.textContent !== undefined) {
+                        var textContent = element.parentNode.textContent;
+                    } else {
+                        // Keep IE8 happy.
+                        var textContent = element.parentNode.innerText;
+                    }
+                    if (HTMLCS.util.isStringEmpty(textContent) === true) {
+                        linkOnlyChild = true;
+                    }
+                }
+            }
+            //end if
+            if (element.hasAttribute("alt") === false) {
+                missingAlt = true;
+            } else if (!element.getAttribute("alt") || HTMLCS.util.isStringEmpty(element.getAttribute("alt")) === true) {
+                nullAlt = true;
+            }
+            // Now determine which test(s) should fire.
+            switch (nodeName) {
+              case "img":
+                if (linkOnlyChild === true && (missingAlt === true || nullAlt === true)) {
+                    // Img tags cannot have an empty alt text if it is the
+                    // only content in a link (as the link would not have a text
+                    // alternative).
+                    errors.img.emptyAltInLink.push(element.parentNode);
+                } else if (missingAlt === true) {
+                    errors.img.missingAlt.push(element);
+                } else if (nullAlt === true) {
+                    var height = element.height;
+                    var width = element.width;
+                    var computedHeight = parseFloat(window.getComputedStyle(element, null).getPropertyValue("height"));
+                    var computedWidth = parseFloat(window.getComputedStyle(element, null).getPropertyValue("width"));
+                    if (!height && computedHeight) {
+                        height = computedHeight;
+                    }
+                    if (!width && computedWidth) {
+                        width = computedWidth;
+                    }
+                    if (element.hasAttribute("title") === true && HTMLCS.util.isStringEmpty(element.getAttribute("title")) === false) {
+                        // Title attribute present and not empty. This is wrong when
+                        // an image is marked as ignored.
+                        errors.img.nullAltWithTitle.push(element);
+                    } else if (height > 1 || width > 1) {
+                        // Do the > 1 checks as if we have any 0x0 or 1x1 pixel images, let's ignore them.
+                        // 99.9% of the time they're just tracking pixels.
+                        errors.img.ignored.push(element);
+                    }
+                } else {
+                    errors.img.generalAlt.push(element);
+                }
+                break;
+
+              case "input":
+                // Image submit buttons.
+                if (missingAlt === true || nullAlt === true) {
+                    errors.inputImage.missingAlt.push(element);
+                } else {
+                    errors.inputImage.generalAlt.push(element);
+                }
+                break;
+
+              case "area":
+                // Area tags in a client-side image map.
+                if (missingAlt === true || nullAlt === true) {
+                    errors.area.missingAlt.push(element);
+                } else {
+                    errors.inputImage.generalAlt.push(element);
+                }
+                break;
+
+              default:
+                // No other tags defined.
+                break;
+            }
+        }
+        //end for
+        return errors;
+    },
+    /**
+     * Test for longdesc attributes on images (technique H45).
+     *
+     * We throw a notice to ensure that a longdesc is available in an accessible
+     * way - ie. using body text or a link. Longdesc is specifically ignored as it
+     * is not accessible to sighted users.
+     *
+     * @param {DOMNode} element The element to test.
+     *
+     * @returns void
+     */
+    testLongdesc: function(element) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_1_1_G73,G74"), "G73,G74");
+    },
+    /**
+     * Test for link stutter with adjacent images and text (technique H2).
+     *
+     * Only runs on IMG elements contained inside an anchor (A) element. We test that
+     * its alt text does not duplicate the text content of a link directly beside it.
+     * We also test that the technique hasn't been applied incorrectly (Failure
+     * Examples 4 and 5 in technique H2).
+     *
+     * Error messages are given codes in the form "H2.EG5", meaning it is a case of
+     * the applicable failure example (3, 4, or 5).
+     *
+     * @param {DOMNode} element The image element to test.
+     */
+    testLinkStutter: function(element) {
+        if (element.parentNode.nodeName.toLowerCase() === "a") {
+            var anchor = element.parentNode;
+            // If contained by an "a" link, check that the alt text does not duplicate
+            // the link text, or if no link text, check an adjacent link does not
+            // duplicate it.
+            var nodes = {
+                anchor: {
+                    href: anchor.getAttribute("href"),
+                    text: HTMLCS.util.getElementTextContent(anchor, false),
+                    alt: this._getLinkAltText(anchor)
+                }
+            };
+            if (nodes.anchor.alt === null) {
+                nodes.anchor.alt = "";
+            }
+            if (nodes.anchor.alt !== null && nodes.anchor.alt !== "") {
+                if (HTMLCS.util.trim(nodes.anchor.alt).toLowerCase() === HTMLCS.util.trim(nodes.anchor.text).toLowerCase()) {
+                    // H2 "Failure Example 5": they're in one link, but the alt text
+                    // duplicates the link text. Trimmed and lowercased because they
+                    // would sound the same to a screen reader.
+                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG5"), "H2.EG5");
+                }
+            }
+            // If there is no supplementary text, try to catch H2 "Failure Examples"
+            // in cases where there are adjacent links with the same href:
+            // 3 - img text that duplicates link text in an adjacent link. (Screen
+            //     readers will stutter.)
+            // 4 - img text is blank when another link adjacent contains link text.
+            //     (This leaves one link with no text at all - the two should be
+            //      combined into one link.)
+            if (nodes.anchor.text === "") {
+                var prevLink = HTMLCS.util.getPreviousSiblingElement(anchor, "a", true);
+                var nextLink = HTMLCS.util.getNextSiblingElement(anchor, "a", true);
+                if (prevLink !== null) {
+                    nodes.previous = {
+                        href: prevLink.getAttribute("href"),
+                        text: HTMLCS.util.getElementTextContent(prevLink, false),
+                        alt: this._getLinkAltText(prevLink)
+                    };
+                    if (nodes.previous.alt === null) {
+                        nodes.previous.alt = "";
+                    }
+                }
+                if (nextLink !== null) {
+                    nodes.next = {
+                        href: nextLink.getAttribute("href"),
+                        text: HTMLCS.util.getElementTextContent(nextLink, false),
+                        alt: this._getLinkAltText(nextLink)
+                    };
+                    if (nodes.next.alt === null) {
+                        nodes.next.alt = "";
+                    }
+                }
+                // Test against the following link, if any.
+                if (nodes.next && nodes.next.href !== "" && nodes.next.href !== null && nodes.anchor.href === nodes.next.href) {
+                    if (nodes.next.text !== "" && nodes.anchor.alt === "") {
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG4"), "H2.EG4");
+                    } else if (nodes.next.text.toLowerCase() === nodes.anchor.alt.toLowerCase()) {
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG3"), "H2.EG3");
+                    }
+                }
+                // Test against the preceding link, if any.
+                if (nodes.previous && nodes.previous.href !== "" && nodes.previous.href !== null && nodes.anchor.href === nodes.previous.href) {
+                    if (nodes.previous.text !== "" && nodes.anchor.alt === "") {
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG4"), "H2.EG4");
+                    } else if (nodes.previous.text.toLowerCase() === nodes.anchor.alt.toLowerCase()) {
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_1_1_H2.EG3"));
+                    }
+                }
+            }
+        }
+    },
+    /**
+     * Driver function for the media alternative (object/applet) tests.
+     *
+     * This takes the generic result given by the media alternative testing function,
+     * and converts them into WCAG 2.0-specific messages.
+     *
+     * @param {DOMNode} element The element to test.
+     */
+    addMediaAlternativesResults: function(top) {
+        var errors = this.testMediaTextAlternatives(top);
+        for (var i = 0; i < errors.object.missingBody.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.object.missingBody[i], _global.HTMLCS.getTranslation("1_1_1_H53,ARIA6"), "H53,ARIA6");
+        }
+        for (var i = 0; i < errors.object.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.object.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_G94,G92.Object,ARIA6"), "G94,G92.Object,ARIA6");
+        }
+        for (var i = 0; i < errors.applet.missingBody.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.applet.missingBody[i], _global.HTMLCS.getTranslation("1_1_1_H35.3"), "H35.3");
+        }
+        for (var i = 0; i < errors.applet.missingAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.applet.missingAlt[i], _global.HTMLCS.getTranslation("1_1_1_H35.2"), "H35.2");
+        }
+        for (var i = 0; i < errors.applet.generalAlt.length; i++) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, errors.applet.generalAlt[i], _global.HTMLCS.getTranslation("1_1_1_G94,G92.Applet"), "G94,G92.Applet");
+        }
+    },
+    testMediaTextAlternatives: function(top) {
+        var errors = {
+            object: {
+                missingBody: [],
+                generalAlt: []
+            },
+            applet: {
+                missingBody: [],
+                missingAlt: [],
+                generalAlt: []
+            }
+        };
+        var elements = HTMLCS.util.getAllElements(top, "object");
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nodeName = element.nodeName.toLowerCase();
+            var childObject = element.querySelector("object");
+            // If we have an object as our alternative, skip it. Pass the blame onto
+            // the child.
+            if (childObject === null) {
+                if (HTMLCS.util.isStringEmpty(HTMLCS.util.getElementTextContent(element, true)) === true) {
+                    if (HTMLCS.util.hasValidAriaLabel(element) === false) {
+                        errors.object.missingBody.push(element);
+                    }
+                } else {
+                    if (HTMLCS.util.hasValidAriaLabel(element) === false) {
+                        errors.object.generalAlt.push(element);
+                    }
+                }
+            }
+        }
+        //end if
+        var elements = HTMLCS.util.getAllElements(top, "applet");
+        for (var el = 0; el < elements.length; el++) {
+            // Test firstly for whether we have an object alternative.
+            var childObject = element.querySelector("object");
+            var hasError = false;
+            // If we have an object as our alternative, skip it. Pass the blame onto
+            // the child. (This is a special case: those that don't understand APPLET
+            // may understand OBJECT, but APPLET shouldn't be nested.)
+            if (childObject === null) {
+                var textAlt = HTMLCS.util.getElementTextContent(element, true);
+                if (HTMLCS.util.isStringEmpty(textAlt) === true) {
+                    errors.applet.missingBody.push(element);
+                    hasError = true;
+                }
+            }
+            //end if
+            var altAttr = element.getAttribute("alt") || "";
+            if (HTMLCS.util.isStringEmpty(altAttr) === true) {
+                errors.applet.missingAlt.push(element);
+                hasError = true;
+            }
+            // Catch anything with a valid aria label.
+            if (HTMLCS.util.hasValidAriaLabel(element) === true) {
+                hasError = false;
+            }
+            if (hasError === false) {
+                // No error? Remind of obligations about equivalence of alternatives.
+                errors.applet.generalAlt.push(element);
+            }
+        }
+        //end if
+        return errors;
+    },
+    /**
+     * Gets just the alt text from any images on a link.
+     *
+     * @param {DOMNode} anchor The link element being inspected.
+     *
+     * @returns {String} The alt text.
+     */
+    _getLinkAltText: function(anchor) {
+        var anchor = anchor.cloneNode(true);
+        var nodes = [];
+        for (var i = 0; i < anchor.childNodes.length; i++) {
+            nodes.push(anchor.childNodes[i]);
+        }
+        var alt = null;
+        while (nodes.length > 0) {
+            var node = nodes.shift();
+            // If it's an element, add any sub-nodes to the process list.
+            if (node.nodeType === 1) {
+                if (node.nodeName.toLowerCase() === "img") {
+                    if (node.hasAttribute("alt") === true) {
+                        alt = node.getAttribute("alt");
+                        if (!alt) {
+                            alt = "";
+                        } else {
+                            // Trim the alt text.
+                            alt = alt.replace(/^\s+|\s+$/g, "");
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+        return alt;
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "bgsound", "audio", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (nodeName !== "video") {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_1_G158"), "G158");
+        }
+        if (nodeName !== "bgsound" && nodeName !== "audio") {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_1_G159,G166"), "G159,G166");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_2_G87,G93"), "G87,G93");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_3_G69,G78,G173,G8"), "G69,G78,G173,G8");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_4_G9,G87,G93"), "G9,G87,G93");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_5_G78,G173,G8"), "G78,G173,G8");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_6 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_6_G54,G81"), "G54,G81");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_7 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Check for elements that could potentially contain video.
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_7_G8"), "G8");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_8 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_8_G69,G159"), "G69,G159");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_2_1_2_9 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "bgsound", "audio" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_2_9_G150,G151,G157"), "G150,G151,G157");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_A = {
+    _labelNames: null,
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var sniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
+        if (element === top) {
+            sniff.testHeadingOrder(top, HTMLCS.WARNING);
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1_AAA = {
+    _labelNames: null,
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var sniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
+        if (element === top) {
+            sniff.testHeadingOrder(top, HTMLCS.ERROR);
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
+    _labelNames: null,
+    register: function() {
+        return [ "_top", "p", "div", "input", "select", "textarea", "button", "table", "fieldset", "form", "h1", "h2", "h3", "h4", "h5", "h6" ];
+    },
+    /**
+	 * Process the registered element.
+	 *
+	 * @param {DOMNode} element The element registered.
+	 * @param {DOMNode} top     The top element of the tested code.
+	 */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (element === top) {
+            this.testPresentationMarkup(top);
+            this.testEmptyDupeLabelForAttrs(top);
+        } else {
+            switch (nodeName) {
+              case "input":
+              case "textarea":
+              case "button":
+                this.testLabelsOnInputs(element, top);
+                break;
+
+              case "form":
+                this.testRequiredFieldsets(element);
+                break;
+
+              case "select":
+                this.testLabelsOnInputs(element, top);
+                this.testOptgroup(element);
+                break;
+
+              case "p":
+              case "div":
+                this.testNonSemanticHeading(element);
+                this.testListsWithBreaks(element);
+                this.testUnstructuredNavLinks(element);
+                break;
+
+              case "table":
+                this.testGeneralTable(element);
+                this.testTableHeaders(element);
+                this.testTableCaptionSummary(element);
+                break;
+
+              case "fieldset":
+                this.testFieldsetLegend(element);
+                break;
+
+              case "h1":
+              case "h2":
+              case "h3":
+              case "h4":
+              case "h5":
+              case "h6":
+                this.testEmptyHeading(element);
+                break;
+            }
+        }
+    },
+    /**
+	 * Test elements for presentation roles that also contain semantic child elements.
+	 *
+	 * @param {DOMNode} element The element to test.
+	 */
+    testSemanticPresentationRole: function(element) {
+        if (HTMLCS.util.isAriaHidden(element) === false && element.hasAttribute("role") && element.getAttribute("role") === "presentation") {
+            var permitted = [ "div", "span", "b", "i" ];
+            var children = element.querySelectorAll("*:not(" + permitted.join("):not(") + ")");
+            children = [].filter.call(children, function(child) {
+                return child.hasAttribute("role") === false;
+            });
+            if (children.length) {
+                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_3_1_F92,ARIA4"), "F92,ARIA4");
+            }
+        }
+    },
+    /**
+	 * Top-level test for labels that have no for attribute, or duplicate ones.
+	 *
+	 * @param {DOMNode} top The top element of the tested code.
+	 */
+    testEmptyDupeLabelForAttrs: function(top) {
+        this._labelNames = {};
+        var labels = top.getElementsByTagName("label");
+        for (var i = 0; i < labels.length; i++) {
+            if (labels[i].getAttribute("for") !== null && labels[i].getAttribute("for") !== "") {
+                var labelFor = labels[i].getAttribute("for");
+                if (this._labelNames[labelFor] && this._labelNames[labelFor] !== null) {
+                    this._labelNames[labelFor] = null;
+                } else {
+                    this._labelNames[labelFor] = labels[i];
+                    if (top.ownerDocument) {
+                        var refNode = top.ownerDocument.getElementById(labelFor);
+                    } else {
+                        var refNode = top.getElementById(labelFor);
+                    }
+                    if (refNode === null) {
+                        var level = HTMLCS.ERROR;
+                        var msg = _global.HTMLCS.getTranslation("1_3_1_H44.NonExistent");
+                        var code = "H44.NonExistent";
+                        if (HTMLCS.isFullDoc(top) === true || top.nodeName.toLowerCase() === "body") {
+                            level = HTMLCS.WARNING;
+                            msg = _global.HTMLCS.getTranslation("1_3_1_H44.NonExistentFragment");
+                            var code = "H44.NonExistentFragment";
+                        }
+                        HTMLCS.addMessage(level, labels[i], msg, code);
+                    } else {
+                        var nodeName = refNode.nodeName.toLowerCase();
+                        if ("input|select|textarea|button|keygen|meter|output|progress".indexOf(nodeName) === -1) {
+                            HTMLCS.addMessage(HTMLCS.WARNING, labels[i], _global.HTMLCS.getTranslation("1_3_1_H44.NotFormControl"), "H44.NotFormControl");
+                        }
+                    }
+                }
+            }
+        }
+    },
+    /**
+	 * Test for appropriate labels on inputs.
+	 *
+	 * The appropriate WCAG2 techniques test is failure F68.
+	 * This test uses the September 2014 version of the technique:
+	 * http://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140916/F68
+	 *
+	 * For all input elements of type "radio", "checkbox", "text", "file" or "password",
+	 * and all textarea and select elements in the Web page:
+	 *
+	 * 1. Check that the visual design uses a text label that identifies the purpose of the control
+	 * 2. Check that these input elements have a programmatically determined label associated in one
+	 *    of the following ways:
+	 *    (a) the text label is contained in a label element that is correctly associated to the
+	 *        respective input element via the label's for attribute (the id given as value in the
+	 *        for attribute matches the id of the input element).
+	 *    (b) the control is contained within a label element that contains the label text.
+	 *    (c) the text label is correctly programmatically associated with the input element via the
+	 *        aria-labelledby attribute (the id given as value in the aria-labelledby attribute
+	 *        matches the id of the input element).
+	 *    (d) the [label] is programmatically determined through the value of either its
+	 *        aria-label or title attributes.
+	 *
+	 * This changed in March 2014. Before then, only 2(a) was permitted or 2(d) (title attribute only).
+	 * Notably, labels made through wrapping an element in a label attribute were not permitted.
+	 *
+	 * Associated techniques: H44 (LABEL element), H65 (title attribute),
+	 * ARIA6/ARIA14 (aria-label), ARIA9/ARIA16 (aria-labelledby).
+	 *
+	 * @param {DOMNode} element The element registered.
+	 * @param {DOMNode} top     The top element of the tested code.
+	 */
+    testLabelsOnInputs: function(element, top, muteErrors) {
+        var nodeName = element.nodeName.toLowerCase();
+        var inputType = nodeName;
+        if (inputType === "input") {
+            if (element.hasAttribute("type") === true) {
+                inputType = element.getAttribute("type");
+            } else {
+                inputType = "text";
+            }
+        }
+        var hasLabel = false;
+        var addToLabelList = function(found) {
+            if (!hasLabel) hasLabel = {};
+            hasLabel[found] = true;
+        };
+        // Firstly, work out whether it needs a label.
+        var needsLabel = false;
+        var labelPos = "left";
+        var inputType = inputType.toLowerCase();
+        if (inputType === "select" || inputType === "textarea") {
+            needsLabel = true;
+        } else if (/^(radio|checkbox|text|file|password)$/.test(inputType) === true) {
+            needsLabel = true;
+        }
+        if (element.getAttribute("hidden") !== null) {
+            needsLabel = false;
+        }
+        // Find an explicit label.
+        var explicitLabel = element.ownerDocument.querySelector('label[for="' + element.id + '"]');
+        if (explicitLabel) {
+            addToLabelList("explicit");
+        }
+        // Find an implicit label.
+        var foundImplicit = false;
+        if (element.parentNode) {
+            HTMLCS.util.eachParentNode(element, function(parent) {
+                if (parent.nodeName.toLowerCase() === "label") {
+                    foundImplicit = true;
+                }
+            });
+        }
+        if (foundImplicit === true) {
+            addToLabelList("implicit");
+        }
+        // Find a title attribute.
+        var title = element.getAttribute("title");
+        if (title !== null) {
+            if (/^\s*$/.test(title) === true && needsLabel === true) {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H65"), "H65");
+            } else {
+                addToLabelList("title");
+            }
+        }
+        // Find an aria-label attribute.
+        if (element.hasAttribute("aria-label") === true) {
+            if (HTMLCS.util.hasValidAriaLabel(element) === false) {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_ARIA6"), "ARIA6");
+            } else {
+                addToLabelList("aria-label");
+            }
+        }
+        // Find an aria-labelledby attribute.
+        if (element.hasAttribute("aria-labelledby") === true) {
+            if (HTMLCS.util.hasValidAriaLabel(element) === false) {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_ARIA16,ARIA9").replace(/\{\{id\}\}/g, element.getAttribute("aria-labelledby")), "ARIA16,ARIA9");
+            } else {
+                addToLabelList("aria-labelledby");
+            }
+        }
+        if (!(muteErrors === true)) {
+            if (hasLabel !== false && needsLabel === false) {
+                // Note that it is okay for buttons to have aria-labelledby or
+                // aria-label, or title. The former two override the button text,
+                // while title is a lower priority than either: the button text,
+                // and in submit/reset cases, the localised name for the words
+                // "Submit" and "Reset".
+                // http://www.w3.org/TR/html-aapi/#accessible-name-and-description-calculation
+                if (inputType === "hidden") {
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_F68.Hidden"), "F68.Hidden");
+                } else if (element.getAttribute("hidden") !== null) {
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_F68.HiddenAttr"), "F68.HiddenAttr");
+                }
+            } else if (hasLabel === false && needsLabel === true) {
+                // Needs label.
+                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_3_1_F68"), "F68");
+            }
+        }
+        return hasLabel;
+    },
+    /**
+	 * Test for the use of presentational elements (technique H49).
+	 *
+	 * In HTML4, certain elements are considered presentational code. In HTML5, they
+	 * are redefined (based on "they are being used, so they shouldn't be
+	 * deprecated") so they can be considered "somewhat" semantic. They should still
+	 * be considered a last resort.
+	 *
+	 * @param [DOMNode] top The top element of the tested code.
+	 */
+    testPresentationMarkup: function(top) {
+        // In HTML4, the following were marked as presentational:
+        // b, i, u, s, strike, tt, big, small, center, font
+        // In HTML5, the following were repurposed as pseudo-semantic:
+        // b, i, u, s, small
+        var _doc = HTMLCS.util.getElementWindow(top).document;
+        var doctype = HTMLCS.util.getDocumentType(_doc);
+        if (doctype && (doctype === "html5" || doctype === "xhtml5")) {
+            var tags = HTMLCS.util.getAllElements(top, "strike, tt, big, center, font");
+            for (var i = 0; i < tags.length; i++) {
+                var msgCode = "H49." + tags[i].nodeName.substr(0, 1).toUpperCase() + tags[i].nodeName.substr(1).toLowerCase();
+                HTMLCS.addMessage(HTMLCS.ERROR, tags[i], _global.HTMLCS.getTranslation("1_3_1_H49."), msgCode);
+            }
+            // Align attributes, too.
+            var tags = HTMLCS.util.getAllElements(top, "*[align]");
+            for (var i = 0; i < tags.length; i++) {
+                var msgCode = "H49.AlignAttr";
+                HTMLCS.addMessage(HTMLCS.ERROR, tags[i], "Align attributes .", msgCode);
+            }
+        } else {
+            var tags = HTMLCS.util.getAllElements(top, "b, i, u, s, strike, tt, big, small, center, font");
+            for (var i = 0; i < tags.length; i++) {
+                var msgCode = "H49." + tags[i].nodeName.substr(0, 1).toUpperCase() + tags[i].nodeName.substr(1).toLowerCase();
+                HTMLCS.addMessage(HTMLCS.WARNING, tags[i], _global.HTMLCS.getTranslation("1_3_1_H49.Semantic"), msgCode);
+            }
+            // Align attributes, too.
+            var tags = HTMLCS.util.getAllElements(top, "*[align]");
+            for (var i = 0; i < tags.length; i++) {
+                var msgCode = "H49.AlignAttr";
+                HTMLCS.addMessage(HTMLCS.WARNING, tags[i], _global.HTMLCS.getTranslation("1_3_1_H49.AlignAttr.Semantic"), msgCode);
+            }
+        }
+    },
+    /**
+	 * Test for the possible use of non-semantic headings (technique H42).
+	 *
+	 * Test for P|DIV > STRONG|EM|other inline styling, when said inline
+	 * styling tag is the only element in the tag. It could possibly be a header
+	 * that should be using h1..h6 tags instead.
+	 *
+	 * @param [DOMNode] element The paragraph or DIV element to test.
+	 */
+    testNonSemanticHeading: function(element) {
+        // Test for P|DIV > STRONG|EM|other inline styling, when said inline
+        // styling tag is the only element in the tag. It could possibly a header
+        // that should be using h1..h6 tags instead.
+        var tag = element.nodeName.toLowerCase();
+        if (tag === "p" || tag === "div") {
+            var children = element.childNodes;
+            if (children.length === 1 && children[0].nodeType === 1) {
+                var childTag = children[0].nodeName.toLowerCase();
+                if (/^(strong|em|b|i|u)$/.test(childTag) === true) {
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H42"), "H42");
+                }
+            }
+        }
+    },
+    /**
+	 * Test for the correct association of table data cells with their headers.
+	 *
+	 * This is actually a two-part test, using either the scope attribute (H63) or
+	 * the headers attribute (H43). Which one(s) are required or appropriate
+	 * depend on the types of headings available:
+	 * - If only one row or one column header, no association is required.
+	 * - If one row AND one column headers, scope or headers is suitable.
+	 * - If multi-level headers of any type, use of headers (only) is required.
+	 *
+	 * This test takes the results of two tests - one of headers and one of scope -
+	 * and works out which error messages should apply given the above type of table.
+	 *
+	 * Invalid or incorrect usage of scope or headers are always reported when used,
+	 * and cases where scope/headers are used on some of the table but not all is
+	 * also thrown.
+	 *
+	 * @param {DOMNode} table The table element to evaluate.
+	 *
+	 * @return void
+	 */
+    testTableHeaders: function(table) {
+        var headersAttr = HTMLCS.util.testTableHeaders(table);
+        var scopeAttr = this._testTableScopeAttrs(table);
+        // Invalid scope attribute - emit always if scope tested.
+        for (var i = 0; i < scopeAttr.invalid.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, scopeAttr.invalid[i], _global.HTMLCS.getTranslation("1_3_1_H63.3"), "H63.3");
+        }
+        // TDs with scope attributes are obsolete in HTML5 - emit warnings if
+        // scope tested, but not as errors as they are valid HTML4.
+        for (var i = 0; i < scopeAttr.obsoleteTd.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, scopeAttr.obsoleteTd[i], _global.HTMLCS.getTranslation("1_3_1_H63.2"), "H63.2");
+        }
+        if (headersAttr.allowScope === true) {
+            if (scopeAttr.missing.length === 0) {
+                // If all scope attributes are set, let them be used, even if the
+                // attributes are in error. If the scope attrs are fixed, the table
+                // will be legitimate.
+                headersAttr.required === false;
+            }
+        } else {
+            if (scopeAttr.used === true) {
+                HTMLCS.addMessage(HTMLCS.WARNING, table, _global.HTMLCS.getTranslation("1_3_1_H43.ScopeAmbiguous"), "H43.ScopeAmbiguous");
+                scopeAttr = null;
+            }
+        }
+        //end if
+        // Incorrect usage of headers - error; emit always.
+        for (var i = 0; i < headersAttr.wrongHeaders.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, headersAttr.wrongHeaders[i].element, _global.HTMLCS.getTranslation("1_3_1_H43.IncorrectAttr").replace(/\{\{expected\}\}/g, headersAttr.wrongHeaders[i].expected).replace(/\{\{actual\}\}/g, headersAttr.wrongHeaders[i].actual), "H43.IncorrectAttr");
+        }
+        // Errors where headers are compulsory.
+        if (headersAttr.required === true && headersAttr.allowScope === false) {
+            if (headersAttr.used === false) {
+                // Headers not used at all, and they are mandatory.
+                HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.HeadersRequired"), "H43.HeadersRequired");
+            } else {
+                // Missing TH IDs - error; emit at this stage only if headers are compulsory.
+                if (headersAttr.missingThId.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"), "H43.MissingHeaderIds");
+                }
+                // Missing TD headers attributes - error; emit at this stage only if headers are compulsory.
+                if (headersAttr.missingTd.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"), "H43.MissingHeadersAttrs");
+                }
+            }
+        }
+        //end if
+        // Errors where either is permitted, but neither are done properly (missing
+        // certain elements).
+        // If they've only done it one way, presume that that is the way they want
+        // to continue. Otherwise provide a generic message if none are done or
+        // both have been done incorrectly.
+        if (headersAttr.required === true && headersAttr.allowScope === true && headersAttr.correct === false && scopeAttr.correct === false) {
+            if (scopeAttr.used === false && headersAttr.used === false) {
+                // Nothing used at all.
+                HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43,H63"), "H43,H63");
+            } else if (scopeAttr.used === false && (headersAttr.missingThId.length > 0 || headersAttr.missingTd.length > 0)) {
+                // Headers attribute is used, but not all th elements have ids.
+                if (headersAttr.missingThId.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeaderIds"), "H43.MissingHeaderIds");
+                }
+                // Headers attribute is used, but not all td elements have headers attrs.
+                if (headersAttr.missingTd.length > 0) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43.MissingHeadersAttrs"), "H43.MissingHeadersAttrs");
+                }
+            } else if (scopeAttr.missing.length > 0 && headersAttr.used === false) {
+                // Scope is used rather than headers, but not all th elements have them.
+                HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H63.1"), "H63.1");
+            } else if (scopeAttr.missing.length > 0 && (headersAttr.missingThId.length > 0 || headersAttr.missingTd.length > 0)) {
+                // Both are used and both were done incorrectly. Provide generic message.
+                HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H43,H63"), "H43,H63");
+            }
+        }
+    },
+    /**
+	 * Test for the correct scope attributes on table cell elements.
+	 *
+	 * Return value contains the following elements:
+	 * - used (Boolean):       Whether scope has been used on at least one cell.
+	 * - correct (Boolean):    Whether scope has been correctly used (obsolete
+	 *                         elements do not invalidate this).
+	 * - missing (Array):      Array of th elements that have no scope attribute.
+	 * - invalid (Array):      Array of elements with incorrect scope attributes.
+	 * - obsoleteTd (Array):   Array of elements where we should throw a warning
+	 *                         about scope on td being obsolete in HTML5.
+	 *
+	 * @param {DOMNode} element Table element to test upon.
+	 *
+	 * @return {Object} The above return value structure.
+	 */
+    _testTableScopeAttrs: function(table) {
+        var elements = {
+            th: table.getElementsByTagName("th"),
+            td: table.getElementsByTagName("td")
+        };
+        // Types of errors:
+        // - missing:    Errors that a th does not contain a scope attribute.
+        // - invalid:    Errors that the scope attribute is not a valid value.
+        // - obsoleteTd: Warnings that scopes on tds are obsolete in HTML5.
+        var retval = {
+            used: false,
+            correct: true,
+            missing: [],
+            invalid: [],
+            obsoleteTd: []
+        };
+        for (var tagType in elements) {
+            for (var i = 0; i < elements[tagType].length; i++) {
+                var element = elements[tagType][i];
+                var scope = "";
+                if (element.hasAttribute("scope") === true) {
+                    retval.used = true;
+                    if (element.getAttribute("scope")) {
+                        scope = element.getAttribute("scope");
+                    }
+                }
+                if (element.nodeName.toLowerCase() === "th") {
+                    if (/^\s*$/.test(scope) === true) {
+                        // Scope empty or just whitespace.
+                        retval.correct = false;
+                        retval.missing.push(element);
+                    } else if (/^(row|col|rowgroup|colgroup)$/.test(scope) === false) {
+                        // Invalid scope value.
+                        retval.correct = false;
+                        retval.invalid.push(element);
+                    }
+                } else {
+                    if (scope !== "") {
+                        // Scope attribute found on TD element. This is obsolete in
+                        // HTML5. Does not make it incorrect.
+                        retval.obsoleteTd.push(element);
+                        // Test for an invalid scope value regardless.
+                        if (/^(row|col|rowgroup|colgroup)$/.test(scope) === false) {
+                            retval.correct = false;
+                            retval.invalid.push(element);
+                        }
+                    }
+                }
+            }
+        }
+        //end for
+        return retval;
+    },
+    /**
+	 * Test table captions and summaries (techniques H39, H73).
+	 *
+	 * @param {DOMNode} table Table element to test upon.
+	 */
+    testTableCaptionSummary: function(table) {
+        var summary = table.getAttribute("summary") || "";
+        var captionEl = table.getElementsByTagName("caption");
+        var caption = "";
+        if (captionEl.length > 0) {
+            caption = captionEl[0].innerHTML.replace(/^\s*(.*?)\s*$/g, "$1");
+        }
+        // In HTML5, Summary no longer exists, so only run this for older versions.
+        var doctype = HTMLCS.util.getDocumentType(table.ownerDocument);
+        if (doctype && doctype.indexOf("html5") === -1) {
+            summary = summary.replace(/^\s*(.*?)\s*$/g, "$1");
+            if (summary !== "") {
+                if (HTMLCS.util.isLayoutTable(table) === true) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H73.3.LayoutTable"), "H73.3.LayoutTable");
+                } else {
+                    if (caption === summary) {
+                        HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H39,H73.4"), "H39,H73.4");
+                    }
+                    HTMLCS.addMessage(HTMLCS.NOTICE, table, _global.HTMLCS.getTranslation("1_3_1_H73.3.Check"), "H73.3.Check");
+                }
+            } else {
+                if (HTMLCS.util.isLayoutTable(table) === false) {
+                    HTMLCS.addMessage(HTMLCS.WARNING, table, _global.HTMLCS.getTranslation("1_3_1_H73.3.NoSummary"), "H73.3.NoSummary");
+                }
+            }
+        }
+        //end if
+        if (caption !== "") {
+            if (HTMLCS.util.isLayoutTable(table) === true) {
+                HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H39.3.LayoutTable"), "H39.3.LayoutTable");
+            } else {
+                HTMLCS.addMessage(HTMLCS.NOTICE, table, _global.HTMLCS.getTranslation("1_3_1_H39.3.Check"), "H39.3.Check");
+            }
+        } else {
+            if (HTMLCS.util.isLayoutTable(table) === false) {
+                HTMLCS.addMessage(HTMLCS.WARNING, table, _global.HTMLCS.getTranslation("1_3_1_H39.3.NoCaption"), "H39.3.NoCaption");
+            }
+        }
+    },
+    /**
+	 * Test for fieldsets without legends (technique H71)
+	 *
+	 * @param {DOMNode} fieldset Fieldset element to test upon.
+	 */
+    testFieldsetLegend: function(fieldset) {
+        var legend = fieldset.querySelector("legend");
+        if (legend === null || legend.parentNode !== fieldset) {
+            HTMLCS.addMessage(HTMLCS.ERROR, fieldset, _global.HTMLCS.getTranslation("1_3_1_H71.NoLegend"), "H71.NoLegend");
+        }
+    },
+    /**
+	 * Test for select fields without optgroups (technique H85).
+	 *
+	 * It won't always be appropriate, so the error is emitted as a warning.
+	 *
+	 * @param {DOMNode} select Select element to test upon.
+	 */
+    testOptgroup: function(select) {
+        var optgroup = select.querySelector("optgroup");
+        if (optgroup === null) {
+            // Optgroup isn't being used.
+            HTMLCS.addMessage(HTMLCS.WARNING, select, _global.HTMLCS.getTranslation("1_3_1_H85.2"), "H85.2");
+        }
+    },
+    /**
+	 * Test for radio buttons and checkboxes with same name in a fieldset.
+	 *
+	 * One error will be fired at a form level, rather than firing one for each
+	 * violating group of inputs (as there could be many).
+	 *
+	 * @param {DOMNode} form The form to test.
+	 *
+	 * @returns void
+	 */
+    testRequiredFieldsets: function(form) {
+        var optionInputs = form.querySelectorAll("input[type=radio], input[type=checkbox]");
+        var usedNames = {};
+        for (var i = 0; i < optionInputs.length; i++) {
+            var option = optionInputs[i];
+            if (option.hasAttribute("name") === true) {
+                var optionName = option.getAttribute("name");
+                // Now find if we are in a fieldset. Stop at the top of the DOM, or
+                // at the form element.
+                var fieldset = option.parentNode;
+                while (fieldset.nodeName.toLowerCase() !== "fieldset" && fieldset !== null && fieldset !== form) {
+                    fieldset = fieldset.parentNode;
+                }
+                if (fieldset.nodeName.toLowerCase() !== "fieldset") {
+                    // Record that this name is used, but there is no fieldset.
+                    fieldset = null;
+                }
+            }
+            //end if
+            if (usedNames[optionName] === undefined) {
+                usedNames[optionName] = fieldset;
+            } else if (fieldset === null || fieldset !== usedNames[optionName]) {
+                // Multiple names detected = should be in a fieldset.
+                // Either first instance or this one wasn't in a fieldset, or they
+                // are in different fieldsets.
+                HTMLCS.addMessage(HTMLCS.WARNING, form, _global.HTMLCS.getTranslation("1_3_1_H71.SameName"), "H71.SameName");
+                break;
+            }
+        }
+    },
+    /**
+	 * Test for paragraphs that appear manually bulleted or numbered (technique H48).
+	 *
+	 * @param {DOMNode} element The element to test upon.
+	 */
+    testListsWithBreaks: function(element) {
+        var firstBreak = element.querySelector("br");
+        var items = [];
+        // If there is a br tag, go break up the element and see what each line
+        // starts with.
+        if (firstBreak !== null) {
+            var nodes = [];
+            // Convert child nodes NodeList into an array.
+            for (var i = 0; i < element.childNodes.length; i++) {
+                nodes.push(element.childNodes[i]);
+            }
+            var thisItem = [];
+            while (nodes.length > 0) {
+                var subel = nodes.shift();
+                if (subel.nodeType === 1) {
+                    // Element node.
+                    if (subel.nodeName.toLowerCase() === "br") {
+                        // Line break. Join and trim what we have now.
+                        items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
+                        thisItem = [];
+                    } else {
+                        // Shift the contents of the sub element in, but in reverse.
+                        for (var i = subel.childNodes.length - 1; i >= 0; --i) {
+                            nodes.unshift(subel.childNodes[i]);
+                        }
+                    }
+                } else if (subel.nodeType === 3) {
+                    // Text node.
+                    thisItem.push(subel.nodeValue);
+                }
+            }
+            //end while
+            if (thisItem.length > 0) {
+                items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
+            }
+            for (var i = 0; i < items.length; i++) {
+                if (/^[\-*]\s+/.test(items[0]) === true) {
+                    // Test for "- " or "* " cases.
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H48.1"), "H48.1");
+                    break;
+                }
+                if (/^\d+[:\/\-.]?\s+/.test(items[0]) === true) {
+                    // Test for "1 " cases (or "1. ", "1: ", "1- ").
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H48.2"), "H48.2");
+                    break;
+                }
+            }
+        }
+    },
+    testHeadingOrder: function(top, level) {
+        var lastHeading = 0;
+        var headings = HTMLCS.util.getAllElements(top, "h1, h2, h3, h4, h5, h6");
+        for (var i = 0; i < headings.length; i++) {
+            var headingNum = parseInt(headings[i].nodeName.substr(1, 1));
+            if (headingNum - lastHeading > 1) {
+                var exampleMsg = "should be an h" + (lastHeading + 1) + " to be properly nested";
+                if (lastHeading === 0) {
+                    // If last heading is empty, we are at document top and we are
+                    // expecting a H1, generally speaking.
+                    HTMLCS.addMessage(level, headings[i], _global.HTMLCS.getTranslation("1_3_1_G141_a").replace(/\{\{headingNum\}\}/g, headingNum), "G141");
+                }
+                HTMLCS.addMessage(level, headings[i], _global.HTMLCS.getTranslation("1_3_1_G141_b").replace(/\{\{headingNum\}\}/g, headingNum).replace(/\{\{properHeadingNum\}\}/g, lastHeading + 1), "G141");
+            }
+            lastHeading = headingNum;
+        }
+    },
+    /**
+	 * Test for headings with no text, which should either be filled, or tags removed.
+	 *
+	 * @param {DOMNode} element The element to test.
+	 *
+	 * @returns void
+	 */
+    testEmptyHeading: function(element) {
+        var text = HTMLCS.util.getElementTextContent(element, true);
+        if (/^\s*$/.test(text) === true) {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_3_1_H42.2"), "H42.2");
+        }
+    },
+    /**
+	 * Test for the presence of a list around common navigation links (H48).
+	 *
+	 * @param {DOMNode} element The element to test.
+	 *
+	 * @returns void
+	 */
+    testUnstructuredNavLinks: function(element) {
+        var nodeName = element.nodeName.toLowerCase();
+        var linksLength = 0;
+        var childNodes = element.childNodes;
+        for (var i = 0; i < childNodes.length; i++) {
+            if (childNodes[i].nodeType === 1 && childNodes[i].nodeName.toLowerCase() === "a") {
+                linksLength++;
+                if (linksLength > 1) {
+                    break;
+                }
+            }
+        }
+        //end for
+        if (linksLength > 1) {
+            // Going to throw a warning here, mainly because we cannot easily tell
+            // whether it is just a paragraph with multiple links, or a navigation
+            // structure.
+            var parent = element.parentNode;
+            while (parent !== null && parent.nodeName.toLowerCase() !== "ul" && parent.nodeName.toLowerCase() !== "ol") {
+                parent = parent.parentNode;
+            }
+            if (parent === null) {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_3_1_H48"), "H48");
+            }
+        }
+    },
+    /**
+	 * Provide generic messages for tables depending on what type of table they
+	 * are - layout or data.
+	 *
+	 * @param {DOMNode} table The table element to test.
+	 *
+	 * @returns void
+	 */
+    testGeneralTable: function(table) {
+        if (HTMLCS.util.isLayoutTable(table) === true) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, table, _global.HTMLCS.getTranslation("1_3_1_LayoutTable"), "LayoutTable");
+        } else {
+            HTMLCS.addMessage(HTMLCS.NOTICE, table, _global.HTMLCS.getTranslation("1_3_1_DataTable"), "DataTable");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_3_2_G57"), "G57");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_3_3_G96"), "G96");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_1_G14,G18"), "G14,G182");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "bgsound", "audio", "video" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_2_F23"), "F23");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Australia Pty Ltd ABN 53 131 581 247                         |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
+    testContrastRatio: function(top, minContrast, minLargeContrast) {
+        var startDate = new Date();
+        var count = 0;
+        var xcount = 0;
+        var failures = [];
+        if (!top.ownerDocument) {
+            var toProcess = [ top.getElementsByTagName("body")[0] ];
+        } else {
+            var toProcess = [ top ];
+        }
+        while (toProcess.length > 0) {
+            var node = toProcess.shift();
+            // This is an element.
+            // Note we check for elements that are not _explicitly_ hidden, see isVisuallyHidden()
+            if (node && node.nodeType === 1 && HTMLCS.util.isVisuallyHidden(node) === false && HTMLCS.util.isHiddenText(node) === false && HTMLCS.util.isDisabled(node) === false) {
+                var processNode = false;
+                for (var i = 0; i < node.childNodes.length; i++) {
+                    // Load up new nodes, but also only process this node when
+                    // there are direct text elements.
+                    if (node.childNodes[i].nodeType === 1) {
+                        toProcess.push(node.childNodes[i]);
+                    } else if (node.childNodes[i].nodeType === 3) {
+                        if (HTMLCS.util.trim(node.childNodes[i].nodeValue) !== "") {
+                            processNode = true;
+                        }
+                    }
+                }
+                if (processNode === true) {
+                    var style = HTMLCS.util.style(node);
+                    if (style) {
+                        var bgColour = style.backgroundColor;
+                        var bgImg = "";
+                        var bgRepeat = "";
+                        var bgSize = "";
+                        var bgPosition = "";
+                        var foreColour = style.color;
+                        var bgElement = node;
+                        var hasBgImg = false;
+                        var backgrounds = [];
+                        // For compatibility with CS, we retain their name for this variable, but
+                        // it now extends beyond just "absolute" to mean "is positioned outside of parent".
+                        // Essentially it means we can't reliably know our background colour.
+                        var isAbsolute = false;
+                        if (style.backgroundImage !== "none" && style.backgroundImage.startsWith("url")) {
+                            hasBgImg = true;
+                        }
+                        if (style.position === "absolute") {
+                            isAbsolute = true;
+                        }
+                        // Calculate font size. Note that CSS 2.1 fixes a reference pixel
+                        // as 96 dpi (hence "pixel ratio" workarounds for Hi-DPI devices)
+                        // so this calculation should be safe.
+                        var fontSize = parseFloat(style.fontSize, 10) * (72 / 96);
+                        var fontSizePixels = parseInt(style.fontSize);
+                        var fontWeight = parseInt(style.fontWeight);
+                        var minLargeSize = 18;
+                        // Exclude text with no font size, this is a common screen reader hack.
+                        if (!fontSizePixels) {
+                            continue;
+                        }
+                        if (style.fontWeight === "bold" || parseInt(style.fontWeight, 10) >= 600) {
+                            minLargeSize = 14;
+                        }
+                        var reqRatio = fontSize >= minLargeSize ? minLargeContrast : minContrast;
+                        var currentNode = node;
+                        var currentStyle = style;
+                        // Calculate our background colour(s) and image(s)
+                        while (true) {
+                            bgColour = currentStyle.backgroundColor;
+                            if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
+                                bgColour = null;
+                            }
+                            var currentBgImg = currentStyle.backgroundImage ? this.getUrlFromStyle(currentStyle.backgroundImage) : "";
+                            if (currentBgImg) {
+                                hasBgImg = true;
+                                bgImg = currentBgImg;
+                                bgRepeat = currentStyle.backgroundRepeat;
+                                bgSize = currentStyle.backgroundSize;
+                                bgPosition = currentStyle.backgroundPosition;
+                                backgrounds.push({
+                                    tagName: currentNode.tagName,
+                                    bgImg: bgImg,
+                                    bgRepeat: bgRepeat,
+                                    bgSize: bgSize,
+                                    bgPosition: bgPosition,
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
+                                });
+                            } else if (bgColour) {
+                                backgrounds.push({
+                                    tagName: currentNode.tagName,
+                                    bgColor: bgColour,
+                                    isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
+                                });
+                                // Exit if the background is not even slightly transparent
+                                if (!HTMLCS.util.isColorTransparent(bgColour)) {
+                                    break;
+                                }
+                            }
+                            if (HTMLCS.util.isPositionedOutsideParent(currentStyle)) {
+                                isAbsolute = true;
+                            }
+                            // Up one node, if we can
+                            currentNode = currentNode.parentNode;
+                            if (!currentNode || !currentNode.ownerDocument) {
+                                break;
+                            }
+                            currentStyle = HTMLCS.util.style(currentNode);
+                        }
+                        // Calculate the combined background colour from all of our
+                        // relevant parents, by considering their alpha
+                        bgColour = null;
+                        for (var b = 0; b < backgrounds.length; b++) {
+                            var thisBgColour = backgrounds[b].bgColor;
+                            if (thisBgColour) {
+                                if (!bgColour) {
+                                    bgColour = thisBgColour;
+                                } else {
+                                    bgColour = HTMLCS.util.combineColors(bgColour, thisBgColour);
+                                }
+                            }
+                        }
+                        if (hasBgImg === true) {
+                            // If we have a background image, skip the contrast ratio checks,
+                            // and push a warning instead.
+                            failures.push({
+                                element: node,
+                                colour: foreColour,
+                                bgColour: bgColour,
+                                backgrounds: backgrounds,
+                                value: undefined,
+                                required: reqRatio,
+                                hasBgImage: true,
+                                bgImg: bgImg,
+                                bgRepeat: bgRepeat,
+                                bgSize: bgSize,
+                                bgPosition: bgPosition,
+                                fontSize: fontSize,
+                                fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
+                                minLargeSize: minLargeSize
+                            });
+                            continue;
+                        } else if (isAbsolute === true) {
+                            failures.push({
+                                element: node,
+                                colour: foreColour,
+                                bgColour: bgColour,
+                                backgrounds: backgrounds,
+                                value: undefined,
+                                required: reqRatio,
+                                isAbsolute: true,
+                                fontSize: fontSize,
+                                fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
+                                minLargeSize: minLargeSize
+                            });
+                            continue;
+                        } else if (!bgColour || bgColour === "transparent" || bgColour === "rgba(0, 0, 0, 0)") {
+                            // If the background colour is still transparent, this is probably
+                            // a fragment with which we cannot reliably make a statement about
+                            // contrast ratio. Skip the element.
+                            continue;
+                        }
+                        var contrastRatio = HTMLCS.util.contrastRatio(bgColour, style.color);
+                        if (contrastRatio < reqRatio) {
+                            var recommendation = this.recommendColour(bgColour, style.color, reqRatio);
+                            failures.push({
+                                element: node,
+                                colour: style.color,
+                                bgColour: bgColour,
+                                backgrounds: backgrounds,
+                                fontSize: fontSize,
+                                bgPosition: bgPosition,
+                                fontSizePixels: fontSizePixels,
+                                fontWeight: fontWeight,
+                                minLargeSize: minLargeSize,
+                                value: contrastRatio,
+                                required: reqRatio,
+                                recommendation: recommendation
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        //end while
+        return failures;
+    },
+    /**
+     * Parse a string of format: url("foo") or similar
+     *
+     * @param style
+     * @returns {*|string}
+     */
+    getUrlFromStyle: function(style) {
+        if (style === "none") {
+            return "";
+        }
+        // Data URLs could be ridiculous, ignore them
+        if (style.match(/^data:/i)) {
+            return "";
+        }
+        // In format "url(...)"
+        var matches = style.match(/url\(["']?([^"']*)["']?\)/);
+        if (matches instanceof Array && matches.length > 0) {
+            return matches[1];
+        }
+        // Otherwise we could be a string like "linear-gradient(rgb(230, 100, 101), rgb(145, 152, 229))".
+        // Return this so we can parse it.
+        return style;
+    },
+    recommendColour: function(back, fore, target) {
+        // Canonicalise the colours.
+        var fore = HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(fore));
+        var back = HTMLCS.util.RGBtoColourStr(HTMLCS.util.colourStrToRGB(back));
+        var cr = HTMLCS.util.contrastRatio(fore, back);
+        var foreDiff = Math.abs(HTMLCS.util.relativeLum(fore) - .5);
+        var backDiff = Math.abs(HTMLCS.util.relativeLum(back) - .5);
+        var recommendation = null;
+        if (cr < target) {
+            // Work out which colour has more room to move.
+            // If they are the same, prefer changing the foreground colour.
+            var multiplier = 1 + 1 / 400;
+            if (foreDiff <= backDiff) {
+                var change = "back";
+                var newCol = back;
+                if (HTMLCS.util.relativeLum(back) < .5) {
+                    var multiplier = 1 / multiplier;
+                }
+            } else {
+                var change = "fore";
+                var newCol = fore;
+                if (HTMLCS.util.relativeLum(fore) < .5) {
+                    var multiplier = 1 / multiplier;
+                }
+            }
+            var hsv = HTMLCS.util.sRGBtoHSV(newCol);
+            var chroma = hsv.saturation * hsv.value;
+            var newFore = fore;
+            var newBack = back;
+            var changed = false;
+            var i = 0;
+            while (cr < target) {
+                if (newCol === "#fff" || newCol === "#000") {
+                    // Couldn't go far enough. Reset and try the other colour.
+                    if (changed === true) {
+                        // We've already switched colours, so we have to start
+                        // winding back the other colour.
+                        if (change === "fore") {
+                            var oldBack = newBack;
+                            var j = 1;
+                            while (newBack === oldBack) {
+                                var newBack = this.multiplyColour(newBack, Math.pow(1 / multiplier, j));
+                                j++;
+                            }
+                        } else {
+                            var oldFore = newFore;
+                            var j = 1;
+                            while (newFore === oldFore) {
+                                var newFore = this.multiplyColour(newFore, Math.pow(1 / multiplier, j));
+                                j++;
+                            }
+                        }
+                    } else {
+                        newFore = fore;
+                        newBack = back;
+                        multiplier = 1 / multiplier;
+                        if (change === "fore") {
+                            change = "back";
+                            var hsv = back;
+                        } else {
+                            change = "fore";
+                            var hsv = fore;
+                        }
+                        hsv = HTMLCS.util.sRGBtoHSV(hsv);
+                        chroma = hsv.saturation * hsv.value;
+                        changed = true;
+                    }
+                }
+                i++;
+                var newCol = HTMLCS.util.HSVtosRGB(hsv);
+                var newCol = this.multiplyColour(newCol, Math.pow(multiplier, i));
+                if (change === "fore") {
+                    var newFore = newCol;
+                } else {
+                    var newBack = newCol;
+                }
+                var cr = HTMLCS.util.contrastRatio(newFore, newBack);
+            }
+            //end while
+            recommendation = {
+                fore: {
+                    from: fore,
+                    to: newFore
+                },
+                back: {
+                    from: back,
+                    to: newBack
+                }
+            };
+        }
+        //end if
+        return recommendation;
+    },
+    multiplyColour: function(colour, multiplier) {
+        var hsvColour = HTMLCS.util.sRGBtoHSV(colour);
+        var chroma = hsvColour.saturation * hsvColour.value;
+        // If we are starting from black, start it from #010101 instead.
+        if (hsvColour.value === 0) {
+            hsvColour.value = 1 / 255;
+        }
+        hsvColour.value = hsvColour.value * multiplier;
+        if (hsvColour.value === 0) {
+            hsvColour.saturation = 0;
+        } else {
+            hsvColour.saturation = chroma / hsvColour.value;
+        }
+        hsvColour.value = Math.min(1, hsvColour.value);
+        hsvColour.saturation = Math.min(1, hsvColour.saturation);
+        var newColour = HTMLCS.util.RGBtoColourStr(HTMLCS.util.HSVtosRGB(hsvColour));
+        return newColour;
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_F24 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Test for background/foreground stuff.
+        var elements = HTMLCS.util.getAllElements(top, "*");
+        for (var i = 0; i < elements.length; i++) {
+            this.testColourComboFail(elements[i]);
+        }
+    },
+    /**
+     * Tests for setting foreground without background, or vice versa (failure F24).
+     *
+     * It is a failure for a background colour to be set without a foreground colour,
+     * or vice versa. A user agent style sheet could try and set both, and because
+     * one is overridden, the result could be unreadable.
+     *
+     * This is being thrown as a warning, not an error. The failure allows the FG
+     * and BG colours to be set further up the chain, as long as the content has both
+     * foreground and background colours set by  the time.
+
+     * Further, we can only test inline styles (either through attributes, CSS, or
+     * JavaScript setting through eg. jQuery) because computed styles cause issues.
+     * For instance, if no user style sheet is set, the default stylesheet (in
+     * Firefox) at least is "transparent background/black text", and this would show
+     * up in the computed style (and fail, since transparent is "not set"). The F24
+     * description (by my reading) allows the colours to be set further up the chain,
+     * as long as the content has -a- BG and -a- FG colour.
+     *
+     * @param Node element The element to test.
+     */
+    testColourComboFail: function(element) {
+        var hasFg = element.hasAttribute("color");
+        hasFg = hasFg || element.hasAttribute("link");
+        hasFg = hasFg || element.hasAttribute("vlink");
+        hasFg = hasFg || element.hasAttribute("alink");
+        var hasBg = element.hasAttribute("bgcolor");
+        if (element.style) {
+            var fgStyle = element.style.color;
+            var bgStyle = element.style.background;
+            if (fgStyle !== "" && fgStyle !== "auto") {
+                hasFg = true;
+            }
+            if (bgStyle !== "" && bgStyle !== "auto") {
+                hasBg = true;
+            }
+        }
+        //end if
+        if (hasBg !== hasFg) {
+            if (hasBg === true) {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_F24.BGColour"), "F24.BGColour");
+            } else {
+                HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_F24.FGColour"), "F24.FGColour");
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            var failures = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(top, 4.5, 3);
+            for (var i = 0; i < failures.length; i++) {
+                var element = failures[i].element;
+                var decimals = 2;
+                var value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+                var required = failures[i].required;
+                var recommend = failures[i].recommendation;
+                var hasBgImg = failures[i].hasBgImage || false;
+                var bgRepeat = failures[i].bgRepeat;
+                var bgSize = failures[i].bgSize;
+                var bgPosition = failures[i].bgPosition;
+                var colour = failures[i].colour || false;
+                var fontSize = failures[i].fontSize;
+                var bgColour = failures[i].bgColour;
+                var isAbsolute = failures[i].isAbsolute || false;
+                var bgImg = failures[i].bgImg || "";
+                var fontSizePixels = failures[i].fontSizePixels;
+                var fontWeight = failures[i].fontWeight;
+                var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
+                // If the values would look identical, add decimals to the value.
+                while (required === value) {
+                    decimals++;
+                    value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+                }
+                if (required === 4.5) {
+                    var code = "G18";
+                } else if (required === 3) {
+                    var code = "G145";
+                }
+                var recommendText = [];
+                if (recommend) {
+                    if (recommend.fore.from !== recommend.fore.to) {
+                        recommendText.push(_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation.Text") + " " + recommend.fore.to);
+                    }
+                    if (recommend.back.from !== recommend.back.to) {
+                        recommendText.push(_global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation.Background") + " " + recommend.back.to);
+                    }
+                }
+                //end if
+                if (recommendText.length > 0) {
+                    recommendText = " " + _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail.Recomendation") + " " + recommendText.join(", ") + ".";
+                }
+                if (isAbsolute === true) {
+                    code += ".Abs";
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Abs").replace(/\{\{required\}\}/g, required), code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        backgrounds: backgrounds,
+                        hasBgImage: hasBgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        fontSize: fontSize,
+                        bgImg: bgImg,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                } else if (hasBgImg === true) {
+                    code += ".BgImage";
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.BgImage").replace(/\{\{required\}\}/g, required), code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        backgrounds: backgrounds,
+                        hasBgImage: hasBgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        fontSize: fontSize,
+                        bgImg: bgImg,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                } else {
+                    code += ".Fail";
+                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_3_G18_or_G145.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        backgrounds: backgrounds,
+                        hasBgImage: hasBgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        fontSize: fontSize,
+                        bgImg: bgImg,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_4_G142"), "G142");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var imgObj = top.querySelector("img");
+        if (imgObj !== null) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_5_G140,C22,C30.AALevel"), "G140,C22,C30.AALevel");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_6 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            var failures = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast.testContrastRatio(top, 7, 4.5);
+            for (var i = 0; i < failures.length; i++) {
+                var element = failures[i].element;
+                var decimals = 2;
+                var value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+                var required = failures[i].required;
+                var recommend = failures[i].recommendation;
+                var fontSize = failures[i].fontSize;
+                var hasBgImg = failures[i].hasBgImage || false;
+                var isAbsolute = failures[i].isAbsolute || false;
+                var colour = failures[i].colour;
+                var bgColour = failures[i].bgColour;
+                var bgRepeat = failures[i].bgRepeat;
+                var bgSize = failures[i].bgSize;
+                var bgPosition = failures[i].bgPosition;
+                var fontWeight = failures[i].fontWeight;
+                var bgImg = failures[i].bgImg || "";
+                var fontSizePixels = failures[i].fontSizePixels;
+                var minLargeSize = failures[i].minLargeSize;
+                var backgrounds = failures[i].backgrounds;
+                // If the values would look identical, add decimals to the value.
+                while (required === value) {
+                    decimals++;
+                    value = Math.round(failures[i].value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+                }
+                var code;
+                if (required === 4.5) {
+                    code = "G18";
+                } else if (required === 7) {
+                    code = "G17";
+                }
+                var recommendText = [];
+                if (recommend) {
+                    if (recommend.fore.from !== recommend.fore.to) {
+                        recommendText.push(_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation.Text") + " " + recommend.fore.to);
+                    }
+                    if (recommend.back.from !== recommend.back.to) {
+                        recommendText.push(_global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation.Background") + recommend.back.to);
+                    }
+                }
+                //end if
+                if (recommendText.length > 0) {
+                    recommendText = " " + _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail.Recomendation") + " " + recommendText.join(", ") + ".";
+                }
+                if (isAbsolute === true) {
+                    code += ".Abs";
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Abs").replace(/\{\{required\}\}/g, required), code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        fontSize: fontSize,
+                        bgImg: bgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        backgrounds: backgrounds,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                } else if (hasBgImg === true) {
+                    code += ".BgImage";
+                    HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.BgImage").replace(/\{\{required\}\}/g, required), code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        hasBgImage: hasBgImg,
+                        fontSize: fontSize,
+                        bgImg: bgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        backgrounds: backgrounds,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                } else {
+                    code += ".Fail";
+                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("1_4_6_G18_or_G17.Fail").replace(/\{\{required\}\}/g, required).replace(/\{\{value\}\}/g, value) + recommendText, code, {
+                        color: colour,
+                        bgColor: bgColour,
+                        fontSize: fontSize,
+                        hasBgImage: hasBgImg,
+                        bgImg: bgImg,
+                        bgRepeat: bgRepeat,
+                        bgSize: bgSize,
+                        bgPosition: bgPosition,
+                        backgrounds: backgrounds,
+                        fontSizePixels: fontSizePixels,
+                        fontWeight: fontWeight,
+                        minLargeSize: minLargeSize,
+                        isLarge: fontSize >= minLargeSize,
+                        contrast: value,
+                        requiredContrast: required,
+                        recommend: recommend
+                    });
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_7 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "embed", "applet", "bgsound", "audio" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("1_4_7_G56"), "G56");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_8 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // This Success Criterion has five prongs, and each should be thrown as a
+        // separate notice as separate techniques apply to each.
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_G148,G156,G175"), "G148,G156,G175");
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_H87,C20"), "H87,C20");
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_C19,G172,G169"), "C19,G172,G169");
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_G188,C21"), "G188,C21");
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_8_H87,G146,C26"), "H87,G146,C26");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_9 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var imgObj = top.querySelector("img");
+        if (imgObj !== null) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("1_4_9_G140,C22,C30.NoException"), "G140,C22,C30.NoException");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Testing for elements that have explicit attributes for mouse-specific
+        // events. Note: onclick is considered keyboard accessible, as it is actually
+        // tied to the default action of a link or button - not merely a click.
+        if (element === top) {
+            // Cannot detect event listeners here so only onclick attributes are checked.
+            var keyboardTriggers = HTMLCS.util.getAllElements(top, "*[onclick], *[onkeyup], *[onkeydown], *[onkeypress], *[onfocus], *[onblur]");
+            keyboardTriggers.forEach(function(elem) {
+                if (HTMLCS.util.isKeyboardNavigable(elem) === false) {
+                    HTMLCS.addMessage(HTMLCS.WARNING, elem, _global.HTMLCS.getTranslation("2_1_1_G90"), "G90");
+                }
+            });
+            var dblClickEls = HTMLCS.util.getAllElements(top, "*[ondblclick]");
+            for (var i = 0; i < dblClickEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, dblClickEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.DblClick"), "SCR20.DblClick");
+            }
+            var mouseOverEls = HTMLCS.util.getAllElements(top, "*[onmouseover]");
+            for (var i = 0; i < mouseOverEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, mouseOverEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.MouseOver"), "SCR20.MouseOver");
+            }
+            var mouseOutEls = HTMLCS.util.getAllElements(top, "*[onmouseout]");
+            for (var i = 0; i < mouseOutEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, mouseOutEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.MouseOut"), "SCR20.MouseOut");
+            }
+            var mouseMoveEls = HTMLCS.util.getAllElements(top, "*[onmousemove]");
+            for (var i = 0; i < mouseMoveEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, mouseMoveEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.MouseMove"), "SCR20.MouseMove");
+            }
+            var mouseDownEls = HTMLCS.util.getAllElements(top, "*[onmousedown]");
+            for (var i = 0; i < mouseDownEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, mouseDownEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.MouseDown"), "SCR20.MouseDown");
+            }
+            var mouseUpEls = HTMLCS.util.getAllElements(top, "*[onmouseup]");
+            for (var i = 0; i < mouseUpEls.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, mouseUpEls[i], _global.HTMLCS.getTranslation("2_1_1_SCR20.MouseUp"), "SCR20.MouseUp");
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_1_2_1_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "object", "applet", "embed" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("2_1_2_F10"), "F10");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "meta" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Meta refresh testing under H76/F41. Fails if a non-zero timeout is provided.
+        // NOTE: H76 only lists criterion 3.2.5, but F41 also covers refreshes to
+        // same page (no URL content), which is covered by non-adjustable timeouts
+        // in criterion 2.2.1.
+        if (element.hasAttribute("http-equiv") === true) {
+            if (String(element.getAttribute("http-equiv")).toLowerCase() === "refresh") {
+                if (/^[1-9]\d*/.test(element.getAttribute("content").toLowerCase()) === true) {
+                    if (/url=/.test(element.getAttribute("content").toLowerCase()) === true) {
+                        // Redirect.
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_2_1_F40.2"), "F40.2");
+                    } else {
+                        // Just a refresh.
+                        HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_2_1_F41.2"), "F41.2");
+                    }
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top", "blink" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_2_SCR33,SCR22,G187,G152,G186,G191"), "SCR33,SCR22,G187,G152,G186,G191");
+            var elements = HTMLCS.util.getAllElements(top, "*");
+            for (var i = 0; i < elements.length; i++) {
+                var computedStyle = HTMLCS.util.style(elements[i]);
+                if (computedStyle) {
+                    if (/blink/.test(computedStyle["text-decoration"]) === true) {
+                        HTMLCS.addMessage(HTMLCS.WARNING, elements[i], _global.HTMLCS.getTranslation("2_2_2_F4"), "F4");
+                    }
+                }
+            }
+        } else if (element.nodeName.toLowerCase() === "blink") {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_2_2_F47"), "F47");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_3_G5"), "G5");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_4_SCR14"), "SCR14");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_2_2_2_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_2_5_G105,G181"), "G105,G181");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // The "small" flashing area is deliberately vague - users should see
+        // technique G176 for more details, as the threshold depends on both the
+        // size and resolution of a screen.
+        // The technique gives a baseline (based on a 15-17 inch monitor read at
+        // 22-26 inches, at 1024 x 768 resolution). A 10-degree field of vision is
+        // approximately 341 x 256 pixels in this environment, and a flashing area
+        // needs to be no more than 25% of this (not necessarily rectangular).
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_3_1_G19,G176"), "G19,G176");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_3_2_3_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_3_2_G19"), "G19");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "iframe", "a", "area", "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            this.testGenericBypassMsg(top);
+        } else {
+            var nodeName = element.nodeName.toLowerCase();
+            switch (nodeName) {
+              case "iframe":
+                this.testIframeTitle(element);
+                break;
+
+              case "a":
+              case "area":
+                this.testSameDocFragmentLinks(element, top);
+                break;
+            }
+        }
+    },
+    /**
+     * Test for the presence of title attributes on the iframe element (technique H64).
+     *
+     * @param {DOMNode} element The element to test.
+     *
+     * @returns void
+     */
+    testIframeTitle: function(element) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (nodeName === "iframe") {
+            var hasTitle = false;
+            if (element.hasAttribute("title") === true) {
+                if (element.getAttribute("title") && /^\s+$/.test(element.getAttribute("title")) === false) {
+                    hasTitle = true;
+                }
+            }
+            if (hasTitle === false) {
+                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_1_H64.1"), "H64.1");
+            } else {
+                HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_1_H64.2"), "H64.2");
+            }
+        }
+    },
+    /**
+     * Throw a generic bypass blocks message.
+     *
+     * @param {DOMNode} top Top element of the testing source.
+     *
+     * @returns void
+     */
+    testGenericBypassMsg: function(top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_4_1_G1,G123,G124,H69"), "G1,G123,G124,H69");
+    },
+    /**
+     * Test for document fragment links to IDs that do not exist.
+     *
+     * These are links of the form "<a href="#content">", where the ID "content" does
+     * not exist. Area elements in image maps are also tested, as they are also
+     * likely to contain these attributes.
+     *
+     * @param {DOMNode} element The element to test.
+     * @param {DOMNode} top     Top element of the testing source.
+     *
+     * @returns void
+     */
+    testSameDocFragmentLinks: function(element, top) {
+        if (element.hasAttribute("href") === true) {
+            var href = element.getAttribute("href");
+            href = HTMLCS.util.trim(href);
+            if (href.length > 1 && href.charAt(0) === "#") {
+                var id = href.substr(1);
+                try {
+                    var doc = top;
+                    if (doc.ownerDocument) {
+                        doc = doc.ownerDocument;
+                    }
+                    // First search for an element with the appropriate ID, then search for a
+                    // named anchor using the name attribute.
+                    var target = doc.getElementById(id);
+                    if (target === null) {
+                        var _doc = HTMLCS.util.getElementWindow(top).document;
+                        var doctype = HTMLCS.util.getDocumentType(_doc);
+                        var nameSelector = "a";
+                        if (doctype && doctype.indexOf("html5") === -1) {
+                            nameSelector = "*";
+                        }
+                        target = doc.querySelector(nameSelector + '[name="' + id + '"]');
+                    }
+                    if (target === null || HTMLCS.util.contains(top, target) === false) {
+                        if (HTMLCS.isFullDoc(top) === true || top.nodeName.toLowerCase() === "body") {
+                            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_1_G1,G123,G124.NoSuchID").replace(/\{\{id\}\}/g, id), "G1,G123,G124.NoSuchID");
+                        } else {
+                            HTMLCS.addMessage(HTMLCS.WARNING, element, _global.HTMLCS.getTranslation("2_4_1_G1,G123,G124.NoSuchIDFragment").replace(/\{\{id\}\}/g, id), "G1,G123,G124.NoSuchIDFragment");
+                        }
+                    }
+                } catch (ex) {}
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "html" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Find a head first.
+        var children = element.childNodes;
+        var head = null;
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].nodeName.toLowerCase() === "head") {
+                head = children[i];
+                break;
+            }
+        }
+        if (head === null) {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_2_H25.1.NoHeadEl"), "H25.1.NoHeadEl");
+        } else {
+            var children = head.childNodes;
+            var title = null;
+            for (var i = 0; i < children.length; i++) {
+                if (children[i].nodeName.toLowerCase() === "title") {
+                    title = children[i];
+                    break;
+                }
+            }
+            if (title === null) {
+                HTMLCS.addMessage(HTMLCS.ERROR, head, _global.HTMLCS.getTranslation("2_4_2_H25.1.NoTitleEl"), "H25.1.NoTitleEl");
+            } else {
+                if (/^\s*$/.test(title.innerHTML) === true) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, title, _global.HTMLCS.getTranslation("2_4_2_H25.1.EmptyTitle"), "H25.1.EmptyTitle");
+                } else {
+                    HTMLCS.addMessage(HTMLCS.NOTICE, title, _global.HTMLCS.getTranslation("2_4_2_H25.2"), "H25.2");
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            var tabIndexExists = top.querySelector("*[tabindex]");
+            if (tabIndexExists) {
+                HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_3_H4.2"), "H4.2");
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "a" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element.hasAttribute("title") === true) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_4_H77,H78,H79,H80,H81,H33"), "H77,H78,H79,H80,H81,H33");
+        } else {
+            HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_4_H77,H78,H79,H80,H81"), "H77,H78,H79,H80,H81");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_5_G125,G64,G63,G161,G126,G185"), "G125,G64,G63,G161,G126,G185");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_6 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_6_G130,G131"), "G130,G131");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_7 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Fire this notice if there appears to be an input field or link on the page
+        // (which will be just about anything). Links are important because they can
+        // still be tabbed to.
+        var inputField = top.querySelector("input, textarea, button, select, a");
+        if (inputField !== null) {
+            HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("2_4_7_G149,G165,G195,C15,SCR31"), "G149,G165,G195,C15,SCR31");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_8 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "link" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var linkParentName = element.parentNode.nodeName.toLowerCase();
+        // Check for the correct location. HTML4 states "it may only appear in the
+        // HEAD element". HTML5 states it appears "wherever metadata content is
+        // expected", which only includes the head element.
+        if (linkParentName !== "head") {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_8_H59.1"), "H59.1");
+        }
+        // Check for mandatory elements.
+        if (element.hasAttribute("rel") === false || !element.getAttribute("rel") || /^\s*$/.test(element.getAttribute("rel")) === true) {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_8_H59.2a"), "H59.2a");
+        }
+        if (element.hasAttribute("href") === false || !element.getAttribute("href") || /^\s*$/.test(element.getAttribute("href")) === true) {
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_8_H59.2b"), "H59.2b");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_9 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "a" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_9_H30"), "H30");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "html" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element.hasAttribute("lang") === false && element.hasAttribute("xml:lang") === false) {
+            // TODO: if we can tell whether it's HTML or XHTML, we should split this
+            // into two - one asking for "lang", the other for "xml:lang".
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_1_H57.2"), "H57.2");
+        } else {
+            if (element.hasAttribute("lang") === true) {
+                var lang = element.getAttribute("lang");
+                if (this.isValidLanguageTag(lang) === false) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.Lang"), "H57.3.Lang", {
+                        lang: lang
+                    });
+                }
+            }
+            if (element.hasAttribute("xml:lang") === true) {
+                var lang = element.getAttribute("xml:lang");
+                if (this.isValidLanguageTag(lang) === false) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, top, _global.HTMLCS.getTranslation("3_1_1_H57.3.XmlLang"), "H57.3.XmlLang", {
+                        lang: lang
+                    });
+                }
+            }
+        }
+    },
+    /**
+     * Test for well-formed language tag as per IETF BCP 47.
+     *
+     * Note that this checks only for well-formedness, not whether the subtags are
+     * actually on the registered subtags list.
+     *
+     * @param {String} langTag The language tag to test.
+     *
+     * @returns {Boolean} the result of the regex test.
+     */
+    isValidLanguageTag: function(langTag) {
+        // Allow irregular or private-use tags starting with 'i' or 'x'.
+        // Values after it are 1-8 alphanumeric characters.
+        var regexStr = "^([ix](-[a-z0-9]{1,8})+)$|";
+        // Core language tags - 2 to 8 letters
+        regexStr += "^[a-z]{2,8}";
+        // Extlang subtags - three letters, repeated 0 to 3 times
+        regexStr += "(-[a-z]{3}){0,3}";
+        // Script subtag - four letters, optional.
+        regexStr += "(-[a-z]{4})?";
+        // Region subtag - two letters for a country or a three-digit region; optional.
+        regexStr += "(-[a-z]{2}|-[0-9]{3})?";
+        // Variant subtag - either digit + 3 alphanumeric, or
+        // 5-8 alphanumeric where it doesn't start with a digit; optional
+        // but repeatable.
+        regexStr += "(-[0-9][a-z0-9]{3}|-[a-z0-9]{5,8})*";
+        // Extension subtag - one single alphanumeric character (but not "x"),
+        // followed by at least one value of 2-8 alphanumeric characters.
+        // The whole thing is optional but repeatable (for different extensions).
+        regexStr += "(-[a-wy-z0-9](-[a-z0-9]{2,8})+)*";
+        // Private use subtag, starting with an "x" and containing at least one
+        // value of 1-8 alphanumeric characters. It must come last.
+        regexStr += "(-x(-[a-z0-9]{1,8})+)?$";
+        // Make a regex out of it, and make it all case-insensitive.
+        var regex = new RegExp(regexStr, "i");
+        // Throw the correct lang code depending on whether this is a document
+        // element or not.
+        var valid = true;
+        if (regex.test(langTag) === false) {
+            valid = false;
+        }
+        return valid;
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Generic message for changes in language.
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_2_H58"), "H58");
+        // Alias the SC 3.1.1 object, which contains our "valid language tag" test.
+        var sc3_1_1 = HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_1;
+        // Note, going one element beyond the end, so we can test the top element
+        // (which doesn't get picked up by the above query). Instead of going off the
+        // cliff of the collection, the last loop (i === langEls.length) checks the
+        // top element.
+        var langEls = HTMLCS.util.getAllElements(top, "*[lang]");
+        for (var i = 0; i <= langEls.length; i++) {
+            if (i === langEls.length) {
+                var langEl = top;
+            } else {
+                var langEl = langEls[i];
+            }
+            // Skip html nodes, they are covered by 3.1.1.
+            // Also skip if the top element is the document element.
+            if (!langEl.documentElement && langEl.nodeName.toLowerCase() !== "html") {
+                if (langEl.hasAttribute("lang") === true) {
+                    var lang = langEl.getAttribute("lang");
+                    if (sc3_1_1.isValidLanguageTag(lang) === false) {
+                        HTMLCS.addMessage(HTMLCS.ERROR, langEl, _global.HTMLCS.getTranslation("3_1_2_H58.1.Lang"), "H58.1.Lang");
+                    }
+                }
+                if (langEl.hasAttribute("xml:lang") === true) {
+                    var lang = langEl.getAttribute("xml:lang");
+                    if (sc3_1_1.isValidLanguageTag(lang) === false) {
+                        HTMLCS.addMessage(HTMLCS.ERROR, langEl, _global.HTMLCS.getTranslation("3_1_2_H58.1.XmlLang"), "H58.1.XmlLang");
+                    }
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_3_H40,H54,H60,G62,G70"), "H40,H54,H60,G62,G70");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_4_G102,G55,G62,H28,G97"), "G102,G55,G62,H28,G97");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_1_5_G86,G103,G79,G153,G160"), "G86,G103,G79,G153,G160");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_1_3_1_6 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "ruby" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var rb = element.querySelectorAll("rb");
+        var rt = element.querySelectorAll("rt");
+        if (rt.length === 0) {
+            // Vary the message depending on whether an rb element exists. If it doesn't,
+            // the presumption is that we are using HTML5 that uses the body of the ruby
+            // element for the same purpose (otherwise, assume XHTML 1.1 with rb element).
+            if (rb.length === 0) {
+                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_6_H62.1.HTML5"), "H62.1.HTML5");
+            } else {
+                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_6_H62.1.XHTML11"), "H62.1.XHTML11");
+            }
+        }
+        var rp = element.querySelectorAll("rp");
+        if (rp.length === 0) {
+            // No "ruby parentheses" tags for those user agents that don't support
+            // ruby at all.
+            HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("3_1_6_H62.2"), "H62.2");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "input", "textarea", "button", "select" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_2_1_G107"), "G107");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (nodeName === "form") {
+            this.checkFormSubmitButton(element);
+        }
+    },
+    /**
+     * Test for forms that don't have a submit button of some sort (technique H32).
+     *
+     * @param {DOMNode} form The form to test.
+     */
+    checkFormSubmitButton: function(form) {
+        var ok = false;
+        // Test for INPUT-based submit buttons. The type must be specified, as
+        // the default for INPUT is text.
+        var inputButtons = form.querySelectorAll("input[type=submit], input[type=image]");
+        if (inputButtons.length > 0) {
+            ok = true;
+        } else {
+            // Check for BUTTONs that aren't reset buttons, or normal buttons.
+            // If they're blank or invalid, they are submit buttons.
+            var buttonButtons = form.querySelectorAll("button");
+            var nonSubmitButtons = form.querySelectorAll("button[type=reset], button[type=button]");
+            if (buttonButtons.length > nonSubmitButtons.length) {
+                ok = true;
+            }
+        }
+        //end if
+        if (ok === false) {
+            HTMLCS.addMessage(HTMLCS.ERROR, form, _global.HTMLCS.getTranslation("3_2_2_H32.2"), "H32.2");
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_2_3_G61"), "G61");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, top, _global.HTMLCS.getTranslation("3_2_4_G197"), "G197");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_2_3_2_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "a" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (nodeName === "a") {
+            this.checkNewWindowTarget(element);
+        }
+    },
+    /**
+     * Test for links that open in new windows but don't warn users (technique H83).
+     *
+     * @param {DOMNode} link The link to test.
+     */
+    checkNewWindowTarget: function(link) {
+        var hasTarget = link.hasAttribute("target");
+        if (hasTarget === true) {
+            var target = link.getAttribute("target") || "";
+            if (target === "_blank" && /new window/i.test(link.innerHTML) === false) {
+                HTMLCS.addMessage(HTMLCS.WARNING, link, _global.HTMLCS.getTranslation("3_2_5_H83.3"), "H83.3");
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_1_G83,G84,G85"), "G83,G84,G85");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Only the generic message will be displayed here. If there were problems
+        // with input boxes not having labels, it will be pulled up as errors in
+        // other Success Criteria (eg. 1.3.1, 4.1.2).
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_2_G131,G89,G184,H90"), "G131,G89,G184,H90");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_3 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        // Only G177 (about providing suggestions) is flagged as a technique.
+        // The techniques in 3.3.1 are also listed in this Success Criterion.
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_3_G177"), "G177");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_4 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_4_G98,G99,G155,G164,G168.LegalForms"), "G98,G99,G155,G164,G168.LegalForms");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_5 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_5_G71,G184,G193"), "G71,G184,G193");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle3_Guideline3_3_3_3_6 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "form" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("3_3_6_G98,G99,G155,G164,G168.AllForms"), "G98,G99,G155,G164,G168.AllForms");
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_1 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            var elsWithIds = HTMLCS.util.getAllElements(top, "*[id]");
+            var usedIds = {};
+            for (var i = 0; i < elsWithIds.length; i++) {
+                var id = elsWithIds[i].getAttribute("id");
+                if (/^\s*$/.test(id) === true) {
+                    continue;
+                }
+                if (usedIds[id] !== undefined) {
+                    // F77 = "Failure of SC 4.1.1 due to duplicate values of type ID".
+                    // Appropriate technique in HTML is H93.
+                    HTMLCS.addMessage(HTMLCS.ERROR, elsWithIds[i], _global.HTMLCS.getTranslation("4_1_1_F77").replace(/\{\{id\}\}/g, id), "F77");
+                } else {
+                    usedIds[id] = true;
+                }
+            }
+        }
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS_WCAG2AAA_Sniffs_Principle4_Guideline4_1_4_1_2 = {
+    /**
+     * Determines the elements to register for processing.
+     *
+     * Each element of the returned array can either be an element name, or "_top"
+     * which is the top element of the tested code.
+     *
+     * @returns {Array} The list of elements.
+     */
+    register: function() {
+        return [ "_top" ];
+    },
+    /**
+     * Process the registered element.
+     *
+     * @param {DOMNode} element The element registered.
+     * @param {DOMNode} top     The top element of the tested code.
+     */
+    process: function(element, top) {
+        if (element === top) {
+            var messages = this.processFormControls(top);
+            for (var i = 0; i < messages.errors.length; i++) {
+                HTMLCS.addMessage(HTMLCS.ERROR, messages.errors[i].element, messages.errors[i].msg, "H91." + messages.errors[i].subcode);
+            }
+            for (var i = 0; i < messages.warnings.length; i++) {
+                HTMLCS.addMessage(HTMLCS.WARNING, messages.warnings[i].element, messages.warnings[i].msg, "H91." + messages.warnings[i].subcode);
+            }
+            this.addProcessLinksMessages(top);
+        }
+    },
+    addProcessLinksMessages: function(top) {
+        var errors = this.processLinks(top);
+        for (var i = 0; i < errors.empty.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.empty[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.Empty"), "H91.A.Empty");
+        }
+        for (var i = 0; i < errors.emptyWithName.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.emptyWithName[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.EmptyWithName"), "H91.A.EmptyWithName");
+        }
+        for (var i = 0; i < errors.emptyNoId.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.emptyNoId[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.EmptyNoId"), "H91.A.EmptyNoId");
+        }
+        for (var i = 0; i < errors.noHref.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.noHref[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.NoHref"), "H91.A.NoHref");
+        }
+        for (var i = 0; i < errors.placeholder.length; i++) {
+            HTMLCS.addMessage(HTMLCS.WARNING, errors.placeholder[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.Placeholder"), "H91.A.Placeholder");
+        }
+        for (var i = 0; i < errors.noContent.length; i++) {
+            HTMLCS.addMessage(HTMLCS.ERROR, errors.noContent[i], _global.HTMLCS.getTranslation("4_1_2_H91.A.NoContent"), "H91.A.NoContent");
+        }
+    },
+    processLinks: function(top) {
+        var errors = {
+            empty: [],
+            emptyWithName: [],
+            emptyNoId: [],
+            noHref: [],
+            placeholder: [],
+            noContent: []
+        };
+        var elements = HTMLCS.util.getAllElements(top, 'a:not([role="button"])');
+        for (var el = 0; el < elements.length; el++) {
+            var element = elements[el];
+            var nameFound = false;
+            var hrefFound = false;
+            var content = HTMLCS.util.getElementTextContent(element);
+            if (element.hasAttribute("title") === true && /^\s*$/.test(element.getAttribute("title")) === false) {
+                nameFound = true;
+            } else if (/^\s*$/.test(content) === false) {
+                nameFound = true;
+            }
+            if (element.hasAttribute("href") === true && /^\s*$/.test(element.getAttribute("href")) === false) {
+                hrefFound = true;
+            }
+            if (hrefFound === false) {
+                // No href. We don't want these because, although they are commonly used
+                // to create targets, they can be picked up by screen readers and
+                // displayed to the user as empty links. A elements are defined by H91 as
+                // having an (ARIA) role of "link", and using them as targets are
+                // essentially misusing them. Place an ID on a parent element instead.
+                if (/^\s*$/.test(content) === true) {
+                    // Also no content. (eg. <a id=""></a> or <a name=""></a>)
+                    if (element.hasAttribute("id") === true) {
+                        errors.empty.push(element);
+                    } else if (element.hasAttribute("name") === true) {
+                        errors.emptyWithName.push(element);
+                    } else {
+                        errors.emptyNoId.push(element);
+                    }
+                } else {
+                    // Giving a benefit of the doubt here - if a link has text and also
+                    // an ID, but no href, it might be because it is being manipulated by
+                    // a script.
+                    if (element.hasAttribute("id") === true || element.hasAttribute("name") === true) {
+                        errors.noHref.push(element);
+                    } else {
+                        // HTML5 allows A elements with text but no href, "for where a
+                        // link might otherwise have been placed, if it had been relevant".
+                        // Hence, thrown as a warning, not an error.
+                        errors.placeholder.push(element);
+                    }
+                }
+            } else {
+                if (nameFound === false) {
+                    // Href provided, but no content, title or valid aria label.
+                    // We only fire this message when there are no images in the content.
+                    // A link around an image with no alt text is already covered in SC
+                    // 1.1.1 (test H30).
+                    if (element.querySelectorAll("img").length === 0 && HTMLCS.util.hasValidAriaLabel(element) === false) {
+                        errors.noContent.push(element);
+                    }
+                }
+            }
+        }
+        //end for
+        return errors;
+    },
+    processFormControls: function(top) {
+        var elements = HTMLCS.util.getAllElements(top, 'button, fieldset, input, select, textarea, [role="button"]');
+        var errors = [];
+        var warnings = [];
+        var requiredNames = {
+            button: [ "@title", "_content", "@aria-label", "@aria-labelledby" ],
+            fieldset: [ "legend", "@aria-label", "@aria-labelledby" ],
+            input_button: [ "@value", "@aria-label", "@aria-labelledby" ],
+            input_text: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            input_file: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            input_password: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            input_checkbox: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            input_radio: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            input_image: [ "@alt", "@title", "@aria-label", "@aria-labelledby" ],
+            select: [ "label", "@title", "@aria-label", "@aria-labelledby" ],
+            textarea: [ "label", "@title", "@aria-label", "@aria-labelledby" ]
+        };
+        var html5inputTypes = [ "email", "search", "date", "datetime-local", "month", "number", "tel", "time", "url", "week", "range", "color" ];
+        for (var i = 0, l = html5inputTypes.length; i < l; i++) {
+            requiredNames["input_" + html5inputTypes[i]] = [ "label", "@title", "@aria-label", "@aria-labelledby" ];
+        }
+        var requiredValues = {
+            select: "option_selected"
+        };
+        for (var el = 0, ll = elements.length; el < ll; el++) {
+            var element = elements[el];
+            var nodeName = element.nodeName.toLowerCase();
+            var msgSubCode = element.nodeName.substr(0, 1).toUpperCase() + element.nodeName.substr(1).toLowerCase();
+            if (nodeName === "input") {
+                if (element.hasAttribute("type") === false) {
+                    // If no type attribute, default to text.
+                    nodeName += "_text";
+                } else {
+                    nodeName += "_" + element.getAttribute("type").toLowerCase();
+                }
+                // Treat all input buttons as the same
+                if (nodeName === "input_submit" || nodeName === "input_reset") {
+                    nodeName = "input_button";
+                }
+                // Get a format like "InputText".
+                var msgSubCode = "Input" + nodeName.substr(6, 1).toUpperCase() + nodeName.substr(7).toLowerCase();
+            }
+            //end if
+            var matchingRequiredNames = requiredNames[nodeName];
+            var requiredValue = requiredValues[nodeName];
+            // Any element that doesn't have specific handling must have content or aria labels.
+            if (!matchingRequiredNames && nodeName !== "input_hidden") {
+                matchingRequiredNames = [ "_content", "@aria-label", "@aria-labelledby" ];
+            }
+            // Check all possible combinations of names to ensure that one exists.
+            if (matchingRequiredNames) {
+                for (var i = 0; i < matchingRequiredNames.length; i++) {
+                    var requiredName = matchingRequiredNames[i];
+                    if (requiredName === "_content") {
+                        // Work with content.
+                        var content = HTMLCS.util.getElementTextContent(element);
+                        if (/^\s*$/.test(content) === false) {
+                            break;
+                        }
+                    } else if (requiredName === "label") {
+                        // Label element. Re-use the label associating
+                        // functions in SC 1.3.1.
+                        var hasLabel = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1.testLabelsOnInputs(element, top, true);
+                        if (hasLabel !== false) {
+                            break;
+                        }
+                    } else if (requiredName.charAt(0) === "@") {
+                        // Attribute.
+                        requiredName = requiredName.substr(1, requiredName.length);
+                        if ((requiredName === "aria-label" || requiredName === "aria-labelledby") && HTMLCS.util.hasValidAriaLabel(element)) {
+                            break;
+                        }
+                        if (element.hasAttribute(requiredName) === true && /^\s*$/.test(element.getAttribute(requiredName)) === false) {
+                            break;
+                        }
+                    } else {
+                        // Sub-element contents.
+                        var subEl = element.querySelector(requiredName);
+                        if (subEl !== null) {
+                            var content = HTMLCS.util.getElementTextContent(subEl);
+                            if (/^\s*$/.test(content) === false) {
+                                break;
+                            }
+                        }
+                    }
+                }
+                //end for
+                if (i === matchingRequiredNames.length) {
+                    var msgNodeType = nodeName + " " + _global.HTMLCS.getTranslation("4_1_2_element");
+                    if (nodeName.substr(0, 6) === "input_") {
+                        msgNodeType = nodeName.substr(6) + _global.HTMLCS.getTranslation("4_1_2_input_element");
+                    }
+                    if (element.hasAttribute("role") && element.getAttribute("role") === "button") {
+                        msgNodeType = _global.HTMLCS.getTranslation("4_1_2_role_of_button");
+                    }
+                    var builtAttrs = matchingRequiredNames.slice(0, matchingRequiredNames.length);
+                    for (var a = 0; a < builtAttrs.length; a++) {
+                        if (builtAttrs[a] === "_content") {
+                            builtAttrs[a] = _global.HTMLCS.getTranslation("4_1_2_element_content");
+                        } else if (builtAttrs[a].charAt(0) === "@") {
+                            builtAttrs[a] = builtAttrs[a].substr(1) + " " + _global.HTMLCS.getTranslation("4_1_2_attribute");
+                        } else {
+                            builtAttrs[a] = builtAttrs[a] + " " + _global.HTMLCS.getTranslation("4_1_2_element");
+                        }
+                    }
+                    var msg = _global.HTMLCS.getTranslation("4_1_2_msg_pattern").replace(/\{\{msgNodeType\}\}/g, msgNodeType).replace(/\{\{builtAttrs\}\}/g, builtAttrs.join(", "));
+                    errors.push({
+                        element: element,
+                        msg: msg,
+                        subcode: msgSubCode + ".Name"
+                    });
+                }
+            }
+            //end if
+            var valueFound = false;
+            if (requiredValue === undefined) {
+                // Nothing required of us.
+                valueFound = true;
+            } else if (requiredValue === "_content") {
+                // Work with content.
+                var content = HTMLCS.util.getElementTextContent(element);
+                if (/^\s*$/.test(content) === false) {
+                    valueFound = true;
+                }
+            } else if (requiredValue === "option_selected") {
+                // Select lists are recommended to have a selected Option element.
+                if (element.hasAttribute("multiple") === false) {
+                    var selected = element.querySelector("option[selected]");
+                    if (selected !== null) {
+                        valueFound = true;
+                    }
+                } else {
+                    // Allow zero element selection to be valid where the SELECT
+                    // element has been declared as a multiple selection.
+                    valueFound = true;
+                }
+            } else if (requiredValue.charAt(0) === "@") {
+                // Attribute.
+                requiredValue = requiredValue.substr(1, requiredValue.length);
+                if (element.hasAttribute(requiredValue) === true) {
+                    valueFound = true;
+                }
+            }
+            //end if
+            // Check for valid aria labels.
+            if (valueFound === false) {
+                valuFound = HTMLCS.util.hasValidAriaLabel(element);
+            }
+            if (valueFound === false) {
+                var msgNodeType = nodeName + " " + _global.HTMLCS.getTranslation("4_1_2_element");
+                if (nodeName.substr(0, 6) === "input_") {
+                    msgNodeType = nodeName.substr(6) + " input element";
+                }
+                var msg = _global.HTMLCS.getTranslation("4_1_2_msg_pattern2").replace(/\{\{msgNodeType\}\}/g, msgNodeType);
+                var builtAttr = "";
+                var warning = false;
+                if (requiredValue === "_content") {
+                    builtAttr = " " + _global.HTMLCS.getTranslation("4_1_2_msg_add_one");
+                } else if (requiredValue === "option_selected") {
+                    // Change the message instead. The value is only undefined in HTML 4/XHTML 1;
+                    // in HTML5 the first option in a single select dropdown is automatically selected.
+                    // Because of this, it should also be sent out as a warning, not an error.
+                    warning = true;
+                    msg = _global.HTMLCS.getTranslation("4_1_2_msg_pattern2").replace(/\{\{msgNodeType\}\}/g, msgNodeType);
+                } else if (requiredValue.charAt(0) === "@") {
+                    builtAttr = " " + _global.HTMLCS.getTranslation("4_1_2_value_exposed_using_attribute").replace(/\{\{requiredValue\}\}/g, requiredValue);
+                } else {
+                    builtAttr = " " + _global.HTMLCS.getTranslation("4_1_2_value_exposed_using_element").replace(/\{\{requiredValue\}\}/g, requiredValue);
+                }
+                msg += builtAttr;
+                if (warning === false) {
+                    errors.push({
+                        element: element,
+                        msg: msg,
+                        subcode: msgSubCode + ".Value"
+                    });
+                } else {
+                    warnings.push({
+                        element: element,
+                        msg: msg,
+                        subcode: msgSubCode + ".Value"
+                    });
+                }
+            }
+        }
+        //end for
+        return {
+            errors: errors,
+            warnings: warnings
+        };
+    }
+};
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS = new function() {
+    var _standards = {};
+    var _sniffs = [];
+    var _tags = {};
+    var _standard = null;
+    var _currentSniff = null;
+    var _messages = [];
+    var _msgOverrides = {};
+    /*
+        Message type constants.
+    */
+    this.ERROR = 1;
+    this.WARNING = 2;
+    this.NOTICE = 3;
+    // The current language to use.
+    this.lang = "en";
+    /**
+     * Loads the specified standard and run the sniffs.
+     *
+     * @param {String}      standard     The name of the standard to load.
+     * @param {String|Node} content      An HTML string or a DOM node object.
+     * @param {Function}    callback     The function that will be called when the testing is completed.
+     * @param {Function}    failCallback The fail callback which will be called if the standard load has failed.
+     * @param {String}      language     The language to use for text output.
+     */
+    this.process = function(standard, content, callback, failCallback, language) {
+        // Clear previous runs.
+        _standards = {};
+        _sniffs = [];
+        _tags = {};
+        _standard = null;
+        if (!content) {
+            return false;
+        }
+        // Set a language to use.
+        var languages = Object.keys(_global.translation);
+        if (language && languages.indexOf(language) !== -1) {
+            this.lang = language;
+        }
+        if (_standards[_getStandardPath(standard)]) {
+            HTMLCS.run(callback, content);
+        } else {
+            this.loadStandard(standard, function() {
+                HTMLCS.run(callback, content);
+            }, failCallback);
+        }
+    };
+    /**
+     * Gets a translation for a text value.
+     *
+     * @param {String} text The text to get the translation for.
+     *
+     * @return {String}
+     */
+    this.getTranslation = function(text) {
+        try {
+            return _global.translation[this.lang][text];
+        } catch (e) {
+            throw new Error('Translation for "' + text + '" does not exist in current language ' + this.lang);
+        }
+    };
+    /**
+     * Loads the specified standard and its sniffs.
+     *
+     * @param {String}   standard The name of the standard to load.
+     * @param {Function} callback The function to call once the standard is loaded.
+     */
+    this.loadStandard = function(standard, callback, failCallback) {
+        if (!standard) {
+            return false;
+        }
+        _includeStandard(standard, function() {
+            _standard = standard;
+            callback.call(this);
+        }, failCallback);
+    };
+    /**
+     * Runs the sniffs for the loaded standard.
+     *
+     * @param {Function}    callback The function to call once all sniffs are completed.
+     * @param {String|Node} content  An HTML string or a DOM node object.
+     */
+    this.run = function(callback, content) {
+        var element = null;
+        var loadingFrame = false;
+        if (typeof content === "string") {
+            loadingFrame = true;
+            var elementFrame = document.createElement("iframe");
+            elementFrame.style.display = "none";
+            elementFrame = document.body.insertBefore(elementFrame, null);
+            if (elementFrame.contentDocument) {
+                element = elementFrame.contentDocument;
+            } else if (element.contentWindow) {
+                element = elementFrame.contentWindow.document;
+            }
+            elementFrame.load = function() {
+                this.onreadystatechange = null;
+                this.onload = null;
+                if (HTMLCS.isFullDoc(content) === false) {
+                    element = element.getElementsByTagName("body")[0];
+                    var div = element.getElementsByTagName("div")[0];
+                    if (div && div.id === "__HTMLCS-source-wrap") {
+                        div.id = "";
+                        element = div;
+                    }
+                }
+                var elements = HTMLCS.util.getAllElements(element);
+                elements.unshift(element);
+                _run(elements, element, callback);
+            };
+            // Satisfy IE which doesn't like onload being set dynamically.
+            elementFrame.onreadystatechange = function() {
+                if (/^(complete|loaded)$/.test(this.readyState) === true) {
+                    this.onreadystatechange = null;
+                    this.load();
+                }
+            };
+            elementFrame.onload = elementFrame.load;
+            if (HTMLCS.isFullDoc(content) === false && content.indexOf("<body") === -1) {
+                element.write('<div id="__HTMLCS-source-wrap">' + content + "</div>");
+            } else {
+                element.write(content);
+            }
+            element.close();
+        } else {
+            element = content;
+        }
+        if (!element) {
+            callback.call(this);
+            return;
+        }
+        callback = callback || function() {};
+        _messages = [];
+        // Get all the elements in the parent element.
+        // Add the parent element too, which will trigger "_top" element codes.
+        var elements = HTMLCS.util.getAllElements(element);
+        elements.unshift(element);
+        // Run the sniffs.
+        if (loadingFrame === false) {
+            _run(elements, element, callback);
+        }
+    };
+    /**
+     * Returns true if the content passed appears to be from a full document.
+     *
+     * With string content, we consider a full document as the presence of <html>,
+     * or <head> + <body> elements. For an element, only the 'html' element (the
+     * document element) is accepted.
+     *
+     * @param {String|Node} content An HTML string or a DOM node object.
+     *
+     * @returns {Boolean}
+     */
+    this.isFullDoc = function(content) {
+        var fullDoc = false;
+        if (typeof content === "string") {
+            if (content.toLowerCase().indexOf("<html") !== -1) {
+                fullDoc = true;
+            } else if (content.toLowerCase().indexOf("<head") !== -1 && content.toLowerCase().indexOf("<body") !== -1) {
+                fullDoc = true;
+            }
+        } else {
+            // If we are the document, or the document element.
+            if (content.nodeName.toLowerCase() === "html" || content.documentElement) {
+                fullDoc = true;
+            }
+        }
+        return fullDoc;
+    };
+    /**
+     * Adds a message.
+     *
+     * @param {Number}  type    The type of the message.
+     * @param {Node}    element The element that the message is related to.
+     * @param {String}  msg     The message string.
+     * @param {String}  code    Unique code for the message.
+     * @param {Object}  [data]  Extra data to store for the message.
+     */
+    this.addMessage = function(type, element, msg, code, data) {
+        code = _getMessageCode(code);
+        _messages.push({
+            type: type,
+            element: element,
+            msg: _msgOverrides[code] || msg,
+            code: code,
+            data: data
+        });
+    };
+    /**
+     * Returns all the messages for the last run.
+     *
+     * Return a copy of the array so the class variable doesn't get modified by
+     * future modification (eg. splicing).
+     *
+     * @returns {Array} Array of message objects.
+     */
+    this.getMessages = function() {
+        return _messages.concat([]);
+    };
+    /**
+     * Runs the sniffs in the loaded standard for the specified element.
+     *
+     * @param {Node}     element    The element to test.
+     * @param {Node}     topElement The top element of the processing.
+     * @param {Function} [callback] The function to call once all tests are run.
+     */
+    var _run = function(elements, topElement, callback) {
+        var topMsgs = [];
+        while (elements.length > 0) {
+            var element = elements.shift();
+            if (element === topElement) {
+                var tagName = "_top";
+            } else {
+                var tagName = element.tagName.toLowerCase();
+            }
+            // First check whether any "top" messages need to be shifted off for this
+            // element. If so, dump off into the main messages.
+            for (var i = 0; i < topMsgs.length; ) {
+                if (element === topMsgs[i].element) {
+                    _messages.push(topMsgs[i]);
+                    topMsgs.splice(i, 1);
+                } else {
+                    i++;
+                }
+            }
+            //end for
+            if (_tags[tagName] && _tags[tagName].length > 0) {
+                _processSniffs(element, _tags[tagName].concat([]), topElement);
+                // Save "top" messages, and reset the messages array.
+                if (tagName === "_top") {
+                    topMsgs = _messages;
+                    _messages = [];
+                }
+            }
+        }
+        //end while
+        _messages = _messages.concat(topMsgs);
+        // Due to filtering of presentation roles for general sniffing these need to be handled
+        // separately. The 1.3.1 sniff needs to run to detect any incorrect usage of the presentation
+        // role.
+        var presentationElems = topElement.querySelectorAll('[role="presentation"]');
+        _currentSniff = HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1;
+        [].forEach.call(presentationElems, function(element) {
+            _currentSniff.testSemanticPresentationRole(element);
+        });
+        if (callback instanceof Function === true) {
+            callback.call(this);
+        }
+    };
+    /**
+     * Process the sniffs.
+     *
+     * @param {Node}     element    The element to test.
+     * @param {Array}    sniffs     Array of sniffs.
+     * @param {Node}     topElement The top element of the processing.
+     * @param {Function} [callback] The function to call once the processing is completed.
+     */
+    var _processSniffs = function(element, sniffs, topElement, callback) {
+        while (sniffs.length > 0) {
+            var sniff = sniffs.shift();
+            _currentSniff = sniff;
+            if (sniff.useCallback === true) {
+                // If the useCallback property is set:
+                // - Process the sniff.
+                // - Recurse into ourselves with remaining sniffs, with no callback.
+                // - Clear out the list of sniffs (so they aren't run again), so the
+                //   callback (if not already recursed) can run afterwards.
+                sniff.process(element, topElement, function() {
+                    _processSniffs(element, sniffs, topElement);
+                    sniffs = [];
+                });
+            } else {
+                // Process the sniff.
+                sniff.process(element, topElement);
+            }
+        }
+        //end while
+        if (callback instanceof Function === true) {
+            callback.call(this);
+        }
+    };
+    /**
+     * Includes the specified standard file.
+     *
+     * @param {String}   standard The name of the standard.
+     * @param {Function} callback The function to call once the standard is included.
+     * @param {Object}   options  The options for the standard (e.g. exclude sniffs).
+     */
+    var _includeStandard = function(standard, callback, failCallback, options) {
+        if (standard.indexOf("http") !== 0) {
+            standard = _getStandardPath(standard);
+        }
+        //end id
+        // See if the ruleset object is already included (eg. if minified).
+        var parts = standard.split("/");
+        var ruleSet = _global["HTMLCS_" + parts[parts.length - 2]];
+        if (ruleSet) {
+            // Already included.
+            _registerStandard(standard, callback, failCallback, options);
+        } else {
+            _includeScript(standard, function() {
+                // Script is included now register the standard.
+                _registerStandard(standard, callback, failCallback, options);
+            }, failCallback);
+        }
+    };
+    /**
+     * Registers the specified standard and its sniffs.
+     *
+     * @param {String}   standard The name of the standard.
+     * @param {Function} callback The function to call once the standard is registered.
+     * @param {Object}   options  The options for the standard (e.g. exclude sniffs).
+     */
+    var _registerStandard = function(standard, callback, failCallback, options) {
+        // Get the object name.
+        var parts = standard.split("/");
+        // Get a copy of the ruleset object.
+        var oldRuleSet = _global["HTMLCS_" + parts[parts.length - 2]];
+        var ruleSet = {};
+        for (var x in oldRuleSet) {
+            if (oldRuleSet.hasOwnProperty(x) === true) {
+                ruleSet[x] = oldRuleSet[x];
+            }
+        }
+        if (!ruleSet) {
+            return false;
+        }
+        _standards[standard] = ruleSet;
+        // Process the options.
+        if (options) {
+            if (options.include && options.include.length > 0) {
+                // Included sniffs.
+                ruleSet.sniffs = options.include;
+            } else if (options.exclude) {
+                // Excluded sniffs.
+                for (var i = 0; i < options.exclude.length; i++) {
+                    var index = ruleSet.sniffs.find(options.exclude[i]);
+                    if (index >= 0) {
+                        ruleSet.sniffs.splice(index, 1);
+                    }
+                }
+            }
+        }
+        //end if
+        // Register the sniffs for this standard.
+        var sniffs = ruleSet.sniffs.slice(0, ruleSet.sniffs.length);
+        _registerSniffs(standard, sniffs, callback, failCallback);
+    };
+    /**
+     * Registers the sniffs for the specified standard.
+     *
+     * @param {String}   standard The name of the standard.
+     * @param {Array}    sniffs   List of sniffs to register.
+     * @param {Function} callback The function to call once the sniffs are registered.
+     */
+    var _registerSniffs = function(standard, sniffs, callback, failCallback) {
+        if (sniffs.length === 0) {
+            callback.call(this);
+            return;
+        }
+        // Include and register sniffs.
+        var sniff = sniffs.shift();
+        _loadSniffFile(standard, sniff, function() {
+            _registerSniffs(standard, sniffs, callback, failCallback);
+        }, failCallback);
+    };
+    /**
+     * Includes the sniff's JS file and registers it.
+     *
+     * @param {String}        standard The name of the standard.
+     * @param {String|Object} sniff    The sniff to register, can be a string or
+     *                                 and object specifying another standard.
+     * @param {Function}      callback The function to call once the sniff is included and registered.
+     */
+    var _loadSniffFile = function(standard, sniff, callback, failCallback) {
+        if (typeof sniff === "string") {
+            var sniffObj = _getSniff(standard, sniff);
+            var cb = function() {
+                _registerSniff(standard, sniff);
+                callback.call(this);
+            };
+            // Already loaded.
+            if (sniffObj) {
+                cb();
+            } else {
+                _includeScript(_getSniffPath(standard, sniff), cb, failCallback);
+            }
+        } else {
+            // Including a whole other standard.
+            _includeStandard(sniff.standard, function() {
+                if (sniff.messages) {
+                    // Add message overrides.
+                    for (var msg in sniff.messages) {
+                        _msgOverrides[msg] = sniff.messages[msg];
+                    }
+                }
+                callback.call(this);
+            }, failCallback, {
+                exclude: sniff.exclude,
+                include: sniff.include
+            });
+        }
+    };
+    /**
+     * Registers the specified sniff.
+     *
+     * @param {String} standard The name of the standard.
+     * @param {String} sniff    The name of the sniff.
+     */
+    var _registerSniff = function(standard, sniff) {
+        // Get the sniff object.
+        var sniffObj = _getSniff(standard, sniff);
+        if (!sniffObj) {
+            return false;
+        }
+        // Call the register method of the sniff, it should return an array of tags.
+        if (sniffObj.register) {
+            var watchedTags = sniffObj.register();
+            for (var i = 0; i < watchedTags.length; i++) {
+                if (!_tags[watchedTags[i]]) {
+                    _tags[watchedTags[i]] = [];
+                }
+                _tags[watchedTags[i]].push(sniffObj);
+            }
+        }
+        _sniffs.push(sniffObj);
+    };
+    /**
+     * Returns the path to the sniff file.
+     *
+     * @param {String} standard The name of the standard.
+     * @param {String} sniff    The name of the sniff.
+     *
+     * @returns {String} The path to the JS file of the sniff.
+     */
+    var _getSniffPath = function(standard, sniff) {
+        var parts = standard.split("/");
+        parts.pop();
+        var path = parts.join("/") + "/Sniffs/" + sniff.replace(/\./g, "/") + ".js";
+        return path;
+    };
+    /**
+     * Returns the path to a local standard.
+     *
+     * @param {String} standard The name of the standard.
+     *
+     * @returns {String} The path to the local standard.
+     */
+    var _getStandardPath = function(standard) {
+        // Get the include path of a local standard.
+        var scripts = document.getElementsByTagName("script");
+        var path = null;
+        // Loop through all the script tags that exist in the document and find the one
+        // that has included this file.
+        for (var i = 0; i < scripts.length; i++) {
+            if (scripts[i].src) {
+                if (scripts[i].src.match(/HTMLCS\.js/)) {
+                    // We have found our appropriate <script> tag that includes
+                    // this file, we can extract the path.
+                    path = scripts[i].src.replace(/HTMLCS\.js/, "");
+                    // trim any trailing bits
+                    path = path.substring(0, path.indexOf("?"));
+                    break;
+                }
+            }
+        }
+        return path + "Standards/" + standard + "/ruleset.js";
+    };
+    /**
+     * Returns the sniff object.
+     *
+     * @param {String} standard The name of the standard.
+     * @param {String} sniff    The name of the sniff.
+     *
+     * @returns {Object} The sniff object.
+     */
+    var _getSniff = function(standard, sniff) {
+        var name = "HTMLCS_";
+        name += _standards[standard].name + "_Sniffs_";
+        name += sniff.split(".").join("_");
+        if (!_global[name]) {
+            return null;
+        }
+        _global[name]._name = sniff;
+        return _global[name];
+    };
+    /**
+     * Returns the full message code.
+     *
+     * A full message code includes the standard name, the sniff name and the given code.
+     *
+     * @returns {String} The full message code.
+     */
+    var _getMessageCode = function(code) {
+        code = _standard + "." + _currentSniff._name + "." + code;
+        return code;
+    };
+    /**
+     * Includes the specified JS file.
+     *
+     * @param {String}   src      The URL to the JS file.
+     * @param {Function} callback The function to call once the script is loaded.
+     */
+    var _includeScript = function(src, callback, failCallback) {
+        var script = document.createElement("script");
+        script.onload = function() {
+            script.onload = null;
+            script.onreadystatechange = null;
+            callback.call(this);
+        };
+        script.onerror = function() {
+            script.onload = null;
+            script.onreadystatechange = null;
+            if (failCallback) {
+                failCallback.call(this);
+            }
+        };
+        script.onreadystatechange = function() {
+            if (/^(complete|loaded)$/.test(this.readyState) === true) {
+                script.onreadystatechange = null;
+                script.onload();
+            }
+        };
+        script.src = src;
+        if (document.head) {
+            document.head.appendChild(script);
+        } else {
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+    };
+}();
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCS.util = function() {
+    var self = {};
+    /**
+     * Trim off excess spaces on either side.
+     *
+     * @param {String} string The string with potentially extraneous whitespace.
+     *
+     * @returns {String}
+     */
+    self.trim = function(string) {
+        // Code Sniffer's default trim regex doesn't capture everything that JS's trim() does; we
+        // combine both or some URLs will end with trailing whitespace.
+        return string.replace(/^\s*(.*)\s*$/g, "$1").trim();
+    };
+    /**
+     * Returns true if the string is "empty" according to WCAG standards.
+     *
+     * We can test for whether the string is entirely composed of whitespace, but
+     * WCAG standards explicitly state that non-breaking spaces (&nbsp;, &#160;)
+     * are not considered "empty". So we need this function to filter out that
+     * situation.
+     *
+     * @param {String} string The potentially empty string.
+     *
+     * @returns {Boolean}
+     */
+    self.isStringEmpty = function(string) {
+        if (typeof string !== "string") {
+            return true;
+        }
+        var empty = true;
+        if (string.indexOf(String.fromCharCode(160)) !== -1) {
+            // Has an NBSP, therefore cannot be empty.
+            empty = false;
+        } else if (/^\s*$/.test(string) === false) {
+            // Not spacing.
+            empty = false;
+        }
+        return empty;
+    };
+    /**
+     * Get the document type being tested.
+     *
+     * Possible values: html5, xhtml5, xhtml11, xhtml10, html401, html40
+     * ... or empty string if it couldn't work out the doctype.
+     *
+     * This will only give the thumbs-up to the "strict" doctypes.
+     *
+     * @param {Document} The document being tested.
+     *
+     * @return {String}
+     */
+    self.getDocumentType = function(document) {
+        var retval = null;
+        var doctype = document.doctype;
+        if (doctype) {
+            var doctypeName = doctype.name;
+            var publicId = doctype.publicId;
+            var systemId = doctype.systemId;
+            if (doctypeName === null) {
+                doctypeName = "";
+            }
+            if (systemId === null) {
+                systemId = "";
+            }
+            if (publicId === null) {
+                publicId = "";
+            }
+            if (doctypeName.toLowerCase() === "html") {
+                if (publicId === "" && systemId === "") {
+                    retval = "html5";
+                } else if (publicId.indexOf("//DTD HTML 4.01") !== -1 || systemId.indexOf("w3.org/TR/html4/strict.dtd") !== -1) {
+                    retval = "html401";
+                } else if (publicId.indexOf("//DTD HTML 4.0") !== -1 || systemId.indexOf("w3.org/TR/REC-html40/strict.dtd") !== -1) {
+                    retval = "html40";
+                } else if (publicId.indexOf("//DTD XHTML 1.0 Strict") !== -1 && systemId.indexOf("w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd") !== -1) {
+                    retval = "xhtml10";
+                } else if (publicId.indexOf("//DTD XHTML 1.1") !== -1 && systemId.indexOf("w3.org/TR/xhtml11/DTD/xhtml11.dtd") !== -1) {
+                    retval = "xhtml11";
+                }
+                if (systemId.indexOf("about:legacy-compat") !== -1) {
+                    // Some tools don't like the lack of doctype for XHTML5 so permit
+                    // an "about:legacy-compat" SYSTEM doctype.
+                    if (document.contentType === "application/xhtml+xml") {
+                        var htmlElement = document.querySelector("html");
+                        if (htmlElement.getAttribute("xmlns") === "http://www.w3.org/1999/xhtml") {
+                            retval = "xhtml5";
+                        }
+                    }
+                }
+            }
+        } else {
+            // XHTML5 has no doctype (at all) normally, but it only counts if the
+            // content type it was sent as is set correctly
+            if (document.contentType === "application/xhtml+xml") {
+                var htmlElement = document.querySelector("html");
+                if (htmlElement.getAttribute("xmlns") === "http://www.w3.org/1999/xhtml") {
+                    retval = "xhtml5";
+                }
+            }
+        }
+        return retval;
+    };
+    //end getDocumentType()
+    /**
+     * Get the window object relating to the passed element.
+     *
+     * @param {Node|Document} element The element (or document) to pass.
+     *
+     * @returns {Window}
+     */
+    self.getElementWindow = function(element) {
+        if (element.ownerDocument) {
+            var doc = element.ownerDocument;
+        } else {
+            var doc = element;
+        }
+        var window = null;
+        if (doc.defaultView) {
+            window = doc.defaultView;
+        } else {
+            window = doc.parentWindow;
+        }
+        return window;
+    };
+    /**
+     * Returns true if the element has a valid aria label.
+     *
+     * @param {Node} element The element we are checking.
+     *
+     * @return {Boolean}
+     */
+    self.hasValidAriaLabel = function(element) {
+        var found = false;
+        if (element.hasAttribute("aria-labelledby") === true) {
+            // Checking aria-labelled by where the label exists AND it has text available
+            // to an accessibility API.
+            var labelledByIds = element.getAttribute("aria-labelledby").split(/\s+/);
+            labelledByIds.forEach(function(id) {
+                var elem = document.getElementById(id);
+                if (elem) {
+                    var text = self.getElementTextContent(elem);
+                    if (/^\s*$/.test(text) === false) {
+                        found = true;
+                    }
+                }
+            });
+        } else if (element.hasAttribute("aria-label") === true) {
+            var text = element.getAttribute("aria-label");
+            if (/^\s*$/.test(text) === false) {
+                found = true;
+            }
+        }
+        return found;
+    };
+    /**
+     * Return the appropriate computed style object for an element.
+     *
+     * It's accessed in different ways depending on whether it's IE or not.
+     *
+     * @param {Node} element An element with style.
+     *
+     * @returns {Object}
+     */
+    self.style = function(element) {
+        var computedStyle = null;
+        var window = self.getElementWindow(element);
+        if (element.currentStyle) {
+            computedStyle = element.currentStyle;
+        } else if (window.getComputedStyle) {
+            computedStyle = window.getComputedStyle(element, null);
+        }
+        return computedStyle;
+    };
+    /**
+     * Return true if an element is hidden visually.
+     *
+     * If the computed style of an element cannot be determined for some reason,
+     * it is presumed it is NOT hidden.
+     *
+     * @param {Node} element The element that is hiding, or not.
+     * @returns {Boolean}
+     */
+    self.isVisuallyHidden = function(element) {
+        // Do not point to elem if its hidden. Used computed styles.
+        var style = self.style(element);
+        if (style !== null) {
+            if (style.visibility === "hidden" || style.display === "none") {
+                return true;
+            }
+            // EPA (among others) use this hack to hide elements
+            if (style.clip.replace(/ /g, "") === "rect(1px,1px,1px,1px)") {
+                return true;
+            }
+            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+            if (style.clipPath.replace(/ /g, "") === "polygon(0px0px,0px0px,0px0px,0px0px)") {
+                return true;
+            }
+            var width = parseInt(style.width, 10);
+            if (parseInt(style.left, 10) + width < 0) {
+                return true;
+            }
+            if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
+                return true;
+            }
+            // Wine Barrel uses this, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            if (parseInt(style.textIndent) + width < 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    /**
+     * Return true if a text element is hidden visually.
+     *
+     * Returns true only if an element is hidden in a way that appears
+     * to be intended to hide it from *ever* being seen, e.g. text that is designed for screen readers.
+     *
+     * This is used to detect text we shouldn't analyse for text contrast, for example, while
+     * still allowing us to analyse elements that are not visible at the time the page loaded
+     * (e.g. drop down menus, modals etc).
+     *
+     * @param {Node} element The element that is hiding, or not.
+     *
+     * @returns {Boolean}
+     */
+    self.isHiddenText = function(element) {
+        // Some elements can never contain text
+        var tagName = element.tagName;
+        if (tagName === "SCRIPT" || tagName === "STYLE" || tagName === "NOSCRIPT") {
+            return true;
+        }
+        var style = self.style(element);
+        if (style !== null) {
+            if (style.visibility === "hidden") {
+                return true;
+            }
+            if (style.visibility === "hidden") {
+                return true;
+            }
+            var width = parseInt(style.width, 10);
+            if (parseInt(style.left, 10) + width < 0) {
+                return true;
+            }
+            if (parseInt(style.top, 10) + parseInt(style.height, 10) < 0) {
+                return true;
+            }
+            // Wine Barrel uses < 0, e.g. https://fakewinebarrel.com/invented-url-for-404-page
+            // University of San Francisco uses > width, e.g. https://www.usfca.edu/calendar
+            var textIndent = parseInt(style.textIndent);
+            if (textIndent + width < 0 || textIndent > width) {
+                return true;
+            }
+        }
+        return false;
+    };
+    /**
+     * Return true if the element appears to be positioned outside of its parent
+     * (for performance, the parent element may be specified directly).
+     *
+     * Naively, this is saying that the current element is positioned absolutely,
+     * but reality is more nuanced:
+     *
+     * + Positioned absolute AND has a position (top, left etc)
+     * + Positioned relative, fixed or sticky
+     *
+     * We use this to determine whether we can consider our parent's background
+     * as our background.
+     */
+    self.isPositionedOutsideParent = function(style) {
+        var position = style.position;
+        if (position === "static") {
+            return false;
+        }
+        // We count relative positioning as still inside our parent.
+        // This is naive, but in 99% of occasions we're nudging inside a container and
+        // not utterly escaping it. We *could* do some smarter calc of position here,
+        // but other tools don't appear to.
+        if (position === "relative") {
+            return false;
+        }
+        if (position === "fixed" || position === "sticky") {
+            return true;
+        }
+        // Absolute positioning only counts where an explicit position is provided.
+        // A common accessibility hack is "position: absolute; clip: rect(1px, 1px, 1px, 1px)"
+        // which should not be considered being positioned outside of our parent.
+        return !!(style.left || style.top || style.right || style.bottom);
+    };
+    /**
+     * Parse a color string like rgba(200, 12, 53, 0.5) into an array
+     */
+    self.parseColorString = function(string) {
+        if (!string || string === "transparent") {
+            return [ 0, 0, 0, 0 ];
+        }
+        var color = string.replace(/[^\d,\.]/g, "").split(",");
+        // Always add an alpha component
+        if (color.length < 4) {
+            color.push(1);
+        }
+        return color;
+    };
+    /**
+     * Combine two colours, assuming background has no alpha and foreground may
+     * have some alpha.
+     */
+    self.combineColors = function(foreground, background) {
+        var f = self.parseColorString(foreground);
+        var b = self.parseColorString(background);
+        var c = [ f[0] * f[3] + b[0] * (1 - f[3]), f[1] * f[3] + b[1] * (1 - f[3]), f[2] * f[3] + b[2] * (1 - f[3]) ];
+        return "rgb(" + Math.round(c[0]) + ", " + Math.round(c[1]) + ", " + Math.round(c[2]) + ")";
+    }, /**
+     * Return true if specified colour is at least slightly transparent.
+     */
+    self.isColorTransparent = function(string) {
+        return self.parseColorString(string)[3] < 1;
+    }, /**
+     * Return true if specified colour is fully transparent.
+     */
+    self.isColorFullyTransparent = function(string) {
+        return self.parseColorString(string)[3] == 0;
+    }, /**
+     * Returns true if the element is deliberately hidden from Accessibility APIs using ARIA hidden.
+     *
+     * Not: This is separate to isAccessibilityHidden() due to a need to check specifically for aria hidden.
+     * 
+     * @param {Node} element The element to check.
+     *
+     * @return {Boolean}
+     */
+    self.isAriaHidden = function(element) {
+        do {
+            // WAI-ARIA hidden attribute.
+            if (element.hasAttribute("aria-hidden") && element.getAttribute("aria-hidden") === "true") {
+                return true;
+            }
+        } while (element = element.parentElement);
+        return false;
+    };
+    /**
+     * Returns true if the element is deliberately hidden from Accessibility APIs.
+     *
+     * @param {Node} element The element to check.
+     *
+     * @return {Boolean}
+     */
+    self.isAccessibilityHidden = function(element) {
+        do {
+            // WAI-ARIA presentation role.
+            if (element.hasAttribute("role") && element.getAttribute("role") === "presentation") {
+                return true;
+            }
+            // WAI-ARIA hidden attribute.
+            if (element.hasAttribute("aria-hidden") && element.getAttribute("aria-hidden") === "true") {
+                return true;
+            }
+        } while (element = element.parentElement);
+        return false;
+    };
+    /**
+     * Returns TRUE if the element is able to be focused .
+     *
+     * @param {Node} element DOM Node to test.
+     *
+     * @return {Boolean}
+     */
+    self.isFocusable = function(element) {
+        var nodeName = element.nodeName.toLowerCase();
+        if (self.isDisabled(element) === true) {
+            return false;
+        }
+        if (self.isVisuallyHidden(element) === true) {
+            return false;
+        }
+        // Form elements.
+        if (/^(input|select|textarea|button|object)$/.test(nodeName)) {
+            return true;
+        }
+        // Hyperlinks without empty hrefs are focusable.
+        if (nodeName === "a" && element.hasAttribute("href") && /^\s*$/.test(element.getAttribute("href")) === false) {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * Returns TRUE if the element is able to be focused by keyboard tabbing.
+     *
+     * @param {Node} element DOM Node to test.
+     *
+     * @return {Boolean}
+     */
+    self.isKeyboardTabbable = function(element) {
+        if (element.hasAttribute("tabindex") === true) {
+            var index = element.getAttribute("tabindex");
+            if (index === "-1") {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return self.isFocusable(element);
+    };
+    /**
+     * Returns TRUE if the element is able to be accessed via the keyboard.
+     *
+     * @param {Node} element DOM Node to test.
+     *
+     * @return {Boolean}
+     */
+    self.isKeyboardNavigable = function(element) {
+        if (element.hasAttribute("accesskey") && /^\s*$/.test(element.getAttribute("accesskey")) === false) {
+            return true;
+        }
+        return self.isKeyboardTabbable(element);
+    };
+    /**
+     * Return true if an element is disabled.
+     *
+     * If the computed style of an element cannot be determined for some reason,
+     * it is presumed it is NOT hidden.
+     *
+     * @param {Node} element The element that is hiding, or not.
+     *
+     * @returns {Boolean}
+     */
+    self.isDisabled = function(element) {
+        var disabled = false;
+        // Do not point to elem if its hidden. Use computed styles.
+        if (element.disabled === true || element.getAttribute("aria-disabled") === "true") {
+            disabled = true;
+        }
+        return disabled;
+    };
+    /**
+     * Return true if an element is in a document.
+     *
+     * @param {Node} element The element that is in a doc, or not.
+     *
+     * @returns {Boolean}
+     */
+    self.isInDocument = function(element) {
+        // Check whether the element is in the document, by looking up its
+        // DOM tree for a document object.
+        var parent = element.parentNode;
+        while (parent && parent.ownerDocument) {
+            parent = parent.parentNode;
+        }
+        //end while
+        // If we didn't hit a document, the element must not be in there.
+        if (parent === null) {
+            return false;
+        }
+        return true;
+    };
+    /**
+     * Returns all elements that are visible to the accessibility API.
+     *
+     * @param {Node}   element  The parent element to search.
+     * @param {String} selector Optional selector to pass to 
+     *
+     * @return {Array}
+     */
+    self.getAllElements = function(element, selector) {
+        element = element || document;
+        selector = selector || "*";
+        var elements = Array.prototype.slice.call(element.querySelectorAll(selector));
+        var visible = elements.filter(function(elem) {
+            return HTMLCS.util.isAccessibilityHidden(elem) === false;
+        });
+        // We shouldn't be testing elements inside the injected auditor code if it's present.
+        var auditor = document.getElementById("HTMLCS-wrapper");
+        if (auditor) {
+            visible = visible.filter(function(elem) {
+                return auditor.contains(elem) === false;
+            });
+        }
+        return visible;
+    };
+    /**
+     * Returns true if the passed child is contained by the passed parent.
+     *
+     * Uses either the IE contains() method or the W3C compareDocumentPosition()
+     * method, as appropriate.
+     *
+     * @param {Node|Document} parent The parent element or document.
+     * @param {Node|Document} child  The child.
+     *
+     * @returns {Boolean}
+     */
+    self.contains = function(parent, child) {
+        var contained = false;
+        // If the parent and the child are the same, they can't contain each
+        // other.
+        if (parent !== child) {
+            if (!parent.ownerDocument) {
+                // Parent is the document. Short-circuiting because contains()
+                // doesn't exist on the document element.
+                // We check whether the child can be contained, and whether the
+                // child is in the same document as the parent.
+                if (child.ownerDocument && child.ownerDocument === parent) {
+                    contained = true;
+                }
+            } else {
+                if (parent.contains && parent.contains(child) === true) {
+                    contained = true;
+                } else if (parent.compareDocumentPosition && (parent.compareDocumentPosition(child) & 16) > 0) {
+                    contained = true;
+                }
+            }
+        }
+        //end if
+        return contained;
+    };
+    /**
+     * Returns true if the table passed is a layout table.
+     *
+     * If the passed table contains headings - through the use of the th
+     * element - HTML_CodeSniffer will assume it is a data table. This is in line
+     * with most other online checkers.
+     *
+     * @param {Node} table The table to check.
+     *
+     * @returns {Boolean}
+     */
+    self.isLayoutTable = function(table) {
+        var th = table.querySelector("th");
+        if (th === null) {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * Calculate the contrast ratio between two colours.
+     *
+     * Colours should be in rgb() or 3/6-digit hex format; order does not matter
+     * (ie. it doesn't matter which is the lighter and which is the darker).
+     * Values should be in the range [1.0, 21.0]... a ratio of 1.0 means "they're
+     * exactly the same contrast", 21.0 means it's white-on-black or v.v.
+     * Formula as per WCAG 2.0 definitions.
+     *
+     * @param {String} colour1 The first colour to compare.
+     * @param {String} colour2 The second colour to compare.
+     *
+     * @returns {Number}
+     */
+    self.contrastRatio = function(colour1, colour2) {
+        var ratio = (.05 + self.relativeLum(colour1)) / (.05 + self.relativeLum(colour2));
+        if (ratio < 1) {
+            ratio = 1 / ratio;
+        }
+        return ratio;
+    };
+    /**
+     * Calculate relative luminescence for a colour in the sRGB colour profile.
+     *
+     * Supports rgb() and hex colours. rgba() also supported but the alpha
+     * channel is currently ignored.
+     * Hex colours can have an optional "#" at the front, which is stripped.
+     * Relative luminescence formula is defined in the definitions of WCAG 2.0.
+     * It can be either three or six hex digits, as per CSS conventions.
+     * It should return a value in the range [0.0, 1.0].
+     *
+     * @param {String} colour The colour to calculate from.
+     *
+     * @returns {Number}
+     */
+    self.relativeLum = function(colour) {
+        if (colour.charAt) {
+            var colour = self.colourStrToRGB(colour);
+        }
+        var transformed = {};
+        for (var x in colour) {
+            if (colour[x] <= .03928) {
+                transformed[x] = colour[x] / 12.92;
+            } else {
+                transformed[x] = Math.pow((colour[x] + .055) / 1.055, 2.4);
+            }
+        }
+        //end for
+        var lum = transformed.red * .2126 + transformed.green * .7152 + transformed.blue * .0722;
+        return lum;
+    };
+    /**
+     * Convert a colour string to a structure with red/green/blue elements.
+     *
+     * Supports rgb() and hex colours (3 or 6 hex digits, optional "#").
+     * rgba() also supported but the alpha channel is currently ignored.
+     * Each red/green/blue element is in the range [0.0, 1.0].
+     *
+     * @param {String} colour The colour to convert.
+     *
+     * @returns {Object}
+     */
+    self.colourStrToRGB = function(colour) {
+        colour = colour.toLowerCase();
+        if (colour.substring(0, 3) === "rgb") {
+            // rgb[a](0, 0, 0[, 0]) format.
+            var matches = /^rgba?\s*\((\d+),\s*(\d+),\s*(\d+)([^)]*)\)$/.exec(colour);
+            colour = {
+                red: matches[1] / 255,
+                green: matches[2] / 255,
+                blue: matches[3] / 255
+            };
+        } else {
+            // Hex digit format.
+            if (colour.charAt(0) === "#") {
+                colour = colour.substr(1);
+            }
+            if (colour.length === 3) {
+                colour = colour.replace(/^(.)(.)(.)$/, "$1$1$2$2$3$3");
+            }
+            colour = {
+                red: parseInt(colour.substr(0, 2), 16) / 255,
+                green: parseInt(colour.substr(2, 2), 16) / 255,
+                blue: parseInt(colour.substr(4, 2), 16) / 255
+            };
+        }
+        return colour;
+    };
+    /**
+     * Convert an RGB colour structure to a hex colour.
+     *
+     * The red/green/blue colour elements should be on a [0.0, 1.0] scale.
+     * Colours that can be converted into a three Hex-digit string will be
+     * converted as such (eg. rgb(34,34,34) => #222). Others will be converted
+     * to a six-digit string (eg. rgb(48,48,48) => #303030).
+     *
+     * @param {Object} colour Structure with "red", "green" and "blue" elements.
+     *
+     * @returns {String}
+     */
+    self.RGBtoColourStr = function(colour) {
+        colourStr = "#";
+        colour.red = Math.round(colour.red * 255);
+        colour.green = Math.round(colour.green * 255);
+        colour.blue = Math.round(colour.blue * 255);
+        if (colour.red % 17 === 0 && colour.green % 17 === 0 && colour.blue % 17 === 0) {
+            // Reducible to three hex digits.
+            colourStr += (colour.red / 17).toString(16);
+            colourStr += (colour.green / 17).toString(16);
+            colourStr += (colour.blue / 17).toString(16);
+        } else {
+            if (colour.red < 16) {
+                colourStr += "0";
+            }
+            colourStr += colour.red.toString(16);
+            if (colour.green < 16) {
+                colourStr += "0";
+            }
+            colourStr += colour.green.toString(16);
+            if (colour.blue < 16) {
+                colourStr += "0";
+            }
+            colourStr += colour.blue.toString(16);
+        }
+        return colourStr;
+    };
+    /**
+     * Convert an RGB colour into hue-saturation-value.
+     *
+     * This is used for calculations changing the colour (for colour contrast
+     * purposes) to ensure that the hue is maintained.
+     * The parameter accepts either a string (hex or rgb() format) or a
+     * red/green/blue structure.
+     * The returned structure has hue, saturation, and value components: the
+     * latter two are in the range [0.0, 1.0]; hue is in degrees,
+     * range [0.0, 360.0).
+     * If there is no saturation then hue is technically undefined.
+     *
+     * @param {String|Object} colour A colour to convert.
+     *
+     * @returns {Object}
+     */
+    self.sRGBtoHSV = function(colour) {
+        // If this is a string, then convert to a colour structure.
+        if (colour.charAt) {
+            colour = self.colourStrToRGB(colour);
+        }
+        var hsvColour = {
+            hue: 0,
+            saturation: 0,
+            value: 0
+        };
+        var maxColour = Math.max(colour.red, colour.green, colour.blue);
+        var minColour = Math.min(colour.red, colour.green, colour.blue);
+        var chroma = maxColour - minColour;
+        if (chroma === 0) {
+            hsvColour.value = colour.red;
+        } else {
+            hsvColour.value = maxColour;
+            if (maxColour === colour.red) {
+                hsvColour.hue = (colour.green - colour.blue) / chroma;
+            } else if (maxColour === colour.green) {
+                hsvColour.hue = 2 + (colour.blue - colour.red) / chroma;
+            } else {
+                hsvColour.hue = 4 + (colour.red - colour.green) / chroma;
+            }
+            //end if
+            hsvColour.hue = hsvColour.hue * 60;
+            if (hsvColour.hue >= 360) {
+                hsvColour.hue -= 360;
+            }
+            hsvColour.saturation = chroma / hsvColour.value;
+        }
+        //end if
+        return hsvColour;
+    };
+    /**
+     * Convert a hue-saturation-value structure into an RGB structure.
+     *
+     * The hue element should be a degree value in the region of [0.0, 360.0).
+     * The saturation and value elements should be in the range [0.0, 1.0].
+     * Use RGBtoColourStr to convert back into a hex colour.
+     *
+     * @param {Object} hsvColour A HSV structure to convert.
+     *
+     * @returns {Object}
+     */
+    self.HSVtosRGB = function(hsvColour) {
+        var colour = {
+            red: 0,
+            green: 0,
+            blue: 0
+        };
+        if (hsvColour.saturation === 0) {
+            colour.red = hsvColour.value;
+            colour.green = hsvColour.value;
+            colour.blue = hsvColour.value;
+        } else {
+            var chroma = hsvColour.value * hsvColour.saturation;
+            var minColour = hsvColour.value - chroma;
+            var interHue = hsvColour.hue / 60;
+            var interHueMod = interHue - 2 * Math.floor(interHue / 2);
+            var interCol = chroma * (1 - Math.abs(interHueMod - 1));
+            switch (Math.floor(interHue)) {
+              case 0:
+                colour.red = chroma;
+                colour.green = interCol;
+                break;
+
+              case 1:
+                colour.green = chroma;
+                colour.red = interCol;
+                break;
+
+              case 2:
+                colour.green = chroma;
+                colour.blue = interCol;
+                break;
+
+              case 3:
+                colour.blue = chroma;
+                colour.green = interCol;
+                break;
+
+              case 4:
+                colour.blue = chroma;
+                colour.red = interCol;
+                break;
+
+              case 5:
+                colour.red = chroma;
+                colour.blue = interCol;
+                break;
+            }
+            //end switch
+            colour.red = colour.red + minColour;
+            colour.green = colour.green + minColour;
+            colour.blue = colour.blue + minColour;
+        }
+        //end if
+        return colour;
+    };
+    /**
+     * Gets the text contents of an element.
+     *
+     * @param {Node}    element           The element being inspected.
+     * @param {Boolean} [includeAlt=true] Include alt text from images.
+     *
+     * @returns {String} The text contents.
+     */
+    self.getElementTextContent = function(element, includeAlt) {
+        if (includeAlt === undefined) {
+            includeAlt = true;
+        }
+        var element = element.cloneNode(true);
+        var nodes = [];
+        for (var i = 0; i < element.childNodes.length; i++) {
+            nodes.push(element.childNodes[i]);
+        }
+        var text = [ element.textContent ];
+        while (nodes.length > 0) {
+            var node = nodes.shift();
+            // If it's an element, add any sub-nodes to the process list.
+            if (node.nodeType === 1) {
+                if (node.nodeName.toLowerCase() === "img") {
+                    // If an image, include the alt text unless we are blocking it.
+                    if (includeAlt === true && node.hasAttribute("alt") === true) {
+                        text.push(node.getAttribute("alt"));
+                    }
+                } else {
+                    for (var i = 0; i < node.childNodes.length; i++) {
+                        nodes.push(node.childNodes[i]);
+                    }
+                }
+            } else if (node.nodeType === 3) {
+                // Text node.
+                text.push(node.nodeValue);
+            }
+        }
+        // Push the text nodes together and trim.
+        text = text.join("").replace(/^\s+|\s+$/g, "");
+        return text;
+    };
+    /**
+     * Find a parent node matching a selector.
+     *
+     * @param {DOMNode} node     Node to search from.
+     * @param {String}  selector The selector to search.
+     *
+     * @return DOMNode|null
+     */
+    self.findParentNode = function(node, selector) {
+        if (node && node.matches && node.matches(selector)) {
+            return node;
+        }
+        while (node && node.parentNode) {
+            node = node.parentNode;
+            if (node && node.matches && node.matches(selector)) {
+                return node;
+            }
+        }
+        return null;
+    };
+    /**
+     * Iterate parent nodes of an element.
+     *
+     * @param {DOMNode}  node Node to search from.
+     * @param {Function} cb    Callback function providing each parent node.
+     *
+     * @return void
+     */
+    self.eachParentNode = function(node, cb) {
+        while (node && node.parentNode) {
+            cb(node);
+            node = node.parentNode;
+        }
+    };
+    /**
+     * Returns TRUE if the provided node name is not a valid phrasing node.
+     *
+     * @param {String} nodeName The node name to test.
+     *
+     * @return {Boolean}
+     */
+    self.isPhrasingNode = function(nodeName) {
+        var nodeNames = [ "abbr", "audio", "b", "bdo", "br", "button", "canvas", "cite", "code", "command", "data", "datalist", "dfn", "em", "embed", "i", "iframe", "img", "input", "kbd", "keygen", "label", "mark", "math", "meter", "noscript", "object", "output", "progress", "q", "ruby", "samp", "script", "select", "small", "span", "strong", "sub", "sup", "svg", "textarea", "time", "var", "video", "wbr" ];
+        return nodeNames.indexOf(nodeName.toLowerCase()) !== -1;
+    };
+    self.getChildrenForTable = function(table, childNodeName) {
+        if (table.nodeName.toLowerCase() !== "table") {
+            return null;
+        }
+        var rows = [];
+        var allRows = table.getElementsByTagName(childNodeName);
+        // Filter out rows that don't belong to this table.
+        for (var i = 0, l = allRows.length; i < l; i++) {
+            if (self.findParentNode(allRows[i], "table") === table) {
+                rows.push(allRows[i]);
+            }
+        }
+        return rows;
+    };
+    /**
+     * Test for the correct headers attributes on table cell elements.
+     *
+     * Return value contains the following elements:
+     * - required (Boolean):   Whether header association at all is required.
+     * - used (Boolean):       Whether headers attribute has been used on at least
+     *                         one table data (td) cell.
+     * - allowScope (Boolean): Whether scope is allowed to satisfy the association
+     *                         requirement (ie. max one row/one column).
+     * - correct (Boolean):    Whether headers have been correctly used.
+     * - missingThId (Array):  Array of th elements without IDs.
+     * - missingTd (Array):    Array of elements without headers attribute.
+     * - wrongHeaders (Array): Array of elements where headers attr is incorrect.
+     *                         Each is a structure with following keys: element,
+     *                         expected [headers attr], actual [headers attr].
+     *
+     * @param {DOMNode} element Table element to test upon.
+     *
+     * @return {Object} The above return value structure.
+     */
+    self.testTableHeaders = function(element) {
+        var retval = {
+            required: true,
+            used: false,
+            correct: true,
+            allowScope: true,
+            missingThId: [],
+            missingTd: [],
+            wrongHeaders: []
+        };
+        var rows = self.getChildrenForTable(element, "tr");
+        var tdCells = {};
+        var skipCells = [];
+        // Header IDs already used.
+        var headerIds = {
+            rows: [],
+            cols: []
+        };
+        var multiHeaders = {
+            rows: 0,
+            cols: 0
+        };
+        var missingIds = false;
+        for (var rownum = 0; rownum < rows.length; rownum++) {
+            var row = rows[rownum];
+            var colnum = 0;
+            for (var item = 0; item < row.childNodes.length; item++) {
+                var cell = row.childNodes[item];
+                if (cell.nodeType === 1) {
+                    // Skip columns that are skipped due to rowspan.
+                    if (skipCells[rownum]) {
+                        while (skipCells[rownum][0] === colnum) {
+                            skipCells[rownum].shift();
+                            colnum++;
+                        }
+                    }
+                    var nodeName = cell.nodeName.toLowerCase();
+                    var rowspan = Number(cell.getAttribute("rowspan")) || 1;
+                    var colspan = Number(cell.getAttribute("colspan")) || 1;
+                    // If rowspanned, mark columns as skippable in the following
+                    // row(s).
+                    if (rowspan > 1) {
+                        for (var i = rownum + 1; i < rownum + rowspan; i++) {
+                            if (!skipCells[i]) {
+                                skipCells[i] = [];
+                            }
+                            for (var j = colnum; j < colnum + colspan; j++) {
+                                skipCells[i].push(j);
+                            }
+                        }
+                    }
+                    if (nodeName === "th") {
+                        var id = cell.getAttribute("id") || "";
+                        // Save the fact that we have a missing ID on the header.
+                        if (id === "") {
+                            retval.correct = false;
+                            retval.missingThId.push(cell);
+                        }
+                        if (rowspan > 1 && colspan > 1) {
+                            // Multi-column AND multi-row header. Abandon all hope,
+                            // As it must span across more than one row+column
+                            retval.allowScope = false;
+                        } else if (retval.allowScope === true) {
+                            // If we haven't had a th in this column (row) yet,
+                            // record it. if we find another th in this column (row),
+                            // record that has multi-ths. If we already have a column
+                            // (row) with multi-ths, we cannot use scope.
+                            if (headerIds.cols[colnum] === undefined) {
+                                headerIds.cols[colnum] = 0;
+                            }
+                            if (headerIds.rows[rownum] === undefined) {
+                                headerIds.rows[rownum] = 0;
+                            }
+                            headerIds.rows[rownum] += colspan;
+                            headerIds.cols[colnum] += rowspan;
+                        }
+                    } else if (nodeName === "td") {
+                        if (cell.hasAttribute("headers") === true && /^\s*$/.test(cell.getAttribute("headers")) === false) {
+                            retval.used = true;
+                        }
+                    }
+                    //end if
+                    colnum += colspan;
+                }
+            }
+        }
+        //end for
+        for (var i = 0; i < headerIds.rows.length; i++) {
+            if (headerIds.rows[i] > 1) {
+                multiHeaders.rows++;
+            }
+        }
+        for (var i = 0; i < headerIds.cols.length; i++) {
+            if (headerIds.cols[i] > 1) {
+                multiHeaders.cols++;
+            }
+        }
+        if (multiHeaders.rows > 1 || multiHeaders.cols > 1) {
+            retval.allowScope = false;
+        } else if (retval.allowScope === true && (multiHeaders.rows === 0 || multiHeaders.cols === 0)) {
+            // If only one column OR one row header.
+            retval.required = false;
+        }
+        //end if
+        // Calculate expected heading IDs. If they are not there or incorrect, flag
+        // them.
+        var cells = HTMLCS.util.getCellHeaders(element);
+        for (var i = 0; i < cells.length; i++) {
+            var cell = cells[i].cell;
+            var expected = cells[i].headers;
+            if (cell.hasAttribute("headers") === false) {
+                retval.correct = false;
+                retval.missingTd.push(cell);
+            } else {
+                var actual = (cell.getAttribute("headers") || "").split(/\s+/);
+                if (actual.length === 0) {
+                    retval.correct = false;
+                    retval.missingTd.push(cell);
+                } else {
+                    actual = " " + actual.sort().join(" ") + " ";
+                    actual = actual.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").replace(/^\s*(.*?)\s*$/g, "$1");
+                    if (expected !== actual) {
+                        retval.correct = false;
+                        var val = {
+                            element: cell,
+                            expected: expected,
+                            actual: cell.getAttribute("headers") || ""
+                        };
+                        retval.wrongHeaders.push(val);
+                    }
+                }
+            }
+        }
+        //end for
+        return retval;
+    };
+    /**
+     * Return expected cell headers from a table.
+     *
+     * Returns null if not a table.
+     *
+     * Returns an array of objects with two properties:
+     * - cell (Object) - the TD element referred to,
+     * - headers (String) - the normalised list of expected headers.
+     *
+     * Cells are returned in DOM order. This may mean cells in a tfoot (which
+     * normally precedes tbody if used) would come before tbody cells.
+     *
+     * If there are missing IDs on relevant table header (th) elements, this
+     * method won't complain about it - it will just return them as empty. Its
+     * job is to take the IDs it can get, not to complain about it (see, eg. the
+     * test in WCAG2's sniff 1_3_1). If there are no headers for a cell, it
+     * won't be included.
+     *
+     * @param {Object} table The table to test.
+     *
+     * @returns {Array}
+     */
+    self.getCellHeaders = function(table) {
+        if (typeof table !== "object") {
+            return null;
+        } else if (table.nodeName.toLowerCase() !== "table") {
+            return null;
+        }
+        var rows = self.getChildrenForTable(table, "tr");
+        var skipCells = [];
+        var headingIds = {
+            rows: {},
+            cols: {}
+        };
+        // List of cells and headers. Each item should be a two-property object:
+        // a "cell" object, and a normalised string of "headers".
+        var cells = [];
+        // Now determine the row and column headers for the table.
+        // Go through once, first finding the th's to load up the header names,
+        // then finding the td's to dump them off.
+        var targetNodeNames = [ "th", "td" ];
+        for (var k = 0; k < targetNodeNames.length; k++) {
+            var targetNode = targetNodeNames[k];
+            for (var rownum = 0; rownum < rows.length; rownum++) {
+                var row = rows[rownum];
+                var colnum = 0;
+                for (var item = 0; item < row.childNodes.length; item++) {
+                    var thisCell = row.childNodes[item];
+                    if (thisCell.nodeType === 1) {
+                        // Skip columns that are skipped due to rowspan.
+                        if (skipCells[rownum]) {
+                            while (skipCells[rownum][0] === colnum) {
+                                skipCells[rownum].shift();
+                                colnum++;
+                            }
+                        }
+                        var nodeName = thisCell.nodeName.toLowerCase();
+                        var rowspan = Number(thisCell.getAttribute("rowspan")) || 1;
+                        var colspan = Number(thisCell.getAttribute("colspan")) || 1;
+                        // If rowspanned, mark columns as skippable in the following
+                        // row(s).
+                        if (rowspan > 1) {
+                            for (var i = rownum + 1; i < rownum + rowspan; i++) {
+                                if (!skipCells[i]) {
+                                    skipCells[i] = [];
+                                }
+                                for (var j = colnum; j < colnum + colspan; j++) {
+                                    skipCells[i].push(j);
+                                }
+                            }
+                        }
+                        if (nodeName === targetNode) {
+                            if (nodeName === "th") {
+                                // Build up the cell headers.
+                                var id = thisCell.getAttribute("id") || "";
+                                for (var i = rownum; i < rownum + rowspan; i++) {
+                                    headingIds.rows[i] = headingIds.rows[i] || {
+                                        first: colnum,
+                                        ids: []
+                                    };
+                                    headingIds.rows[i].ids.push(id);
+                                }
+                                for (var i = colnum; i < colnum + colspan; i++) {
+                                    headingIds.cols[i] = headingIds.cols[i] || {
+                                        first: rownum,
+                                        ids: []
+                                    };
+                                    headingIds.cols[i].ids.push(id);
+                                }
+                            } else if (nodeName === "td") {
+                                // Dump out the headers and cells.
+                                var exp = [];
+                                for (var i = rownum; i < rownum + rowspan; i++) {
+                                    for (var j = colnum; j < colnum + colspan; j++) {
+                                        if (headingIds.rows[i] && j >= headingIds.rows[i].first) {
+                                            exp = exp.concat(headingIds.rows[i].ids);
+                                        }
+                                        if (headingIds.cols[j] && i >= headingIds.cols[j].first) {
+                                            exp = exp.concat(headingIds.cols[j].ids);
+                                        }
+                                    }
+                                }
+                                //end for
+                                if (exp.length > 0) {
+                                    exp = " " + exp.sort().join(" ") + " ";
+                                    exp = exp.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").replace(/^\s*(.*?)\s*$/g, "$1");
+                                    cells.push({
+                                        cell: thisCell,
+                                        headers: exp
+                                    });
+                                }
+                            }
+                        }
+                        colnum += colspan;
+                    }
+                }
+            }
+        }
+        //end for
+        // Build the column and row headers that we expect.
+        return cells;
+    };
+    /**
+     * Get the previous sibling element.
+     *
+     * This is a substitute for previousSibling where there are text, comment and
+     * other nodes between elements.
+     *
+     * If tagName is null, immediate is ignored and effectively defaults to true: the
+     * previous element will be returned regardless of what it is.
+     *
+     * @param {DOMNode} element           Element to start from.
+     * @param {String}  [tagName=null]    Only match this tag. If null, match any.
+     *                                    Not case-sensitive.
+     * @param {Boolean} [immediate=false] Only match if the tag in tagName is the
+     *                                    immediately preceding non-whitespace node.
+     *
+     * @returns {DOMNode} The appropriate node or null if none is found.
+     */
+    self.getPreviousSiblingElement = function(element, tagName, immediate) {
+        if (tagName === undefined) {
+            tagName = null;
+        }
+        if (immediate === undefined) {
+            immediate = false;
+        }
+        var prevNode = element.previousSibling;
+        while (prevNode !== null) {
+            if (prevNode.nodeType === 3) {
+                if (HTMLCS.util.isStringEmpty(prevNode.nodeValue) === false && immediate === true) {
+                    // Failed. Immediate node requested and we got text instead.
+                    prevNode = null;
+                    break;
+                }
+            } else if (prevNode.nodeType === 1) {
+                // If this an element, we break regardless. If it's an "a" node,
+                // it's the one we want. Otherwise, there is no adjacent "a" node
+                // and it can be ignored.
+                if (tagName === null || prevNode.nodeName.toLowerCase() === tagName) {
+                    // Correct element, or we aren't picky.
+                    break;
+                } else if (immediate === true) {
+                    // Failed. Immediate node requested and not correct tag name.
+                    prevNode = null;
+                    break;
+                }
+                break;
+            }
+            //end if
+            prevNode = prevNode.previousSibling;
+        }
+        //end if
+        return prevNode;
+    };
+    /**
+     * Get the next sibling element.
+     *
+     * This is a substitute for nextSibling where there are text, comment and
+     * other nodes between elements.
+     *
+     * If tagName is null, immediate is ignored and effectively defaults to true: the
+     * next element will be returned regardless of what it is.
+     *
+     * @param {DOMNode} element           Element to start from.
+     * @param {String}  [tagName=null]    Only match this tag. If null, match any.
+     *                                    Not case-sensitive.
+     * @param {Boolean} [immediate=false] Only match if the tag in tagName is the
+     *                                    immediately following non-whitespace node.
+     *
+     * @returns {DOMNode} The appropriate node or null if none is found.
+     */
+    self.getNextSiblingElement = function(element, tagName, immediate) {
+        if (tagName === undefined) {
+            tagName = null;
+        }
+        if (immediate === undefined) {
+            immediate = false;
+        }
+        var nextNode = element.nextSibling;
+        while (nextNode !== null) {
+            if (nextNode.nodeType === 3) {
+                if (HTMLCS.util.isStringEmpty(nextNode.nodeValue) === false && immediate === true) {
+                    // Failed. Immediate node requested and we got text instead.
+                    nextNode = null;
+                    break;
+                }
+            } else if (nextNode.nodeType === 1) {
+                // If this an element, we break regardless. If it's an "a" node,
+                // it's the one we want. Otherwise, there is no adjacent "a" node
+                // and it can be ignored.
+                if (tagName === null || nextNode.nodeName.toLowerCase() === tagName) {
+                    // Correct element, or we aren't picky.
+                    break;
+                } else if (immediate === true) {
+                    // Failed. Immediate node requested and not correct tag name.
+                    nextNode = null;
+                    break;
+                }
+                break;
+            }
+            //end if
+            nextNode = nextNode.nextSibling;
+        }
+        //end if
+        return nextNode;
+    };
+    return self;
+}();
+
+var HTMLCS_RUNNER = _global.HTMLCS_RUNNER = new function() {
+    this.run = function(standard, callback) {
+        var self = this;
+        // At the moment, it passes the whole DOM document.
+        HTMLCS.process(standard, document, function() {
+            var messages = HTMLCS.getMessages();
+            var length = messages.length;
+            var msgCount = {};
+            msgCount[HTMLCS.ERROR] = 0;
+            msgCount[HTMLCS.WARNING] = 0;
+            msgCount[HTMLCS.NOTICE] = 0;
+            for (var i = 0; i < length; i++) {
+                self.output(messages[i]);
+                msgCount[messages[i].type]++;
+            }
+            console.log("done");
+        }, function() {
+            console.log("Something in HTML_CodeSniffer failed to parse. Cannot run.");
+            console.log("done");
+        }, "en");
+    };
+    this.output = function(msg) {
+        // Simple output for now.
+        var typeName = "UNKNOWN";
+        switch (msg.type) {
+          case HTMLCS.ERROR:
+            typeName = _global.HTMLCS.getTranslation("auditor_error");
+            break;
+
+          case HTMLCS.WARNING:
+            typeName = _global.HTMLCS.getTranslation("auditor_warning");
+            break;
+
+          case HTMLCS.NOTICE:
+            typeName = _global.HTMLCS.getTranslation("auditor_notice");
+            break;
+        }
+        //end switch
+        var nodeName = "";
+        if (msg.element) {
+            nodeName = msg.element.nodeName.toLowerCase();
+        }
+        var elementId = "";
+        if (msg.element.id && msg.element.id !== "") {
+            elementId = "#" + msg.element.id;
+        }
+        // Clone the node to get it's outerHTML (with inner replaced with ... for brevity)
+        var html = "";
+        if (msg.element.outerHTML) {
+            var node = msg.element.cloneNode(true);
+            node.innerHTML = "...";
+            html = node.outerHTML;
+        }
+        console.log("[HTMLCS] " + typeName + "|" + msg.code + "|" + nodeName + "|" + elementId + "|" + msg.msg + "|" + html);
+    };
+}();
+
+/**
+ * +--------------------------------------------------------------------+
+ * | This HTML_CodeSniffer file is Copyright (c)                        |
+ * | Squiz Pty Ltd (ABN 77 084 670 600)                                 |
+ * +--------------------------------------------------------------------+
+ * | IMPORTANT: Your use of this Software is subject to the terms of    |
+ * | the Licence provided in the file licence.txt. If you cannot find   |
+ * | this file please contact Squiz (www.squiz.com.au) so we may        |
+ * | provide you a copy.                                                |
+ * +--------------------------------------------------------------------+
+ *
+ */
+_global.HTMLCSAuditor = new function() {
+    var _prefix = "HTMLCS-";
+    var _screen = "";
+    var _standard = "";
+    var _sources = [];
+    var _options = {};
+    var _doc = null;
+    var _top = null;
+    var _messages = [];
+    var _page = 1;
+    var _sbWidth = null;
+    var self = this;
+    this.pointerContainer = null;
+    /**
+     * Build the "summary section" square button.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildSummaryButton = function(id, className, title, onclick) {
+        var button = _doc.createElement("div");
+        button.id = id;
+        button.className = _prefix + "button";
+        button.setAttribute("title", title);
+        var buttonInner = _doc.createElement("span");
+        buttonInner.className = _prefix + "button-icon " + _prefix + "button-" + className;
+        button.appendChild(buttonInner);
+        var nbsp = _doc.createTextNode(String.fromCharCode(160));
+        button.appendChild(nbsp);
+        if (onclick instanceof Function === true) {
+            button.onclick = function() {
+                if (/disabled/.test(button.className) === false) {
+                    onclick(button);
+                }
+            };
+        }
+        return button;
+    };
+    /**
+     * Build a checkbox.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildCheckbox = function(id, title, checked, disabled, onclick) {
+        if (checked === undefined) {
+            checked = false;
+        }
+        var label = _doc.createElement("label");
+        var content = "";
+        label.className = _prefix + "checkbox";
+        content += '<span class="' + _prefix + 'checkbox-switch">';
+        content += '<span class="' + _prefix + 'checkbox-slider"></span>';
+        content += '<input id="' + id + '" type="checkbox"';
+        if (checked === true) {
+            content += ' checked="checked"';
+            label.className += " active";
+        }
+        if (disabled === true) {
+            content += ' disabled="disabled"';
+            label.className += " disabled";
+        }
+        content += ' title="' + title + '" /></span>';
+        label.innerHTML = content;
+        var input = label.getElementsByTagName("input")[0];
+        label.onclick = function(event) {
+            if (disabled === false) {
+                input.checked = !input.checked;
+                if (input.checked === true) {
+                    label.className += " active";
+                } else {
+                    label.className = label.className.replace("active", "");
+                }
+                if (onclick instanceof Function === true) {
+                    onclick(input);
+                }
+            }
+            //end if
+            return false;
+        };
+        return label;
+    };
+    /**
+     * Build a radio button.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildRadioButton = function(groupName, value, title, checked) {
+        if (checked === undefined) {
+            checked = false;
+        }
+        var label = _doc.createElement("label");
+        label.className = _prefix + "radio";
+        var content = '<span class="' + _prefix + 'radio-title">' + title + "</span>";
+        content += '<span class="' + _prefix + 'radio-switch">';
+        content += '<span class="' + _prefix + 'radio-slider"></span>';
+        content += '<input type="radio" name="' + _prefix + groupName + '" ';
+        content += 'class="' + _prefix + 'radiobtn"';
+        content += 'value="' + value + '"';
+        if (checked === true) {
+            content += ' checked="true"';
+        }
+        content += " /></span>";
+        label.innerHTML = content;
+        return label;
+    };
+    /**
+     * Build the header section at the absolute top of the interface.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildHeaderSection = function(standard, wrapper) {
+        var header = _doc.createElement("div");
+        header.className = _prefix + "header";
+        header.innerHTML = "HTML_CodeSniffer by Squiz";
+        header.setAttribute("title", _global.HTMLCS.getTranslation("auditor_using_standard") + standard);
+        var dragging = false;
+        var prevX = 0;
+        var prevY = 0;
+        var mouseX = 0;
+        var mouseY = 0;
+        header.onmousedown = function(e) {
+            e = e || window.event;
+            dragging = true;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            return false;
+        };
+        _doc.onmousemove = function(e) {
+            e = e || window.event;
+            if (dragging === true) {
+                var top = wrapper.offsetTop;
+                var left = wrapper.offsetLeft;
+                if (mouseY < e.clientY) {
+                    top += e.clientY - mouseY;
+                    wrapper.style.top = top + "px";
+                } else if (mouseY > e.clientY) {
+                    top -= mouseY - e.clientY;
+                    wrapper.style.top = top + "px";
+                }
+                if (mouseX < e.clientX) {
+                    left += e.clientX - mouseX;
+                    wrapper.style.left = left + "px";
+                } else if (mouseX > e.clientX) {
+                    left -= mouseX - e.clientX;
+                    wrapper.style.left = left + "px";
+                }
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }
+        };
+        _doc.onmouseup = function(e) {
+            dragging = false;
+        };
+        var closeIcon = _doc.createElement("div");
+        closeIcon.className = _prefix + "close";
+        closeIcon.setAttribute("title", _global.HTMLCS.getTranslation("auditor_close"));
+        closeIcon.onmousedown = function() {
+            self.close.call(self);
+        };
+        header.appendChild(closeIcon);
+        return header;
+    };
+    /**
+     * Build the summary section of the interface.
+     *
+     * This includes the number of errors, warnings and notices; as well as buttons
+     * to access the settings interface, and to recheck the content.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildSummarySection = function(errors, warnings, notices) {
+        var summary = _doc.createElement("div");
+        summary.className = _prefix + "summary";
+        var leftPane = _doc.createElement("div");
+        leftPane.className = _prefix + "summary-left";
+        summary.appendChild(leftPane);
+        var rightPane = _doc.createElement("div");
+        rightPane.className = _prefix + "summary-right";
+        summary.appendChild(rightPane);
+        var leftContents = [];
+        var divider = ', &#160;<span class="' + _prefix + 'divider"></span>';
+        if (errors > 0) {
+            var typeName = _global.HTMLCS.getTranslation("auditor_errors");
+            if (errors === 1) {
+                typeName = _global.HTMLCS.getTranslation("auditor_error");
+            }
+            leftContents.push("<strong>" + errors + "</strong> " + typeName);
+        }
+        if (warnings > 0) {
+            var typeName = _global.HTMLCS.getTranslation("auditor_warnings");
+            if (warnings === 1) {
+                typeName = _global.HTMLCS.getTranslation("auditor_warning");
+            }
+            leftContents.push("<strong>" + warnings + "</strong> " + typeName);
+        }
+        if (notices > 0) {
+            var typeName = _global.HTMLCS.getTranslation("auditor_notices");
+            if (notices === 1) {
+                typeName = _global.HTMLCS.getTranslation("auditor_notice");
+            }
+            leftContents.push("<strong>" + notices + "</strong> " + typeName);
+        }
+        // Start lineage in left pane.
+        var lineage = _doc.createElement("ol");
+        lineage.className = _prefix + "lineage";
+        // Back to summary item.
+        var lineageHomeItem = _doc.createElement("li");
+        lineageHomeItem.className = _prefix + "lineage-item";
+        var lineageHomeLink = _doc.createElement("a");
+        lineageHomeLink.className = _prefix + "lineage-link";
+        lineageHomeLink.href = "javascript:";
+        var lineageHomeSpan = _doc.createElement("span");
+        lineageHomeSpan.innerHTML = "Home";
+        lineageHomeLink.appendChild(lineageHomeSpan);
+        lineageHomeLink.onmousedown = function() {
+            self.run(_standard, _sources, _options);
+        };
+        // Issue totals.
+        var lineageTotalsItem = _doc.createElement("li");
+        lineageTotalsItem.className = _prefix + "lineage-item";
+        lineageTotalsItem.innerHTML = leftContents.join(divider);
+        lineageHomeItem.appendChild(lineageHomeLink);
+        lineage.appendChild(lineageHomeItem);
+        lineage.appendChild(lineageTotalsItem);
+        leftPane.appendChild(lineage);
+        rightPane.appendChild(_doc.createTextNode(String.fromCharCode(160)));
+        return summary;
+    };
+    /**
+     * Build the summary section of the interface.
+     *
+     * This includes the number of errors, warnings and notices; as well as buttons
+     * to access the settings interface, and to recheck the content.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildDetailSummarySection = function(issue, totalIssues) {
+        var summary = _doc.createElement("div");
+        summary.className = _prefix + "summary-detail";
+        var leftPane = _doc.createElement("div");
+        leftPane.className = _prefix + "summary-left";
+        var rightPane = _doc.createElement("div");
+        rightPane.className = _prefix + "summary-right";
+        // Start lineage.
+        var lineage = _doc.createElement("ol");
+        lineage.className = _prefix + "lineage";
+        var lineageHomeItem = _doc.createElement("li");
+        lineageHomeItem.className = _prefix + "lineage-item";
+        var lineageHomeLink = _doc.createElement("a");
+        lineageHomeLink.className = _prefix + "lineage-link";
+        lineageHomeLink.href = "javascript:";
+        var lineageHomeSpan = _doc.createElement("span");
+        lineageHomeSpan.innerHTML = _global.HTMLCS.getTranslation("auditor_home");
+        lineageHomeLink.appendChild(lineageHomeSpan);
+        lineageHomeLink.onmousedown = function() {
+            self.run(_standard, _sources, _options);
+        };
+        // Back to Report item.
+        var lineageReportItem = _doc.createElement("li");
+        lineageReportItem.className = _prefix + "lineage-item";
+        var lineageReportLink = _doc.createElement("a");
+        lineageReportLink.className = _prefix + "lineage-link";
+        lineageReportLink.href = "javascript:";
+        lineageReportLink.innerHTML = _global.HTMLCS.getTranslation("auditor_report");
+        lineageReportLink.setAttribute("title", _global.HTMLCS.getTranslation("auditor_back_to_report"));
+        lineageReportLink.onmousedown = function() {
+            var list = _doc.querySelectorAll(".HTMLCS-inner-wrapper")[0];
+            list.style.marginLeft = "0px";
+            list.style.maxHeight = null;
+            summary.style.display = "none";
+            var listSummary = _doc.querySelectorAll(".HTMLCS-summary")[0];
+            listSummary.style.display = "block";
+        };
+        // Issue Count item.
+        var lineageTotalsItem = _doc.createElement("li");
+        lineageTotalsItem.className = _prefix + "lineage-item";
+        lineageTotalsItem.innerHTML = _global.HTMLCS.getTranslation("auditor_issue") + " " + issue + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalIssues;
+        lineageHomeItem.appendChild(lineageHomeLink);
+        lineageReportItem.appendChild(lineageReportLink);
+        lineage.appendChild(lineageHomeItem);
+        lineage.appendChild(lineageReportItem);
+        lineage.appendChild(lineageTotalsItem);
+        leftPane.appendChild(lineage);
+        var buttonGroup = _doc.createElement("div");
+        buttonGroup.className = _prefix + "button-group";
+        var prevButton = buildSummaryButton(_prefix + "button-previous-issue", "previous", _global.HTMLCS.getTranslation("auditor_previous_issue"), function(target) {
+            var newIssue = Number(issue) - 1;
+            if (newIssue >= 1) {
+                setCurrentDetailIssue(newIssue - 1);
+                wrapper = summary.parentNode;
+                var newSummary = buildDetailSummarySection(newIssue, totalIssues);
+                wrapper.replaceChild(newSummary, summary);
+                newSummary.style.display = "block";
+                var issueList = _doc.querySelectorAll(".HTMLCS-issue-detail-list")[0];
+                issueList.firstChild.style.marginLeft = parseInt(issueList.firstChild.style.marginLeft, 10) + 300 + "px";
+                pointToIssueElement(newIssue - 1);
+            }
+        });
+        var nextButton = buildSummaryButton(_prefix + "button-next-issue", "next", _global.HTMLCS.getTranslation("auditor_next_issue"), function(target) {
+            var newIssue = Number(issue) + 1;
+            if (newIssue <= _messages.length) {
+                setCurrentDetailIssue(newIssue - 1);
+                wrapper = summary.parentNode;
+                var newSummary = buildDetailSummarySection(newIssue, totalIssues);
+                wrapper.replaceChild(newSummary, summary);
+                newSummary.style.display = "block";
+                var issueList = _doc.querySelectorAll(".HTMLCS-issue-detail-list")[0];
+                issueList.firstChild.style.marginLeft = parseInt(issueList.firstChild.style.marginLeft, 10) - 300 + "px";
+                pointToIssueElement(newIssue - 1);
+            }
+        });
+        if (issue === 1) {
+            prevButton.className += " disabled";
+        }
+        if (issue === totalIssues) {
+            nextButton.className += " disabled";
+        }
+        buttonGroup.appendChild(prevButton);
+        buttonGroup.appendChild(nextButton);
+        rightPane.appendChild(buttonGroup);
+        summary.appendChild(leftPane);
+        summary.appendChild(rightPane);
+        return summary;
+    };
+    /**
+     * Build the main issue list section of the interface.
+     *
+     * This is what you see when the tests have finished running. A summary list of
+     * , paged five at a time.
+     *
+     * @return {HTMLDivElement}
+     */
+    var buildIssueListSection = function(messages) {
+        var issueListWidth = Math.ceil(messages.length / 5) * 300;
+        var issueList = _doc.createElement("div");
+        issueList.id = _prefix + "issues";
+        issueList.className = _prefix + "details";
+        issueList.setAttribute("style", "width: " + issueListWidth + "px");
+        var listSection = _doc.createElement("ol");
+        listSection.className = _prefix + "issue-list";
+        listSection.setAttribute("style", "margin-left: 0");
+        for (var i = 0; i < messages.length; i++) {
+            if (i > 0 && i % 5 === 0) {
+                issueList.appendChild(listSection);
+                var listSection = _doc.createElement("ol");
+                listSection.className = _prefix + "issue-list";
+            }
+            var msg = buildMessageSummary(i, messages[i]);
+            listSection.appendChild(msg);
+        }
+        issueList.appendChild(listSection);
+        return issueList;
+    };
+    var buildIssueDetailSection = function(messages) {
+        var issueListWidth = messages.length * 300;
+        var issueList = _doc.createElement("div");
+        issueList.id = _prefix + "issues-detail";
+        issueList.className = _prefix + "details";
+        issueList.setAttribute("style", "width: " + issueListWidth + "px");
+        var listSection = _doc.createElement("ol");
+        listSection.className = _prefix + "issue-detail-list";
+        listSection.setAttribute("style", "margin-left: 0");
+        for (var i = 0; i < messages.length; i++) {
+            var msg = buildMessageDetail(i, messages[i]);
+            listSection.appendChild(msg);
+        }
+        issueList.appendChild(listSection);
+        return issueList;
+    };
+    var buildSettingsSection = function() {
+        var settingsDiv = _doc.createElement("div");
+        settingsDiv.className = _prefix + "settings";
+        var useStandardDiv = _doc.createElement("div");
+        useStandardDiv.id = _prefix + "settings-use-standard";
+        var useStandardLabel = _doc.createElement("label");
+        useStandardLabel.innerHTML = _global.HTMLCS.getTranslation("auditor_standards") + ":";
+        useStandardLabel.setAttribute("for", _prefix + "settings-use-standard-select");
+        var useStandardSelect = _doc.createElement("select");
+        useStandardSelect.id = _prefix + "settings-use-standard-select";
+        useStandardSelect.innerHTML = "";
+        var standards = HTMLCSAuditor.getStandardList();
+        for (var i = 0; i < standards.length; i++) {
+            var standard = standards[i];
+            var option = _doc.createElement("option");
+            option.value = standard;
+            option.innerHTML = _global["HTMLCS_" + standard].name;
+            if (standard === _standard) {
+                option.selected = true;
+            }
+            useStandardSelect.appendChild(option);
+            useStandardSelect.onchange = function() {
+                _standard = this.options[this.selectedIndex].value;
+                self.run(_standard, _sources, _options);
+            };
+        }
+        var issueCountDiv = _doc.createElement("div");
+        issueCountDiv.id = _prefix + "settings-issue-count";
+        var issueCountHelpDiv = _doc.createElement("div");
+        issueCountHelpDiv.id = _prefix + "settings-issue-count-help";
+        issueCountHelpDiv.innerHTML = _global.HTMLCS.getTranslation("auditor_select_types");
+        var viewReportDiv = _doc.createElement("div");
+        viewReportDiv.id = _prefix + "settings-view-report";
+        viewReportDiv.innerHTML = _global.HTMLCS.getTranslation("auditor_view_report");
+        viewReportDiv.onclick = function() {
+            if (/disabled/.test(this.className) === false) {
+                _options.show = {
+                    error: _doc.getElementById(_prefix + "include-error").checked,
+                    warning: _doc.getElementById(_prefix + "include-warning").checked,
+                    notice: _doc.getElementById(_prefix + "include-notice").checked
+                };
+                var wrapper = _doc.getElementById(_prefix + "wrapper");
+                var newWrapper = self.build(_standard, _messages, _options);
+                if (_options.parentElement) {
+                    _options.parentElement.replaceChild(newWrapper, wrapper);
+                } else {
+                    newWrapper.style.left = wrapper.style.left;
+                    newWrapper.style.top = wrapper.style.top;
+                    _doc.body.replaceChild(newWrapper, wrapper);
+                }
+                if (_options.listUpdateCallback) {
+                    _options.listUpdateCallback.call(this, _messages);
+                }
+            }
+        };
+        var wrapper = _doc.getElementById(_prefix + "wrapper");
+        var levels = self.countIssues(_messages);
+        // Set default show options based on the first run. Don't re-do these, let
+        // the user's settings take priority, unless there is no message.
+        if (_options.show === undefined && _messages.length > 0) {
+            _options.show = {
+                error: true,
+                warning: true,
+                notice: false
+            };
+            if (levels.error === 0 && levels.warning === 0) {
+                _options.show.notice = true;
+            }
+        }
+        for (var level in levels) {
+            var msgCount = levels[level];
+            var levelDiv = _doc.createElement("div");
+            levelDiv.className = _prefix + "issue-tile " + _prefix + level.toLowerCase();
+            var levelName = null;
+            var levelCountDiv = _doc.createElement("div");
+            levelCountDiv.className = "HTMLCS-tile-text";
+            if (level == "error") {
+                levelName = _global.HTMLCS.getTranslation("auditor_error");
+                if (msgCount !== 1) {
+                    levelName = _global.HTMLCS.getTranslation("auditor_errors");
+                }
+            }
+            if (level == "warning") {
+                levelName = _global.HTMLCS.getTranslation("auditor_warning");
+                if (msgCount !== 1) {
+                    levelName = _global.HTMLCS.getTranslation("auditor_warnings");
+                }
+            }
+            if (level == "notice") {
+                levelName = _global.HTMLCS.getTranslation("auditor_notice");
+                if (msgCount !== 1) {
+                    levelName = _global.HTMLCS.getTranslation("auditor_notices");
+                }
+            }
+            var content = "<strong>" + msgCount + "</strong> " + levelName;
+            levelCountDiv.innerHTML = content;
+            if (_options.show === undefined) {
+                var checked = false;
+                var disabled = true;
+            } else {
+                var checked = _options.show[level];
+                var disabled = false;
+                if (msgCount === 0) {
+                    checked = false;
+                    disabled = true;
+                }
+            }
+            var levelSwitch = buildCheckbox(_prefix + "include-" + level, "Toggle display of " + level + " messages", checked, disabled, function(input) {
+                // Only change checkboxes that haven't been disabled.
+                var enable = false;
+                if (_doc.getElementById(_prefix + "include-error").disabled === false) {
+                    _options.show.error = _doc.getElementById(_prefix + "include-error").checked;
+                    enable = enable || _options.show.error;
+                }
+                if (_doc.getElementById(_prefix + "include-warning").disabled === false) {
+                    _options.show.warning = _doc.getElementById(_prefix + "include-warning").checked;
+                    enable = enable || _options.show.warning;
+                }
+                if (_doc.getElementById(_prefix + "include-notice").disabled === false) {
+                    _options.show.notice = _doc.getElementById(_prefix + "include-notice").checked;
+                    enable = enable || _options.show.notice;
+                }
+                if (enable === true) {
+                    viewReportDiv.className = viewReportDiv.className.replace(/ disabled/g, "");
+                } else {
+                    viewReportDiv.className += " disabled";
+                }
+            });
+            levelDiv.appendChild(levelCountDiv);
+            levelDiv.appendChild(levelSwitch);
+            issueCountDiv.appendChild(levelDiv);
+        }
+        // Only disable if we have "currently showing" setting on.
+        if (_options.show !== undefined) {
+            var enable = _options.show.error || _options.show.warning || _options.show.notice;
+            if (enable === false) {
+                viewReportDiv.className += " disabled";
+            }
+        } else {
+            viewReportDiv.className += " disabled";
+        }
+        useStandardDiv.appendChild(useStandardLabel);
+        useStandardDiv.appendChild(useStandardSelect);
+        settingsDiv.appendChild(useStandardDiv);
+        settingsDiv.appendChild(issueCountDiv);
+        settingsDiv.appendChild(issueCountHelpDiv);
+        settingsDiv.appendChild(viewReportDiv);
+        return settingsDiv;
+    };
+    var buildMessageSummary = function(id, message) {
+        var msg = "";
+        var typeText = "";
+        var typeClass = "";
+        switch (message.type) {
+          case HTMLCS.ERROR:
+            typeText = "Error";
+            break;
+
+          case HTMLCS.WARNING:
+            typeText = "Warning";
+            break;
+
+          case HTMLCS.NOTICE:
+            typeText = "Notice";
+            break;
+
+          default:
+            // Not defined.
+            break;
+        }
+        //end switch
+        var typeClass = typeText.toLowerCase();
+        var messageMsg = message.msg;
+        if (messageMsg.length > 115) {
+            messageMsg = messageMsg.substr(0, 115) + "...";
+        }
+        var msg = _doc.createElement("li");
+        msg.id = _prefix + "msg-" + id;
+        var typeIcon = _doc.createElement("span");
+        typeIcon.className = _prefix + "issue-type " + _prefix + typeClass;
+        typeIcon.setAttribute("title", typeText);
+        msg.appendChild(typeIcon);
+        var msgTitle = _doc.createElement("span");
+        msgTitle.className = _prefix + "issue-title";
+        msgTitle.innerHTML = messageMsg;
+        msg.appendChild(msgTitle);
+        msg.onclick = function() {
+            var id = this.id.replace(new RegExp(_prefix + "msg-"), "");
+            setCurrentDetailIssue(id);
+            var detailList = _doc.querySelectorAll(".HTMLCS-issue-detail-list")[0];
+            detailList.className += " " + _prefix + "transition-disabled";
+            detailList.firstChild.style.marginLeft = id * -300 + "px";
+            pointToIssueElement(id);
+            setTimeout(function() {
+                detailList.className = detailList.className.replace(new RegExp(" " + _prefix + "transition-disabled"), "");
+            }, 500);
+            var list = _doc.querySelectorAll(".HTMLCS-inner-wrapper")[0];
+            list.style.marginLeft = "-300px";
+            list.style.maxHeight = "15em";
+            summary = _doc.querySelectorAll(".HTMLCS-summary-detail")[0];
+            var newSummary = buildDetailSummarySection(parseInt(id) + 1, _messages.length);
+            summary.parentNode.replaceChild(newSummary, summary);
+            newSummary.style.display = "block";
+            var oldSummary = _doc.querySelectorAll(".HTMLCS-summary")[0];
+            oldSummary.style.display = "none";
+        };
+        return msg;
+    };
+    var setCurrentDetailIssue = function(id) {
+        var detailList = _doc.querySelectorAll(".HTMLCS-issue-detail-list")[0];
+        var items = detailList.getElementsByTagName("li");
+        for (var i = 0; i < items.length; i++) {
+            items[i].className = items[i].className.replace(new RegExp(" " + _prefix + "current"), "");
+        }
+        var currentItem = _doc.getElementById("HTMLCS-msg-detail-" + id);
+        currentItem.className += " " + _prefix + "current";
+        if (_options.showIssueCallback) {
+            _options.showIssueCallback.call(this, id);
+        }
+    };
+    var buildMessageDetail = function(id, message, standard) {
+        if (standard === undefined) {
+            standard = _standard;
+        }
+        var typeText = "";
+        switch (message.type) {
+          case HTMLCS.ERROR:
+            typeText = "Error";
+            break;
+
+          case HTMLCS.WARNING:
+            typeText = "Warning";
+            break;
+
+          case HTMLCS.NOTICE:
+            typeText = "Notice";
+            break;
+
+          default:
+            // Not defined.
+            break;
+        }
+        //end switch
+        var typeClass = _prefix + typeText.toLowerCase();
+        var standardObj = HTMLCS.util.getElementWindow(_doc)["HTMLCS_" + standard];
+        var standardObj = _top["HTMLCS_" + standard];
+        var msgInfo = [];
+        if (standardObj.getMsgInfo) {
+            msgInfo = standardObj.getMsgInfo(message.code);
+        }
+        var msgDiv = _doc.createElement("li");
+        msgDiv.id = _prefix + "msg-detail-" + id;
+        var msgDetailsDiv = _doc.createElement("div");
+        msgDetailsDiv.className = _prefix + "issue-details";
+        var msgType = _doc.createElement("span");
+        msgType.className = _prefix + "issue-type " + typeClass;
+        msgType.setAttribute("title", typeText);
+        var msgTitle = _doc.createElement("div");
+        msgTitle.className = _prefix + "issue-title";
+        msgTitle.innerHTML = message.msg;
+        var msgRef = _doc.createElement("div");
+        msgRef.className = _prefix + "issue-wcag-ref";
+        var refContent = "";
+        for (var i = 0; i < msgInfo.length; i++) {
+            refContent += "<em>" + msgInfo[i][0] + ":</em> " + msgInfo[i][1] + "<br/>";
+        }
+        msgRef.innerHTML = refContent;
+        msgDetailsDiv.appendChild(msgType);
+        msgDetailsDiv.appendChild(msgTitle);
+        msgDetailsDiv.appendChild(msgRef);
+        msgDiv.appendChild(msgDetailsDiv);
+        // If the item cannot be pointed to, tell them why.
+        if (pointer.isPointable(message.element) === false) {
+            var msgElementSource = _doc.createElement("div");
+            msgElementSource.className = _prefix + "issue-source";
+            msgDiv.appendChild(msgElementSource);
+            var msgElementSourceInner = _doc.createElement("div");
+            msgElementSourceInner.className = _prefix + "issue-source-inner-u2p";
+            var msg = _global.HTMLCS.getTranslation("auditor_unable_to_point");
+            if (message.element.nodeName === "#document") {
+                msg = _global.HTMLCS.getTranslation("auditor_applies_entire_document");
+            } else if (message.element.ownerDocument === null) {
+                msg = _global.HTMLCS.getTranslation("auditor_unable_to_point_removed");
+            } else {
+                var body = message.element.ownerDocument.getElementsByTagName("body")[0];
+                if (HTMLCS.util.isInDocument(message.element) === false) {
+                    msg += _global.HTMLCS.getTranslation("auditor_unable_to_point_entire");
+                } else if (HTMLCS.util.contains(body, message.element) === false) {
+                    msg = _global.HTMLCS.getTranslation("auditor_unable_to_point_outside");
+                } else {
+                    msg += _global.HTMLCS.getTranslation("auditor_unable_to_point_outside");
+                }
+            }
+            if (msgElementSourceInner.textContent !== undefined) {
+                msgElementSourceInner.textContent = msg;
+            } else {
+                // IE8 uses innerText instead. Oh well.
+                msgElementSourceInner.innerText = msg;
+            }
+            msgElementSource.appendChild(msgElementSourceInner);
+        }
+        // Build the source view, if outerHTML exists (Firefox >= 11, Webkit, IE),
+        // and applies to the particular element (ie. document doesn't have it).
+        if (_options.customIssueSource) {
+            var msgElementSource = _doc.createElement("div");
+            msgElementSource.className = _prefix + "issue-source";
+            msgDiv.appendChild(msgElementSource);
+            _options.customIssueSource.call(this, id, message, standard, msgElementSource, msgDetailsDiv);
+        } else {
+            var msgElementSource = _doc.createElement("div");
+            msgElementSource.className = _prefix + "issue-source";
+            // Header row.
+            var msgElementSourceHeader = _doc.createElement("div");
+            msgElementSourceHeader.className = _prefix + "issue-source-header";
+            var msgSourceHeaderText = _doc.createElement("strong");
+            msgSourceHeaderText.innerHTML = _global.HTMLCS.getTranslation("auditor_code_snippet");
+            var btnPointTo = buildSummaryButton(_prefix + "button-point-to-element-" + id, "pointer", _global.HTMLCS.getTranslation("auditor_point_to_element"), function() {
+                self.pointToElement(message.element);
+            });
+            msgElementSourceHeader.appendChild(msgSourceHeaderText);
+            msgElementSourceHeader.appendChild(btnPointTo);
+            msgElementSource.appendChild(msgElementSourceHeader);
+            if (message.element.outerHTML) {
+                var preText = "";
+                var postText = "";
+                if (message.element.innerHTML.length > 31) {
+                    var outerHTML = message.element.outerHTML.replace(message.element.innerHTML, message.element.innerHTML.substr(0, 31) + "...");
+                } else {
+                    var outerHTML = message.element.outerHTML;
+                }
+                // Find previous siblings.
+                var preNode = message.element.previousSibling;
+                while (preText.length <= 31) {
+                    if (preNode === null) {
+                        break;
+                    } else {
+                        if (preNode.nodeType === 1) {
+                            // Element node.
+                            preText = preNode.outerHTML;
+                        } else if (preNode.nodeType === 3) {
+                            // Text node.
+                            if (preNode.textContent !== undefined) {
+                                preText = preNode.textContent + preText;
+                            } else {
+                                preText = preNode.nodeValue + preText;
+                            }
+                        }
+                        if (preText.length > 31) {
+                            preText = "..." + preText.substr(preText.length - 31);
+                        }
+                    }
+                    preNode = preNode.previousSibling;
+                }
+                //end while
+                // Find following siblings.
+                var postNode = message.element.nextSibling;
+                while (postText.length <= 31) {
+                    if (postNode === null) {
+                        break;
+                    } else {
+                        if (postNode.nodeType === 1) {
+                            // Element node.
+                            postText += postNode.outerHTML;
+                        } else if (postNode.nodeType === 3) {
+                            // Text node.
+                            if (postNode.textContent !== undefined) {
+                                postText += postNode.textContent;
+                            } else {
+                                postText += postNode.nodeValue;
+                            }
+                        }
+                        if (postText.length > 31) {
+                            postText = postText.substr(0, 31) + "...";
+                        }
+                    }
+                    postNode = postNode.nextSibling;
+                }
+                //end while
+                // Actual source code, highlighting offending element.
+                var msgElementSourceInner = _doc.createElement("div");
+                msgElementSourceInner.className = _prefix + "issue-source-inner";
+                var msgElementSourceMain = _doc.createElement("strong");
+                if (msgElementSourceMain.textContent !== undefined) {
+                    msgElementSourceMain.textContent = outerHTML;
+                } else {
+                    // IE8 uses innerText instead. Oh well.
+                    msgElementSourceMain.innerText = outerHTML;
+                }
+                msgElementSourceInner.appendChild(_doc.createTextNode(preText));
+                msgElementSourceInner.appendChild(msgElementSourceMain);
+                msgElementSourceInner.appendChild(_doc.createTextNode(postText));
+                msgElementSource.appendChild(msgElementSourceInner);
+            } else if (message.element.nodeName === "#document") {} else {
+                // No support for outerHTML.
+                var msgElementSourceInner = _doc.createElement("div");
+                msgElementSourceInner.className = _prefix + "issue-source-not-supported";
+                var nsText = _global.HTMLCS.getTranslation("auditor_unsupported_browser");
+                msgElementSourceInner.appendChild(_doc.createTextNode(nsText));
+                msgElementSource.appendChild(msgElementSourceInner);
+            }
+            //end if
+            msgDiv.appendChild(msgElementSource);
+        }
+        //end if
+        return msgDiv;
+    };
+    var buildNavigation = function(page, totalPages) {
+        var navDiv = _doc.createElement("div");
+        navDiv.className = _prefix + "navigation";
+        var prev = _doc.createElement("span");
+        prev.className = _prefix + "nav-button " + _prefix + "previous";
+        prev.innerHTML = String.fromCharCode(160);
+        if (page === 1) {
+            prev.className += " " + _prefix + "disabled";
+        }
+        navDiv.appendChild(prev);
+        var pageNum = _doc.createElement("span");
+        pageNum.className = _prefix + "page-number";
+        // pageNum.innerHTML = 'Page ' + page + ' of ' + totalPages;
+        pageNum.innerHTML = _global.HTMLCS.getTranslation("auditor_issue") + " " + page + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalPages;
+        navDiv.appendChild(pageNum);
+        var next = _doc.createElement("span");
+        next.className = _prefix + "nav-button " + _prefix + "next";
+        next.innerHTML = String.fromCharCode(160);
+        if (page === totalPages) {
+            next.className += " " + _prefix + "disabled";
+        }
+        navDiv.appendChild(next);
+        prev.onclick = function() {
+            if (_page > 1) {
+                _page--;
+                if (_page === 1) {
+                    prev.className += " " + _prefix + "disabled";
+                }
+            }
+            if (totalPages > 1) {
+                next.className = next.className.replace(new RegExp(" " + _prefix + "disabled"), "");
+            }
+            pageNum.innerHTML = "";
+            pageNum.appendChild(document.createTextNode(_global.HTMLCS.getTranslation("auditor_issue") + " " + _page + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalPages));
+            var issueList = _doc.querySelectorAll(".HTMLCS-issue-list")[0];
+            issueList.style.marginLeft = (_page - 1) * -300 + "px";
+        };
+        next.onclick = function() {
+            if (_page < totalPages) {
+                _page++;
+                if (_page === totalPages) {
+                    next.className += " " + _prefix + "disabled";
+                }
+            }
+            if (totalPages > 1) {
+                prev.className = prev.className.replace(new RegExp(" " + _prefix + "disabled"), "");
+            }
+            pageNum.innerHTML = "";
+            pageNum.appendChild(document.createTextNode(_global.HTMLCS.getTranslation("auditor_issue") + " " + _page + " " + _global.HTMLCS.getTranslation("auditor_of") + " " + totalPages));
+            var issueList = _doc.querySelectorAll(".HTMLCS-issue-list")[0];
+            issueList.style.marginLeft = (_page - 1) * -300 + "px";
+        };
+        return navDiv;
+    };
+    var pointToIssueElement = function(issue) {
+        var msg = _messages[Number(issue)];
+        if (!msg.element) {
+            return;
+        }
+        var btnPointTo = _doc.getElementById(_prefix + "button-point-to-element-" + issue);
+        pointer.container = self.pointerContainer || _doc.getElementById("HTMLCS-wrapper");
+        if (pointer.isPointable(msg.element) === false) {
+            var myPointer = pointer.getPointer(msg.element);
+            if (pointer.pointer) {
+                myPointer.className += " HTMLCS-pointer-hidden";
+            }
+            if (btnPointTo) {
+                btnPointTo.className += " disabled";
+            }
+        } else {
+            if (btnPointTo) {
+                btnPointTo.className = btnPointTo.className.replace(" disabled", "");
+            }
+            pointer.pointTo(msg.element);
+        }
+    };
+    var loadStandards = function(standards, callback) {
+        if (standards.length === 0) {
+            callback.call(this);
+            return;
+        }
+        var standard = standards.shift();
+        HTMLCS.loadStandard(standard, function() {
+            loadStandards(standards, callback);
+        });
+    };
+    /**
+     * Includes the specified JS file.
+     *
+     * @param {String}   src      The URL to the JS file.
+     * @param {Function} callback The function to call once the script is loaded.
+     */
+    var _includeScript = function(src, callback) {
+        var script = document.createElement("script");
+        script.onload = function() {
+            script.onload = null;
+            script.onreadystatechange = null;
+            if (callback instanceof Function === true) {
+                callback.call(this);
+            }
+        };
+        script.onreadystatechange = function() {
+            if (/^(complete|loaded)$/.test(this.readyState) === true) {
+                script.onreadystatechange = null;
+                script.onload();
+            }
+        };
+        script.src = src;
+        if (document.head) {
+            document.head.appendChild(script);
+        } else {
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+    };
+    this.setOption = function(name, value) {
+        _options[name] = value;
+    };
+    this.getIssue = function(issueNumber) {
+        return _messages[issueNumber];
+    };
+    this.countIssues = function(messages) {
+        var counts = {
+            error: 0,
+            warning: 0,
+            notice: 0
+        };
+        for (var i = 0; i < messages.length; i++) {
+            switch (messages[i].type) {
+              case HTMLCS.ERROR:
+                counts.error++;
+                break;
+
+              case HTMLCS.WARNING:
+                counts.warning++;
+                break;
+
+              case HTMLCS.NOTICE:
+                counts.notice++;
+                break;
+            }
+        }
+        //end for
+        return counts;
+    };
+    this.build = function(standard, messages, options) {
+        var wrapper = null;
+        if (_doc) {
+            var wrapper = _doc.getElementById(_prefix + "wrapper");
+        }
+        var errors = 0;
+        var warnings = 0;
+        var notices = 0;
+        for (var i = 0; i < messages.length; i++) {
+            // Filter only the wanted error types.
+            var ignore = false;
+            switch (messages[i].type) {
+              case HTMLCS.ERROR:
+                if (_options.show.error === false) {
+                    ignore = true;
+                } else {
+                    errors++;
+                }
+                break;
+
+              case HTMLCS.WARNING:
+                if (_options.show.warning === false) {
+                    ignore = true;
+                } else {
+                    warnings++;
+                }
+                break;
+
+              case HTMLCS.NOTICE:
+                if (_options.show.notice === false) {
+                    ignore = true;
+                } else {
+                    notices++;
+                }
+                break;
+            }
+            //end switch
+            if (ignore === true) {
+                messages.splice(i, 1);
+                i--;
+            }
+        }
+        //end for
+        _messages = messages;
+        var settingsContents = "";
+        var summaryContents = "";
+        var detailContents = "";
+        for (var i = 0; i < messages.length; i++) {
+            if (i % 5 === 0) {
+                summaryContents += '<ol class="HTMLCS-issue-list"';
+                if (i === 0) {
+                    summaryContents += 'style="margin-left: 0em"';
+                }
+                summaryContents += ">";
+            }
+            summaryContents += buildMessageSummary(i, messages[i]);
+            if (i % 5 === 4 || i === messages.length - 1) {
+                summaryContents += "</ol>";
+            }
+            detailContents += buildMessageDetail(i, messages[i], standard);
+        }
+        var detailWidth = i * 300;
+        var wrapper = _doc.createElement("div");
+        wrapper.id = _prefix + "wrapper";
+        wrapper.className = "showing-issue-list";
+        if (_options.noHeader !== true) {
+            var header = buildHeaderSection(standard, wrapper);
+            wrapper.appendChild(header);
+        }
+        var summary = buildSummarySection(errors, warnings, notices);
+        var summaryDetail = buildDetailSummarySection(1, messages.length);
+        var innerWrapper = _doc.createElement("div");
+        innerWrapper.id = _prefix + "issues-wrapper";
+        innerWrapper.className = _prefix + "inner-wrapper";
+        var issueList = buildIssueListSection(messages);
+        innerWrapper.appendChild(issueList);
+        var totalPages = Math.ceil(messages.length / 5);
+        var navDiv = buildNavigation(1, totalPages);
+        innerWrapper.appendChild(navDiv);
+        var outerWrapper = _doc.createElement("div");
+        outerWrapper.className = _prefix + "outer-wrapper";
+        outerWrapper.appendChild(innerWrapper);
+        var innerWrapper = _doc.createElement("div");
+        innerWrapper.id = _prefix + "issues-detail-wrapper";
+        innerWrapper.className = _prefix + "inner-wrapper";
+        var issueDetail = buildIssueDetailSection(messages);
+        innerWrapper.appendChild(issueDetail);
+        outerWrapper.appendChild(innerWrapper);
+        wrapper.appendChild(summary);
+        wrapper.appendChild(summaryDetail);
+        wrapper.appendChild(outerWrapper);
+        return wrapper;
+    };
+    this.buildSummaryPage = function() {
+        var wrapper = _doc.createElement("div");
+        wrapper.id = _prefix + "wrapper";
+        wrapper.className = "showing-settings";
+        if (_options.noHeader !== true) {
+            var header = buildHeaderSection(_standard, wrapper);
+            wrapper.appendChild(header);
+        }
+        var summary = buildSettingsSection();
+        wrapper.appendChild(summary);
+        return wrapper;
+    };
+    this.changeScreen = function(screen) {
+        var wrapper = _doc.getElementById(_prefix + "wrapper");
+        // Remove current "showing" section, add new one, then clean up the class name.
+        wrapper.className = wrapper.className.replace(new RegExp("showing-" + _screen), "");
+        wrapper.className += " showing-" + screen;
+        wrapper.className = wrapper.className.replace(/\s+/, " ");
+        _screen = screen;
+    };
+    this.includeCss = function(prefix, doc) {
+        if (_options.includeCss === false) {
+            return;
+        }
+        if (doc === undefined) {
+            doc = _doc;
+        }
+        var head = doc.querySelector("head");
+        var exLinks = head.getElementsByTagName("link");
+        var foundCss = false;
+        for (var i = 0; i < exLinks.length; i++) {
+            if (new RegExp(prefix + ".css").test(exLinks[i].getAttribute("href")) === true) {
+                foundCss = true;
+                break;
+            }
+        }
+        if (foundCss === false) {
+            var cssLink = doc.createElement("link");
+            cssLink.rel = "stylesheet";
+            cssLink.type = "text/css";
+            cssLink.href = _options.path + prefix + ".css";
+            head.appendChild(cssLink);
+        }
+    };
+    this.getStandardList = function() {
+        var pattern = /^HTMLCS_[^_]+$/;
+        var standards = [];
+        for (i in window) {
+            if (pattern.test(i) === true) {
+                var standard = window[i];
+                if (standard.sniffs && standard.name) {
+                    standards.push(i.substr(7));
+                }
+            }
+        }
+        return standards;
+    };
+    this.getParentElement = function() {
+        var parentEl = null;
+        if (_options.parentElement) {
+            parentEl = _options.parentElement;
+        } else if (_top.frames.length > 0) {
+            var largestFrameSize = -1;
+            var largestFrame = null;
+            for (var i = 0; i < _top.frames.length; i++) {
+                try {
+                    if (window.frames[i].frameElement.nodeName.toLowerCase() === "frame") {
+                        if (window.frames[i].document) {
+                            var frameSize = window.frames[i].innerWidth * window.frames[i].innerHeight;
+                            if (frameSize > largestFrameSize) {
+                                largestFrameSize = frameSize;
+                                largestFrame = window.frames[i].document.body;
+                            }
+                        }
+                    }
+                } catch (ex) {}
+            }
+            //end for
+            if (largestFrame === null) {
+                // They're all iframes. Just use the main document body.
+                parentEl = document.body;
+            } else {
+                parentEl = largestFrame;
+            }
+        } else {
+            parentEl = document.body;
+        }
+        return parentEl;
+    };
+    this.getOwnerDocument = function() {
+        var _doc = this.getParentElement();
+        if (_doc.ownerDocument) {
+            _doc = _doc.ownerDocument;
+        }
+        return _doc;
+    };
+    /**
+     * Get the current document's language.
+     *
+     * @return string
+     */
+    this.getDocumentLanguage = function() {
+        var defaultLang = "en";
+        var doc = this.getOwnerDocument();
+        var html = doc.getElementsByTagName("html")[0];
+        if (html) {
+            var lang = html.getAttribute("lang");
+            if (lang) {
+                return lang;
+            }
+        }
+        return defaultLang;
+    };
+    /**
+     * Run HTML_CodeSniffer and place the results in the auditor.
+     *
+     * @returns undefined
+     */
+    this.run = function(standard, source, options) {
+        // Save the top window.
+        _top = window;
+        var standards = this.getStandardList();
+        var standardsToLoad = [];
+        for (var i = 0; i < standards.length; i++) {
+            if (!_global["HTMLCS_" + standards[i]]) {
+                standardsToLoad.push(standards[i]);
+            }
+        }
+        if (standardsToLoad.length > 0) {
+            loadStandards(standardsToLoad, function() {
+                self.run(standard, source, options);
+            });
+            return;
+        }
+        if (source === null || source === undefined) {
+            // If not defined (or no longer existing?), check the document.
+            source = [];
+            if (document.querySelectorAll("frameset").length === 0) {
+                source.push(document);
+            }
+            if (_top.frames.length > 0) {
+                for (var i = 0; i < _top.frames.length; i++) {
+                    try {
+                        source.push(_top.frames[i].document);
+                    } catch (ex) {}
+                }
+            }
+        } else if (source.nodeName) {
+            // See if we are being sent a text box or text area; if so then
+            // examine its contents rather than the node itself.
+            if (source.nodeName.toLowerCase() === "input") {
+                if (source.hasAttribute("type") === false) {
+                    // Inputs with no type default to text fields.
+                    source = source.value;
+                } else {
+                    var inputType = source.getAttribute("type").toLowerCase();
+                    if (inputType === "text") {
+                        // Text field.
+                        source = source.value;
+                    }
+                }
+            } else if (source.nodeName.toLowerCase() === "textarea") {
+                // Text area.
+                source = source.value;
+            }
+        }
+        if (source instanceof Array === false) {
+            source = [ source ];
+        }
+        //end if
+        if (options === undefined) {
+            options = {};
+        }
+        // Save the options at this point, so we can refresh with them.
+        _standard = standard;
+        _sources = source;
+        _options = options;
+        _page = 1;
+        _screen = "";
+        _messages = [];
+        var parentEl = this.getParentElement();
+        _doc = this.getOwnerDocument();
+        if (!_options.path) {
+            _options.path = "./";
+        }
+        if (!options.lang) {
+            _options.lang = this.getDocumentLanguage();
+        }
+        if (_options.includeCss === undefined) {
+            _options.includeCss = true;
+        }
+        if (_options.ignoreMsgCodes === undefined) {
+            _options.ignoreMsgCodes = [];
+        }
+        this.includeCss("HTMLCS");
+        var target = _doc.getElementById(_prefix + "wrapper");
+        var newlyOpen = false;
+        // Load the "processing" screen.
+        var wrapper = self.buildSummaryPage();
+        wrapper.className += " HTMLCS-processing";
+        if (target) {
+            wrapper.style.left = target.style.left;
+            wrapper.style.top = target.style.top;
+            parentEl.replaceChild(wrapper, target);
+        } else {
+            // Being opened for the first time (in this frame).
+            if (_options.openCallback) {
+                _options.openCallback.call(this);
+            }
+            newlyOpen = true;
+            parentEl.appendChild(wrapper);
+        }
+        // Process and replace with the issue list when finished.
+        var _finalise = function() {
+            // Before then, ignore warnings arising from the Advisor interface itself.
+            for (var i = 0; i < _messages.length; i++) {
+                var ignore = false;
+                if (wrapper) {
+                    if (wrapper === _messages[i].element) {
+                        ignore = true;
+                    } else if (_messages[i].element.documentElement) {
+                        // Short-circuit document objects. IE doesn't like documents
+                        // being the argument of contains() calls.
+                        ignore = false;
+                    } else if (wrapper.contains && wrapper.contains(_messages[i].element) === true) {
+                        ignore = true;
+                    } else if (wrapper.compareDocumentPosition && (wrapper.compareDocumentPosition(_messages[i].element) & 16) > 0) {
+                        ignore = true;
+                    }
+                }
+                //end if
+                for (var j = 0; j < options.ignoreMsgCodes.length; j++) {
+                    if (new RegExp(options.ignoreMsgCodes[j]).test(_messages[i].code) === true) {
+                        ignore = true;
+                        break;
+                    }
+                }
+                if (ignore === true) {
+                    _messages.splice(i, 1);
+                    i--;
+                }
+            }
+            //end for
+            if (_options.runCallback) {
+                var _newMsgs = _options.runCallback.call(this, _messages, newlyOpen);
+                if (_newMsgs instanceof Array === true) {
+                    _messages = _newMsgs;
+                }
+            }
+            setTimeout(function() {
+                var wrapper = _doc.getElementById(_prefix + "wrapper");
+                var newWrapper = self.buildSummaryPage();
+                newWrapper.style.left = wrapper.style.left;
+                newWrapper.style.top = wrapper.style.top;
+                parentEl.replaceChild(newWrapper, wrapper);
+            }, 400);
+        };
+        var _processSource = function(standard, sources) {
+            var source = sources.shift();
+            // Source is undefined. Keep shifting, until we find one or we run
+            // out of array elements.
+            while (!source) {
+                if (sources.length === 0) {
+                    _finalise();
+                    return;
+                } else {
+                    source = sources.shift();
+                }
+            }
+            HTMLCS.process(standard, source, function() {
+                _messages = _messages.concat(HTMLCS.getMessages());
+                if (sources.length === 0) {
+                    _finalise();
+                } else {
+                    _processSource(standard, sources);
+                }
+            }, function() {}, options.lang);
+        };
+        _processSource(standard, _sources.concat([]));
+    };
+    this.versionCheck = function(response) {
+        if (response && response.currentVersion !== null) {
+            if (response.newVersion > response.currentVersion) {
+                var msgElementSource = _doc.createElement("div");
+                msgElementSource.id = _prefix + "settings-updated-notification";
+                _doc.documentElement.querySelector(".HTMLCS-settings").appendChild(msgElementSource);
+                var msg = "HTML_CodeSniffer has been updated to version " + response.newVersion + ".";
+                msg += ' <a href="http://squizlabs.github.io/HTML_CodeSniffer/patches/' + response.newVersion + '">View the changelog</a>';
+                msgElementSource.innerHTML = msg;
+            }
+        }
+    };
+    this.close = function() {
+        if (_doc) {
+            var wrapper = _doc.getElementById("HTMLCS-wrapper");
+            if (wrapper) {
+                var pointerEl = pointer.getPointer(wrapper);
+                if (pointerEl && pointerEl.parentNode) {
+                    pointerEl.parentNode.removeChild(pointerEl);
+                }
+                wrapper.parentNode.removeChild(wrapper);
+                if (_options.closeCallback) {
+                    _messages = _options.closeCallback.call(this);
+                }
+            }
+        }
+    };
+    this.pointToElement = function(element) {
+        pointer.container = self.pointerContainer || _doc.getElementById("HTMLCS-wrapper");
+        pointer.pointTo(element);
+    };
+    this.getCurrentStandard = function() {
+        return _standard;
+    };
+    var pointer = {
+        pointerDim: {},
+        container: null,
+        getBoundingRectangle: function(element) {
+            if (!element) {
+                return null;
+            }
+            // Retrieve the coordinates and dimensions of the element.
+            var coords = this.getElementCoords(element);
+            var dimensions = this.getElementDimensions(element);
+            var result = {
+                x1: coords.x,
+                y1: coords.y,
+                x2: coords.x + dimensions.width,
+                y2: coords.y + dimensions.height
+            };
+            return result;
+        },
+        getElementDimensions: function(element) {
+            var result = {
+                width: element.offsetWidth,
+                height: element.offsetHeight
+            };
+            return result;
+        },
+        getElementCoords: function(element, absolute) {
+            var left = 0;
+            var top = 0;
+            // Get parent window coords.
+            var window = HTMLCS.util.getElementWindow(element);
+            if (absolute === true) {
+                var topWin = window.top;
+            } else {
+                var topWin = window;
+            }
+            while (true) {
+                do {
+                    left += element.offsetLeft;
+                    top += element.offsetTop;
+                } while (element = element.offsetParent);
+                if (window === topWin) {
+                    break;
+                } else {
+                    element = window.frameElement;
+                    window = window.parent;
+                    if (element.nodeName.toLowerCase() === "frame") {
+                        // We can't go any further if we hit a proper frame.
+                        break;
+                    }
+                }
+            }
+            //end while
+            return {
+                x: left,
+                y: top
+            };
+        },
+        getWindowDimensions: function(elem) {
+            var window = HTMLCS.util.getElementWindow(elem);
+            var doc = elem.ownerDocument;
+            var windowWidth = 0;
+            var windowHeight = 0;
+            if (window.innerWidth) {
+                // Will work on Mozilla, Opera and Safari etc.
+                windowWidth = window.innerWidth;
+                windowHeight = window.innerHeight;
+                // If the scrollbar is showing (it is always showing in IE) then its'
+                // width needs to be subtracted from the height and/or width.
+                var scrollWidth = this.getScrollbarWidth(elem);
+                // The documentElement.scrollHeight.
+                if (doc.documentElement.scrollHeight > windowHeight) {
+                    // Scrollbar is shown.
+                    if (typeof scrollWidth === "number") {
+                        windowWidth -= scrollWidth;
+                    }
+                }
+                if (doc.body.scrollWidth > windowWidth) {
+                    // Scrollbar is shown.
+                    if (typeof scrollWidth === "number") {
+                        windowHeight -= scrollWidth;
+                    }
+                }
+            } else if (doc.documentElement && (doc.documentElement.clientWidth || doc.documentElement.clientHeight)) {
+                // Internet Explorer.
+                windowWidth = doc.documentElement.clientWidth;
+                windowHeight = doc.documentElement.clientHeight;
+            } else if (doc.body && (doc.body.clientWidth || doc.body.clientHeight)) {
+                // Browsers that are in quirks mode or weird examples fall through here.
+                windowWidth = doc.body.clientWidth;
+                windowHeight = doc.body.clientHeight;
+            }
+            //end if
+            var result = {
+                width: windowWidth,
+                height: windowHeight
+            };
+            return result;
+        },
+        getScrollbarWidth: function(elem) {
+            if (_sbWidth !== null) {
+                return _sbWidth;
+            }
+            doc = elem.ownerDocument;
+            var wrapDiv = null;
+            var childDiv = null;
+            var widthNoScrollBar = 0;
+            var widthWithScrollBar = 0;
+            // Outer scrolling div.
+            wrapDiv = doc.createElement("div");
+            wrapDiv.style.position = "absolute";
+            wrapDiv.style.top = "-1000px";
+            wrapDiv.style.left = "-1000px";
+            wrapDiv.style.width = "100px";
+            wrapDiv.style.height = "50px";
+            // Start with no scrollbar.
+            wrapDiv.style.overflow = "hidden";
+            // Inner content div.
+            childDiv = doc.createElement("div");
+            childDiv.style.width = "100%";
+            childDiv.style.height = "200px";
+            // Put the inner div in the scrolling div.
+            wrapDiv.appendChild(childDiv);
+            // Append the scrolling div to the doc.
+            _doc.body.appendChild(wrapDiv);
+            // Width of the inner div sans scrollbar.
+            widthNoScrollBar = childDiv.offsetWidth;
+            // Add the scrollbar.
+            wrapDiv.style.overflow = "auto";
+            // Width of the inner div width scrollbar.
+            widthWithScrollBar = childDiv.offsetWidth;
+            // Remove the scrolling div from the doc.
+            doc.body.removeChild(doc.body.lastChild);
+            // Pixel width of the scroller.
+            var scrollBarWidth = widthNoScrollBar - widthWithScrollBar;
+            // Set the auditor-level variable so we don't have to run this again.
+            _sbWidth = scrollBarWidth;
+            return scrollBarWidth;
+        },
+        getScrollCoords: function(elem) {
+            var window = HTMLCS.util.getElementWindow(elem);
+            doc = elem.ownerDocument;
+            var scrollX = 0;
+            var scrollY = 0;
+            if (window.pageYOffset) {
+                // Mozilla, Firefox, Safari and Opera will fall into here.
+                scrollX = window.pageXOffset;
+                scrollY = window.pageYOffset;
+            } else if (doc.body && (doc.body.scrollLeft || doc.body.scrollTop)) {
+                // This is the DOM compliant method of retrieving the scroll position.
+                // Safari and OmniWeb supply this, but report wrongly when the window
+                // is not scrolled. They are caught by the first condition however, so
+                // this is not a problem.
+                scrollX = doc.body.scrollLeft;
+                scrollY = doc.body.scrollTop;
+            } else {
+                // Internet Explorer will get into here when in strict mode.
+                scrollX = doc.documentElement.scrollLeft;
+                scrollY = doc.documentElement.scrollTop;
+            }
+            var coords = {
+                x: scrollX,
+                y: scrollY
+            };
+            return coords;
+        },
+        isPointable: function(elem) {
+            // If the specified elem is not in the DOM then we cannot point to it.
+            // Also, cannot point to the document itself.
+            if (elem.ownerDocument === null) {
+                return false;
+            }
+            // Check whether the element is in the document, by looking up its
+            // DOM tree for a document object.
+            var parent = elem.parentNode;
+            while (parent && parent.ownerDocument) {
+                parent = parent.parentNode;
+            }
+            //end while
+            // If we didn't hit a document, the element must not be in there.
+            if (parent === null) {
+                return false;
+            }
+            // Do not point to elem if its hidden. Use computed styles.
+            if (HTMLCS.util.isVisuallyHidden(elem) === true) {
+                return false;
+            }
+            if (this.getPointerDirection(elem) === null) {
+                return false;
+            }
+            return true;
+        },
+        getPointerDirection: function(elem) {
+            var direction = null;
+            // Get element coords.
+            var rect = this.getBoundingRectangle(elem);
+            var myPointer = this.getPointer(elem);
+            var doc = elem.ownerDocument;
+            myPointer.className = myPointer.className.replace("HTMLCS-pointer-hidden", "");
+            myPointer.className += " HTMLCS-pointer-hidden-block";
+            this.pointerDim.height = 62;
+            this.pointerDim.width = 62;
+            var bounceHeight = 20;
+            // Determine where to show the arrow.
+            var winDim = this.getWindowDimensions(elem);
+            var window = HTMLCS.util.getElementWindow(elem);
+            var scrollY = Math.max(0, Math.min(rect.y1 - 100, doc.documentElement.offsetHeight - winDim.height));
+            // Try to position the pointer.
+            if (rect.y1 - this.pointerDim.height - bounceHeight > scrollY) {
+                // Arrow direction down.
+                direction = "down";
+            } else if (rect.y2 + this.pointerDim.height < winDim.height - scrollY) {
+                // Up.
+                direction = "up";
+            } else if (rect.x2 + this.pointerDim.width < winDim.width) {
+                // Left.
+                direction = "left";
+            } else if (rect.x1 - this.pointerDim.width > 0) {
+                // Right.
+                direction = "right";
+            }
+            myPointer.className = myPointer.className.replace("HTMLCS-pointer-hidden-block", "");
+            myPointer.className += " HTMLCS-pointer-hidden";
+            return direction;
+        },
+        pointTo: function(elem) {
+            // Do not point to elem if its hidden.
+            if (elem.ownerDocument) {
+                var doc = elem.ownerDocument;
+            } else {
+                var doc = elem;
+            }
+            var oldPointer = doc.getElementById("HTMLCS-pointer");
+            if (oldPointer) {
+                oldPointer.parentNode.removeChild(oldPointer);
+            }
+            if (this.isPointable(elem) === false) {
+                return;
+            }
+            // Get element coords.
+            var topWin = HTMLCS.util.getElementWindow(elem).top;
+            var winDim = this.getWindowDimensions(topWin.document.documentElement);
+            var direction = this.getPointerDirection(elem);
+            var myPointer = this.getPointer(elem);
+            myPointer.className = myPointer.className.replace("HTMLCS-pointer-hidden-block", "");
+            if (direction === null) {
+                myPointer.className += " HTMLCS-pointer-hidden";
+            } else {
+                var isFixed = false;
+                if (HTMLCS.util.style(elem).position === "fixed") {
+                    var isFixed = true;
+                }
+                var parent = elem.parentNode;
+                while (parent.ownerDocument) {
+                    if (HTMLCS.util.style(parent).position === "fixed") {
+                        isFixed = true;
+                        break;
+                    }
+                    parent = parent.parentNode;
+                }
+                //end while
+                if (isFixed === true) {
+                    myPointer.style.position = "fixed";
+                } else {
+                    myPointer.style.position = "absolute";
+                    var rect = this.getElementCoords(elem, true);
+                    var window = HTMLCS.util.getElementWindow(elem);
+                    var targetY = Math.max(rect.y - 100, 0);
+                    while (targetY >= 0) {
+                        window.scrollTo(0, targetY);
+                        var scrollCoords = this.getScrollCoords(window.document.documentElement);
+                        targetY -= scrollCoords.y;
+                        targetY = Math.max(targetY, 0);
+                        if (window === topWin) {
+                            break;
+                        } else {
+                            window = window.parent;
+                        }
+                    }
+                }
+                //end if
+                this.showPointer(elem, direction);
+            }
+        },
+        getPointer: function(targetElement) {
+            try {
+                var doc = targetElement.ownerDocument;
+                HTMLCSAuditor.includeCss("HTMLCS", doc);
+                var c = "HTMLCS";
+                var myPointer = doc.getElementById(c + "-pointer");
+                if (!myPointer) {
+                    myPointer = doc.createElement("div");
+                    myPointer.id = c + "-pointer";
+                    myPointer.className = c + "-pointer " + c + "-pointer-hidden";
+                    doc.body.appendChild(myPointer);
+                }
+            } catch (ex) {}
+            return myPointer;
+        },
+        showPointer: function(elem, direction) {
+            var c = "HTMLCS";
+            var myPointer = this.getPointer(elem);
+            this._removeDirectionClasses(myPointer);
+            myPointer.className += " " + c + "-pointer-" + direction;
+            myPointer.className = myPointer.className.replace(c + "-pointer-hidden", "");
+            var rect = this.getBoundingRectangle(elem);
+            var top = 0;
+            var left = 0;
+            var bounceHeight = 20;
+            switch (direction) {
+              case "up":
+                bounceHeight = -bounceHeight;
+                top = rect.y2;
+                if (rect.x2 - rect.x1 < 250) {
+                    left = this.getRectMidPnt(rect) - this.pointerDim.width / 2;
+                } else {
+                    left = rect.x1;
+                }
+                break;
+
+              case "down":
+              default:
+                top = rect.y1 - this.pointerDim.height;
+                if (rect.x2 - rect.x1 < 250) {
+                    left = this.getRectMidPnt(rect) - this.pointerDim.width / 2;
+                } else {
+                    left = rect.x1;
+                }
+                break;
+
+              case "left":
+                left = rect.x2;
+                top = this.getRectMidPnt(rect, true) - this.pointerDim.height / 2;
+                break;
+
+              case "right":
+                bounceHeight = -bounceHeight;
+                left = rect.x1 - this.pointerDim.width;
+                top = this.getRectMidPnt(rect, true) - this.pointerDim.height / 2;
+                break;
+            }
+            //end switch
+            var frameScroll = this.getScrollCoords(elem);
+            myPointer.style.top = top + "px";
+            myPointer.style.left = left + "px";
+            // Check if the help window is under the pointer then re-position it.
+            // Unless it is an element within the HTMLCS pop-up.
+            var coords = this.getBoundingRectangle(this.container);
+            rect = this.getBoundingRectangle(myPointer);
+            var posOffset = 20;
+            var newPos = null;
+            var midX = rect.x1 + (rect.x2 - rect.x1) / 2;
+            var midY = rect.y1 + (rect.y2 - rect.y1) / 2;
+            if (HTMLCS.util.style(myPointer).position !== "fixed") {
+                midY -= frameScroll.y;
+            }
+            if (coords.x1 <= midX && coords.x2 >= midX && coords.y1 <= midY && coords.y2 >= midY) {
+                var self = this;
+                this.container.className += " HTMLCS-translucent";
+                setTimeout(function() {
+                    self.container.className = self.container.className.replace("HTMLCS-translucent", "");
+                }, 4e3);
+            }
+            this.bounce(myPointer, function() {
+                setTimeout(function() {
+                    if (myPointer.parentNode) {
+                        myPointer.parentNode.removeChild(myPointer);
+                    }
+                }, 1500);
+            }, direction);
+        },
+        bounce: function(myPointer, callback, direction) {
+            var currentDirection = direction;
+            var initialPos = 0;
+            var style = "";
+            var initalPosOffset = 0;
+            var dist = 30;
+            var maxBounce = 5;
+            switch (direction) {
+              case "up":
+                currentDirection = direction + "-op";
+                initalPosOffset = dist;
+
+              case "down":
+                style = "top";
+                break;
+
+              case "left":
+                currentDirection = direction + "-op";
+                initalPosOffset = dist;
+
+              case "right":
+                style = "left";
+                break;
+            }
+            initialPos = Number(myPointer.style[style].replace("px", "")) + initalPosOffset;
+            var currentPos = initialPos;
+            var lowerLimit = initialPos - dist;
+            var bounces = 0;
+            var i = setInterval(function() {
+                if (currentDirection === direction) {
+                    currentPos--;
+                    myPointer.style[style] = currentPos + "px";
+                    if (currentPos < lowerLimit) {
+                        currentDirection = direction + "-op";
+                        if (bounces === maxBounce && initalPosOffset !== 0) {
+                            clearInterval(i);
+                            callback.call(this);
+                            return;
+                        }
+                    }
+                } else {
+                    currentPos++;
+                    myPointer.style[style] = currentPos + "px";
+                    if (currentPos >= initialPos) {
+                        currentDirection = direction;
+                        bounces++;
+                        if (bounces === maxBounce && initalPosOffset === 0) {
+                            clearInterval(i);
+                            callback.call(this);
+                            return;
+                        }
+                    }
+                }
+            }, 10);
+        },
+        getRectMidPnt: function(rect, height) {
+            var midPnt = 0;
+            if (height === true) {
+                midPnt = rect.y1 + (rect.y2 - rect.y1) / 2;
+            } else {
+                midPnt = rect.x1 + (rect.x2 - rect.x1) / 2;
+            }
+            return midPnt;
+        },
+        _removeDirectionClasses: function(myPointer) {
+            var c = "HTMLCS";
+            var d = [ "down", "up", "left", "right" ];
+            var l = d.length;
+            for (var i = 0; i < l; i++) {
+                myPointer.className = myPointer.className.replace(c + "-pointer-" + d[i], "");
+            }
+        }
+    };
+}();    // Expose globals.
     return _global;
 }));
