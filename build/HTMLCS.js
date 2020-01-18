@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2019-10-23 */
+/*! silktide-html-codesniffer - v2.2.0 - 2020-01-18 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -4680,10 +4680,15 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
                     hasTitle = true;
                 }
             }
-            if (hasTitle === false) {
-                HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_1_H64.1"), "H64.1");
-            } else {
-                HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_1_H64.2"), "H64.2");
+            var visible = elements.filter(function(elem) {
+                return HTMLCS.util.isVisuallyHidden(elem) === false && HTMLCS.util.isAccessibilityHidden(elem) === false;
+            });
+            if (visible) {
+                if (hasTitle === false) {
+                    HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_1_H64.1"), "H64.1");
+                } else {
+                    HTMLCS.addMessage(HTMLCS.NOTICE, element, _global.HTMLCS.getTranslation("2_4_1_H64.2"), "H64.2");
+                }
             }
         }
     },
