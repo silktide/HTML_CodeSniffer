@@ -4680,10 +4680,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle2_Guideline2_4_2_4_1 = {
                     hasTitle = true;
                 }
             }
-            var visible = elements.filter(function(elem) {
-                return HTMLCS.util.isVisuallyHidden(elem) === false && HTMLCS.util.isAccessibilityHidden(elem) === false;
-            });
-            if (visible) {
+            if (!HTMLCS.util.isVisuallyHidden(element) && !HTMLCS.util.isAccessibilityHidden(element)) {
                 if (hasTitle === false) {
                     HTMLCS.addMessage(HTMLCS.ERROR, element, _global.HTMLCS.getTranslation("2_4_1_H64.1"), "H64.1");
                 } else {
