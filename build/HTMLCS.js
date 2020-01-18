@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2019-03-28 */
+/*! silktide-html-codesniffer - v2.2.0 - 2019-10-23 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -3424,9 +3424,10 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                             if (HTMLCS.util.isColorFullyTransparent(bgColour)) {
                                 bgColour = null;
                             }
-                            if (currentStyle.backgroundImage !== "none" && currentStyle.backgroundImage.startsWith("url")) {
+                            var currentBgImg = currentStyle.backgroundImage ? this.getUrlFromStyle(currentStyle.backgroundImage) : "";
+                            if (currentBgImg) {
                                 hasBgImg = true;
-                                bgImg = this.getUrlFromStyle(currentStyle.backgroundImage);
+                                bgImg = currentBgImg;
                                 bgRepeat = currentStyle.backgroundRepeat;
                                 bgSize = currentStyle.backgroundSize;
                                 bgPosition = currentStyle.backgroundPosition;
@@ -3445,7 +3446,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
                                     bgColor: bgColour,
                                     isAbsolute: HTMLCS.util.isPositionedOutsideParent(currentStyle)
                                 });
-                                // Exist if the background is not even slightly transparent
+                                // Exit if the background is not even slightly transparent
                                 if (!HTMLCS.util.isColorTransparent(bgColour)) {
                                     break;
                                 }
@@ -3541,17 +3542,27 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_4_1_4_3_Contrast = {
         return failures;
     },
     /**
-     * Parse a string of format: url("foo")
+     * Parse a string of format: url("foo") or similar
      *
      * @param style
      * @returns {*|string}
      */
     getUrlFromStyle: function(style) {
+        if (style === "none") {
+            return "";
+        }
+        // Data URLs could be ridiculous, ignore them
+        if (style.match(/^data:/i)) {
+            return "";
+        }
+        // In format "url(...)"
         var matches = style.match(/url\(["']?([^"']*)["']?\)/);
         if (matches instanceof Array && matches.length > 0) {
             return matches[1];
         }
-        return "";
+        // Otherwise we could be a string like "linear-gradient(rgb(230, 100, 101), rgb(145, 152, 229))".
+        // Return this so we can parse it.
+        return style;
     },
     recommendColour: function(back, fore, target) {
         // Canonicalise the colours.
