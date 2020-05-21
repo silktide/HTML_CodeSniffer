@@ -1,4 +1,4 @@
-/*! silktide-html-codesniffer - v2.2.0 - 2020-01-18 */
+/*! silktide-html-codesniffer - v2.2.0 - 2020-05-21 */
 /**
  * +--------------------------------------------------------------------+
  * | This HTML_CodeSniffer file is Copyright (c)                        |
@@ -2966,12 +2966,12 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
         var captionEl = table.getElementsByTagName("caption");
         var caption = "";
         if (captionEl.length > 0) {
-            caption = captionEl[0].innerHTML.replace(/^\s*(.*?)\s*$/g, "$1");
+            caption = captionEl[0].innerHTML.trim();
         }
         // In HTML5, Summary no longer exists, so only run this for older versions.
         var doctype = HTMLCS.util.getDocumentType(table.ownerDocument);
         if (doctype && doctype.indexOf("html5") === -1) {
-            summary = summary.replace(/^\s*(.*?)\s*$/g, "$1");
+            summary = summary.trim();
             if (summary !== "") {
                 if (HTMLCS.util.isLayoutTable(table) === true) {
                     HTMLCS.addMessage(HTMLCS.ERROR, table, _global.HTMLCS.getTranslation("1_3_1_H73.3.LayoutTable"), "H73.3.LayoutTable");
@@ -3088,7 +3088,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
                     // Element node.
                     if (subel.nodeName.toLowerCase() === "br") {
                         // Line break. Join and trim what we have now.
-                        items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
+                        items.push(thisItem.join(" ").trim());
                         thisItem = [];
                     } else {
                         // Shift the contents of the sub element in, but in reverse.
@@ -3103,7 +3103,7 @@ _global.HTMLCS_WCAG2AAA_Sniffs_Principle1_Guideline1_3_1_3_1 = {
             }
             //end while
             if (thisItem.length > 0) {
-                items.push(thisItem.join(" ").replace(/^\s*(.*?)\s*$/g, "$1"));
+                items.push(thisItem.join(" ").trim());
             }
             for (var i = 0; i < items.length; i++) {
                 if (/^[\-*]\s+/.test(items[0]) === true) {
@@ -7785,7 +7785,7 @@ _global.HTMLCS.util = function() {
                     retval.missingTd.push(cell);
                 } else {
                     actual = " " + actual.sort().join(" ") + " ";
-                    actual = actual.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").replace(/^\s*(.*?)\s*$/g, "$1");
+                    actual = actual.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").trim();
                     if (expected !== actual) {
                         retval.correct = false;
                         var val = {
@@ -7906,7 +7906,7 @@ _global.HTMLCS.util = function() {
                                 //end for
                                 if (exp.length > 0) {
                                     exp = " " + exp.sort().join(" ") + " ";
-                                    exp = exp.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").replace(/^\s*(.*?)\s*$/g, "$1");
+                                    exp = exp.replace(/\s+/g, " ").replace(/(\w+\s)\1+/g, "$1").trim();
                                     cells.push({
                                         cell: thisCell,
                                         headers: exp
