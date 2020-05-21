@@ -1182,7 +1182,7 @@ _global.HTMLCS.util = function() {
                     retval.missingTd.push(cell);
                 } else {
                     actual = ' ' + actual.sort().join(' ') + ' ';
-                    actual = actual.replace(/\s+/g, ' ').replace(/(\w+\s)\1+/g, '$1').replace(/^\s*(.*?)\s*$/g, '$1');
+                    actual = actual.replace(/\s+/g, ' ').replace(/(\w+\s)\1+/g, '$1').trim();
                     if (expected !== actual) {
                         retval.correct = false;
                         var val = {
@@ -1316,7 +1316,7 @@ _global.HTMLCS.util = function() {
 
                                 if (exp.length > 0) {
                                     exp = ' ' + exp.sort().join(' ') + ' ';
-                                    exp = exp.replace(/\s+/g, ' ').replace(/(\w+\s)\1+/g, '$1').replace(/^\s*(.*?)\s*$/g, '$1');
+                                    exp = exp.replace(/\s+/g, ' ').replace(/(\w+\s)\1+/g, '$1').trim();
                                     cells.push({
                                         cell: thisCell,
                                         headers: exp
