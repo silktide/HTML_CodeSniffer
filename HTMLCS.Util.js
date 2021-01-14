@@ -226,12 +226,14 @@ _global.HTMLCS.util = function() {
             }
 
             // EPA (among others) use this hack to hide elements
-            if (style.clip.replace(/ /g, '') === 'rect(1px,1px,1px,1px)') {
+            var clipStyle = style.clip.replace("!important", "").replace(/ /g, '');
+            if (clipStyle === 'rect(1px,1px,1px,1px)' || clipStyle === 'rect(0px,0px,0px,0px)') {
                 return true;
             }
 
-            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
-            if (style.clipPath.replace(/ /g, '') === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
+            var clipPathStyle = style.clipPath.replace("!important", "").replace(/ /g, '');
+            // See: https://www.sitepoint.com/five-ways-to-hide-elements-in-css/ and others
+            if (clipPathStyle === 'rect(1px,1px,1px,1px)' || clipPathStyle === 'rect(0px,0px,0px,0px)' || clipPathStyle === 'polygon(0px0px,0px0px,0px0px,0px0px)') {
                 return true;
             }
 
